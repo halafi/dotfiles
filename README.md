@@ -19,9 +19,35 @@
 * uBlock Origin https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm/related?hl=en
 * The Great Suspender https://chrome.google.com/webstore/detail/the-great-suspender/klbibkeccnjlkjkiokjodocebajanakg?hl=en
 * Streamkeys (music) https://chrome.google.com/webstore/detail/streamkeys/ekpipjofdicppbepocohdlgenahaneen?hl=en
+* Stylish
+* The Great Suspender
 
-## OS
+## OSX
+### Brew packages
+* cask
+* fasd
+* jq (json)
+* nvm
+* colordiff
+* htop
+* python
+* the_silver_searcher (ag)
+* cowsay
+* httpie
+* tree
+* gotty (share your terminal as a web application)
+* hh (search terminal history)
+* wget
+* watchman
+* graphicsmagic
+* imagemagick
+### Cask packages
+* numi (epic calculator)
+* caffeine (prevent sleep)
+* dash (documentation)
+* spectacle (window manager)
 
-### OSX packages
+```brew cask install ...```
+
 
 ### Aliases
