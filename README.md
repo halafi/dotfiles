@@ -41,6 +41,7 @@
 * watchman
 * graphicsmagic
 * imagemagick
+* tig
 ### Cask packages
 * numi (epic calculator)
 * caffeine (prevent sleep)
@@ -48,6 +49,7 @@
 * spectacle (window manager)
 
 `brew cask install ...`
+`brew install tig ...`
 
 ### Aliases
 ```
