@@ -2,6 +2,7 @@
 ## Chrome Extensions
 ### Development
 * EditThisCookie https://chrome.google.com/webstore/detail/editthiscookie/fngmhnnpilhplaeedifhccceomclgfbg?hl=en
+* Vimium https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en
 * Injecta https://chrome.google.com/webstore/detail/injecta/gbndgddgajcmkogjonkgbcempddcbmca?hl=en
 * JSON Viewer https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh
 * Google Mail Checker https://chrome.google.com/webstore/detail/google-mail-checker/mihcahmgecmbnbcchbopgniflfhgnkff?hl=en
