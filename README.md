@@ -21,7 +21,6 @@
 * The Great Suspender https://chrome.google.com/webstore/detail/the-great-suspender/klbibkeccnjlkjkiokjodocebajanakg?hl=en
 * Streamkeys (music) https://chrome.google.com/webstore/detail/streamkeys/ekpipjofdicppbepocohdlgenahaneen?hl=en
 * Stylish
-* The Great Suspender
 
 ## OSX
 ### Brew packages
