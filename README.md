@@ -78,6 +78,11 @@ alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
 alias canon='open -a Google\ Chrome\ Canary --args --disable-web-security --user-data-dir=$HOME/profile-folder-name'
 ```
 
+### Config
+```
+defaults write NSGlobalDomain KeyRepeat -int 2
+defaults write NSGlobalDomain InitialKeyRepeat -int 15
+```
 ### Applications
 ```
 Alfred 3.app
