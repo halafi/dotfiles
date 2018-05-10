@@ -2,7 +2,7 @@
 ## Chrome Extensions
 ### Development
 * EditThisCookie https://chrome.google.com/webstore/detail/editthiscookie/fngmhnnpilhplaeedifhccceomclgfbg?hl=en
-* Vimium https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en
+* OctoLinker https://chrome.google.com/webstore/detail/octolinker/jlmafbaeoofdegohdhinkhilhclaklkp
 * Injecta https://chrome.google.com/webstore/detail/injecta/gbndgddgajcmkogjonkgbcempddcbmca?hl=en
 * JSON Viewer https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh
 * Google Mail Checker https://chrome.google.com/webstore/detail/google-mail-checker/mihcahmgecmbnbcchbopgniflfhgnkff?hl=en
@@ -16,11 +16,10 @@
 * React Developer Tools https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en
 * Redux DevTools https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en
 * Vue.js devtools https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=en
-### Other
+* LastPass: Free Password Manager https://chrome.google.com/webstore/detail/lastpass-free-password-ma/hdokiejnpimakedhajhdlcegeplioahd
+* PerfectPixel https://chrome.google.com/webstore/detail/perfectpixel-by-welldonec/dkaagdgjmgdmbnecmcefdhjekcoceebi?hl=en
 * uBlock Origin https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm/related?hl=en
-* The Great Suspender https://chrome.google.com/webstore/detail/the-great-suspender/klbibkeccnjlkjkiokjodocebajanakg?hl=en
-* Streamkeys (music) https://chrome.google.com/webstore/detail/streamkeys/ekpipjofdicppbepocohdlgenahaneen?hl=en
-* Stylish
+* Block Site https://chrome.google.com/webstore/detail/block-site-website-blocke/eiimnmioipafcokbfikbljfdeojpcgbh?hl=en
 
 ## OSX
 ### Brew packages
@@ -86,16 +85,16 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 15
 ### Applications
 ```
 Alfred 3.app
-Amphetamine.app
-Boostnote.app
-Brackets.app
+Android Studio.app
+Be Focused.app
 Caffeine.app
 Commander One.app
 Cypress.app
 Dash.app
+Discord.app
+Docker.app
 Firefox.app
 Flux.app
-Framer.app
 Franz.app
 Google Chrome Canary.app
 Google Chrome.app
@@ -108,6 +107,7 @@ Monit.app
 Monosnap.app
 NotePlan.app
 Numi.app
+Oni.app
 Safari.app
 Screenhero.app
 Sip.app
@@ -116,12 +116,16 @@ Slack.app
 SourceTree.app
 Spectacle.app
 Spotify.app
+Skype.app
 TeamViewer.app
 Todoist.app
 TogglDesktop.app
+Upterm.app
 Visual Studio Code.app
+VLC.app
 WebStorm.app
 Wireshark.app
+Xcode.app
 Zeplin.app
 iTerm.app
 ngrok
@@ -144,7 +148,30 @@ antigen use oh-my-zsh
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 ...
-aliases
+# aliases - 
+alias cl='clear'
+alias ll='ls -alhF'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias cd..='cd ..'
+alias gs='git status'
+alias gp='git push'
+alias gm='git merge'
+alias gl='git pull'
+alias gb='git branch'
+alias gcb='git checkout -b'
+alias gco='git checkout'
+alias gc='git cz'
+alias gbnm='git branch --no-merged'
+alias ga='git add'
+alias gaa='git add --all'
+alias xtar='tar -xvzf'
+alias ctar='tar -cvzf'
+alias gitclean='git branch --merged | egrep -v "(^\*|master)" | xargs git branch -d'
+alias port8080='lsof -n -i:8080 | grep LISTEN'
+alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
+alias canon='open -a Google\ Chrome\ Canary --args --disable-web-security --user-data-dir=$HOME/profile-folder-name'
+alias kall='killall grunt gulp node'
 ...
 
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
