@@ -176,3 +176,6 @@ alias kall='killall grunt gulp node'
 
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 ```
+
+# More
+https://github.com/nikitavoloboev/my-mac-os
