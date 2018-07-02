@@ -137,15 +137,18 @@ export ZSH=/Users/${user}/.oh-my-zsh
 
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
+# install fonts: https://github.com/powerline/fonts
+
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir rbenv vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs time)
 
-plugins=(osx,zsh-autosuggestions)
+plugins=(osx,zsh-autosuggestions,zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 source ~/zsh/antigen.zsh
 antigen use oh-my-zsh
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen apply
 
 ...
 # aliases - 
