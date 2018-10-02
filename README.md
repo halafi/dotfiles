@@ -1,4 +1,31 @@
 # Setup
+## VSCode Plugins
+* [All Autocomplete](https://marketplace.visualstudio.com/items?itemName=Atishay-Jain.All-Autocomplete)
+* [Auto Import - ES6, TS, JSX, TSX](https://marketplace.visualstudio.com/items?itemName=NuclleaR.vscode-extension-auto-import)
+* (disabled till this is in vscode by default or I have more RAM) [Auto Rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag)
+* [Color Highlight](https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight)
+* [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
+* [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+* [Flow Language Support](https://marketplace.visualstudio.com/items?itemName=flowtype.flow-for-vscode)
+* [Full React/React Native/React Router/Redux/GraphQL/ES7/Testing/PropTypes snippets](https://marketplace.visualstudio.com/items?itemName=walter-ribeiro.full-react-snippets)
+* [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+* [IntelliJ IDEA Keybindings](https://marketplace.visualstudio.com/items?itemName=k--kato.intellij-idea-keybindings)
+* (disabled) [Jest](https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest)
+* (works only in JS files and not properly at times) [JS Refactor](https://marketplace.visualstudio.com/items?itemName=cmstead.jsrefactor)
+* [jsx-path-refactor](https://marketplace.visualstudio.com/items?itemName=DennisOosterling.jsx-path-refactor)
+* [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
+* [npm intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense)
+* [Path Autocomplete](https://marketplace.visualstudio.com/items?itemName=ionutvmi.path-autocomplete)
+* [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+* [Relative Path Refactor](https://marketplace.visualstudio.com/items?itemName=jakob101.relativepathrefactor)
+* [Sort lines](https://marketplace.visualstudio.com/items?itemName=Tyriar.sort-lines)
+* [stylelint](https://marketplace.visualstudio.com/items?itemName=shinnn.stylelint)
+* [Trailing Spaces](https://marketplace.visualstudio.com/items?itemName=shardulm94.trailing-spaces)
+* [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim)
+* [VS Lide Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare)
+* (disabled till it works well) [vscode-styled-components](https://marketplace.visualstudio.com/items?itemName=jpoissonnier.vscode-styled-components)
+* [YAML Support by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
+
 ## Chrome Extensions
 ### Development
 * EditThisCookie https://chrome.google.com/webstore/detail/editthiscookie/fngmhnnpilhplaeedifhccceomclgfbg?hl=en
