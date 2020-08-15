@@ -1,5 +1,5 @@
-# Setup
-## VSCode Plugins (update 08-2020)
+# Setup (update 08-2020)
+## VSCode Plugins
 * [Code Time](https://marketplace.visualstudio.com/items?itemName=softwaredotcom.swdc-vscode)
 * [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
 * [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
@@ -19,7 +19,7 @@
 
 ...
 
-## Chrome Extensions (update 08-2020)
+## Chrome Extensions
 ### Browsing
 * [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm/related?hl=en)
 * [I don't care about cookies](https://chrome.google.com/webstore/detail/i-dont-care-about-cookies/fihnjjcciajhdojfnbdddfaoknhalnja?hl=en)
@@ -43,32 +43,26 @@
 
 ## OSX
 ### Brew packages
-* cask
+#### Core
+* antigen
+* node
+* postgresql
+* wget
+* yarn
+* tig
+
+#### Ad-hoc (not using much)
 * fasd
 * jq (json)
-* nvm
 * colordiff
 * htop
-* python
 * the_silver_searcher (ag)
-* cowsay
 * httpie
 * tree
 * gotty (share your terminal as a web application)
 * hh (search terminal history)
-* wget
-* watchman
-* graphicsmagic
-* imagemagick
-* tig
-### Cask packages
-* numi (epic calculator)
-* caffeine (prevent sleep)
-* dash (documentation)
-* spectacle (window manager)
 
-`brew cask install ...`
-`brew install tig ...`
+...
 
 ### Aliases
 ```
@@ -78,76 +72,67 @@ alias ...='cd ../..'
 alias cd..='cd ..'
 alias gs='git status'
 alias gp='git push'
-alias gm='git merge'
 alias gl='git pull'
 alias gb='git branch'
 alias gcb='git checkout -b'
 alias gco='git checkout'
-alias gc='git commit -v'
-alias gbnm='git branch --no-merged'
+alias gcm='git checkout master'
+alias gcd='git checkout development'
+alias gc='git cz'
 alias ga='git add'
 alias gaa='git add --all'
 alias xtar='tar -xvzf'
 alias ctar='tar -cvzf'
 alias gitclean='git branch --merged | egrep -v "(^\*|master)" | xargs git branch -d'
-alias port8080='lsof -n -i:8080 | grep LISTEN'
-alias port8000='lsof -n -i:8000 | grep LISTEN'
-alias port8001='lsof -n -i:8001 | grep LISTEN'
+alias port8080='lsof -n -i:8080 | grep LISTEN'jjjjjkj
 alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
 alias canon='open -a Google\ Chrome\ Canary --args --disable-web-security --user-data-dir=$HOME/profile-folder-name'
+alias kall='killall grunt gulp node'
 ```
 
 ### Config
+Faster keyboard repeat - needed for VIM users
+
 ```
 defaults write NSGlobalDomain KeyRepeat -int 2
 defaults write NSGlobalDomain InitialKeyRepeat -int 15
 ```
+
 ### Applications
 ```
-Alfred 3.app
+Alfred 4.app
 Android Studio.app
 Be Focused.app
-Caffeine.app
 Commander One.app
+Cyberduck.app
 Cypress.app
-Dash.app
 Discord.app
 Docker.app
 Firefox.app
-Flux.app
 Franz.app
 Google Chrome Canary.app
 Google Chrome.app
-Hyper.app
 ImageOptim.app
-Keybase.app
-Keyboard Maestro.app
-MacVim.app
-Monit.app
 Monosnap.app
-NotePlan.app
+NotePlan 2.app
 Numi.app
-Oni.app
 Safari.app
-Screenhero.app
-Sip.app
-Sketch.app
+# Sip.app - replaced by Monosnap
 Slack.app
 SourceTree.app
 Spectacle.app
 Spotify.app
 Skype.app
-TeamViewer.app
 Todoist.app
 TogglDesktop.app
-Upterm.app
 Visual Studio Code.app
 VLC.app
 WebStorm.app
-Wireshark.app
 Xcode.app
-Zeplin.app
 iTerm.app
+Postico.app
+Postman.app
+qBittorrent.app
 ngrok
 ```
 
@@ -155,50 +140,32 @@ ngrok
 ```
 export ZSH=/Users/${user}/.oh-my-zsh
 
-ZSH_THEME="powerlevel9k/powerlevel9k"
+# install fonts: https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
-# install fonts: https://github.com/powerline/fonts
-
+# Optional: type p10k configure to access the builtin configuration wizard right from your terminal.
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir rbenv vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs time)
 
-plugins=(osx,zsh-autosuggestions,zsh-syntax-highlighting)
+DISABLE_AUTO_UPDATE="true"
 
 source $ZSH/oh-my-zsh.sh
-source ~/zsh/antigen.zsh
+source $(brew --prefix)/share/antigen/antigen.zsh
+
+plugins=(osx,zsh-autosuggestions,zsh-syntax-highlighting)
+
 antigen use oh-my-zsh
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen apply
 
 ...
-# aliases - 
-alias cl='clear'
-alias ll='ls -alhF'
-alias ..='cd ..'
-alias ...='cd ../..'
-alias cd..='cd ..'
-alias gs='git status'
-alias gp='git push'
-alias gm='git merge'
-alias gl='git pull'
-alias gb='git branch'
-alias gcb='git checkout -b'
-alias gco='git checkout'
-alias gc='git cz'
-alias gbnm='git branch --no-merged'
-alias ga='git add'
-alias gaa='git add --all'
-alias xtar='tar -xvzf'
-alias ctar='tar -cvzf'
-alias gitclean='git branch --merged | egrep -v "(^\*|master)" | xargs git branch -d'
-alias port8080='lsof -n -i:8080 | grep LISTEN'
-alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
-alias canon='open -a Google\ Chrome\ Canary --args --disable-web-security --user-data-dir=$HOME/profile-folder-name'
-alias kall='killall grunt gulp node'
+# aliases
+# < PASTED FROM ABOVE >
 ...
 
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-```
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion```
 
 # More
 https://github.com/nikitavoloboev/my-mac-os
