@@ -1,21 +1,34 @@
-# Setup (update 08-2020)
+# Setup (update 01-2021)
 ## VSCode Plugins
 * [Code Time](https://marketplace.visualstudio.com/items?itemName=softwaredotcom.swdc-vscode)
-* [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
 * [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 * [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
 * [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim)
 * [IntelliJ IDEA Keybindings](https://marketplace.visualstudio.com/items?itemName=k--kato.intellij-idea-keybindings)
 * [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 * [Sort lines](https://marketplace.visualstudio.com/items?itemName=Tyriar.sort-lines)
-* [vscode-database](https://marketplace.visualstudio.com/items?itemName=bajdzis.vscode-database)
 * [Path Autocomplete](https://marketplace.visualstudio.com/items?itemName=ionutvmi.path-autocomplete)
 * [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
-* [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
 * [Color Highlight](https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight)
-* [GraphQL by Prisma](https://marketplace.visualstudio.com/items?itemName=Prisma.vscode-graphql)
-* [All Autocomplete](https://marketplace.visualstudio.com/items?itemName=Atishay-Jain.All-Autocomplete)
+* [Path Autocomplete](https://marketplace.visualstudio.com/items?itemName=ionutvmi.path-autocomplete)
 * [VS Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare)
+* [html to JSX](https://marketplace.visualstudio.com/items?itemName=riazxrazor.html-to-jsx)
+* [Svg Preview](https://marketplace.visualstudio.com/items?itemName=SimonSiefke.svg-preview)
+* [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+
+### As Needed
+* [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
+* [DotENV](https://marketplace.visualstudio.com/items?itemName=mikestead.dotenv)
+* [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
+* [Firebase](https://marketplace.visualstudio.com/items?itemName=toba.vsfire)
+* [GraphQL](https://marketplace.visualstudio.com/items?itemName=GraphQL.vscode-graphql)
+* [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
+* [vscode-database](https://marketplace.visualstudio.com/items?itemName=bajdzis.vscode-database)
+
+
+### Snippets
+* [ES7 React/Redux/GraphQL/React-Native snippets](https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets)
+
 
 ...
 
