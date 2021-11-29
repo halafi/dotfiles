@@ -1,0 +1,4 @@
+prettier.formatFile
+eslint.executeAutofix
+snippets.editSnippets
+eslint.showOutputChannel
