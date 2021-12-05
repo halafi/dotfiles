@@ -1,31 +1,90 @@
+if &encoding ==# 'latin1' && has('gui_running')
+  set encoding=utf-8
+endif
 set hlsearch
 set incsearch
 set nocursorline
-" https://jovicailic.org/2017/04/vim-persistent-undo/
+" persistent undo https://jovicailic.org/2017/04/vim-persistent-undo/
 set undofile
-set undodir=~/.vim/undodir
-" allow buffer switching without saving
-set hidden
-" GCase insensitive search.
+set undodir=~/.config/nvim/undodir
+" allow / disallow buffer switching without saving
+set nohidden
+" case insensitive search
 set ic
-" --- backup and swap files ---
 set nobackup
 set nowritebackup
 set noswapfile
+set title
+" soft wrap / break line on whole words
+set linebreak
+" Defaults for new projects
+set expandtab
+set tabstop=2
+set shiftwidth=2
+" Highlight spaces etc.
+set list
+set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+" spell checker
+set nospell spelllang=en_us
+" [s and ]s navigate, zg to add word to spell list, z= correct word
+nnoremap <silent> <F3> :set spell!<CR>
+inoremap <silent> <F3> <C-O>:set spell!<CR>
+""" Custom Commands
+command! Config execute ":e ~/.config/nvim/init.vim"
+command! Reload execute ":source ~/.config/nvim/init.vim"
 
-" Map jj as ESC since it's faster
+""" Native mappings
+" Substitute the word under the cursor.
+nmap <leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
+" move single lines with ctrl shift arrow
+noremap <c-s-up> :call feedkeys( line('.')==1 ? '' : 'ddkP' )<CR>
+noremap <c-s-down> ddp
+map [b :bp<CR>
+map ]b :bn<CR>
+map bd :bd<CR>
+" Leader
 inoremap jj <Esc>
-" Map Leader to Space
+inoremap jk <Esc>
+tnoremap jk <C-\><C-n>
+
 nnoremap <SPACE> <Nop>
-":verbose map <leader>
 let mapleader=" "
+
+" fix: map S-Tab to ctrl+d in insert mode
+:imap <S-Tab> <c-d>
 
 let g:python3_host_prog = '/usr/local/bin/python3'
 
+" share clipboard with os
+if has("macunix") || has('win32')
+  set clipboard=unnamed
+elseif has("unix")
+  set clipboard=unnamedplus
+endif
+" mouse
+if has('mouse')
+  " https://vi.stackexchange.com/a/521
+  set mouse=a
+  if !has('nvim')
+    set ttymouse=xterm2
+  endif
+endif
+
+"swtich between numbering
+:set nornu
+:set number
+":augroup numbertoggle
+":  autocmd!
+":  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+":  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+":augroup END
+
+""" Plugins
 call plug#begin("~/.vim/plugged")
 filetype plugin indent on    " required for nerdcommenter
 "Plugin Section
 Plug 'dracula/vim'
+Plug 'tomasiser/vim-code-dark'
 "Status Bar
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -33,17 +92,21 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'Xuyuanp/scrollbar.nvim'
 "NERDTree File Explorer with Icons
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
-"Commenter - https://github.com/preservim/nerdcommenter#default-mappings toggle with: [count]<leader>c<space>
+"Commenter
 Plug 'preservim/nerdcommenter'
 "Snippets
 Plug 'SirVer/ultisnips'
 Plug 'mlaursen/vim-react-snippets'
 "Git
-Plug 'tpope/vim-fugitive' " :GBrowse ftw
-Plug 'tpope/vim-rhubarb' "new
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'airblade/vim-gitgutter'
 Plug 'f-person/git-blame.nvim' "Toggle with :GitBlameToggle
+" diff view of all changes
+Plug 'nvim-lua/plenary.nvim'
+Plug 'sindrets/diffview.nvim'
 "Fuzzy finder, search of all things
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -53,25 +116,20 @@ Plug 'tpope/vim-sleuth'
 Plug 'editorconfig/editorconfig-vim'
 "Intellisense
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'jiangmiao/auto-pairs' "auto pair for backets
 "Syntax highlight
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'ap/vim-css-color' "preview colors in code
-"Plug 'jparise/vim-graphql'  -- uncomment when needed
-"Plug 'tpope/vim-markdown' -- uncomment when needed
-"Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
-"Auto Pairs
-Plug 'jiangmiao/auto-pairs' "auto pair for backets
+"Text Objects and stuff
 Plug 'machakann/vim-sandwich' "e.g. 'saiw(' makes foo to (foo)
 "Nicesies
-Plug 'bogado/file-line' "I could probably live without it
 Plug 'mhinz/vim-startify'
+Plug 'vim-scripts/copypath.vim'
+Plug 'can3p/incbool.vim' " Toggle true/false
 Plug 'machakann/vim-highlightedyank'
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'kshenoy/vim-signature' " :SignatureToggle - commands: https://github.com/kshenoy/vim-signature#installation
-"Plug 'flazz/vim-colorschemes' "redundant colors
 
 call plug#end()
 
@@ -93,23 +151,27 @@ nnoremap <silent> <C-h> :call WinMove('h')<CR>
 nnoremap <silent> <C-j> :call WinMove('j')<CR>
 nnoremap <silent> <C-k> :call WinMove('k')<CR>
 nnoremap <silent> <C-l> :call WinMove('l')<CR>
-"Defaults for new projects
-set tabstop=2 shiftwidth=2 expandtab
 "Theming support
 if (has("termguicolors"))
  set termguicolors
 endif
 syntax enable
 colorscheme dracula
+let g:airline_theme = 'codedark'
+
+
 "Use :Prettier
 function! FormatFile()
+  "call CocAction('runCommand', 'editor.action.organizeImport')
   call CocAction('runCommand', 'prettier.formatFile')
   call CocAction('runCommand', 'eslint.executeAutofix')
 endfunction
 command! -nargs=0 Fmt :CocCommand prettier.formatFile
 command! -nargs=0 Fix :CocCommand eslint.executeAutofix
+command! -nargs=? Fold :call CocAction('fold', <f-args>)
+command! -nargs=0 Ori :call CocAction('runCommand', 'editor.action.organizeImport')
 "format + fix
-nmap <leader>ff :call FormatFile()<CR> 
+nmap <leader>ff :call FormatFile()<CR>
 "open new split panes to right and below
 set splitright
 set splitbelow
@@ -133,29 +195,23 @@ let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsEditSplit = "horizontal"
 
-"CoC - conqueror of completion
+" CoC - conqueror of completion
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
 let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-snippets', 'coc-pairs']
-"map ctrl-g ctrl-r
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-"Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
-endfunction
-
 "tab and shift tab navigation during completion
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <silent><expr> <C-space> coc#refresh()
-"enter selects first item
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
+" tab selects first item
+inoremap <expr> <Tab> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Use <c-space> to trigger completion.
+inoremap <expr> <C-c> coc#refresh()
+" Use `[c` and `]c` to navigate diagnostics
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
 "GoTo code navigation
 nmap <leader>g <C-o>
 nmap <leader>rn <Plug>(coc-rename)
@@ -163,6 +219,15 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+" Formatting selected code.
+xmap <leader>f <Plug>(coc-format-selected)
+nmap <leader>f <Plug>(coc-format-selected)
+" Remap keys for applying codeAction to the current buffer.
+nmap <leader>ac <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf <Plug>(coc-fix-current)
 
 "Automatically displays all buffers when there's only one tab open.
 let g:airline#extensions#tabline#enabled = 1
@@ -178,25 +243,33 @@ let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 "Toggle with CTRL + B
 nnoremap <silent> <C-b> :NERDTreeToggle<CR>
+"find current file with
+nmap ,n :NERDTreeFind<CR>
+
 
 "file search config
 "Easy bindings for CtrlP various modes
 let g:ctrlp_working_path_mode = 'r'
-nmap <leader>p :FZF<cr>
-nmap <leader>f :Files<CR>
-nmap <leader>b :Buffers<CR>
-nmap <leader>s :Ag<cr>
+nmap <leader>fl :Files<CR>
+nmap <leader>bl :Buffers<CR>
+nmap <leader>ml :Marks<CR>
+nmap <leader>s :Rg<cr>
 nnoremap <C-p> :FZF<CR>
 let g:fzf_action = {
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit'
   \}
 "ignore node modules
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --glob "!.git/*"'
 "ctrlsf
-"nmap <leader>a :CtrlSF -R ""<Left>
-nmap <leader>A <Plug>CtrlSFCwordPath -W<CR>
+"use regex
+"nmap <leader>ar :CtrlSF -R ""<Left>
+"use regex and insensitive
+nmap <leader>a :CtrlSF -R -I ""<Left>
+nmap <leader>A <Plug>CtrlSFCwordPath -W -I<CR>
 nmap <leader>aa :Commands<CR>
+let g:ctrlsf_default_root = 'project'
+
 "nmap <leader>c :CtrlSFFocus<CR>
 "nmap <leader>C :CtrlSFToggle<CR>
 
@@ -221,7 +294,22 @@ augroup ScrollbarInit
   autocmd WinLeave,BufLeave,BufWinLeave,FocusLost            * silent! lua require('scrollbar').clear()
 augroup end
 "Git
+" fugitive
+nmap <leader>gs :G<CR>
+nmap <leader>gfd :Gdiffsplit<CR>
+nmap <leader>gd :DiffviewOpen<CR>
+nmap <leader>gcd :DiffviewClose<CR>
+nnoremap <leader>gb :GBrowse!<Cr>
+" mergetool
+nmap <leader>gh :diffget //3<CR>
+nmap <leader>gl :diffget //2<CR>
+" show blame
 let g:gitblame_enabled = 0
+vnoremap <leader>gbl :GitBlameToggle<Cr>
+nnoremap <leader>gbl :GitBlameToggle<Cr>
+" fzf git
+nmap <leader>cl :Commits<CR>
+nmap <leader>bcl :BCommits<CR>
 "Typescript highlight
 autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
@@ -247,36 +335,9 @@ hi ReduxKeywords ctermfg=204 guifg=#C678DD
 hi ReduxHooksKeywords ctermfg=204 guifg=#C176A7
 hi WebBrowser ctermfg=204 guifg=#56B6C2
 hi ReactLifeCycleMethods ctermfg=204 guifg=#D19A66
-"swtich between numbering
-:set number
-:augroup numbertoggle
-:  autocmd!
-:  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
-:  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
-:augroup END
-"Utilities
-"Substitute the word under the cursor.
-nmap <leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
-"highlightedyank
+" highlightedyank
 if !exists('##TextYankPost')
   map y <Plug>(highlightedyank)
 endif
-
-" share clipboard with os
-if has("macunix") || has('win32')
-  set clipboard=unnamed
-elseif has("unix")
-  set clipboard=unnamedplus
-endif
-" mouse
-if has('mouse')
-  " https://vi.stackexchange.com/a/521
-  set mouse=a
-  if !has('nvim')
-    set ttymouse=xterm2
-  endif
-endif
-
-" Use `[c` and `]c` to navigate diagnostics
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
+" copypath
+nnoremap <leader>cp :CopyPath<Cr>
