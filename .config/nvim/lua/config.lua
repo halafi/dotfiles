@@ -1,0 +1,6 @@
+require "lib.lsp"
+-- require "lib.stylelint"
+require "lib.cmp"
+require "lib.treesitter"
+require "lib.lualine"
+require "lib.nvim-tree"
