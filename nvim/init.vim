@@ -31,6 +31,7 @@ nnoremap <silent> <F3> :set spell!<CR>
 inoremap <silent> <F3> <C-O>:set spell!<CR>
 """ Custom Commands
 command! Config execute ":e ~/.config/nvim/init.vim"
+command! Tsx execute ":e ~/.config/nvim/UltiSnips/typescript.snippets"
 command! Reload execute ":source ~/.config/nvim/init.vim"
 
 """ Native mappings
@@ -72,35 +73,28 @@ if has('mouse')
   endif
 endif
 
-"swtich between numbering
-:set nornu
+:set rnu
 :set number
-":augroup numbertoggle
-":  autocmd!
-":  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
-":  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
-":augroup END
 
 """ Plugins
 call plug#begin("~/.vim/plugged")
-filetype plugin indent on    " required for nerdcommenter
-"Plugin Section
+filetype plugin indent on
+" Themes
 Plug 'dracula/vim'
 Plug 'flazz/vim-colorschemes'
-"Status Bar
+" Fuzzy finder, search of all things
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+" Editorconfig
+Plug 'tpope/vim-sleuth'
+Plug 'editorconfig/editorconfig-vim'
+" Status Bar, Tree
 Plug 'nvim-lualine/lualine.nvim'
-" used by lualine
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
-"Scrollbar
 Plug 'Xuyuanp/scrollbar.nvim'
-"Commenter
-Plug 'tpope/vim-commentary' 
-"Snippets
-Plug 'SirVer/ultisnips'
-Plug 'quangnguyen30192/cmp-nvim-ultisnips'
-Plug 'mlaursen/vim-react-snippets'
-"Git
+
+" Git
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'airblade/vim-gitgutter'
@@ -108,14 +102,8 @@ Plug 'f-person/git-blame.nvim' "Toggle with :GitBlameToggle
 " diff view of all changes
 Plug 'nvim-lua/plenary.nvim'
 Plug 'sindrets/diffview.nvim'
-"Fuzzy finder, search of all things
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-"Editorconfig
-Plug 'tpope/vim-sleuth'
-Plug 'editorconfig/editorconfig-vim'
-"Intellisense
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Intellisense
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
@@ -128,29 +116,27 @@ Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'windwp/nvim-ts-autotag'
+" Snippets
+Plug 'SirVer/ultisnips'
+Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 
-
-Plug 'jiangmiao/auto-pairs' "auto pair for backets
-"Syntax highlight
-" Plug 'pangloss/vim-javascript'
-" Plug 'leafgarland/typescript-vim'
-" Plug 'peitalin/vim-jsx-typescript'
-" Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-Plug 'ap/vim-css-color' "preview colors in code
 "Text Objects and stuff
 Plug 'machakann/vim-sandwich' "e.g. 'saiw(' makes foo to (foo)
-"Nicesies
+Plug 'jiangmiao/auto-pairs' "auto pair for backets
+" Nicesies
 Plug 'mhinz/vim-startify'
 Plug 'can3p/incbool.vim' " Toggle true/false
 Plug 'machakann/vim-highlightedyank'
-"Plug 'junegunn/vim-peekaboo' " preview registers
+Plug 'folke/trouble.nvim'
+Plug 'akinsho/toggleterm.nvim'
+Plug 'tpope/vim-commentary' 
+Plug 'norcalli/nvim-colorizer.lua'
+Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 
 call plug#end()
 
-" source all other vim files -> config split
-" for f in glob('~/.config/nvim/plugin/*.vim', 0, 1)
-    " execute 'source' f
-" endfor
 
 "Config Section
 "window splitting / movement with ctrl + hjkl
@@ -170,6 +156,7 @@ nnoremap <silent> <C-h> :call WinMove('h')<CR>
 nnoremap <silent> <C-j> :call WinMove('j')<CR>
 nnoremap <silent> <C-k> :call WinMove('k')<CR>
 nnoremap <silent> <C-l> :call WinMove('l')<CR>
+nnoremap <silent> <C-q> :wincmd q<CR>
 "Theming support
 if (has("termguicolors"))
  set termguicolors
@@ -180,22 +167,9 @@ colorscheme dracula
 "open new split panes to right and below
 set splitright
 set splitbelow
-"Terminal toggle to normal mode with escape
-tnoremap <Esc> <C-\><C-n>
-"start terminal in insert mode
-au BufEnter * if &buftype == 'terminal' | :startinsert | endif
-"open terminal on ctrl+n
-function! OpenTerminal()
-  split term://zsh
-  resize 20
-endfunction
-nnoremap <c-n> :call OpenTerminal()<CR>
-" Disable line numbers in :term
-" https://stackoverflow.com/a/63908546
-autocmd TermOpen * setlocal nonumber norelativenumber
 
 "Ultisnips
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<leader>++"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsEditSplit = "horizontal"
@@ -260,15 +234,18 @@ let g:nvim_tree_show_icons = {
     \ 'git': 1,
     \ 'folders': 1,
     \ 'files': 1,
-    \ 'folder_arrows': 0,
+    \ 'folder_arrows': 1,
     \ }
 
 let g:nvim_tree_icons = {
     \ 'folder': {
     \   'arrow_open': "",
-    \   'arrow_closed': "",
+    \   'arrow_closed': "",
     \   }
     \ }
 
 :lua require('config')
 
+" trouble
+nnoremap <leader>ac <cmd>TroubleToggle<cr>
+nnoremap gR <cmd>TroubleToggle lsp_references<cr>

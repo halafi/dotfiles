@@ -1,5 +1,34 @@
 local nvim_lsp = require('lspconfig')
-require("null-ls").config({})
+local null_ls = require("null-ls")
+
+-- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+--     vim.lsp.diagnostic.on_publish_diagnostics, {
+--         virtual_text = false
+--     }
+-- )
+-- customization
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
+null_ls.config({
+  sources = {
+    -- builtins.formatting.black.with({ extra_args = { "--fast" } }),
+	  -- builtins.diagnostics.flake8,
+    -- null_ls.builtins.diagnostics.eslint_d,
+    -- null_ls.builtins.code_actions.eslint_d,
+    -- null_ls.builtins.formatting.prettier,
+    -- stylelint diagnostics / formatting do not work well, need to migrate to stylelint 14
+    -- null_ls.builtins.diagnostics.stylelint.with({
+    --   filetypes = { "scss", "less", "css", "sass", "typescriptreact", "typescript" },
+    --   command = "stylelint",
+    --   args = { "--formatter", "json", "$FILENAME" },
+    -- }),
+    null_ls.builtins.code_actions.gitsigns
+  },
+})
 
 local buf_map = function(bufnr, mode, lhs, rhs, opts)
     vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, opts or {
@@ -27,7 +56,7 @@ local on_attach = function(client, bufnr)
   -- buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
   buf_set_keymap('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
   buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_set_keymap('n', '<leader>ac', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts) -- usages
   buf_set_keymap('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
   buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
@@ -59,7 +88,9 @@ nvim_lsp.tsserver.setup{
     end,
 }
 
-nvim_lsp["null-ls"].setup({ on_attach = on_attach })
+nvim_lsp["null-ls"].setup({
+  on_attach = on_attach,
+})
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches

@@ -48,6 +48,6 @@ require'lualine'.setup({
      lualine_z = {'tabs'}
   },
   extensions = {
-     'fzf', 'fugitive', 'nvim-tree'
+     'fzf', 'fugitive', 'nvim-tree', 'toggleterm'
   }
 })
