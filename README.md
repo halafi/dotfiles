@@ -5,6 +5,7 @@ Dev env personalization.
 ...
 ## Installation
 1. [Tmux plugin manager](https://github.com/tmux-plugins/tpm)
+2. Brew packages: `bat ripgrep neovim tmux` (not sure if anything is missing)
 
 ## OSX
 ### Brew packages

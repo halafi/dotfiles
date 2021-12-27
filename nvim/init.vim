@@ -99,7 +99,6 @@ call plug#begin("~/.vim/plugged")
 filetype plugin indent on
 " Themes
 Plug 'dracula/vim'
-Plug 'flazz/vim-colorschemes'
 " Fuzzy finder, search of all things
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
