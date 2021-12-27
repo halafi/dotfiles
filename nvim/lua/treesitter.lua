@@ -17,7 +17,8 @@ require'nvim-treesitter.configs'.setup {
     "tsx",
     "typescript",
     "html",
-    "scss"
+    "scss",
+    "prisma",
   },
 }
 

@@ -28,7 +28,9 @@ require'lualine'.setup({
      lualine_a = {
          {
             'buffers',
-             mode = 2,
+             mode = 0,
+             max_length = vim.o.columns * 4 / 5,
+
              -- section_separators = {
              --   left = "",
              --   right = "",
