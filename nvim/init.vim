@@ -26,14 +26,20 @@ set list
 set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 " spell checker
 set nospell spelllang=en_us
-set grepprg=rg\ --vimgrep\ --smart-case\ --follow
 
 set updatetime=1000
 set ssop-=curdir
 set ssop+=sesdir
 set number
 set nornu
+set ignorecase
+set smartcase " if pattern starts with uppercase letter it's case sensitive
 
+set nocompatible
+filetype plugin indent on " enable matchit, not sure what the indent is for
+runtime macros/matchit.vim
+
+set pastetoggle=<f6> " useful for pasting large text / code block in insert mode
 
 nnoremap <SPACE> <Nop>
 let mapleader=" "
@@ -49,10 +55,17 @@ command! Reload execute ":source $VIMCONFIG/init.vim"
 command! -bang -nargs=* RG call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
 """ Native mappings
+" fix the & substitution repetition
+nnoremap & :&&<CR>
+xnoremap & :&&<CR>
 " Substitute the word under the cursor.
 nmap <leader>S :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
 
 " search and replace across files
+" use vimgrep to find e.g. all .txt files, grep to search text
+set grepprg=rg\ --vimgrep\ --smart-case\ --follow
+" set grepprg=ack\ --nogroup\ --column\ $* 
+" set grepformat=%f:%l:%c:%m
 " :grep "pizza"
 " :cfdo %s/pizza/donut/g | update (update saves the file)
 " or :bufdo %s/pizza/donut/g | update for open buffers
@@ -96,7 +109,6 @@ endif
 
 """ Plugins
 call plug#begin("~/.vim/plugged")
-filetype plugin indent on
 " Themes
 Plug 'dracula/vim'
 " Fuzzy finder, search of all things
@@ -124,6 +136,7 @@ Plug 'sindrets/diffview.nvim'
     Plug 'hrsh7th/cmp-nvim-lsp'
     Plug 'hrsh7th/cmp-buffer'
     Plug 'hrsh7th/nvim-cmp'
+    Plug 'weilbith/nvim-lsp-smag' " makes <C-]> work, not a necessity, like a gd
     " just some icons for autocomplete
     Plug 'onsails/lspkind-nvim'
     Plug 'jose-elias-alvarez/null-ls.nvim'
@@ -155,8 +168,11 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-obsession'
-Plug 'halafi/vim-test' " fork with nx runner
+Plug 'vim-test/vim-test'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'bronson/vim-visual-star-search'
+" Plug 'tpope/vim-abolish' " use if you need to substitute similar patterns
+
 
 call plug#end()
 
@@ -186,8 +202,8 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsEditSplit = "horizontal"
 
 " nvim tree
-nnoremap <silent> <C-n> :NvimTreeToggle<CR>
-nmap ,n :NvimTreeFindFileToggle<CR>
+nnoremap <silent> <C-n> :NvimTreeFindFileToggle<CR>
+" nmap ,n :NvimTreeFindFileToggle<CR>
 
 " FZF
 nnoremap <leader>ff <cmd>Files<cr>
@@ -206,6 +222,7 @@ let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --glob "!.git/*"'
 " let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --no-ignore-vcs --glob "!{node_modules,.git}"'
 let g:fzf_preview_command = 'bat --color=always --plain {-1}'
 let g:fzf_preview_lines_command = 'bat --color=always --plain --number'
+
 
 " Git
 " fugitive
@@ -292,3 +309,4 @@ nmap <silent> <leader>tsw :TestSuite --watch<CR>
 " highlight inactive terminal cursor position
 highlight! link TermCursor Cursor
 highlight! TermCursorNC guibg=gray guifg=black ctermbg =1 ctermfg = 15
+
