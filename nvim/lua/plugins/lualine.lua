@@ -10,8 +10,20 @@ require'lualine'.setup({
   },
   sections = {
     lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', 'diagnostics'},
-    lualine_c = {'filename'},
+    lualine_b = {'diff', 'diagnostics'},
+    lualine_c = {
+       {
+         'filename',
+         file_status = true,      -- Displays file status (readonly status, modified status)
+         path = 1,
+         shorting_target = 40,
+         symbols = {
+           modified = '[+]',      -- Text to show when the file is modified.
+           readonly = '[-]',      -- Text to show when the file is non-modifiable or readonly.
+           unnamed = '[No Name]', -- Text to show for unnamed buffers.
+         }
+      }
+    },
     lualine_x = {'encoding', 'fileformat', 'filetype'},
     lualine_y = {'progress'},
     lualine_z = {'location'}
@@ -28,7 +40,7 @@ require'lualine'.setup({
      lualine_a = {
          {
             'buffers',
-             mode = 0,
+             mode = 2,
              max_length = vim.o.columns * 4 / 5,
 
              -- section_separators = {

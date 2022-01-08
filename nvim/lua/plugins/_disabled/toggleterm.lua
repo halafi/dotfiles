@@ -6,7 +6,7 @@ require("toggleterm").setup {
          return vim.o.columns * 0.4
        end
    end,
-   open_mapping = [[<c-m>]],
+   open_mapping = [[<c-b>]],
    shade_terminals = true,
    shading_factor = 1,
    start_in_insert = true,

@@ -1,4 +1,11 @@
 require'nvim-treesitter.configs'.setup {
+  textsubjects = {
+      enable = true,
+      keymaps = {
+          ['.'] = 'textsubjects-smart',
+          [';'] = 'textsubjects-container-outer',
+      }
+  },
   autotag = {
     enable = true,
   },
@@ -16,6 +23,7 @@ require'nvim-treesitter.configs'.setup {
   ensure_installed = {
     "tsx",
     "typescript",
+    "svelte",
     "html",
     "scss",
     "prisma",

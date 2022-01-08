@@ -1,0 +1,25 @@
+[user]
+	name = halafi
+	email = filiphalas74@gmail.com
+[credential]
+	helper = store
+[core]
+	excludesFile = /Users/filiphalas/.master-gitignore
+	editor = nvim
+	pager = delta
+[commit]
+	template = /Users/filiphalas/.stCommitMsg
+	# define command which will be used when "nvim" is set as a merge tool
+; [mergetool "nvim"]
+;   cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
+; [merge]
+;   tool = nvim
+[merge]
+    tool = vscode
+[mergetool "vscode"]
+    cmd = code --wait $MERGED
+# automatically launch merge tool without displaying a prompt
+[mergetool]
+  prompt = false
+  keepBackup = false
+

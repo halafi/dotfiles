@@ -1,7 +1,14 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-export ZSH="/Users/filiphalas/.oh-my-zsh"
+export ZSH="~/.oh-my-zsh"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
@@ -33,11 +40,14 @@ alias gb='git branch'
 alias gcb='git checkout -b'
 alias gco='git checkout'
 alias gcm='git checkout master'
-alias gcd='git checkout development'
-alias ggrh= 'git reset --hard origin/$(current_branch)'
+alias ggrh= 'git reset --hard HEAD'
+alias gm= 'git merge'
+alias gmm= 'git merge master'
 alias gc='git cz'
 alias ga='git add'
+alias grs='git restore --staged'
 alias gaa='git add --all'
+alias tma='tmux attach'
 alias xtar='tar -xvzf'
 alias ctar='tar -cvzf'
 alias gitclean='git branch --merged | egrep -v "(^\*|master)" | xargs git branch -d'
@@ -46,11 +56,15 @@ alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
 alias canon='open -a Google\ Chrome\ Canary --args --disable-web-security --user-data-dir=$HOME/profile-folder-name'
 alias kall='killall grunt gulp node'
 alias zshup='/usr/bin/env ZSH=$ZSH /bin/sh $ZSH/tools/upgrade.sh'
-alias nvi='git ls-files -m | xargs nvim'
 alias nta='nx test app --watch --test-file'
 alias ntui='nx test ui --watch --test-file'
 alias ntapi='nx test api --watch --test-file'
 alias yarnup='yarn upgrade-interactive --latest'
+alias vim="nvim"
+alias vi="nvim"
+alias lg="lazygit"
+alias rr="ranger"
+alias pag="ps aux | rg"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -61,6 +75,7 @@ export GOBIN=$GOPATH/bin
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
+export VIMCONFIG=$HOME/.config/nvim
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -113,3 +128,11 @@ eval "$(pyenv init --path)"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+export VISUAL=nvim;
+export EDITOR=nvim;
+
+
+source ~/.config/broot/launcher/bash/br

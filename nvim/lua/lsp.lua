@@ -46,13 +46,14 @@ local on_attach = function(client, bufnr)
   buf_map(bufnr, "n", "]d", ":LspDiagNext<CR>")
 
   buf_map(bufnr, "n", "gR", ":LspRefs<CR>")
-  buf_map(bufnr, "n", "ca", ":LspCodeAction<CR>")
+  buf_map(bufnr, "n", "<leader>ca", ":LspCodeAction<CR>")
   buf_map(bufnr, "n", "<leader>d", ":LspDiagLine<CR>")
   buf_map(bufnr, "i", "<C-k>", "<cmd> LspSignatureHelp<CR>")
 
-  if client.resolved_capabilities.document_formatting then
-      vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
-  end
+  -- autoformat on save
+  -- if client.resolved_capabilities.document_formatting then
+  --     vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+  -- end
 end
 
 nvim_lsp.tsserver.setup{
@@ -80,6 +81,7 @@ null_ls.setup({
     null_ls.builtins.diagnostics.eslint_d,
     null_ls.builtins.code_actions.eslint_d,
     null_ls.builtins.formatting.prettier,
+    null_ls.builtins.code_actions.gitsigns,
     -- stylelint diagnostics / formatting do not work well, need to migrate to stylelint 14
     -- null_ls.builtins.diagnostics.stylelint.with({
     --   filetypes = { "scss", "less", "css", "sass", "typescriptreact", "typescript" },
@@ -88,11 +90,8 @@ null_ls.setup({
     -- }),
     -- null_ls.builtins.code_actions.gitsigns
   },
+  on_attach = on_attach,
 })
-
--- nvim_lsp["null-ls"].setup({
-  -- on_attach = on_attach,
--- })
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
