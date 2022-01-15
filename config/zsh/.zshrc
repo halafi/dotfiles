@@ -40,7 +40,6 @@ alias gb='git branch'
 alias gcb='git checkout -b'
 alias gco='git checkout'
 alias gcm='git checkout master'
-alias ggrh= 'git reset --hard HEAD'
 alias gm= 'git merge'
 alias gmm= 'git merge master'
 alias gc='git cz'
@@ -65,6 +64,8 @@ alias vi="nvim"
 alias lg="lazygit"
 alias rr="ranger"
 alias pag="ps aux | rg"
+alias tmsc="tmuxinator start client"
+alias tmec="tmuxinator edit client"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -128,11 +129,16 @@ eval "$(pyenv init --path)"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+# lua language server
+export PATH="$HOME/tools/lua-language-server/bin/:$PATH"
 
 export VISUAL=nvim;
 export EDITOR=nvim;
 
 
 source ~/.config/broot/launcher/bash/br
+
+alias luamake=~/tools/lua-language-server/3rd/luamake/luamake
