@@ -1,5 +1,7 @@
 local u = require("utils")
 
+local api = vim.api
+
 -- terminals
 -- always start in insert mode
 vim.cmd("autocmd TermOpen * startinsert")
@@ -7,12 +9,44 @@ vim.cmd("autocmd TermOpen * startinsert")
 vim.cmd("autocmd TermOpen * setlocal nonumber norelativenumber")
 -- suppress process exited message
 vim.cmd("autocmd TermClose term://*lazygit execute 'bdelete! ' . expand('<abuf>')")
+-- autocommands
+-- highlight on yank
+vim.cmd('autocmd TextYankPost * silent! lua vim.highlight.on_yank({ higroup = "IncSearch", timeout = 500 })')
+-- disable continuation of comments to the next line 
+vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
+
+-- scratch files
+vim.cmd("command! Scratch new | setlocal bt=nofile bh=wipe nobl noswapfile nu")
 
 u.command("Git", "tabnew term://lazygit")
 u.nmap("<Leader>g", ":Git<CR>")
 -- u.nmap("<leader>gs", ":Git<CR>")
+u.command("Reload", ":source $VIMCONFIG/init.lua")
 
-u.command("Reload", ":source $VIMCONFIG/init.vim")
+-- reset treesitter and lsp diagnostics
+u.command("R", "w | :e")
+
+-- not migrated to lua
+local vim_commands = {}
+vim_commands.defaults = {
+    [[
+      function! QuickFixToggle()
+        if empty(filter(getwininfo(), 'v:val.quickfix'))
+          copen
+        else
+          cclose
+        endif
+      endfunction
+    ]],
+}
+
+vim_commands.load = function(commands)
+  for _, command in ipairs(commands) do
+    vim.cmd(command)
+  end
+end
+
+vim_commands.load(vim_commands.defaults)
 
 local commands = {}
 

@@ -5,7 +5,6 @@ vim.g.maplocalleader = "\\"
 
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.cursorline = false
 vim.opt.ignorecase = true
 vim.opt.smartcase = false
 vim.opt.mouse = "a"
@@ -18,10 +17,9 @@ vim.opt.updatetime = 300
 -- autocompletion
 vim.opt.completeopt = { "menuone", "noinsert" }
 vim.opt.pumheight = 10
-
+-- scroll adjustment
 vim.opt.scrolloff = 4
 vim.opt.sidescrolloff = 2
--- vim.opt.cursorline = true -- don't like it
 vim.opt.signcolumn = "yes"
 vim.opt.timeoutlen = 500 -- default 1000
 vim.opt.hlsearch = true
@@ -40,13 +38,14 @@ vim.opt.shiftwidth = 2
 vim.opt.list = true
 vim.opt.spell = false
 vim.opt.spelllang = 'en_us'
-vim.opt.compatible = false vim.opt.ssop = 'blank,buffers,folds,help,tabpages,winsize,sesdir'
-vim.opt.listchars = { tab = '| ', trail = '·' }
-
+vim.opt.ssop = 'blank,buffers,folds,help,tabpages,winsize,sesdir'
+vim.opt.listchars = { tab = '> ', trail = '·', space = '·' }
 vim.opt.wrap = true
 vim.opt.clipboard:append("unnamedplus")
 vim.opt.pastetoggle = '<f6>'
 
+-- globals
+vim.g.python3_host_prog = '/usr/local/bin/python3'
 -- search and replace across files
 -- use vimgrep to find e.g. all .txt files, grep to search text
 vim.opt.grepprg = 'rg --vimgrep --smart-case --follow'
@@ -56,16 +55,9 @@ vim.opt.grepprg = 'rg --vimgrep --smart-case --follow'
 -- :cfdo %s/pizza/donut/g | update (update saves the file)
 -- or :bufdo %s/pizza/donut/g | update for open buffers
 
-
-vim.g.python3_host_prog = '/usr/local/bin/python3'
-vim.g.neon_style = "dark"
-vim.g.material_style = 'deep ocean'
-
-
 -- commands
 local cmd = vim.api.nvim_command
-cmd('filetype plugin indent on')
-cmd('runtime macros/matchit.vim')
+-- cmd('filetype plugin indent on')
 -- highlight inactive terminal cursor position
 cmd('highlight! link TermCursor Cursor')
 cmd('highlight! TermCursorNC guibg=gray guifg=black ctermbg =1 ctermfg = 15')
@@ -77,18 +69,15 @@ u.nmap("]t", ":tabnext<CR>")
 u.nmap("[q", ":cp<CR>")
 u.nmap("]q", ":cn<CR>")
 
--- <C-w> v -> split, moving is handled by tmux
--- u.nmap("<C-q>", ":wincmd q<CR>")
+u.nmap("<Leader>wq", ":wincmd q<CR>")
 u.nmap("<C-q>", ":call QuickFixToggle()<CR>")
-
--- u.nmap("<leader>S", ":%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>")
-
 
 u.nmap("n", "nzz")
 u.nmap("N", "Nzz")
+u.nmap("<C-s>", "<C-a>") -- replace tmux taken key
 
 -- save on <CR> in normal buffers
--- u.nmap("<S-CR>", ":wqall<CR>")
+u.nmap("<m-CR>", ":wqall<CR>")
 u.nmap("<CR>", "(&buftype is# '' ? ':w<CR>' : '<CR>')", { expr = true })
 
 u.nmap("H", "^")
@@ -98,45 +87,34 @@ u.nmap("L", "$")
 u.omap("L", "$")
 u.xmap("L", "$")
 
+-- maintain visual mode selection while indenting
+u.xmap(">", ">gv")
+u.xmap("<", "<gv")
+
 -- tabs
 u.nmap("<LocalLeader>t", ":tabnew<CR>")
 u.nmap("<LocalLeader>T", ":tabedit %<CR>")
 u.nmap("<LocalLeader>x", ":tabclose<CR>")
 u.nmap("<LocalLeader>o", ":tabonly<CR>")
 
--- maintain visual mode selection while indenting
-u.xmap(">", ">gv")
-u.xmap("<", "<gv")
-
 u.imap('jk', "<Esc>")
 u.imap('jj', "<Esc>")
--- exit terminal
-u.tmap("<C-o>", "<C-\\><C-n>")
--- u.tmap('jk', "<C-\\><C-n>")
--- u.tmap('jj', "<C-\\><C-n>")
--- u.tmap('<esc>', "<C-\\><C-n>")
+u.tmap("<C-o>", "<C-\\><C-n>") -- exit terminal
 u.nmap("<Tab>", "%", { noremap = false })
 u.xmap("<Tab>", "%", { noremap = false })
 u.omap("<Tab>", "%", { noremap = false })
 
 u.nmap('<leader>bdd', ':w <bar> %bd <bar> e# <bar> bd# <CR>')
--- Substitute the word under the cursor.
-u.nmap('<leader>S', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>')
-
 -- disable search highlight
 u.nmap('<Esc>', ':noh<return><esc>')
 -- fix: map S-Tab to ctrl+d in insert mode
 u.imap('<S-Tab>', '<c-d>')
+-- Substitute the word under the cursor.
+u.nmap('<leader>S', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>')
+
 -- fix the & substitution repetition - TODO: remember what it was for (book)
 -- u.nmap('&', ':&&')
 -- u.xmap('&', ':&&')
-u.nmap('<C-n>', ':NvimTreeFindFileToggle<CR>')
--- FZF
-u.nmap('<leader>fb', '<cmd>Buffers<cr>')
-u.nmap('<leader>fh', '<cmd>Help<cr>')
-u.nmap('<leader>aa', '<cmd>Commands<cr>')
-u.nmap('<leader>s', ':RG<cr>')
-u.nmap('<C-p>', ':Files<cr>')
 
 -- resize with arrows
 u.nmap('<C-Left>', ':vertical resize -2<CR>')
@@ -150,11 +128,19 @@ vim.g.UltiSnipsJumpForwardTrigger = "<c-j>"
 vim.g.UltiSnipsJumpBackwardTrigger = "<c-k>"
 vim.g.UltiSnipsEditSplit = "horizontal"
 
-u.nmap('<leader>z', ':ZenMode<cr>')
 -- not perfect url open
 u.nmap('gx', ':!open <c-r><c-a>')
 
+-- nvim tree
+vim.g.nvim_tree_show_icons = { git = 1, folders = 1, files = 1, folder_arrows = 1 }
+vim.g.nvim_tree_icons = { folder = { arrow_open = "", arrow_closed = "" } }
+u.nmap('<C-n>', ':NvimTreeFindFileToggle<CR>')
 -- fzf
+u.nmap('<leader>fb', '<cmd>Buffers<cr>')
+u.nmap('<leader>fh', '<cmd>Help<cr>')
+u.nmap('<leader>aa', '<cmd>Commands<cr>')
+u.nmap('<leader>s', ':RG<cr>')
+u.nmap('<C-p>', ':Files<cr>')
 vim.env.FZF_DEFAULT_COMMAND = 'rg --files --hidden --glob "!.git/*"'
 vim.g.fzf_preview_command = 'bat --color=always --plain {-1}'
 vim.g.fzf_preview_lines_command = 'bat --color=always --plain --number'
@@ -163,38 +149,17 @@ vim.g.gitblame_enabled = 0
 vim.cmd("command! -bang -nargs=* RG call fzf#vim#grep(\"rg --column --line-number --no-heading --color=always --smart-case \".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)")
 -- command! -bang -nargs=* RG call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
--- nvim tree
-vim.g.nvim_tree_show_icons = { git = 1, folders = 1, files = 1, folder_arrows = 1 }
-vim.g.nvim_tree_icons = { folder = { arrow_open = "", arrow_closed = "" } }
-
--- autocommands
--- highlight on yank
-vim.cmd('autocmd TextYankPost * silent! lua vim.highlight.on_yank({ higroup = "IncSearch", timeout = 500 })')
--- disable continuation of comments to the next line 
-vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
-
--- vim-test
-vim.g["test#custom_runners"] = { javascript = {"nx"} }
-vim.g["test#strategy"] = "neovim"
-vim.g["test#javascript#runner"] = "nx"
-vim.g["test#javascript#nx#project"] = "app"
-u.nmap('<leader>tn', ':TestNearest<CR>')
-u.nmap('<leader>tnw', ':TestNearest --watch<CR>')
-u.nmap('<leader>tf', ':TestFile<CR>')
-u.nmap('<leader>tfw', ':TestFile --watch<CR>')
-u.nmap('<leader>tl', ':TestLast<CR>')
-u.nmap('<leader>tlw', ':TestLast --watch<CR>')
-u.nmap('<leader>tv', ':TestVisit<CR>')
-u.nmap('<leader>ts', ':TestSuite<CR>')
-u.nmap('<leader>tsw', ':TestSuite --watch<CR>')
-
+u.nmap("<leader>ps", ":PackerSync<CR>")
 
 -- initialize global object for config
 global = {}
-require "plugins"
-require "lsp"
-require "cmp-config"
-require "commands"
 
-cmd('syntax enable')
+require "tmux"
+require "commands"
+require "lsp"
+require "lsp/cmp-config"
+require "plugins"
+
+vim.g.neon_style = "doom"
+-- vim.g.neon_style = "default" -- dark -> default | doom -> light
 cmd('colorscheme nightfly')

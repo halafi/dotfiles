@@ -6,9 +6,8 @@ require'nvim-treesitter.configs'.setup {
           [';'] = 'textsubjects-container-outer',
       }
   },
-  autotag = {
-    enable = true,
-  },
+  autotag = { enable = true },
+  matchup = { enable = true },
   context_commentstring = {
     enable = true
   },

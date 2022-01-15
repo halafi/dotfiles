@@ -12,29 +12,13 @@ return require('packer').startup(function()
       use({ path, config = config(name) })
   end
 
-  use("shaeinst/roshnivim-cs")
-
   -- themes (sorted by contrast)
   use({
-        "dracula/vim", -- high contrast
-        "rebelot/kanagawa.nvim",
-        -- "joshdick/onedark.vim", -- fzf not working well with it
-        "bluz71/vim-nightfly-guicolors",
-        "rafamadriz/neon",
-        "marko-cerovac/material.nvim", -- similar to neon
-        "bluz71/vim-moonfly-colors"
+    "dracula/vim", -- high contrast
+    "bluz71/vim-nightfly-guicolors",
+    "rafamadriz/neon"
   })
   use("mhinz/vim-startify")
-  use {
-      "folke/zen-mode.nvim",
-      config = function()
-        require("zen-mode").setup {
-            window = {
-                width = 140,
-            }
-        }
-      end
-  }
   -- basic
   use("tpope/vim-surround")
   use("tpope/vim-repeat")
@@ -45,11 +29,12 @@ return require('packer').startup(function()
   -- editorconfig
   use("tpope/vim-sleuth")
   use("editorconfig/editorconfig-vim")
-  -- tmux
-  use("christoomey/vim-tmux-navigator")
   -- git
   use_with_config("lewis6991/gitsigns.nvim", "gitsigns")
-  -- fzf
+  -- file management
+  use_with_config("francoiscabrol/ranger.vim", "ranger")
+  use("rbgrouleff/bclose.vim")
+
   use { 'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
   use { 'junegunn/fzf.vim' }
   -- status bar, tree
@@ -67,11 +52,11 @@ return require('packer').startup(function()
   use("onsails/lspkind-nvim")
   use("jose-elias-alvarez/null-ls.nvim")
   use("jose-elias-alvarez/nvim-lsp-ts-utils")
-  -- lua
-  use("tjdevries/nlua.nvim")
   -- snippets
   use("SirVer/ultisnips")
   use("quangnguyen30192/cmp-nvim-ultisnips")
+  -- json
+  use("b0o/schemastore.nvim") -- simple access to json-language-server schemae
 
   -- treesitter
   use({
@@ -80,11 +65,12 @@ return require('packer').startup(function()
       config = config("treesitter"),
   })
   -- text objects
-  use("wellle/targets.vim")
+  use("wellle/targets.vim") -- disabled for now
   use({
       'RRethy/nvim-treesitter-textsubjects',
       ft = { "lua", "typescript", "typescriptreact" },
   })
+
   -- tsx
   use({ "JoosepAlviste/nvim-ts-context-commentstring", ft = { "typescript", "typescriptreact" } }) -- makes jsx comments actually work
   use({ "windwp/nvim-ts-autotag", ft = { "typescript", "typescriptreact" } }) -- automatically close jsx tags
@@ -92,12 +78,11 @@ return require('packer').startup(function()
   -- additional functionality
   use_with_config("windwp/nvim-autopairs", "autopairs")
   use("bronson/vim-visual-star-search") -- star search your visual selection
-  use("can3p/incbool.vim") -- toggle true/false as numbers
   use_with_config("norcalli/nvim-colorizer.lua", "colorizer")
-  use("vim-test/vim-test")
+  use_with_config("andymass/vim-matchup", "matchup") -- improves %, replaces matchit
   use("vimwiki/vimwiki")
-  -- use { 'folke/trouble.nvim'
-  -- use { 'akinsho/toggleterm.nvim'
-  -- use { 'lukas-reineke/indent-blankline.nvim'
+
+  -- perf
+  use_with_config("nathom/filetype.nvim", "filetype") -- greatly reduces startup time
 end)
 
