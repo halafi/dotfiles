@@ -111,12 +111,9 @@ u.nmap("<Leader>tt", ":lua require'tmux'.send_last_command()<CR>")
 vim.cmd("autocmd VimLeave * silent! lua require'tmux'.kill()")
 
 -- testing wrappers
-
 local test_commands = {
     file = {
         lua = "FILE=%s make test-file",
-        -- typescript = "npx jest -c apps/app/jest.config.js %s --watch",
-        -- typescriptreact = "npx jest -c apps/app/jest.config.js %s --watch",
         typescript = "npx jest -c apps/app/jest.config.js %s --watch",
         typescriptreact = "npx jest -c apps/app/jest.config.js %s --watch",
     },

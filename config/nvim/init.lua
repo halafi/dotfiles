@@ -72,21 +72,21 @@ u.nmap("]q", ":cn<CR>")
 u.nmap("<Leader>wq", ":wincmd q<CR>")
 u.nmap("<C-q>", ":call QuickFixToggle()<CR>")
 
-u.nmap("n", "nzz")
-u.nmap("N", "Nzz")
 u.nmap("<C-s>", "<C-a>") -- replace tmux taken key
 
 -- save on <CR> in normal buffers
 u.nmap("<m-CR>", ":wqall<CR>")
 u.nmap("<CR>", "(&buftype is# '' ? ':w<CR>' : '<CR>')", { expr = true })
 
+-- make vim work better
+u.nmap("n", "nzz")
+u.nmap("N", "Nzz")
 u.nmap("H", "^")
 u.omap("H", "^")
 u.xmap("H", "^")
 u.nmap("L", "$")
 u.omap("L", "$")
 u.xmap("L", "$")
-
 -- maintain visual mode selection while indenting
 u.xmap(">", ">gv")
 u.xmap("<", "<gv")
@@ -104,6 +104,7 @@ u.nmap("<Tab>", "%", { noremap = false })
 u.xmap("<Tab>", "%", { noremap = false })
 u.omap("<Tab>", "%", { noremap = false })
 
+-- close all other buffers
 u.nmap('<leader>bdd', ':w <bar> %bd <bar> e# <bar> bd# <CR>')
 -- disable search highlight
 u.nmap('<Esc>', ':noh<return><esc>')
