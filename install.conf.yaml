@@ -1,0 +1,26 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+      
+  # remove dead symlinks
+- clean:
+    ~/:
+      force: true
+    ~/.config:
+      recursive: true
+
+- link:
+    # home
+    ~/:
+      glob: true
+      path: home/*
+      prefix: "."
+    # nvim
+    ~/.config/ranger/rc.conf: config/ranger/rc.conf
+    ~/.config/nvim/init.lua: config/nvim/init.lua
+    ~/.config/nvim/lua:
+      glob: true
+      path: config/nvim/lua/*
+    # lazygit
+    ~/Library/Application Support/lazygit/config.yml: config/lazygit/config.yml
