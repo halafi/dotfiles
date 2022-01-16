@@ -1,7 +1,7 @@
 # dotfiles
 
 My dotfiles for Neovim, tmux, zsh and everything configurable.
-Optimized for web development (react with typescript) on macOS Monterey.
+Optimized for web development (React with TypeScript) on macOS Monterey.
 Managed with [Dotbot](https://github.com/anishathalye/dotbot).
 
 ## Terminal
@@ -22,14 +22,15 @@ I am using [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
 
 - [lazygit](https://github.com/jesseduffield/lazygit)
 
-- VS Code or Github as mergetool (so far the least painful, might look for nvim solution that works for me)
+- VS Code or Github as mergetool
 
 ## Dependencies
 
-1. Brew packages: `bat ripgrep neovim tmux tmuxinator ranger spotify-tui yarn htop autojump` (not sure if anything is missing)
+1. Brew packages:
+ - `brew install bat ripgrep neovim tmux tmuxinator ranger spotify-tui yarn htop autojump`
 2. [Tmux plugin manager](https://github.com/tmux-plugins/tpm)
 3. LSP servers: 
  - `yarn global add vscode-langservers-extracted`
  - `yarn global add typescript typescript-language-server eslint prettier`
-4. [nvm](https://github.com/nvm-sh/nvm) TODO: [zsh-nvm](https://github.com/lukechilds/zsh-nvm)
+4. [nvm](https://github.com/nvm-sh/nvm), will switch to: [zsh-nvm](https://github.com/lukechilds/zsh-nvm)
 
