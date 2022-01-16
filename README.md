@@ -27,10 +27,10 @@ I am using [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
 ## Dependencies
 
 1. Brew packages:
- - `brew install bat ripgrep neovim tmux tmuxinator ranger spotify-tui yarn htop autojump`
+    - `brew install bat ripgrep neovim tmux tmuxinator ranger spotify-tui yarn htop autojump`
 2. [Tmux plugin manager](https://github.com/tmux-plugins/tpm)
 3. LSP servers: 
- - `yarn global add vscode-langservers-extracted`
- - `yarn global add typescript typescript-language-server eslint prettier`
+    - `yarn global add vscode-langservers-extracted`
+    - `yarn global add typescript typescript-language-server eslint prettier`
 4. [nvm](https://github.com/nvm-sh/nvm), will switch to: [zsh-nvm](https://github.com/lukechilds/zsh-nvm)
 
