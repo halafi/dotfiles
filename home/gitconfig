@@ -1,0 +1,19 @@
+[user]
+	name = halafi
+	email = filiphalas74@gmail.com
+[credential]
+	helper = store
+[core]
+	excludesFile = ~/.master-gitignore
+	editor = nvim
+	pager = delta
+[commit]
+	template = ~/.stCommitMsg
+[merge]
+    tool = vscode
+[mergetool "vscode"]
+    cmd = code --wait $MERGED
+[mergetool]
+  prompt = false
+  keepBackup = false
+
