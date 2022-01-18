@@ -7,6 +7,8 @@
 	excludesFile = /Users/filiphalas/.master-gitignore
 	editor = nvim
 	pager = delta
+[interactive]
+	diffFilter = delta --color-only # delta
 [commit]
 	template = /Users/filiphalas/.stCommitMsg
 	# define command which will be used when "nvim" is set as a merge tool
@@ -16,6 +18,7 @@
 ;   tool = nvim
 [merge]
     tool = vscode
+    conflictstyle = diff3
 [mergetool "vscode"]
     cmd = code --wait $MERGED
 # automatically launch merge tool without displaying a prompt

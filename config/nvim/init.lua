@@ -136,19 +136,6 @@ u.nmap('gx', ':!open <c-r><c-a>')
 vim.g.nvim_tree_show_icons = { git = 1, folders = 1, files = 1, folder_arrows = 1 }
 vim.g.nvim_tree_icons = { folder = { arrow_open = "", arrow_closed = "" } }
 u.nmap('<C-n>', ':NvimTreeFindFileToggle<CR>')
--- fzf
-u.nmap('<leader>fb', '<cmd>Buffers<cr>')
-u.nmap('<leader>fh', '<cmd>Help<cr>')
-u.nmap('<leader>aa', '<cmd>Commands<cr>')
-u.nmap('<leader>s', ':RG<cr>')
-u.nmap('<C-p>', ':Files<cr>')
-vim.env.FZF_DEFAULT_COMMAND = 'rg --files --hidden --glob "!.git/*"'
-vim.g.fzf_preview_command = 'bat --color=always --plain {-1}'
-vim.g.fzf_preview_lines_command = 'bat --color=always --plain --number'
-vim.g.gitblame_enabled = 0
--- :Rg but ignore filenames
-vim.cmd("command! -bang -nargs=* RG call fzf#vim#grep(\"rg --column --line-number --no-heading --color=always --smart-case \".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)")
--- command! -bang -nargs=* RG call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
 u.nmap("<leader>ps", ":PackerSync<CR>")
 
@@ -162,5 +149,6 @@ require "lsp/cmp-config"
 require "plugins"
 
 vim.g.neon_style = "doom"
+vim.g.sonokai_style = "atlantis"  -- https://github.com/sainnhe/sonokai
 -- vim.g.neon_style = "default" -- dark -> default | doom -> light
 cmd('colorscheme nightfly')

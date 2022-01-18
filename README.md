@@ -27,7 +27,7 @@ I am using [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
 ## Dependencies
 
 1. Brew packages:
-    - `brew install bat ripgrep neovim tmux tmuxinator ranger spotify-tui yarn htop autojump`
+    - `brew install fzf bat delta ripgrep neovim tmux tmuxinator ranger spotify-tui yarn htop autojump`
 2. [Tmux plugin manager](https://github.com/tmux-plugins/tpm)
 3. LSP servers: 
     - `yarn global add vscode-langservers-extracted`

@@ -2,6 +2,11 @@ local u = require("utils")
 
 local api = vim.api
 
+local split = function(direction)
+    vim.cmd("wincmd " .. direction)
+    return api.nvim_get_current_win()
+end
+
 -- terminals
 -- always start in insert mode
 vim.cmd("autocmd TermOpen * startinsert")
@@ -49,6 +54,54 @@ end
 vim_commands.load(vim_commands.defaults)
 
 local commands = {}
+
+-- like vsplit, but reuses existing splits
+api.nvim_add_user_command("Vsplit", function(opts)
+    local file = opts.args ~= "" and opts.args or vim.fn.expand("%")
+
+    local current_window = api.nvim_get_current_win()
+    -- check for right split
+    local split_window = split("l")
+    -- no right split; check for left split
+    if split_window == current_window then
+        split_window = split("h")
+    end
+
+    -- no left or right split
+    if split_window == current_window then
+        vim.cmd("vsplit " .. file)
+        return
+    end
+
+    local bufnr = vim.fn.bufadd(file)
+    api.nvim_win_set_buf(split_window, bufnr)
+end, {
+    nargs = 1,
+    complete = "file",
+})
+
+-- same but for split
+api.nvim_add_user_command("Split", function(opts)
+    local file = opts.args ~= "" and opts.args or vim.fn.expand("%")
+
+    local current_window = api.nvim_get_current_win()
+    local split_window = split("k")
+    if split_window == current_window then
+        split_window = split("j")
+    end
+
+    -- no left or right split
+    if split_window == current_window then
+        vim.cmd("split " .. file)
+        return
+    end
+
+    local bufnr = vim.fn.bufadd(file)
+    api.nvim_win_set_buf(split_window, bufnr)
+end, {
+    nargs = 1,
+    complete = "file",
+})
 
 -- opens matching test file
 commands.edit_test_file = function(cmd)

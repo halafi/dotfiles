@@ -12,12 +12,6 @@ vim.diagnostic.config({ virtual_text = false, float = border_opts })
 lsp.handlers["textDocument/signatureHelp"] = lsp.with(lsp.handlers.signature_help, border_opts)
 lsp.handlers["textDocument/hover"] = lsp.with(lsp.handlers.hover, border_opts)
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics, {
-        virtual_text = false
-    }
-)
-
 -- customization
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
@@ -56,11 +50,6 @@ local on_attach = function(client, bufnr)
   -- fixes
   u.buf_map(bufnr, "n", "<Leader>q", ":LspDiagQuickfix<CR>")
   u.buf_map(bufnr, "n", "<leader>ca", ":LspCodeAction<CR>")
-
-  -- autoformat on save
-  -- if client.resolved_capabilities.document_formatting then
-  --     u.lua_command("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
-  -- end
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

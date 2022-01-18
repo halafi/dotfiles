@@ -15,6 +15,7 @@ return require('packer').startup(function()
   -- themes (sorted by contrast)
   use({
     "dracula/vim", -- high contrast
+    "sainnhe/sonokai",
     "bluz71/vim-nightfly-guicolors",
     "rafamadriz/neon"
   })
@@ -35,8 +36,7 @@ return require('packer').startup(function()
   use_with_config("francoiscabrol/ranger.vim", "ranger")
   use("rbgrouleff/bclose.vim")
 
-  use { 'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
-  use { 'junegunn/fzf.vim' }
+  use_with_config("ibhagwan/fzf-lua", "fzf") -- better lua version of fzf.vim
   -- status bar, tree
   use("kyazdani42/nvim-web-devicons")
   use_with_config("nvim-lualine/lualine.nvim", 'lualine')
@@ -65,7 +65,7 @@ return require('packer').startup(function()
       config = config("treesitter"),
   })
   -- text objects
-  use("wellle/targets.vim") -- disabled for now
+  use("wellle/targets.vim")
   use({
       'RRethy/nvim-treesitter-textsubjects',
       ft = { "lua", "typescript", "typescriptreact" },
