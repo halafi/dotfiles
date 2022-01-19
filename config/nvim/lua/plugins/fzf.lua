@@ -4,6 +4,7 @@ require("fzf-lua").setup({
     winopts = {
         preview = {
             scrollbar = false,
+            horizontal = 'right:50%',
         },
     },
     fzf_opts = {

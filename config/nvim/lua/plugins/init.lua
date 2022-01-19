@@ -75,12 +75,17 @@ return require('packer').startup(function()
   use({ "JoosepAlviste/nvim-ts-context-commentstring", ft = { "typescript", "typescriptreact" } }) -- makes jsx comments actually work
   use({ "windwp/nvim-ts-autotag", ft = { "typescript", "typescriptreact" } }) -- automatically close jsx tags
 
+  -- registers
+  use_with_config("svermeulen/vim-subversive", "subversive") -- adds substitute operator
+  use_with_config("svermeulen/vim-cutlass", "cutlass") -- separates cut and delete operations
+  use_with_config("svermeulen/vim-yoink", "yoink") -- improves paste
+
   -- additional functionality
   use_with_config("windwp/nvim-autopairs", "autopairs")
   use("bronson/vim-visual-star-search") -- star search your visual selection
   use_with_config("norcalli/nvim-colorizer.lua", "colorizer")
   use_with_config("andymass/vim-matchup", "matchup") -- improves %, replaces matchit
-  use("vimwiki/vimwiki")
+  -- use("vimwiki/vimwiki")
 
   -- perf
   use_with_config("nathom/filetype.nvim", "filetype") -- greatly reduces startup time

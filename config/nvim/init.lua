@@ -110,8 +110,6 @@ u.nmap('<leader>bdd', ':w <bar> %bd <bar> e# <bar> bd# <CR>')
 u.nmap('<Esc>', ':noh<return><esc>')
 -- fix: map S-Tab to ctrl+d in insert mode
 u.imap('<S-Tab>', '<c-d>')
--- Substitute the word under the cursor.
-u.nmap('<leader>S', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>')
 
 -- fix the & substitution repetition - TODO: remember what it was for (book)
 -- u.nmap('&', ':&&')
