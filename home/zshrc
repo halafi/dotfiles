@@ -121,8 +121,6 @@ elif type compctl &>/dev/null; then
 fi
 ###-end-pm2-completion-###
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 export PATH="$HOME/.poetry/bin:$PATH"
 eval "$(pyenv init --path)"
 

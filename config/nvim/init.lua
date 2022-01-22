@@ -117,12 +117,6 @@ u.nmap('<C-Right>', ':vertical resize +2<CR>')
 -- open links (somewhat works)
 -- u.nmap('gx', ':!open <c-r><c-a>',{ silent = false })
 
--- Ultisnips
--- vim.g.UltiSnipsExpandTrigger = "<leader>++"
--- vim.g.UltiSnipsJumpForwardTrigger = "<c-j>"
--- vim.g.UltiSnipsJumpBackwardTrigger = "<c-k>"
--- vim.g.UltiSnipsEditSplit = "horizontal"
-
 -- not perfect url open
 u.nmap('gx', ':!open <c-r><c-a>')
 u.nmap("<leader>ps", ":PackerSync<CR>")

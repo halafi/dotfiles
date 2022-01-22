@@ -6,9 +6,6 @@ cmp.setup {
          expand = function(args)
             vim.fn["vsnip#anonymous"](args.body)
          end,
-         -- expand = function(args)
-         --    vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-         -- end,
       },
       mapping = {
            ['<C-j>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
@@ -23,8 +20,6 @@ cmp.setup {
              behavior = cmp.ConfirmBehavior.Replace,
              select = true,
            })
-           -- ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-           -- ['<C-f>'] = cmp.mapping.scroll_docs(4),
       },
       formatting = {
          format = lspkind.cmp_format {
@@ -40,7 +35,6 @@ cmp.setup {
          { name = "nvim_lsp"},
          { name = "path" },
          { name = "buffer" , keyword_length = 5},
-         -- { name = "ultisnips"},
          { name = "vsnip", priority = 9999 },
 
       },

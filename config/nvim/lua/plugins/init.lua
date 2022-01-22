@@ -54,8 +54,6 @@ return require('packer').startup(function()
   -- snippets
   use_with_config('hrsh7th/vim-vsnip', 'vsnip')
   use('hrsh7th/cmp-vsnip')
-  -- use("SirVer/ultisnips")
-  -- use("quangnguyen30192/cmp-nvim-ultisnips")
   -- json
   use("b0o/schemastore.nvim") -- simple access to json-language-server schemae
 
