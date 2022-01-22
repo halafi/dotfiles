@@ -15,9 +15,8 @@ return require('packer').startup(function()
   -- themes (sorted by contrast)
   use({
     "dracula/vim", -- high contrast
-    "sainnhe/sonokai",
     "bluz71/vim-nightfly-guicolors",
-    "rafamadriz/neon"
+    "rafamadriz/neon",
   })
   use("mhinz/vim-startify")
   -- basic
@@ -39,8 +38,8 @@ return require('packer').startup(function()
   use_with_config("ibhagwan/fzf-lua", "fzf") -- better lua version of fzf.vim
   -- status bar, tree
   use("kyazdani42/nvim-web-devicons")
-  use_with_config("nvim-lualine/lualine.nvim", 'lualine')
-  use_with_config("kyazdani42/nvim-tree.lua", 'nvim-tree')
+  -- use_with_config("nvim-lualine/lualine.nvim", 'lualine')
+  -- use_with_config("kyazdani42/nvim-tree.lua", 'nvim-tree')
 
   -- lsp + autocmoplete
   use("neovim/nvim-lspconfig")
@@ -53,8 +52,10 @@ return require('packer').startup(function()
   use("jose-elias-alvarez/null-ls.nvim")
   use("jose-elias-alvarez/nvim-lsp-ts-utils")
   -- snippets
-  use("SirVer/ultisnips")
-  use("quangnguyen30192/cmp-nvim-ultisnips")
+  use_with_config('hrsh7th/vim-vsnip', 'vsnip')
+  use('hrsh7th/cmp-vsnip')
+  -- use("SirVer/ultisnips")
+  -- use("quangnguyen30192/cmp-nvim-ultisnips")
   -- json
   use("b0o/schemastore.nvim") -- simple access to json-language-server schemae
 

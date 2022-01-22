@@ -2,13 +2,27 @@ local u = require("utils")
 
 require("fzf-lua").setup({
     winopts = {
+        width = 0.85,
         preview = {
+            default = 'bat', -- faster than normal
+            delay = 20, -- bat is fast
             scrollbar = false,
-            horizontal = 'right:50%',
+            horizontal = 'right:45%',
+            border = 'noborder',
+            winopts = {
+                number = false,
+            },
         },
     },
     fzf_opts = {
         ["--layout"] = "default",
+    },
+    previewers = {
+        bat = {
+          cmd = "bat",
+          args = "--style=changes,numbers --color always",
+          theme = 'Dracula', -- bat preview theme (bat --list-themes)
+        },
     },
     files = {
         actions = {
@@ -53,7 +67,7 @@ u.nmap("<Leader>fh", "<cmd>HelpTags<CR>")
 -- u.nmap("<Leader>fl", "<cmd>BLines<CR>")
 u.nmap("<Leader>fc", "<cmd>BCommits<CR>")
 u.nmap("<Leader>aa", "<cmd>Commands<CR>")
-u.nmap("<leader><leader>", "<cmd>Buffers<CR>")
+u.nmap("<Leader><Leader>", "<cmd>Buffers<CR>")
 
 u.lua_command("LspDef", "require('fzf-lua').lsp_definitions({ jump_to_single_result = true })")
 u.command("LspRef", "FzfLua lsp_references")

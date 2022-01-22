@@ -4,8 +4,11 @@ local cmp = require'cmp'
 cmp.setup {
       snippet = {
          expand = function(args)
-            vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+            vim.fn["vsnip#anonymous"](args.body)
          end,
+         -- expand = function(args)
+         --    vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+         -- end,
       },
       mapping = {
            ['<C-j>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
@@ -37,7 +40,9 @@ cmp.setup {
          { name = "nvim_lsp"},
          { name = "path" },
          { name = "buffer" , keyword_length = 5},
-         { name = "ultisnips"},
+         -- { name = "ultisnips"},
+         { name = "vsnip", priority = 9999 },
+
       },
       experimental = {
          ghost_text = true

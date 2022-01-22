@@ -22,5 +22,8 @@
     ~/.config/nvim/lua:
       glob: true
       path: config/nvim/lua/*
+    ~/.config/nvim/snippets:
+      glob: true
+      path: config/nvim/snippets/*
     # lazygit
     ~/Library/Application Support/lazygit/config.yml: config/lazygit/config.yml
