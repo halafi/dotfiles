@@ -94,6 +94,8 @@ u.nmap("<LocalLeader>o", ":tabonly<CR>")
 
 u.imap('jk', "<Esc>")
 u.imap('jj', "<Esc>")
+u.imap('kj', "<Esc>")
+u.imap('kk', "<Esc>")
 u.tmap("<C-o>", "<C-\\><C-n>") -- exit terminal
 -- make useless key useful
 u.nmap("§", "%", { noremap = false }) -- <tab> breaks <C-I> mapping

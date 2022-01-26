@@ -1,3 +1,9 @@
+local u = require("utils")
+
+vim.g.nvim_tree_icons = { folder = { arrow_open = "", arrow_closed = "" } }
+
+u.nmap("<C-n>", ":NvimTreeFindFileToggle<CR>")
+
 require'nvim-tree'.setup {
   view = {
     width = 45,

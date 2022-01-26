@@ -39,7 +39,7 @@ return require('packer').startup(function()
   -- status bar, tree
   use("kyazdani42/nvim-web-devicons")
   use_with_config("nvim-lualine/lualine.nvim", 'lualine')
-  -- use_with_config("kyazdani42/nvim-tree.lua", 'nvim-tree')
+  use_with_config("kyazdani42/nvim-tree.lua", 'nvim-tree')
 
   -- lsp + autocmoplete
   use("neovim/nvim-lspconfig")
