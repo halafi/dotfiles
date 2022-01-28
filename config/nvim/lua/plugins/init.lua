@@ -16,7 +16,6 @@ return require('packer').startup(function()
   use({
     "dracula/vim", -- high contrast
     "bluz71/vim-nightfly-guicolors",
-    "rafamadriz/neon",
   })
   use("mhinz/vim-startify")
   -- basic

@@ -86,6 +86,9 @@ u.xmap("L", "$")
 u.xmap(">", ">gv")
 u.xmap("<", "<gv")
 
+-- react
+u.nmap("<leader>pr", "/type Props<CR>")
+
 -- tabs
 u.nmap("<LocalLeader>t", ":tabnew<CR>")
 u.nmap("<LocalLeader>T", ":tabedit %<CR>")
@@ -94,8 +97,6 @@ u.nmap("<LocalLeader>o", ":tabonly<CR>")
 
 u.imap('jk', "<Esc>")
 u.imap('jj', "<Esc>")
-u.imap('kj', "<Esc>")
-u.imap('kk', "<Esc>")
 u.tmap("<C-o>", "<C-\\><C-n>") -- exit terminal
 -- make useless key useful
 u.nmap("§", "%", { noremap = false }) -- <tab> breaks <C-I> mapping
@@ -132,5 +133,4 @@ require "lsp"
 require "lsp/cmp-config"
 require "plugins"
 
-vim.g.neon_style = "dark"
 cmd('colorscheme nightfly')
