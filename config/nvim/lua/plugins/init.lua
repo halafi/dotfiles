@@ -79,6 +79,7 @@ return require('packer').startup(function()
   use_with_config("svermeulen/vim-yoink", "yoink") -- improves paste
 
   -- additional functionality
+  use("ggandor/lightspeed.nvim") -- motion, use "s" "dz..." "f . fF"
   use_with_config("windwp/nvim-autopairs", "autopairs")
   use("bronson/vim-visual-star-search") -- star search your visual selection
   use_with_config("norcalli/nvim-colorizer.lua", "colorizer")
