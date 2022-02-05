@@ -22,7 +22,7 @@ return require('packer').startup(function()
   use("tpope/vim-surround")
   use("tpope/vim-repeat")
   use("tpope/vim-obsession")
-  use("tpope/vim-commentary")
+  use_with_config("numToStr/Comment.nvim", "comment")
   -- required by few libs
   use("nvim-lua/plenary.nvim")
   -- editorconfig

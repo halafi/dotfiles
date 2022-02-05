@@ -22,6 +22,10 @@
     "prefix": ["clv"],
     "body": ["console.log('$1:', $1);"]
   },
+  "importReact": {
+    "prefix": ["imr"],
+    "body": ["import React from 'react';"]
+  },
   "typescriptReactFunctionalExportComponent": {
     "key": "typescriptReactFunctionalExportComponent",
     "prefix": "tsrfce",
