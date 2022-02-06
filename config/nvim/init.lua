@@ -1,5 +1,7 @@
 local u = require("utils")
 
+-- needed to work well with fish
+vim.opt.shell = "/bin/bash"
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
