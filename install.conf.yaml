@@ -25,5 +25,9 @@
     ~/.config/nvim/snippets:
       glob: true
       path: config/nvim/snippets/*
+    # other
+    ~/.config/fish:
+      glob: true
+      path: config/fish/*
     # lazygit
     ~/Library/Application Support/lazygit/config.yml: config/lazygit/config.yml

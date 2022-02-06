@@ -131,16 +131,12 @@ eval "$(pyenv init --path)"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
-# lua language server
-export PATH="$HOME/tools/lua-language-server/bin/:$PATH"
 
 export VISUAL=nvim;
 export EDITOR=nvim;
 
 
 source ~/.config/broot/launcher/bash/br
-
-alias luamake=~/tools/lua-language-server/3rd/luamake/luamake
 
 # Created by `pipx` on 2022-02-02 20:57:38
 export PATH="$PATH:~/.local/bin"
