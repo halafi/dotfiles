@@ -135,4 +135,4 @@ require "lsp"
 require "lsp/cmp-config"
 require "plugins"
 
-cmd('colorscheme nightfly')
+cmd('colorscheme chuek')

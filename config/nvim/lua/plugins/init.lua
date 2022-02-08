@@ -15,7 +15,7 @@ return require('packer').startup(function()
   -- themes (sorted by contrast)
   use({
     "dracula/vim", -- high contrast
-    "bluz71/vim-nightfly-guicolors",
+    "halafi/chuek.nvim",
   })
   use("mhinz/vim-startify")
   -- basic
@@ -70,7 +70,7 @@ return require('packer').startup(function()
   })
 
   -- tsx
-  use({ "JoosepAlviste/nvim-ts-context-commentstring", ft = { "typescript", "typescriptreact" } }) -- makes jsx comments actually work
+  use({ "JoosepAlviste/nvim-ts-context-commentstring", ft = { "typescript", "typescriptreact", "lua" } }) -- makes jsx comments actually work
   use({ "windwp/nvim-ts-autotag", ft = { "typescript", "typescriptreact" } }) -- automatically close jsx tags
 
   -- registers
