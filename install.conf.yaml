@@ -29,5 +29,8 @@
     ~/.config/fish:
       glob: true
       path: config/fish/*
+    ~/.config/omf:
+      glob: true
+      path: config/omf/*
     # lazygit
     ~/Library/Application Support/lazygit/config.yml: config/lazygit/config.yml

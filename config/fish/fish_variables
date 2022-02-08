@@ -1,5 +1,11 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export EDITOR:nvim
+SETUVAR --export GOBIN:/Users/filiphalas/go\x2dworkspace/bin
+SETUVAR --export --path GOPATH:/Users/filiphalas/go\x2dworkspace
+SETUVAR --export GOROOT:/usr/local/opt/go/libexec
+SETUVAR --export VIMCONFIG:/Users/filiphalas/\x2econfig/nvim
+SETUVAR --export VISUAL:nvim
 SETUVAR __fish_initialized:3100
 SETUVAR _fish_abbr__2D_:cd\x20\x2d
 SETUVAR _fish_abbr__2E_2E_:cd\x20\x2e\x2e

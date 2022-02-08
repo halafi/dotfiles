@@ -36,5 +36,5 @@ if status --is-interactive
     abbr -a -g gs 'git status'
     abbr -a -g ga 'git add'
     abbr -a -g gb 'git branch'
-    abbr -a -g gaa 'git add -all'
+    abbr -a -g gaa 'git add --all'
 end
