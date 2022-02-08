@@ -12,7 +12,6 @@ SETUVAR _fish_abbr__2E_2E_:cd\x20\x2e\x2e
 SETUVAR _fish_abbr__2E_2E_2E_:cd\x20\x2e\x2e/\x2e\x2e
 SETUVAR _fish_abbr_ll:exa\x20\x2dalhF\x20\x2d\x2dgit
 SETUVAR _fish_abbr_ls:exa
-SETUVAR _fish_abbr_yarnup:yarn\x20upgrade\x2dinteractive\x20\x2d\x2dlatest
 SETUVAR fish_color_autosuggestion:BD93F9
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:F8F8F2
