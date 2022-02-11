@@ -68,7 +68,7 @@ M.send_command = function(cmd)
     if not pane_is_valid() then
         local nvim_pane_id = get_pane_id()
 
-        send_tmux_cmd("split-window -p 30")
+        send_tmux_cmd("split-window -p 20")
         linked_pane_id = get_pane_id()
 
         send_tmux_cmd("select-pane -t " .. nvim_pane_id)
