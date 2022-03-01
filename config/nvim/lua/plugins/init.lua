@@ -16,6 +16,7 @@ return require('packer').startup(function()
   use({
     "dracula/vim", -- high contrast
     "halafi/chuek.nvim",
+    "rafamadriz/neon"
   })
   use("mhinz/vim-startify")
   -- basic

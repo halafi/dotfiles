@@ -135,4 +135,7 @@ require "lsp"
 require "lsp/cmp-config"
 require "plugins"
 
+
+-- vim.g.neon_style = 'dark'
 cmd('colorscheme chuek')
+-- cmd('colorscheme neon')
