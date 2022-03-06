@@ -65,10 +65,7 @@ return require('packer').startup(function()
   })
   -- text objects
   use("wellle/targets.vim")
-  use({
-      'RRethy/nvim-treesitter-textsubjects',
-      ft = { "lua", "typescript", "typescriptreact" },
-  })
+  use("nvim-treesitter/nvim-treesitter-textobjects")
 
   -- tsx
   use({ "JoosepAlviste/nvim-ts-context-commentstring", ft = { "typescript", "typescriptreact", "lua" } }) -- makes jsx comments actually work

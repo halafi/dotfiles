@@ -56,7 +56,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 -- npm i -g vscode-langservers-extracted
-local servers = { 'eslint', 'jsonls', 'null-ls', 'tsserver' }
+local servers = { 'eslint', 'jsonls', 'null-ls', 'tsserver', 'gopls' }
 
 for _, server in ipairs(servers) do
   require("lsp." .. server).setup(on_attach, capabilities)

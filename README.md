@@ -1,7 +1,7 @@
 # dotfiles
 
 My dotfiles for Neovim, tmux, zsh and everything configurable.
-Optimized for web development (React with TypeScript) on macOS Monterey.
+Optimized for web development (React with TypeScript) and Go on macOS Monterey.
 Managed with [Dotbot](https://github.com/anishathalye/dotbot).
 
 ## Terminal
@@ -30,6 +30,7 @@ I am using [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
 3. LSP servers (used by Neovim): 
     - `yarn global add vscode-langservers-extracted`
     - `yarn global add typescript typescript-language-server eslint prettier`
+    - `go install golang.org/x/tools/gopls@latest`
 4. [nvm](https://github.com/nvm-sh/nvm)
 5. OMF packages:
     - `z nvm`
