@@ -92,20 +92,23 @@ M.kill = function()
     send_tmux_cmd("kill-pane -t " .. linked_pane_id)
 end
 
--- M.run_file = function(ft)
---     ft = ft or vim.bo.ft
---     local cmd
---     if ft == "javascript" then
---         cmd = "node"
---     end
---     assert(cmd, "no command found for filetype " .. ft)
+M.run_file = function(ft)
+    ft = ft or vim.bo.ft
+    local cmd
+    if ft == "javascript" then
+        cmd = "node"
+    end
+    if ft == "go" then
+        cmd ="go run"
+    end
+    assert(cmd, "no command found for filetype " .. ft)
 
---     M.send_command(cmd .. " " .. api.nvim_buf_get_name(0))
--- end
+    M.send_command(cmd .. " " .. api.nvim_buf_get_name(0))
+end
 
 u.nmap("<Leader>tn", ":lua require'tmux'.send_command()<CR>")
 u.nmap("<Leader>tt", ":lua require'tmux'.send_last_command()<CR>")
--- u.nmap("<Leader>tr", ":lua require'tmux'.run_file()<CR>")
+u.nmap("<Leader>tr", ":lua require'tmux'.run_file()<CR>")
 
 -- automatically kill pane on exit
 vim.cmd("autocmd VimLeave * silent! lua require'tmux'.kill()")
