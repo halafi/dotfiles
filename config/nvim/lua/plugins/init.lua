@@ -16,7 +16,7 @@ return require('packer').startup(function()
   use({
     "dracula/vim", -- high contrast
     "halafi/chuek.nvim",
-    "rafamadriz/neon"
+    "folke/tokyonight.nvim"
   })
   use("mhinz/vim-startify")
   -- basic
@@ -46,7 +46,7 @@ return require('packer').startup(function()
   use("hrsh7th/cmp-nvim-lsp")
   use("hrsh7th/cmp-buffer")
   use("hrsh7th/nvim-cmp")
-  use("weilbith/nvim-lsp-smag") -- makes <C-]> work, not a necessity, like a gd }
+  -- use("weilbith/nvim-lsp-smag") -- makes <C-]> work, not a necessity, like a gd }
   -- icons for autocomplete
   use("onsails/lspkind-nvim")
   use("jose-elias-alvarez/null-ls.nvim")
@@ -65,7 +65,13 @@ return require('packer').startup(function()
   })
   -- text objects
   use("wellle/targets.vim")
-  use("nvim-treesitter/nvim-treesitter-textobjects")
+  use("nvim-treesitter/nvim-treesitter-textobjects") -- vif, ]m
+  use({
+      "kana/vim-textobj-user", {
+        "Julian/vim-textobj-variable-segment", -- av/iv for variable segment
+        "michaeljsmith/vim-indent-object", -- ai/ii for indentation area
+      },
+  })
 
   -- tsx
   use({ "JoosepAlviste/nvim-ts-context-commentstring", ft = { "typescript", "typescriptreact", "lua" } }) -- makes jsx comments actually work
@@ -77,6 +83,7 @@ return require('packer').startup(function()
   use_with_config("svermeulen/vim-yoink", "yoink") -- improves paste
 
   -- additional functionality
+  use_with_config("ThePrimeagen/refactoring.nvim", "refactoring")
   use("ggandor/lightspeed.nvim") -- motion, use "s" "dz..." "f . fF"
   use_with_config("windwp/nvim-autopairs", "autopairs")
   use("bronson/vim-visual-star-search") -- star search your visual selection
