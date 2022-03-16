@@ -31,6 +31,7 @@ I am using [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
     - `yarn global add vscode-langservers-extracted`
     - `yarn global add typescript typescript-language-server eslint prettier`
     - `go install golang.org/x/tools/gopls@latest`
+    - `https://jdhao.github.io/2021/08/12/nvim_sumneko_lua_conf/`
 4. [nvm](https://github.com/nvm-sh/nvm)
 5. OMF packages:
     - `z nvm`

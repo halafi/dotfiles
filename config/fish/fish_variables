@@ -40,7 +40,7 @@ SETUVAR fish_pager_color_completion:normal
 SETUVAR fish_pager_color_description:B3A06D\x1eyellow
 SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
-SETUVAR fish_user_paths:/Users/filiphalas/\x2epoetry/bin\x1e/Users/filiphalas/\x2elocal/bin\x1e/usr/local/Caskroom/google\x2dcloud\x2dsdk/latest/google\x2dcloud\x2dsdk/bin\x1e/usr/local/opt/go/libexec/bin\x1e/Users/filiphalas/go\x2dworkspace/bin\x1e/Users/filiphalas/\x2efig/bin
+SETUVAR fish_user_paths:/Users/filiphalas/tools/lua\x2dlanguage\x2dserver/bin\x1e/Users/filiphalas/\x2epoetry/bin\x1e/Users/filiphalas/\x2elocal/bin\x1e/usr/local/Caskroom/google\x2dcloud\x2dsdk/latest/google\x2dcloud\x2dsdk/bin\x1e/usr/local/opt/go/libexec/bin\x1e/Users/filiphalas/go\x2dworkspace/bin\x1e/Users/filiphalas/\x2efig/bin
 SETUVAR pure_begin_prompt_with_current_directory:true
 SETUVAR pure_check_for_new_release:false
 SETUVAR pure_color_at_sign:pure_color_mute

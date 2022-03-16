@@ -23,8 +23,8 @@ vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
 -- scratch files
 vim.cmd("command! Scratch new | setlocal bt=nofile bh=wipe nobl noswapfile nu")
 
-u.command("Git", "tabnew term://lazygit")
-u.nmap("<Leader>g", ":Git<CR>")
+u.command("LazyGit", "tabnew term://lazygit")
+u.nmap("<Leader>g", ":LazyGit<CR>")
 -- u.nmap("<leader>gs", ":Git<CR>")
 u.command("Reload", ":source $VIMCONFIG/init.lua")
 
@@ -176,35 +176,35 @@ end
 vim.cmd("command! -complete=command -nargs=* TestFileOpen lua global.commands.edit_test_file(<f-args>)")
 u.nmap("<Leader>tv", ":TestFileOpen vsplit<CR>")
 
-commands.open_on_github = function(count, start_line, end_line)
-    local remote = u.get_system_output("git remote -v")[1]
-    if remote == "" then
-        u.warn("not in a git repo")
-        return
-    end
-    local username, repo = remote:match(":(%S+)/(%S+)%.")
-    if not (username and repo) then
-        u.warn("failed to get repo info")
-        return
-    end
+-- commands.open_on_github = function(count, start_line, end_line)
+--     local remote = u.get_system_output("git remote -v")[1]
+--     if remote == "" then
+--         u.warn("not in a git repo")
+--         return
+--     end
+--     local username, repo = remote:match(":(%S+)/(%S+)%.")
+--     if not (username and repo) then
+--         u.warn("failed to get repo info")
+--         return
+--     end
+--
+--     local branch = u.get_system_output("git rev-parse --abbrev-ref --symbolic-full-name HEAD")[1]
+--     if branch == "HEAD" then
+--         branch = u.get_system_output("git rev-parse HEAD")[1]
+--     end
+--     local repo_root = u.get_system_output("git rev-parse --show-toplevel")[1] .. "/"
+--     local path = vim.api.nvim_buf_get_name(0):gsub(vim.pesc(repo_root), "")
+--
+--     local url = table.concat({ "https://", username, repo, "blob", branch, path }, "/")
+--     if count > 0 then
+--         local line_template = start_line == end_line and "#L%d" or "#L%d-L%d"
+--         url = url .. string.format(line_template, start_line, end_line)
+--     end
+--
+--     vim.fn.system("open " .. url)
+-- end
 
-    local branch = u.get_system_output("git rev-parse --abbrev-ref --symbolic-full-name HEAD")[1]
-    if branch == "HEAD" then
-        branch = u.get_system_output("git rev-parse HEAD")[1]
-    end
-    local repo_root = u.get_system_output("git rev-parse --show-toplevel")[1] .. "/"
-    local path = vim.api.nvim_buf_get_name(0):gsub(vim.pesc(repo_root), "")
-
-    local url = table.concat({ "https://", username, repo, "blob", branch, path }, "/")
-    if count > 0 then
-        local line_template = start_line == end_line and "#L%d" or "#L%d-L%d"
-        url = url .. string.format(line_template, start_line, end_line)
-    end
-
-    vim.fn.system("open " .. url)
-end
-
-vim.cmd("command! -range GBrowse lua global.commands.open_on_github(<count>, <line1>, <line2>)")
+-- vim.cmd("command! -range GBrowse lua global.commands.open_on_github(<count>, <line1>, <line2>)")
 
 global.commands = commands
 

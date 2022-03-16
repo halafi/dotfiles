@@ -4,6 +4,8 @@ fish_add_path /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin
 # pipx
 fish_add_path ~/.local/bin
 fish_add_path $HOME/.poetry/bin
+fish_add_path $HOME/tools/lua-language-server/bin
+
 
 # disable greeting
 set fish_greeting

@@ -24,6 +24,7 @@ vim.opt.sidescrolloff = 2
 vim.opt.signcolumn = "yes"
 vim.opt.timeoutlen = 500
 vim.opt.hlsearch = true
+-- vim.opt.cursorline = true
 vim.opt.incsearch = true
 vim.opt.hidden = true
 vim.opt.ic = true

@@ -30,6 +30,7 @@ return require('packer').startup(function()
   use("tpope/vim-sleuth")
   use("editorconfig/editorconfig-vim")
   -- git
+  use_with_config("tpope/vim-fugitive", "fugitive")
   use_with_config("lewis6991/gitsigns.nvim", "gitsigns")
   -- file management
   use_with_config("francoiscabrol/ranger.vim", "ranger")
@@ -54,6 +55,8 @@ return require('packer').startup(function()
   -- snippets
   use_with_config('hrsh7th/vim-vsnip', 'vsnip')
   use('hrsh7th/cmp-vsnip')
+  -- lua
+  use("folke/lua-dev.nvim") -- better sumneko_lua settings
   -- json
   use("b0o/schemastore.nvim") -- simple access to json-language-server schemae
 
@@ -93,5 +96,6 @@ return require('packer').startup(function()
 
   -- perf
   use_with_config("nathom/filetype.nvim", "filetype") -- greatly reduces startup time
+
 end)
 

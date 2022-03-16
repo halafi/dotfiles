@@ -1,9 +1,6 @@
 local u = require("utils")
-local nvim_lsp = require('lspconfig')
-local null_ls = require("null-ls")
 
 local lsp = vim.lsp
-local api = vim.api
 
 local border_opts = { border = "single", focusable = false, scope = "line" }
 
@@ -56,7 +53,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 -- npm i -g vscode-langservers-extracted
-local servers = { 'eslint', 'jsonls', 'null-ls', 'tsserver', 'gopls' }
+local servers = { 'eslint', 'jsonls', 'null-ls', 'tsserver', 'sumneko_lua', 'gopls' }
 
 for _, server in ipairs(servers) do
   require("lsp." .. server).setup(on_attach, capabilities)
