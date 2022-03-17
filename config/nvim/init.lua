@@ -1,4 +1,31 @@
+pcall(require, 'impatient')
 local u = require("utils")
+
+local disabled_built_ins = {
+  'netrw',
+  'netrwPlugin',
+  'netrwSettings',
+  'netrwFileHandlers',
+  'gzip',
+  'zip',
+  'zipPlugin',
+  'tar',
+  'tarPlugin',
+  'getscript',
+  'getscriptPlugin',
+  'vimball',
+  'vimballPlugin',
+  '2html_plugin',
+  'logipat',
+  'rrhelper',
+  'spellfile_plugin',
+  'matchit',
+}
+
+vim.tbl_map(function(plugin)
+  vim.g['loaded_' .. plugin] = 1
+end, disabled_built_ins)
+
 
 -- needed to work well with fish
 vim.opt.shell = "/bin/bash"
@@ -88,6 +115,9 @@ u.omap("L", "$")
 u.xmap("L", "$")
 u.xmap(">", ">gv")
 u.xmap("<", "<gv")
+-- Move selected line / block of text in visual mode
+u.xmap("MK", ":move '<-2<CR>gv-gv")
+u.xmap("MJ", ":move '>+1<CR>gv-gv")
 
 -- react
 u.nmap("<leader>pr", "/type Props<CR>")

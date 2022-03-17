@@ -3,6 +3,9 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function()
   -- Packer can manage itself
   use({ "wbthomason/packer.nvim", opt = true })
+  -- impatient.nvim has to be loaded before anything else,
+  -- it's also required in init.lua
+  use('lewis6991/impatient.nvim')
 
   local config = function(name)
       return string.format("require('plugins.%s')", name)
