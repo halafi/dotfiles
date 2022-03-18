@@ -1,7 +1,7 @@
 local api = vim.api
 
 local get_map_options = function(custom_options)
-    local options = { noremap = true, silent = true }
+    local options = { silent = true }
     if custom_options then
         options = vim.tbl_extend("force", options, custom_options)
     end
@@ -11,21 +11,24 @@ end
 local M = {}
 
 M.map = function(mode, target, source, opts)
-    api.nvim_set_keymap(mode, target, source, get_map_options(opts))
+    vim.keymap.set(mode, target, source, get_map_options(opts))
 end
 
-for _, mode in ipairs({ "n", "o", "i", "x", "t" }) do
+for _, mode in ipairs({ "n", "o", "i", "x", "t", "c" }) do
     M[mode .. "map"] = function(...)
         M.map(mode, ...)
     end
 end
 
 M.buf_map = function(bufnr, mode, target, source, opts)
-    api.nvim_buf_set_keymap(bufnr or 0, mode, target, source, get_map_options(opts))
+    opts = opts or {}
+    opts.buffer = bufnr
+
+    M.map(mode, target, source, get_map_options(opts))
 end
 
-M.command = function(name, fn)
-    vim.cmd(string.format("command! %s %s", name, fn))
+M.command = function(name, fn, opts)
+    api.nvim_add_user_command(name, fn, opts or {})
 end
 
 M.lua_command = function(name, fn)
@@ -34,6 +37,15 @@ end
 
 M.t = function(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
+M.gfind = function(str, substr, cb, init)
+    init = init or 1
+    local start_pos, end_pos = str:find(substr, init)
+    if start_pos then
+        cb(start_pos, end_pos)
+        return M.gfind(str, substr, cb, end_pos + 1)
+    end
 end
 
 M.input = function(keys, mode)
@@ -54,8 +66,8 @@ M.is_file = function(path)
 end
 
 M.make_floating_window = function(custom_window_config, height_ratio, width_ratio)
-    height_ratio = height_ratio or 0.8
-    width_ratio = width_ratio or 0.8
+    height_ratio = height_ratio or 0.95
+    width_ratio = width_ratio or 0.95
 
     local height = math.ceil(vim.opt.lines:get() * height_ratio)
     local width = math.ceil(vim.opt.columns:get() * width_ratio)

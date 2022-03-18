@@ -55,6 +55,7 @@ return require('packer').startup(function()
   use("onsails/lspkind-nvim")
   use("jose-elias-alvarez/null-ls.nvim")
   use("jose-elias-alvarez/nvim-lsp-ts-utils")
+  use_with_config("RRethy/vim-illuminate", "illuminate")
   -- snippets
   use_with_config('hrsh7th/vim-vsnip', 'vsnip')
   use('hrsh7th/cmp-vsnip')
@@ -85,8 +86,15 @@ return require('packer').startup(function()
 
   -- registers
   use_with_config("svermeulen/vim-subversive", "subversive") -- adds substitute operator
-  use_with_config("svermeulen/vim-cutlass", "cutlass") -- separates cut and delete operations
+  -- use_with_config("svermeulen/vim-cutlass", "cutlass") -- separates cut and delete operations
   use_with_config("svermeulen/vim-yoink", "yoink") -- improves paste
+  use({
+    "svermeulen/vim-cutlass",
+    requires = {
+        "svermeulen/vim-yoink",
+    },
+    config = config("cutlass"),
+  })
 
   -- additional functionality
   use_with_config("ThePrimeagen/refactoring.nvim", "refactoring")
