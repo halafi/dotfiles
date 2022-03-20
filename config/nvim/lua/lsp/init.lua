@@ -121,9 +121,11 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 -- npm i -g vscode-langservers-extracted
--- TODO: pyright = {}, rust_analyzer = {}, when needed
-local servers = { 'eslint', 'jsonls', 'null-ls', 'tsserver', 'sumneko_lua', 'gopls', 'html' }
+-- TODO: pyright = {}, when needed
+local servers = { 'eslint', 'jsonls', 'null-ls', 'tsserver', 'sumneko_lua', 'gopls', 'html', 'rust_analyzer' }
 
 for _, server in ipairs(servers) do
   require("lsp." .. server).setup(on_attach, capabilities)
 end
+
+require('rust-tools').setup({})

@@ -22,10 +22,13 @@ return require('packer').startup(function()
     "folke/tokyonight.nvim"
   })
   use("mhinz/vim-startify")
+  use_with_config('glepnir/dashboard-nvim', 'dashboard-nvim')
+
+  use_with_config("folke/which-key.nvim", 'which-key')
   -- basic
   use("tpope/vim-surround")
   use("tpope/vim-repeat")
-  use("tpope/vim-obsession")
+  -- use("tpope/vim-obsession")
   use_with_config("numToStr/Comment.nvim", "comment")
   -- required by few libs
   use("nvim-lua/plenary.nvim")
@@ -63,6 +66,38 @@ return require('packer').startup(function()
   use("folke/lua-dev.nvim") -- better sumneko_lua settings
   -- json
   use("b0o/schemastore.nvim") -- simple access to json-language-server schemae
+  -- rust
+  use {
+    "simrat39/rust-tools.nvim",
+    requires = { "nvim-lua/plenary.nvim", "rust-lang/rust.vim" },
+    opt = true,
+    module = "rust-tools",
+    ft = { "rust" },
+    config = function()
+      require("rust-tools").setup()
+    end,
+  }
+
+  -- Debugging (with big d)
+  -- https://alpha2phi.medium.com/neovim-for-beginners-debugging-using-dap-44626a767f57
+  use {
+    "mfussenegger/nvim-dap",
+    opt = true,
+    event = "BufReadPre",
+    module = { "dap" },
+    wants = { "nvim-dap-virtual-text", "DAPInstall.nvim", "nvim-dap-ui", --[[ "which-key.nvim" ]] },
+    requires = {
+      "Pocco81/DAPInstall.nvim",
+      "theHamsta/nvim-dap-virtual-text",
+      "rcarriga/nvim-dap-ui",
+      -- "nvim-telescope/telescope-dap.nvim",
+      { "leoluz/nvim-dap-go", module = "dap-go" },
+      { "jbyuki/one-small-step-for-vimkind", module = "osv" },
+    },
+    config = function() 
+      require("plugins.dap").setup()
+    end,
+  }
 
   -- treesitter
   use({
