@@ -158,6 +158,10 @@ u.nmap("<leader>ps", ":PackerSync<CR>")
 -- initialize global object for config
 global = {}
 
+-- copilot
+vim.g.copilot_assume_mapped = true
+-- vim.g.copilot_no_tab_map = true
+
 require "tmux"
 require "commands"
 require "lsp"
@@ -169,6 +173,7 @@ require "plugins"
 vim.g.tokyonight_style = "storm"
 
 -- vim.g.neon_style = 'dark'
--- cmd('colorscheme chuek')
-cmd('colorscheme tokyonight')
+cmd('colorscheme chuek')
+-- cmd('colorscheme tokyonight')
+-- cmd('colorscheme gruvbox')
 -- cmd('colorscheme neon')

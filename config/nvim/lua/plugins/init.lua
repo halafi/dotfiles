@@ -19,12 +19,12 @@ return require('packer').startup(function()
   use({
     "dracula/vim", -- high contrast
     "halafi/chuek.nvim",
-    "folke/tokyonight.nvim"
+    "folke/tokyonight.nvim",
   })
   use("mhinz/vim-startify")
   use_with_config('glepnir/dashboard-nvim', 'dashboard-nvim')
 
-  use_with_config("folke/which-key.nvim", 'which-key')
+  -- use_with_config("folke/which-key.nvim", 'which-key')
   -- basic
   use("tpope/vim-surround")
   use("tpope/vim-repeat")
@@ -42,7 +42,17 @@ return require('packer').startup(function()
   use_with_config("francoiscabrol/ranger.vim", "ranger")
   use("rbgrouleff/bclose.vim")
 
-  use_with_config("ibhagwan/fzf-lua", "fzf") -- better lua version of fzf.vim
+  -- use_with_config("ibhagwan/fzf-lua", "fzf") -- better lua version of fzf.vim
+  use({
+        "nvim-telescope/telescope.nvim", -- fuzzy finder
+        config = config("telescope"),
+        requires = {
+            {
+                "nvim-telescope/telescope-fzf-native.nvim", -- better algorithm
+                run = "make",
+            },
+        },
+    })
   -- status bar, tree
   use("kyazdani42/nvim-web-devicons")
   use_with_config("nvim-lualine/lualine.nvim", 'lualine')
@@ -52,6 +62,7 @@ return require('packer').startup(function()
   use("neovim/nvim-lspconfig")
   use("hrsh7th/cmp-nvim-lsp")
   use("hrsh7th/cmp-buffer")
+  -- use("hrsh7th/cmp-copilot")
   use("hrsh7th/nvim-cmp")
   -- use("weilbith/nvim-lsp-smag") -- makes <C-]> work, not a necessity, like a gd }
   -- icons for autocomplete
@@ -59,6 +70,7 @@ return require('packer').startup(function()
   use("jose-elias-alvarez/null-ls.nvim")
   use("jose-elias-alvarez/nvim-lsp-ts-utils")
   use_with_config("RRethy/vim-illuminate", "illuminate")
+  use("github/copilot.vim")
   -- snippets
   use_with_config('hrsh7th/vim-vsnip', 'vsnip')
   use('hrsh7th/cmp-vsnip')
@@ -80,24 +92,24 @@ return require('packer').startup(function()
 
   -- Debugging (with big d)
   -- https://alpha2phi.medium.com/neovim-for-beginners-debugging-using-dap-44626a767f57
-  use {
-    "mfussenegger/nvim-dap",
-    opt = true,
-    event = "BufReadPre",
-    module = { "dap" },
-    wants = { "nvim-dap-virtual-text", "DAPInstall.nvim", "nvim-dap-ui", --[[ "which-key.nvim" ]] },
-    requires = {
-      "Pocco81/DAPInstall.nvim",
-      "theHamsta/nvim-dap-virtual-text",
-      "rcarriga/nvim-dap-ui",
-      -- "nvim-telescope/telescope-dap.nvim",
-      { "leoluz/nvim-dap-go", module = "dap-go" },
-      { "jbyuki/one-small-step-for-vimkind", module = "osv" },
-    },
-    config = function() 
-      require("plugins.dap").setup()
-    end,
-  }
+  -- use {
+  --   "mfussenegger/nvim-dap",
+  --   opt = true,
+  --   event = "BufReadPre",
+  --   module = { "dap" },
+  --   wants = { "nvim-dap-virtual-text", "DAPInstall.nvim", "nvim-dap-ui", --[[ "which-key.nvim" ]] },
+  --   requires = {
+  --     "Pocco81/DAPInstall.nvim",
+  --     "theHamsta/nvim-dap-virtual-text",
+  --     "rcarriga/nvim-dap-ui",
+  --     -- "nvim-telescope/telescope-dap.nvim",
+  --     { "leoluz/nvim-dap-go", module = "dap-go" },
+  --     { "jbyuki/one-small-step-for-vimkind", module = "osv" },
+  --   },
+  --   config = function() 
+  --     require("plugins.dap").setup()
+  --   end,
+  -- }
 
   -- treesitter
   use({
