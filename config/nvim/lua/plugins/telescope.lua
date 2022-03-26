@@ -14,6 +14,9 @@ telescope.setup({
         },
     },
     defaults = {
+        -- preview = {
+        --     treesitter = false
+        --  },
         vimgrep_arguments = {
               "rg",
               "--color=never",
@@ -85,7 +88,7 @@ u.command("Buffers", "Telescope buffers")
 u.command("BCommits", "Telescope git_bcommits")
 u.command("Commits", "Telescope git_commits")
 u.command("HelpTags", "Telescope help_tags")
-u.command("Colors", "Telescope colorschemes")
+u.command("Colors", "Telescope colorscheme")
 u.command("Commands", "Telescope commands")
 u.command("Marks", "Telescope marks")
 
@@ -93,7 +96,7 @@ u.command("Marks", "Telescope marks")
 u.nmap("<c-p>", "<cmd>Files<CR>")
 u.nmap("<Leader>ff", "<cmd>Files<CR>")
 u.nmap("<Leader>fr", "<cmd>Rgr<CR>")
-u.nmap("<Leader>fc", "<cmd>Colors<CR>")
+u.nmap("<Leader>fl", "<cmd>Colors<CR>")
 u.nmap("<Leader>fs", "<cmd>Rg<CR>")
 u.nmap("<Leader>fo", "<cmd>History<CR>")
 u.nmap("<Leader>fb", "<cmd>Marks<CR>")

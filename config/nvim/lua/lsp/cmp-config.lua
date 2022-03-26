@@ -39,6 +39,6 @@ cmp.setup {
 
       },
       experimental = {
-         ghost_text = true
+         ghost_text = false -- this feature conflict to the copilot.vim's preview.
       }
 }

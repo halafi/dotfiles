@@ -29,7 +29,7 @@ vim.g.dashboard_custom_shortcut = {
   ['find_history'] = 'SPC f o',
   ['find_file'] = 'Spc f f',
   ['new_file'] = 'Spc c n',
-  ['change_colorscheme'] = 'SPC f c',
+  ['change_colorscheme'] = 'SPC f l',
   ['find_word'] = 'SPC f s',
   ['book_marks'] = 'SPC f b',
  }

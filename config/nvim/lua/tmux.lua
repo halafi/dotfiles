@@ -102,8 +102,10 @@ M.run_file = function(ft)
         cmd ="go run"
     end
     if ft == "rust" then
-        local binary_name = vim.fn.expand("%:r")
-        cmd =("rustc " .. api.nvim_buf_get_name(0) .. " && " .. binary_name)
+        cmd =("cargo build && cargo run")
+        --
+        -- local binary_name = vim.fn.expand("%:r")
+        -- cmd =("rustc " .. api.nvim_buf_get_name(0) .. " && " .. binary_name)
         M.send_command(cmd)
         return
     end

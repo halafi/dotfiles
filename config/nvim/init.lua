@@ -169,11 +169,11 @@ require "lsp/cmp-config"
 require "plugins"
 
 
--- vim.g.tokyonight_style = "night"
-vim.g.tokyonight_style = "storm"
+vim.g.tokyonight_style = "night"
+-- vim.g.tokyonight_style = "storm"
 
 -- vim.g.neon_style = 'dark'
-cmd('colorscheme chuek')
--- cmd('colorscheme tokyonight')
+-- cmd('colorscheme chuek')
+cmd('colorscheme tokyonight')
 -- cmd('colorscheme gruvbox')
 -- cmd('colorscheme neon')
