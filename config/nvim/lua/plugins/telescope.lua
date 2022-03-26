@@ -14,9 +14,8 @@ telescope.setup({
         },
     },
     defaults = {
-        -- preview = {
-        --     treesitter = false
-        --  },
+        -- use if needed
+        -- file_ignore_patterns = { ".spec" },
         vimgrep_arguments = {
               "rg",
               "--color=never",
@@ -24,8 +23,8 @@ telescope.setup({
               "--with-filename",
               "--line-number",
               "--column",
-              "--smart-case",
-              "--trim" -- add this value
+              "--smart-case", -- start case sensitive search with upper case character
+              "--trim"
         },
         layout_config = {
           horizontal = { width = 0.9 },
