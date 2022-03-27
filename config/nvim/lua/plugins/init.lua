@@ -53,6 +53,7 @@ return require('packer').startup(function()
             },
         },
     })
+  use('nvim-telescope/telescope-ui-select.nvim')
   -- status bar, tree
   use("kyazdani42/nvim-web-devicons")
   use_with_config("nvim-lualine/lualine.nvim", 'lualine')
@@ -86,7 +87,7 @@ return require('packer').startup(function()
     module = "rust-tools",
     ft = { "rust" },
     config = function()
-      require("rust-tools").setup()
+      require("plugins.rust-tools").setup()
     end,
   }
 

@@ -1,0 +1,43 @@
+local u = require("utils")
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+local M = {
+   on_attach = function(client, bufnr)
+     -- commands
+     u.lua_command("LspDef",  "vim.lsp.buf.definition()")
+     u.lua_command("LspFormatting", "vim.lsp.buf.formatting()")
+     u.lua_command("LspCodeAction", "vim.lsp.buf.code_action()")
+     u.lua_command("LspHover", "vim.lsp.buf.hover()")
+     u.lua_command("LspRename", "vim.lsp.buf.rename()")
+     u.lua_command("LspRefs", "vim.lsp.buf.references()")
+     u.lua_command("LspTypeDef", "vim.lsp.buf.type_definition()")
+     u.lua_command("LspImplementation", "vim.lsp.buf.implementation()")
+     u.lua_command("LspDiagPrev", "vim.diagnostic.goto_prev()")
+     u.lua_command("LspDiagNext", "vim.diagnostic.goto_next()")
+     u.lua_command("LspDiagLine", "vim.diagnostic.open_float()")
+     u.lua_command("LspSignatureHelp", "vim.lsp.buf.signature_help()")
+     u.lua_command("LspDiagQuickfix", "vim.diagnostic.setqflist()")
+
+     -- bindings
+     u.buf_map(bufnr, "n", "<leader>f", ":LspFormatting<CR>")
+     u.buf_map(bufnr, "n", "gi", ":LspRename<CR>")
+     u.buf_map(bufnr, "n", "gd", ":LspDef<CR>")
+     u.buf_map(bufnr, "n", "gy", ":LspTypeDef<CR>")
+     -- u.buf_map(bufnr, "n", "gi", ":LspImplementation<CR>")
+     u.buf_map(bufnr, "n", "gR", ":LspRefs<CR>")
+     u.buf_map(bufnr, "n", "K", ":LspHover<CR>")
+     u.buf_map(bufnr, "n", "[d", ":LspDiagPrev<CR>")
+     u.buf_map(bufnr, "n", "]d", ":LspDiagNext<CR>")
+     u.buf_map(bufnr, "n", "<leader>d", ":LspDiagLine<CR>")
+     u.buf_map(bufnr, "i", "<C-x><C-x>", "<cmd> LspSignatureHelp<CR>")
+     -- fixes
+     u.buf_map(bufnr, "n", "<Leader>q", ":LspDiagQuickfix<CR>")
+     u.buf_map(bufnr, "n", "<leader>ca", ":LspCodeAction<CR>")
+
+     require("illuminate").on_attach(client)
+   end,
+   capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+}
+
+return M;

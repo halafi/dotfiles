@@ -8,6 +8,9 @@ cmp.setup {
          end,
       },
       mapping = {
+          ['<C-g>'] = cmp.mapping(function(fallback)
+        vim.api.nvim_feedkeys(vim.fn['copilot#Accept'](vim.api.nvim_replace_termcodes('<Tab>', true, true, true)), 'n', true)
+      end),
            ['<C-j>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
            ['<C-k>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
            ['<C-l>'] = cmp.mapping.complete(),
@@ -35,10 +38,11 @@ cmp.setup {
          { name = "nvim_lsp"},
          { name = "path" },
          { name = "buffer" , keyword_length = 5},
-         { name = "vsnip", priority = 9999 },
-
+         { name = "vsnip", priority = 9998 },
+         -- { name = 'copilot', priority = 9999 }
       },
       experimental = {
+         -- ghost_text = true
          ghost_text = false -- this feature conflict to the copilot.vim's preview.
       }
 }
