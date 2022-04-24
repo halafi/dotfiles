@@ -160,7 +160,7 @@ global = {}
 
 -- copilot
 vim.g.copilot_assume_mapped = true
--- vim.g.copilot_no_tab_map = true
+vim.g.copilot_no_tab_map = true
 
 require "tmux"
 require "commands"
@@ -169,11 +169,13 @@ require "lsp/cmp-config"
 require "plugins"
 
 
-vim.g.tokyonight_style = "night"
--- vim.g.tokyonight_style = "storm"
-
+-- vim.g.tokyonight_style = "night"
+vim.g.tokyonight_style = "storm"
+vim.g.vscode_style = "dark"
 -- vim.g.neon_style = 'dark'
+
 -- cmd('colorscheme chuek')
-cmd('colorscheme tokyonight')
+-- cmd('colorscheme tokyonight')
+cmd('colorscheme vscode')
 -- cmd('colorscheme gruvbox')
 -- cmd('colorscheme neon')

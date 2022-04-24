@@ -28,7 +28,7 @@ M.buf_map = function(bufnr, mode, target, source, opts)
 end
 
 M.command = function(name, fn, opts)
-    api.nvim_add_user_command(name, fn, opts or {})
+    api.nvim_create_user_command(name, fn, opts or {})
 end
 
 M.lua_command = function(name, fn)

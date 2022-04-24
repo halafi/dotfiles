@@ -56,7 +56,7 @@ vim_commands.load(vim_commands.defaults)
 local commands = {}
 
 -- like vsplit, but reuses existing splits
-api.nvim_add_user_command("Vsplit", function(opts)
+api.nvim_create_user_command("Vsplit", function(opts)
     local file = opts.args ~= "" and opts.args or vim.fn.expand("%")
 
     local current_window = api.nvim_get_current_win()
@@ -81,7 +81,7 @@ end, {
 })
 
 -- same but for split
-api.nvim_add_user_command("Split", function(opts)
+api.nvim_create_user_command("Split", function(opts)
     local file = opts.args ~= "" and opts.args or vim.fn.expand("%")
 
     local current_window = api.nvim_get_current_win()

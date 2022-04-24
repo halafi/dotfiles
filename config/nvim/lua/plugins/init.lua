@@ -20,6 +20,8 @@ return require('packer').startup(function()
     "dracula/vim", -- high contrast
     "halafi/chuek.nvim",
     "folke/tokyonight.nvim",
+    "ellisonleao/gruvbox.nvim",
+    "Mofiqul/vscode.nvim"
   })
   use("mhinz/vim-startify")
   use_with_config('glepnir/dashboard-nvim', 'dashboard-nvim')

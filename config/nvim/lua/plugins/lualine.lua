@@ -1,4 +1,5 @@
--- https://github.com/nvim-lualine/lualine.nvim
+local u = require("utils")
+
 require'lualine'.setup({
    options = {
     icons_enabled = true,
@@ -55,3 +56,9 @@ require'lualine'.setup({
      'fzf', 'nvim-tree'
   }
 })
+
+u.nmap("<A-[>", ":bp<CR>")
+u.nmap("<A-]>", ":bn<CR>")
+u.nmap("<A-1>", ":bf<CR>")
+u.nmap("<A-9>", ":bl<CR>")
+u.nmap('<A-d>', ':bd<CR>')
