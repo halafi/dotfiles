@@ -1,7 +1,7 @@
 # dotfiles
 
-My dotfiles for Neovim, tmux, zsh and everything configurable.
-Setup mainly for web development (React with TypeScript), Go and Rust on macOS Monterey.
+My dotfiles for Neovim, tmux, fish and everything configurable.
+Setup for web development (React with TypeScript), Go, Lua and Rust on macOS Monterey.
 Managed with [Dotbot](https://github.com/anishathalye/dotbot).
 
 ## Terminal
@@ -11,16 +11,14 @@ I am using [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
 - [Fish](https://github.com/fish-shell/fish-shell) 🐟 with [ohmyfish](https://github.com/oh-my-fish/oh-my-fish)
 
 - Neovim on its [master branch](https://github.com/neovim/neovim/commits/master)
-  for programming, text editting, writing and medium-term note taking
   
 - Neovim LSP client with several LSP servers installed
 
-- [tmux](https://github.com/tmux/tmux) +
-  [tmuxinator](https://github.com/tmuxinator/tmuxinator) to manage sessions
+- [tmux](https://github.com/tmux/tmux) (no session management at the moment)
 
 - [Ranger](https://github.com/ranger/ranger) for file management
 
-- [lazygit](https://github.com/jesseduffield/lazygit)
+- [lazygit](https://github.com/jesseduffield/lazygit) to give some GUI to git commands
 
 ## Dependencies
 
@@ -36,4 +34,8 @@ I am using [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
 4. [nvm](https://github.com/nvm-sh/nvm)
 5. OMF packages:
     - `z nvm`
+
+### Markdown Preview Dependencies
+1. `brew install pandoc`
+2. `npm i -g live-server`
 
