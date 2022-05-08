@@ -6,6 +6,8 @@ vim.g.Hexokinase_ftEnabled = {
     "scss",
     "typescript",
     "typescriptreact",
+    "conf",
+    "tmux"
 }
 
 vim.g.Hexokinase_optInPatterns = {
