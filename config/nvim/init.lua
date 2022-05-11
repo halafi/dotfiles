@@ -87,12 +87,10 @@ local cmd = vim.api.nvim_command
 cmd('highlight! link TermCursor Cursor')
 cmd('highlight! TermCursorNC guibg=gray guifg=black ctermbg =1 ctermfg = 15')
 
-u.nmap("[b", ":bp<CR>")
-u.nmap("]b", ":bn<CR>")
+u.nmap("[T", ":tabfirst<CR>")
+u.nmap("]T", ":tablast<CR>")
 u.nmap("[t", ":tabprev<CR>")
 u.nmap("]t", ":tabnext<CR>")
-u.nmap("[q", ":cp<CR>")
-u.nmap("]q", ":cn<CR>")
 
 u.nmap("<Leader>wq", ":wincmd q<CR>")
 u.nmap("<C-q>", ":call QuickFixToggle()<CR>")

@@ -29,6 +29,7 @@ return require('packer').startup(function()
   -- use_with_config("folke/which-key.nvim", 'which-key')
   -- basic
   use("tpope/vim-surround")
+  use("tpope/vim-unimpaired")
   use("tpope/vim-repeat")
   -- use("tpope/vim-obsession")
   use_with_config("numToStr/Comment.nvim", "comment")
@@ -38,7 +39,12 @@ return require('packer').startup(function()
   use("tpope/vim-sleuth")
   use("editorconfig/editorconfig-vim")
   -- git
-  use_with_config("tpope/vim-fugitive", "fugitive")
+  -- use_with_config("tpope/vim-fugitive", "fugitive")
+  use({
+    "tpope/vim-fugitive",
+    requires = { "tpope/vim-rhubarb", "junegunn/gv.vim" },
+    config = config("fugitive"),
+  })
   use_with_config("lewis6991/gitsigns.nvim", "gitsigns")
   -- file management
   use_with_config("francoiscabrol/ranger.vim", "ranger")
@@ -150,6 +156,7 @@ return require('packer').startup(function()
   use_with_config("ThePrimeagen/refactoring.nvim", "refactoring")
   use("ggandor/lightspeed.nvim") -- motion, use "s" "dz..." "f . fF"
   use_with_config("windwp/nvim-autopairs", "autopairs")
+  use_with_config("simnalamburt/vim-mundo", "mundo") -- undo tree visualization
   use("bronson/vim-visual-star-search") -- star search your visual selection
    -- highlight color codes
   use({ "RRethy/vim-hexokinase", config = config("hexokinase"), run = "make hexokinase" })

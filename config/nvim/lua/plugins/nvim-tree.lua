@@ -17,4 +17,9 @@ require'nvim-tree'.setup {
     number = false,
     relativenumber = false
   },
+  actions = {
+    open_file = {
+      resize_window = true,
+    }
+  }
 }

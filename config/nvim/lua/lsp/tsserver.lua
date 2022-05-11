@@ -19,8 +19,8 @@ M.setup = function(on_attach, capabilities)
         init_options = ts_utils.init_options,
         on_attach = function(client, bufnr)
             -- prettier
-            client.resolved_capabilities.document_formatting = false
-            client.resolved_capabilities.document_range_formatting = false
+            client.server_capabilities.document_formatting = false
+            client.server_capabilities.document_range_formatting = false
 
             on_attach(client, bufnr)
 
