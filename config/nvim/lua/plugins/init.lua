@@ -46,6 +46,7 @@ return require('packer').startup(function()
     config = config("fugitive"),
   })
   use_with_config("lewis6991/gitsigns.nvim", "gitsigns")
+  use('rhysd/conflict-marker.vim')
   -- file management
   use_with_config("francoiscabrol/ranger.vim", "ranger")
   use("rbgrouleff/bclose.vim")
@@ -156,7 +157,6 @@ return require('packer').startup(function()
   use_with_config("ThePrimeagen/refactoring.nvim", "refactoring")
   use("ggandor/lightspeed.nvim") -- motion, use "s" "dz..." "f . fF"
   use_with_config("windwp/nvim-autopairs", "autopairs")
-  use_with_config("simnalamburt/vim-mundo", "mundo") -- undo tree visualization
   use("bronson/vim-visual-star-search") -- star search your visual selection
    -- highlight color codes
   use({ "RRethy/vim-hexokinase", config = config("hexokinase"), run = "make hexokinase" })
