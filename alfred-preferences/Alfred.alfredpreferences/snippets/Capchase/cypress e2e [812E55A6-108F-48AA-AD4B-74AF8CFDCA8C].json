@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "yarn nx run app-e2e:acceptance --watch",
+    "uid" : "812E55A6-108F-48AA-AD4B-74AF8CFDCA8C",
+    "name" : "cypress e2e",
+    "keyword" : "e2e"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "gcloud auth print-access-token\n",
+    "uid" : "F29FCE67-2EB1-41C2-8C4C-CA336EA0BD70",
+    "name" : "token production gcloud",
+    "keyword" : "tokenprod"
+  }
+}

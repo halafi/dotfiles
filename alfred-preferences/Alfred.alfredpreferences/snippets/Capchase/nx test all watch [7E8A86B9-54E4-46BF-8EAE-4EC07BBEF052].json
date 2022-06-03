@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "npx jest -c libs\/domain\/draw\/jest.config.js draw.service.spec.ts --watch\n",
+    "uid" : "7E8A86B9-54E4-46BF-8EAE-4EC07BBEF052",
+    "name" : "nx test all watch",
+    "keyword" : "nxtw"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "sed -i.bak \"s|'\\\\\\\".prisma\/client\\\\\\\"'|'.prisma\/client'|g\" node_modules\/.prisma\/client\/index.js && rm node_modules\/.prisma\/client\/index.js.bak",
+    "uid" : "F2951EFC-C1AE-400B-8A56-27CAED7FF988",
+    "name" : "fix tests sed2",
+    "keyword" : "sed2"
+  }
+}

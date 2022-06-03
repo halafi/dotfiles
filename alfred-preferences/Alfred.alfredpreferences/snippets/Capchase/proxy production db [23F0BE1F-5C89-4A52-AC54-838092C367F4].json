@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "cloud_sql_proxy -instances=capchase:us-east1:clientdb=tcp:0.0.0.0:1234\n",
+    "uid" : "23F0BE1F-5C89-4A52-AC54-838092C367F4",
+    "name" : "proxy production db",
+    "keyword" : "proxyp"
+  }
+}

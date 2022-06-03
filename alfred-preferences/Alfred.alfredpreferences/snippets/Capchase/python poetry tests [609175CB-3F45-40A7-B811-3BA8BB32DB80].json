@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "poetry run pytest tests -s",
+    "uid" : "609175CB-3F45-40A7-B811-3BA8BB32DB80",
+    "name" : "python poetry tests",
+    "keyword" : "potests"
+  }
+}

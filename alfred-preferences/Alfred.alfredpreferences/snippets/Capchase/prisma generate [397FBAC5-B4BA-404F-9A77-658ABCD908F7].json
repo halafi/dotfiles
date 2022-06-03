@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "npx prisma generate",
+    "uid" : "397FBAC5-B4BA-404F-9A77-658ABCD908F7",
+    "name" : "prisma generate",
+    "keyword" : "pgen"
+  }
+}

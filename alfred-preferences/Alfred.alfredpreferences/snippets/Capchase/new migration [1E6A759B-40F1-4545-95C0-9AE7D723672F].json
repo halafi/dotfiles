@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "yarn prisma migrate dev\n",
+    "uid" : "1E6A759B-40F1-4545-95C0-9AE7D723672F",
+    "name" : "new migration",
+    "keyword" : "newmig"
+  }
+}

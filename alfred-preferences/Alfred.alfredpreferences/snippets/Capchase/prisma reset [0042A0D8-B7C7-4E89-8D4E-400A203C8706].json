@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "yarn prisma migrate reset\n",
+    "uid" : "0042A0D8-B7C7-4E89-8D4E-400A203C8706",
+    "name" : "prisma reset",
+    "keyword" : "migreset"
+  }
+}
