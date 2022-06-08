@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "DATABASE_URL=\"postgresql:\/\/filip:f1l1p@localhost:25066\/client-db?schema=public\"\n",
+    "uid" : "C7E3DB89-7F18-4CA1-9759-214BCA67FD2F",
+    "name" : "db url stage",
+    "keyword" : "dbstage"
+  }
+}
