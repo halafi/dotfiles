@@ -28,6 +28,7 @@ I am using [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
 0. Install fish: `brew install fish`
 0. Install omf: https://github.com/oh-my-fish/oh-my-fish and `omf install z nvm` (also install nvm itslef https://github.com/nvm-sh/nvm#install--update-script)
 0. Map Tab to Control in Keyboard preferences
+1. Install packer: https://github.com/wbthomason/packer.nvim#quickstart
 2. Brew packages:
     - `brew install fish exa fzf bat delta ripgrep neovim tmux ranger yarn htop lazygit`
 3. [Tmux plugin manager](https://github.com/tmux-plugins/tpm)
