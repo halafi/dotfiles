@@ -20,6 +20,8 @@ I am using [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
 
 - [lazygit](https://github.com/jesseduffield/lazygit) to give some GUI to git commands
 
+- [karabiner elements](https://karabiner-elements.pqrs.org/) to map capslock to control and some other stuff
+
 ## Dependencies
 
 0. Install brew: https://brew.sh/
