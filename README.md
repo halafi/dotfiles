@@ -23,18 +23,18 @@ I am using [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
 ## Dependencies
 
 0. Install brew: https://brew.sh/
-1. Brew packages:
-    - `brew install fish exa fzf bat delta ripgrep neovim tmux ranger yarn htop autojump`
-2. [Tmux plugin manager](https://github.com/tmux-plugins/tpm)
-3. LSP servers (used by Neovim): 
+0. Install fish: `brew install fish`
+0. Install omf: https://github.com/oh-my-fish/oh-my-fish and `omf install z nvm` (also install nvm itslef https://github.com/nvm-sh/nvm#install--update-script)
+2. Brew packages:
+    - `brew install fish exa fzf bat delta ripgrep neovim tmux ranger yarn htop lazygit`
+3. [Tmux plugin manager](https://github.com/tmux-plugins/tpm)
+4. LSP servers (used by Neovim): 
     - `yarn global add vscode-langservers-extracted`
     - `yarn global add typescript typescript-language-server eslint prettier`
     - `go install golang.org/x/tools/gopls@latest`
     - `https://jdhao.github.io/2021/08/12/nvim_sumneko_lua_conf/`
     - `brew install rust-analyzer`
-4. [nvm](https://github.com/nvm-sh/nvm)
-5. OMF packages:
-    - `z nvm`
+5. [nvm](https://github.com/nvm-sh/nvm)
 
 ### Markdown Preview Dependencies
 1. `brew install pandoc`
