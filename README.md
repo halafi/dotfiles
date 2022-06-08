@@ -20,21 +20,26 @@ I am using [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
 
 - [lazygit](https://github.com/jesseduffield/lazygit) to give some GUI to git commands
 
-- [karabiner elements](https://karabiner-elements.pqrs.org/)
+- [karabiner elements](https://karabiner-elements.pqrs.org/) for keyboard tweaks
 
 ## Dependencies
 
-0. Install brew: https://brew.sh/
-0. Install fish: `brew install fish`
-0. Install omf: https://github.com/oh-my-fish/oh-my-fish and `omf install z` (also install nvm itslef https://github.com/nvm-sh/nvm#install--update-script)
-0. Map Tab to Control in Keyboard preferences
+### System
+
+1. Install [brew](https://brew.sh/)
+2. Install fish: `brew install fish`
+3. Install [omf](https://github.com/oh-my-fish/oh-my-fish) and `omf install z`
+4. [config] Map Tab to Control in Keyboard preferences
+
+### Dotfiles
+
 1. Install packer: https://github.com/wbthomason/packer.nvim#quickstart
-2. Install FiraCode font: https://github.com/tonsky/FiraCode/wiki/Installing#macos ([patched with icons](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Retina/complete/Fira%20Code%20Retina%20Nerd%20Font%20Complete.ttf))
-3. Install Go: https://go.dev/doc/install
-5. Brew packages:
+2. Install [FiraCode font patched with icons](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Retina/complete/Fira%20Code%20Retina%20Nerd%20Font%20Complete.ttf)
+3. Install [Go](https://go.dev/doc/install)
+4. Brew packages:
     - `brew install asdf fish exa fzf bat delta ripgrep neovim tmux ranger yarn htop lazygit`
-6. [Tmux plugin manager](https://github.com/tmux-plugins/tpm)
-7. LSP servers (used by Neovim): 
+5. [Tmux plugin manager](https://github.com/tmux-plugins/tpm)
+6. LSP servers (used by Neovim): 
     - `yarn global add vscode-langservers-extracted`
     - `yarn global add typescript typescript-language-server eslint prettier`
     - `go install golang.org/x/tools/gopls@latest`
@@ -45,3 +50,6 @@ I am using [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
 1. `brew install pandoc`
 2. `npm i -g live-server`
 
+## TODOs
+- iterm2 profile backup
+- karabiner elements setup
