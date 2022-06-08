@@ -30,16 +30,17 @@ I am using [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
 0. Map Tab to Control in Keyboard preferences
 1. Install packer: https://github.com/wbthomason/packer.nvim#quickstart
 2. Install FiraCode font: https://github.com/tonsky/FiraCode/wiki/Installing#macos
-3. Brew packages:
+3. Install Go: https://go.dev/doc/install
+4. Brew packages:
     - `brew install fish exa fzf bat delta ripgrep neovim tmux ranger yarn htop lazygit`
-4. [Tmux plugin manager](https://github.com/tmux-plugins/tpm)
-5. LSP servers (used by Neovim): 
+5. [Tmux plugin manager](https://github.com/tmux-plugins/tpm)
+6. LSP servers (used by Neovim): 
     - `yarn global add vscode-langservers-extracted`
     - `yarn global add typescript typescript-language-server eslint prettier`
     - `go install golang.org/x/tools/gopls@latest`
     - `https://jdhao.github.io/2021/08/12/nvim_sumneko_lua_conf/`
     - `brew install rust-analyzer`
-6. [nvm](https://github.com/nvm-sh/nvm)
+7. [nvm](https://github.com/nvm-sh/nvm)
 
 ### Markdown Preview Dependencies
 1. `brew install pandoc`
