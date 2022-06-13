@@ -18,9 +18,7 @@ return require('packer').startup(function()
   -- themes (sorted by contrast)
   use({
     "dracula/vim", -- high contrast
-    "halafi/chuek.nvim",
     "folke/tokyonight.nvim",
-    "ellisonleao/gruvbox.nvim",
     "Mofiqul/vscode.nvim"
   })
   use("mhinz/vim-startify")
@@ -154,7 +152,6 @@ return require('packer').startup(function()
   })
 
   -- additional functionality
-  use_with_config("ThePrimeagen/refactoring.nvim", "refactoring")
   use("ggandor/lightspeed.nvim") -- motion, use "s" "dz..." "f . fF"
   use_with_config("windwp/nvim-autopairs", "autopairs")
   use("bronson/vim-visual-star-search") -- star search your visual selection

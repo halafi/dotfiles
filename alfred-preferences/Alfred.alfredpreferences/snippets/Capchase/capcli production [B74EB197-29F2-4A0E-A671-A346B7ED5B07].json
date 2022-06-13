@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "capcli connect client-db --production --read-only",
+    "uid" : "B74EB197-29F2-4A0E-A671-A346B7ED5B07",
+    "name" : "capcli production",
+    "keyword" : "capprod"
+  }
+}

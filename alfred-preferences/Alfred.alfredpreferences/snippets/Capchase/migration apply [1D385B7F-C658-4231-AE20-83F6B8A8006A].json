@@ -1,6 +1,6 @@
 {
   "alfredsnippet" : {
-    "snippet" : "nx run api:migrate",
+    "snippet" : "yarn nx run api:migrate",
     "uid" : "1D385B7F-C658-4231-AE20-83F6B8A8006A",
     "name" : "migration apply",
     "keyword" : "mig"

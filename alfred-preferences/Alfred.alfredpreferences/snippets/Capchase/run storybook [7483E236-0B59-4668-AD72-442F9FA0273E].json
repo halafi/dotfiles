@@ -1,6 +1,6 @@
 {
   "alfredsnippet" : {
-    "snippet" : "nx run ui:storybook\n",
+    "snippet" : "yarn nx run ui:storybook\n",
     "uid" : "7483E236-0B59-4668-AD72-442F9FA0273E",
     "name" : "run storybook",
     "keyword" : "runsb"

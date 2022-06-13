@@ -7,7 +7,7 @@ if status --is-interactive
 
     # abbr -a -- yarnup 'yarn upgrade-interactive --latest'
 
-    abbr -a -g brewup 'brew update && brew upgrade && brew prune && brew cleanup && brew doctor'
+    abbr -a -g brewup 'brew update && brew upgrade && brew cleanup && brew doctor'
 
     abbr -a -g ext 'exa --tree --level'
 

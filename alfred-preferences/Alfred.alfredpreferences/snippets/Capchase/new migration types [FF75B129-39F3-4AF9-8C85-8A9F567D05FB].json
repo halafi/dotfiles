@@ -1,6 +1,6 @@
 {
   "alfredsnippet" : {
-    "snippet" : "nx run api:generate\n",
+    "snippet" : "yarn nx run api:generate\n",
     "uid" : "FF75B129-39F3-4AF9-8C85-8A9F567D05FB",
     "name" : "new migration types",
     "keyword" : "migtypes"

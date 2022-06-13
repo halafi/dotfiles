@@ -35,6 +35,10 @@ M.lua_command = function(name, fn)
     M.command(name, "lua " .. fn)
 end
 
+M.buf_command = function(bufnr, name, fn, opts)
+    api.nvim_buf_create_user_command(bufnr, name, fn, opts or {})
+end
+
 M.t = function(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
