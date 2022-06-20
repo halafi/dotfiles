@@ -53,5 +53,3 @@ I am using [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
 ### Rust / Cargo
 1. https://doc.rust-lang.org/cargo/getting-started/installation.html
 
-## TODOs
-- iterm2 profile backup
