@@ -37,7 +37,7 @@ I am using [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
 2. Install [FiraCode font patched with icons](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Retina/complete/Fira%20Code%20Retina%20Nerd%20Font%20Complete.ttf)
 3. Install [Go](https://go.dev/doc/install)
 4. Brew packages:
-    - `brew install asdf fish exa fzf bat delta ripgrep neovim tmux ranger yarn htop lazygit`
+    - `brew install asdf fish exa fzf bat git-delta ripgrep neovim tmux ranger yarn htop lazygit`
 5. [Tmux plugin manager](https://github.com/tmux-plugins/tpm)
 6. LSP servers (used by Neovim): 
     - `yarn global add vscode-langservers-extracted`
@@ -49,6 +49,9 @@ I am using [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
 ### Markdown Preview Dependencies
 1. `brew install pandoc`
 2. `npm i -g live-server`
+
+### Rust / Cargo
+1. https://doc.rust-lang.org/cargo/getting-started/installation.html
 
 ## TODOs
 - iterm2 profile backup
