@@ -10,12 +10,13 @@
 [commit]
 	template = ~/.stCommitMsg
 [merge]
-    tool = vscode
+	tool = nvim
+[mergetool "nvim"]
+	cmd = nvim -f \"$MERGED\"
 [mergetool "vscode"]
-    cmd = code --wait $MERGED
+	cmd = code --wait $MERGED
 [mergetool]
-  prompt = false
-  keepBackup = false
-
+	prompt = false
+	keepBackup = false
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
