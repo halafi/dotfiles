@@ -16,7 +16,7 @@ I am using [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
 
 - [tmux](https://github.com/tmux/tmux) (no session management at the moment)
 
-- [Ranger](https://github.com/ranger/ranger) for file management
+- [Ranger](https://github.com/ranger/ranger) for file management, occasionally [Broot](https://github.com/Canop/broot) if I need it
 
 - [lazygit](https://github.com/jesseduffield/lazygit) to give some GUI to git commands
 
@@ -55,4 +55,3 @@ I am using [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
 
 ## TODOs
 - iterm2 profile backup
-- karabiner elements setup
