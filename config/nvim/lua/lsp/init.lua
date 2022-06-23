@@ -15,11 +15,10 @@ for type, icon in pairs(signs) do
 end
 
 -- rust is handled by rust-tools
-local servers = { 'eslint', 'jsonls', 'null-ls', 'tsserver', 'sumneko_lua', 'elixir', 'gopls', 'html' }
+local servers = { 'eslint', 'jsonls', 'null-ls', 'tsserver', 'sumneko_lua', 'pyright', 'elixir', 'gopls', 'html' }
 
 local common = require("lsp.common")
 
 for _, server in ipairs(servers) do
   require("lsp." .. server).setup(common.on_attach, common.capabilities)
 end
-

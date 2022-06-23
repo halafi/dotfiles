@@ -57,3 +57,5 @@ I am using [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
 1. `brew install elixir`
 2. https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#elixirls
 
+### Python + LSP
+1. `yarn global add pyright`

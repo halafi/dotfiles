@@ -59,6 +59,7 @@ require'nvim-treesitter.configs'.setup {
   },
   ensure_installed = {
     "tsx",
+    "javascript",
     "typescript",
     "svelte",
     "html",
@@ -67,7 +68,13 @@ require'nvim-treesitter.configs'.setup {
     "prisma",
     "go",
     "rust",
-    "elixir"
+    "elixir",
+    "lua",
+    "json",
+    "python",
+    "yaml",
+    "fish",
+    "graphql"
   },
 }
 
