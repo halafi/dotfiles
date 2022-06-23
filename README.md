@@ -53,3 +53,7 @@ I am using [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
 ### Rust / Cargo
 1. https://doc.rust-lang.org/cargo/getting-started/installation.html
 
+### Elixir + LSP
+1. `brew install elixir`
+2. https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#elixirls
+

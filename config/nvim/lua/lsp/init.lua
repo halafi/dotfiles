@@ -15,7 +15,7 @@ for type, icon in pairs(signs) do
 end
 
 -- rust is handled by rust-tools
-local servers = { 'eslint', 'jsonls', 'null-ls', 'tsserver', 'sumneko_lua', 'gopls', 'html' }
+local servers = { 'eslint', 'jsonls', 'null-ls', 'tsserver', 'sumneko_lua', 'elixir', 'gopls', 'html' }
 
 local common = require("lsp.common")
 

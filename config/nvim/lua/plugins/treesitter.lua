@@ -63,9 +63,11 @@ require'nvim-treesitter.configs'.setup {
     "svelte",
     "html",
     "scss",
+    "css",
     "prisma",
     "go",
-    "rust"
+    "rust",
+    "elixir"
   },
 }
 

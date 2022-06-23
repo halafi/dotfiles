@@ -101,6 +101,9 @@ M.run_file = function(ft)
     if ft == "go" then
         cmd ="go run"
     end
+    if ft == "elixir" then
+        cmd ="elixir"
+    end
     if ft == "rust" then
         cmd =("cargo build && cargo run")
         --
