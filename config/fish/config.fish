@@ -6,7 +6,9 @@ fish_add_path ~/.local/bin
 fish_add_path $HOME/.poetry/bin
 fish_add_path $HOME/tools/lua-language-server/bin
 fish_add_path $HOME/.cargo/bin
-fish_add_path $(yarn global bin)
+# output of $(yarn global bin)
+fish_add_path /Users/halafi/.asdf/installs/nodejs/16.14.2/.npm/bin
+fish_add_path /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin/
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 source (brew --prefix asdf)/asdf.fish
