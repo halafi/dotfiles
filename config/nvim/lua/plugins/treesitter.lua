@@ -74,7 +74,8 @@ require'nvim-treesitter.configs'.setup {
     "python",
     "yaml",
     "fish",
-    "graphql"
+    "graphql",
+    "heex"
   },
 }
 

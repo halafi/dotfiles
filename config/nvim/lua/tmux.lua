@@ -130,12 +130,13 @@ local test_commands = {
         lua = "FILE=%s make test-file",
         typescript = "npx jest -c apps/app/jest.config.js %s --watch",
         typescriptreact = "npx jest -c apps/app/jest.config.js %s --watch",
+        elixir = "mix test %s",
     },
     suite = {
         lua = "make test",
-
         typescript = "npx nx run app:test-all",
         typescriptreact = "npx nx run app:test-all",
+        elixir = "mix test",
     },
 }
 
