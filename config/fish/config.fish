@@ -12,6 +12,7 @@ fish_add_path /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bi
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 source (brew --prefix asdf)/asdf.fish
+fish_add_path $HOME/Library/Application\ Support/pypoetry/venv/bin
 
 # disable greeting
 set fish_greeting
