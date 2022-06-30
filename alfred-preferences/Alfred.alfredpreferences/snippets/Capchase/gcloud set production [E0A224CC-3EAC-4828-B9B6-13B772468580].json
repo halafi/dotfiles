@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "cloud config set project capchase",
+    "uid" : "E0A224CC-3EAC-4828-B9B6-13B772468580",
+    "name" : "gcloud set production",
+    "keyword" : "gcp"
+  }
+}
