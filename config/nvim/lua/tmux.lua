@@ -101,6 +101,12 @@ M.run_file = function(ft)
     if ft == "go" then
         cmd ="go run"
     end
+    if ft == "clojure" then
+        cmd ="goku"
+        M.send_command(cmd)
+        return
+
+    end
     if ft == "elixir" then
         cmd ="elixir"
     end
