@@ -26,11 +26,9 @@
       glob: true
       path: config/nvim/snippets/*
     # other
+    ~/.config/karabiner.edn: config/karabiner.edn
     ~/.config/fish:
       glob: true
       path: config/fish/*
-    ~/.config/karabiner:
-      glob: true
-      path: config/karabiner/*
     # lazygit
     ~/Library/Application Support/lazygit/config.yml: config/lazygit/config.yml

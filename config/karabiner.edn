@@ -1,0 +1,77 @@
+; legend -> https://johnlindquist.com/customize-karabiner-with-goku/
+; docs -> https://github.com/yqrashawn/GokuRakuJoudo/blob/master/tutorial.md
+; example -> https://github.com/kchen0x/k-goku
+; simlayers -> https://gist.github.com/gsinclair/f4ab34da53034374eb6164698a0a8ace
+{
+  ; :layers {:hyper-mode {:key :caps_lock :alone {:key :escape}}}
+  :simlayers {
+        :hyper-mode {:key :q}    ; navigation hjkl + tab + enter + page down/up
+   }
+ :main [
+        ; {:des "Hyper Mode - Control"
+        ;  :rules [:hyper-mode
+        ;          [:a :!Ta]
+        ;          [:c :!Tc]
+        ;          [:d :!Td]
+        ;          [:n :!Tn]
+        ;          [:z :!Tz]]}
+          {:des "Hyper Mode - Navigation [VI style]"
+         :rules [:hyper-mode
+                 [:j :down_arrow]
+                 [:k :up_arrow]
+                 [:h :left_arrow]
+                 [:l :right_arrow]
+                 ; [:b :!Oleft_arrow]
+                 ; [:w :!Oright_arrow]
+                 ; [:u :home]
+                 ; [:i :end]
+                 ; [:!Cj :!Sdown_arrow]
+                 ; [:!Ck :!Sup_arrow]
+                 ; [:!Ch :!Sleft_arrow]
+                 ; [:!Cl :!Sright_arrow]
+                 ; [:!Cb :!SOleft_arrow]
+                 ; [:!Cw :!SOright_arrow]
+                 ; [:!Cu :!Shome]
+                 ; [:!Ci :!Send]
+                 ; [:!Oj {:mkey {:y 1536}}]
+                 ; [:!Ok {:mkey {:y -1536}}]
+                 ; [:!Oh {:mkey {:x -1536}}]
+                 ; [:!Ol {:mkey {:x 1536}}]
+                ]
+         }
+
+         ; {:des "Hyper Mode - Mousekey"
+         ; :rules [:hyper-mode
+         ;         [:return_or_enter {:pkey :button1}]
+         ;         [:!Creturn_or_enter {:pkey :button2}]]}
+
+         {:des "Hyper Mode - Misc"
+         :rules [:hyper-mode
+                 [:escape :caps_lock]
+                 ]}
+
+         {:des "escape shift cmd"
+         :rules [
+                 [:!Cescape :grave_accent_and_tilde]
+                 [:!Sescape :!Sgrave_accent_and_tilde]
+                 [:!Rescape :!Rgrave_accent_and_tilde]
+                 ]}
+
+{:des   "caps_lock to esc when pressed alone, to ctrl as modifier"
+         :rules [[:##caps_lock :left_control nil {:alone :escape}]]}
+                ; {:des "f-mode for hjkl movement and nm enter and ui tab and ,. PageDn/Up"
+         ; :rules [:f-mode
+         ;          [:##h :left_arrow]
+         ;          [:##j :down_arrow] [:##k :up_arrow]
+         ;          [:##l :right_arrow]
+         ;          [:##n :return_or_enter]
+         ;          [:##m :return_or_enter]
+         ;          [:##u :tab]
+         ;          [:##i :tab]
+         ;          [:comma :page_down]
+         ;          [:period :page_up]
+         ;        ]
+         ; }
+        ]
+}
+
