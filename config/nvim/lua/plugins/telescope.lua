@@ -18,18 +18,18 @@ telescope.setup({
         file_ignore_patterns = { ".hbs" }, -- ".spec" },
         -- file_ignore_patterns = { "apps/app", "apps/api", "backoffice-client", "libs/business-metrics", "libs/messaging-system", "libs/domain/draw", "libs/domain/underwriting" }, -- ".spec" },
         vimgrep_arguments = {
-              "rg",
-              "--color=never",
-              "--no-heading",
-              "--with-filename",
-              "--line-number",
-              "--column",
-              "--smart-case", -- start case sensitive search with upper case character
-              "--trim"
+            "rg",
+            "--color=never",
+            "--no-heading",
+            "--with-filename",
+            "--line-number",
+            "--column",
+            "--smart-case", -- start case sensitive search with upper case character
+            "--trim"
         },
         layout_config = {
-          horizontal = { width = 0.9 },
-          preview_width = 70,
+            horizontal = { width = 0.9 },
+            preview_width = 70,
         },
         mappings = {
             i = {
@@ -91,10 +91,12 @@ u.command("HelpTags", "Telescope help_tags")
 u.command("Colors", "Telescope colorscheme")
 u.command("Commands", "Telescope commands")
 u.command("Marks", "Telescope marks")
+u.command("GitStatus", "Telescope git_status")
 
 
 u.nmap("<c-p>", "<cmd>Files<CR>")
 u.nmap("<Leader>ff", "<cmd>Files<CR>")
+u.nmap("<Leader>fg", "<cmd>GitStatus<CR>")
 u.nmap("<Leader>fr", "<cmd>Rgr<CR>")
 u.nmap("<Leader>fl", "<cmd>Colors<CR>")
 u.nmap("<Leader>fs", "<cmd>Rg<CR>")
