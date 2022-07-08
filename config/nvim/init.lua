@@ -130,9 +130,9 @@ u.imap('jk', "<Esc>")
 u.imap('jj', "<Esc>")
 u.tmap("<C-o>", "<C-\\><C-n>") -- exit terminal
 -- make useless key useful
-u.nmap("§", "%", { noremap = false }) -- <tab> breaks <C-I> mapping
-u.xmap("§", "%", { noremap = false })
-u.omap("§", "%", { noremap = false })
+-- u.nmap("§", "%", { noremap = false }) -- <tab> breaks <C-I> mapping
+-- u.xmap("§", "%", { noremap = false })
+-- u.omap("§", "%", { noremap = false })
 
 -- close all other buffers
 u.nmap('<leader>bdd', ':w <bar> %bd <bar> e# <bar> bd# <CR>')
