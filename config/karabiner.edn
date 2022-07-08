@@ -50,11 +50,16 @@
                  [:escape :caps_lock]
                  ]}
 
-         {:des "escape shift cmd"
+         {:des "Map shift+ESC to ~, LCMD+ESC to `"
          :rules [
                  [:!Cescape :grave_accent_and_tilde]
                  [:!Sescape :!Sgrave_accent_and_tilde]
                  [:!Rescape :!Rgrave_accent_and_tilde]
+                 ]}
+
+         {:des "Map shift+backspace to del"
+         :rules [
+                 [:!Sdelete_or_backspace :delete_forward]
                  ]}
 
 {:des   "caps_lock to esc when pressed alone, to ctrl as modifier"
