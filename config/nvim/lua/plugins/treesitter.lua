@@ -76,7 +76,8 @@ require'nvim-treesitter.configs'.setup {
     "fish",
     "graphql",
     "heex",
-    "make"
+    "make",
+    "clojure"
   },
 }
 

@@ -125,7 +125,6 @@ u.nmap("<LocalLeader>t", ":tabnew<CR>")
 u.nmap("<LocalLeader>T", ":tabedit %<CR>")
 u.nmap("<LocalLeader>x", ":tabclose<CR>")
 u.nmap("<LocalLeader>o", ":tabonly<CR>")
-
 u.imap('jk', "<Esc>")
 u.imap('jj', "<Esc>")
 u.tmap("<C-o>", "<C-\\><C-n>") -- exit terminal
