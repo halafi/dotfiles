@@ -17,4 +17,4 @@ u.nmap("]y", "<Plug>(YoinkPostPasteSwapForward)", opts)
 u.nmap("y", "<Plug>(YoinkYankPreserveCursorPosition)", opts)
 u.xmap("y", "<Plug>(YoinkYankPreserveCursorPosition)", opts)
 
-u.nmap("<c-=>", "<plug>(YoinkPostPasteToggleFormat)", opts)
+-- u.nmap("<c-=>", "<plug>(YoinkPostPasteToggleFormat)", opts)

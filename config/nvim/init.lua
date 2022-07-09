@@ -94,8 +94,9 @@ u.nmap("]t", ":tabnext<CR>")
 
 u.nmap("<Leader>wq", ":wincmd q<CR>")
 u.nmap("<C-q>", ":call QuickFixToggle()<CR>")
-
 u.nmap("<C-s>", "<C-a>") -- replace tmux taken key
+u.nmap('<C-Left>', ':vertical resize -2<CR>')
+u.nmap('<C-Right>', ':vertical resize +2<CR>')
 
 u.nmap("<m-CR>", ":wqall<CR>")
 u.nmap("<CR>", "(&buftype is# '' ? ':w<CR>' : '<CR>')", { expr = true })
@@ -127,7 +128,6 @@ u.nmap("<LocalLeader>x", ":tabclose<CR>")
 u.nmap("<LocalLeader>o", ":tabonly<CR>")
 u.imap('jk', "<Esc>")
 u.imap('jj', "<Esc>")
-u.tmap("<C-o>", "<C-\\><C-n>") -- exit terminal
 -- make useless key useful
 -- u.nmap("§", "%", { noremap = false }) -- <tab> breaks <C-I> mapping
 -- u.xmap("§", "%", { noremap = false })
@@ -143,8 +143,6 @@ u.nmap('<Esc>', ':noh<return><esc>')
 -- u.xmap('&', ':&&')
 
 -- resize with arrows
-u.nmap('<C-Left>', ':vertical resize -2<CR>')
-u.nmap('<C-Right>', ':vertical resize +2<CR>')
 -- open links (somewhat works)
 -- u.nmap('gx', ':!open <c-r><c-a>',{ silent = false })
 

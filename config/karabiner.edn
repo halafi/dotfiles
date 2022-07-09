@@ -4,19 +4,18 @@
 ; simlayers -> https://gist.github.com/gsinclair/f4ab34da53034374eb6164698a0a8ace
 {
         :profiles {:Default {:default true :sim 50 :delay 500 :alone 500 :held 500}}
-        :applications {:Terminals ["^com\\.apple\\.Terminal$" "^com\\.googlecode\\.iterm2$"]}
+        :applications {:terminals ["^com\\.apple\\.Terminal$" "^com\\.googlecode\\.iterm2$"]}
         :layers {
-                :hyper-mode {:key :caps_lock :alone {:key :escape}} ; TODO: put as much as you can in
+                :hyper-mode {:key :caps_lock :alone {:key :escape}} ; ctrl+caps for caps toggle
         }
         :simlayers {
                 :alfred-mode {:key :z}
-                :launch-mode {:key :w}
-                :tmux-mode {:key :1 :condi :Terminals}
+                :tmux-mode {:key :1 :condi :terminals}
+                :launch-mode {:key :2}
         }
         :templates {
                 :open "open \"%s\""
                 :alf "open /Applications/Alfred\\ 5.app && osascript -e 'tell application \"Alfred 5\" to search \"%s\"'"
-
         }
         :main [
                 {:des "Map shift+ESC to ~, LCMD+ESC to `"
@@ -27,10 +26,6 @@
                 {:des "Map shift+backspace to del"
                  :rules [[:!Sdelete_or_backspace :delete_forward]
                         ]}
-
-                ; {:des "caps_lock to esc when pressed alone, to ctrl as modifier"
-                ; :rules [[:##caps_lock :left_control nil {:alone :escape}]
-                ;         ]}
 
                 {:des "Alfred Mode"
                  :rules [:alfred-mode
@@ -74,24 +69,11 @@
                         [:x [:!Ta :x]] ; kill pane
                         [:c [:!Ta :c]] ; create window
                         [:p [:!Ta :p]] ; create window
+                        ; TODO: copy paste mode
                         ]}
 
-               {:des "Hyper Mode - Navigation [VI style]"
+               {:des "Hyper Mode - Media Keys"
                 :rules [:hyper-mode
-                        [:h :left_arrow]
-                        [:j :down_arrow]
-                        [:k :up_arrow]
-                        [:l :right_arrow]
-                        ; text selection with shift
-                        [:!Sh :!Sleft_arrow]
-                        [:!Sl :!Sright_arrow]
-                        [:!Sj :!SCleft_arrow]
-                        [:!Sk :!SCright_arrow]
-                        ; alt + hjkl = alt + arrows (move by words)
-                        [:!Oj :!Odown_arrow]
-                        [:!Ok :!Oup_arrow]
-                        [:!Oh :!Oleft_arrow]
-                        [:!Ol :!Oright_arrow]
                         ; media keys
                         [:1 :display_brightness_decrement]
                         [:2 :display_brightness_increment]
@@ -107,15 +89,44 @@
                         [:equal_sign :volume_increment]
                         ]}
 
-                ; not working well with current caps lock mapping
-                ; {:des   "right cmd + caps lock to actually caps loc"
-                ;  :rules
-                ;  [
-                ;   [:!Qc :caps_lock]
-                ;  ]
-                ; }
-                ;
+               {:des "Hyper Mode - Navigation [VI style]"
+                :rules [:hyper-mode
+                        [:h :left_arrow :!terminals]
+                        [:j :down_arrow :!terminals]
+                        [:k :up_arrow :!terminals]
+                        [:l :right_arrow :!terminals]
+                        ; text selection with shift
+                        [:!Sh :!Sleft_arrow :!terminals]
+                        [:!Sl :!Sright_arrow :!terminals]
+                        [:!Sj :!SCleft_arrow :!terminals]
+                        [:!Sk :!SCright_arrow :!terminals]
+                        ; alt + hjkl = alt + arrows (move by words)
+                        [:!Oj :!Odown_arrow :!terminals]
+                        [:!Ok :!Oup_arrow :!terminals]
+                        [:!Oh :!Oleft_arrow :!terminals]
+                        [:!Ol :!Oright_arrow :!terminals]
+                        ]}
 
+               {:des "Hyper Mode - Partial CTRL Mapping [VIM <C-*> key support]"
+                :rules [:hyper-mode
+                        [:h :!Th :terminals]
+                        [:j :!Tj :terminals]
+                        [:k :!Tk :terminals]
+                        [:l :!Tl :terminals]
+                        ; not mapping ACDZ intentionally
+                        [:d :!Td :terminals]
+                        [:u :!Tu :terminals]
+                        [:n :!Tn :terminals]
+                        [:p :!Tp :terminals]
+                        [:q :!Tq :terminals]
+                        [:s :!Ts :terminals]
+                        [:x :!Tx :terminals]
+                        [:w :!Tw :terminals]
+                        [:v :!Tv :terminals]
+                        [:f :!Tf :terminals]
+                        [:hyphen :!Tleft_arrow :terminals]
+                        [:equal_sign :!Tright_arrow :terminals]
+                        ]}
         ]
 }
 
