@@ -20,9 +20,9 @@ I am using [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
 
 - [lazygit](https://github.com/jesseduffield/lazygit) to give some GUI to git commands
 
-- [karabiner elements](https://karabiner-elements.pqrs.org/) for keyboard tweaks
+- [goku](https://github.com/yqrashawn/GokuRakuJoudo/) + [karabiner elements](https://karabiner-elements.pqrs.org/) for making 60% keyboard layout usable
 
-- [asdf](https://github.com/asdf-vm/asdf) to manage languages
+- [asdf](https://github.com/asdf-vm/asdf) to manage language versions
 
 ## Dependencies
 
