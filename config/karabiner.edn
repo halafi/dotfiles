@@ -6,10 +6,13 @@
         :profiles {:Default {:default true :sim 50 :delay 500 :alone 500 :held 500}}
         :simlayers {
                 :hyper-mode {:key :left_control}
+                :alfred-mode {:key :z}
                 ; :launch-mode {:key :tab }
         }
         :templates {
                 :open "open \"%s\""
+                :alf "open /Applications/Alfred\\ 5.app && osascript -e 'tell application \"Alfred 5\" to search \"%s\"'"
+
         }
         :main [
                 {:des "Map shift+ESC to ~, LCMD+ESC to `"
@@ -24,6 +27,16 @@
                 {:des "caps_lock to esc when pressed alone, to ctrl as modifier"
                 :rules [[:##caps_lock :left_control nil {:alone :escape}]
                         ]}
+
+                {:des "Alfred Mode"
+                 :rules [:alfred-mode
+                        [:r [[:alf "repo Capchase/"]]]
+                        [:p [[:alf "pr "]]]
+                        [:l [[:alf "lh "]]]
+                        [:e [[:alf "emoji "]]]
+                        [:s [[:alf "sleep"]]]
+                        [:d [[:alf "duck "]]]
+                         ]}
 
                 {:des "Hyper Mode - Quickly open apps"
                 :rules [:hyper-mode
@@ -43,10 +56,10 @@
                         [:k :up_arrow]
                         [:l :right_arrow]
                         ; text selection with shift
-                        [:!Sj :!Sleft_arrow]
-                        [:!Sk :!Sright_arrow]
-                        [:!Sh :!SCleft_arrow]
-                        [:!Sl :!SCright_arrow]
+                        [:!Sh :!Sleft_arrow]
+                        [:!Sl :!Sright_arrow]
+                        [:!Sj :!SCleft_arrow]
+                        [:!Sk :!SCright_arrow]
                         ; alt + hjkl = alt + arrows (move by words)
                         [:!Oj :!Odown_arrow]
                         [:!Ok :!Oup_arrow]
