@@ -4,14 +4,16 @@
 ; simlayers -> https://gist.github.com/gsinclair/f4ab34da53034374eb6164698a0a8ace
 {
         :profiles {:Default {:default true :sim 50 :delay 500 :alone 500 :held 500}}
-        :applications {:terminals ["^com\\.apple\\.Terminal$" "^com\\.googlecode\\.iterm2$"]}
+        :applications {
+                       :terminals ["^com\\.apple\\.Terminal$" "^com\\.googlecode\\.iterm2$"],
+                       :alfred ["^com\\.runningwithcrayons\\.Alfred$"]
+                       }
         :layers {
                 :hyper-mode {:key :caps_lock :alone {:key :escape}} ; ctrl+caps for caps toggle
         }
         :simlayers {
                 :alfred-mode {:key :z}
                 :tmux-mode {:key :1 :condi :terminals}
-                :launch-mode {:key :2}
         }
         :templates {
                 :open "open \"%s\""
@@ -29,6 +31,7 @@
 
                 {:des "Alfred Mode"
                  :rules [:alfred-mode
+                        [:spacebar [[:alf ""]]] ; entering alfred this way gets me out of terminal properly
                         [:r [[:alf "repo "]]]
                         [:p [[:alf "pr "]]]
                         [:l [[:alf "lh "]]]
@@ -37,42 +40,34 @@
                         [:d [[:alf "duck "]]]
                          ]}
 
-                {:des "Launch Mode - Quickly open apps"
-                :rules [:launch-mode
-                        [:s [:open "/Applications/Slack.app"]]
-                        [:m [:open "/Applications/Spotify.app"]]
-                        [:i [:open "/Applications/iTerm.app"]]
-                        [:c [:open "/Applications/Google Chrome.app"]]
-                        [:v [:open "/Applications/Visual Studio Code.app"]]
-                        [:n [:open "/Applications/NotePlan 3.app"]]
-                        [:p [:open "/pplications/Postico 2.app"]]
-                        ]}
-
                 {:des "Tmux Mode"
                  :rules [:tmux-mode
                         [:comma [:!Ta :comma]] ; rename window
                         [:open_bracket [:!Ta :open_bracket]] ; [ - reorder
                         [:close_bracket [:!Ta :close_bracket]]; ] - reorder
                         [:backslash [:!Ta :backslash]] ; menu
+                        [:spacebar [:!Ta :spacebar]] ; create window
+                        ; top row
                         [:w [:!Ta :w]] ; window selector
-                        [:v [:!Ta :v]] ; vertical split
+                        [:r [:!Ta :r]] ; reload config
                         [:t [:!Ta :t]] ; vertical small split
+                        [:i [:!Ta :!Si]] ; reload plugins
+                        [:p [:!Ta :p]] ; create window
+                        ; home row
                         [:f [:!Ta :!St]] ; fullscreen
+                        [:s [:!Ta :s]] ; horizontal split
                         [:h [:!Ta :h]] ; horizontal split
                         [:j [:!Ta :j]] ; pane left
                         [:k [:!Ta :k]] ; pane right
                         [:l [:!Ta :l]]
-                        [:s [:!Ta :s]] ; horizontal split
-                        [:r [:!Ta :r]] ; reload config
-                        [:i [:!Ta :!Si]] ; reload plugins
-                        [:m [:!Ta :z]] ; toggle pane zoom
+                        ; bottom row
                         [:x [:!Ta :x]] ; kill pane
                         [:c [:!Ta :c]] ; create window
-                        [:p [:!Ta :p]] ; create window
-                        ; TODO: copy paste mode
+                        [:v [:!Ta :v]] ; vertical split
+                        [:m [:!Ta :z]] ; toggle pane zoom
                         ]}
 
-               {:des "Hyper Mode - Media Keys"
+               {:des "Hyper Mode - Media Keys, Usable everywhere"
                 :rules [:hyper-mode
                         ; media keys
                         [:1 :display_brightness_decrement]
@@ -87,6 +82,42 @@
                         [:0 :mute]
                         [:hyphen :volume_decrement]
                         [:equal_sign :volume_increment]
+                        ; quick access - free keys used
+                        [:e [:open "/Applications/NotePlan 3.app"]]
+                        [:i [:open "/Applications/iTerm.app"]]
+                        [:o [:open "/Applications/Google Chrome.app"]]
+                        ; home row
+                        [:a [:open "/Applications/Alfred 5.app"]]
+                        [:s [:open "/Applications/Slack.app"]]
+                        [:g [:open "/Applications/Postico 2.app"]]
+                        [:t [:open "/Applications/Spotify.app"]]
+                        [:y [:open "/Applications/Visual Studio Code.app"]]
+                        ]}
+
+               {:des "Hyper Mode - Partial CTRL Mapping [VIM <C-*> key support]"
+                :rules [:hyper-mode
+                        ; top row
+                        [:q :!Tq :terminals]
+                        [:w :!Tw :terminals]
+                        [:r :!Tr :terminals]
+                        [:s :!Ts :terminals]
+                        [:u :!Tu :terminals]
+                        [:p :!Tp :terminals]
+                        ; home row
+                        [:d :!Td :terminals]
+                        [:f :!Tf :terminals]
+                        [:h :!Th :terminals]
+                        [:j :!Tj :terminals]
+                        [:k :!Tk :terminals]
+                        [:l :!Tl :terminals]
+                        ; bottom row
+                        [:z :!Tz :terminals] ; suspend, resume with fg %1
+                        [:x :!Tx :terminals]
+                        [:c :!Tc :terminals]
+                        [:v :!Tv :terminals]
+                        [:n :!Tn :terminals]
+                        [:m :!Tleft_arrow :terminals] ; arrow -> tmux window size
+                        [:period :!Tright_arrow :terminals] ; arrow -> tmux window size
                         ]}
 
                {:des "Hyper Mode - Navigation [VI style]"
@@ -105,27 +136,6 @@
                         [:!Ok :!Oup_arrow :!terminals]
                         [:!Oh :!Oleft_arrow :!terminals]
                         [:!Ol :!Oright_arrow :!terminals]
-                        ]}
-
-               {:des "Hyper Mode - Partial CTRL Mapping [VIM <C-*> key support]"
-                :rules [:hyper-mode
-                        [:h :!Th :terminals]
-                        [:j :!Tj :terminals]
-                        [:k :!Tk :terminals]
-                        [:l :!Tl :terminals]
-                        ; not mapping ACDZ intentionally
-                        [:d :!Td :terminals]
-                        [:u :!Tu :terminals]
-                        [:n :!Tn :terminals]
-                        [:p :!Tp :terminals]
-                        [:q :!Tq :terminals]
-                        [:s :!Ts :terminals]
-                        [:x :!Tx :terminals]
-                        [:w :!Tw :terminals]
-                        [:v :!Tv :terminals]
-                        [:f :!Tf :terminals]
-                        [:hyphen :!Tleft_arrow :terminals]
-                        [:equal_sign :!Tright_arrow :terminals]
                         ]}
         ]
 }
