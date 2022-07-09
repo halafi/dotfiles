@@ -30,7 +30,7 @@
 
                 {:des "Alfred Mode"
                  :rules [:alfred-mode
-                        [:r [[:alf "repo Capchase/"]]]
+                        [:r [[:alf "repo "]]]
                         [:p [[:alf "pr "]]]
                         [:l [[:alf "lh "]]]
                         [:e [[:alf "emoji "]]]
