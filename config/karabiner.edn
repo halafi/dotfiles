@@ -4,10 +4,14 @@
 ; simlayers -> https://gist.github.com/gsinclair/f4ab34da53034374eb6164698a0a8ace
 {
         :profiles {:Default {:default true :sim 50 :delay 500 :alone 500 :held 500}}
+        :applications {:Terminals ["^com\\.apple\\.Terminal$" "^com\\.googlecode\\.iterm2$"]}
+        :layers {
+                :hyper-mode {:key :caps_lock :alone {:key :escape}} ; TODO: put as much as you can in
+        }
         :simlayers {
-                :hyper-mode {:key :left_control}
                 :alfred-mode {:key :z}
-                ; :launch-mode {:key :tab }
+                :launch-mode {:key :w}
+                :tmux-mode {:key :1 :condi :Terminals}
         }
         :templates {
                 :open "open \"%s\""
@@ -24,9 +28,9 @@
                  :rules [[:!Sdelete_or_backspace :delete_forward]
                         ]}
 
-                {:des "caps_lock to esc when pressed alone, to ctrl as modifier"
-                :rules [[:##caps_lock :left_control nil {:alone :escape}]
-                        ]}
+                ; {:des "caps_lock to esc when pressed alone, to ctrl as modifier"
+                ; :rules [[:##caps_lock :left_control nil {:alone :escape}]
+                ;         ]}
 
                 {:des "Alfred Mode"
                  :rules [:alfred-mode
@@ -38,15 +42,38 @@
                         [:d [[:alf "duck "]]]
                          ]}
 
-                {:des "Hyper Mode - Quickly open apps"
-                :rules [:hyper-mode
+                {:des "Launch Mode - Quickly open apps"
+                :rules [:launch-mode
                         [:s [:open "/Applications/Slack.app"]]
                         [:m [:open "/Applications/Spotify.app"]]
                         [:i [:open "/Applications/iTerm.app"]]
                         [:c [:open "/Applications/Google Chrome.app"]]
                         [:v [:open "/Applications/Visual Studio Code.app"]]
                         [:n [:open "/Applications/NotePlan 3.app"]]
-                        [:p [:open "/Applications/Postico 2.app"]]
+                        [:p [:open "/pplications/Postico 2.app"]]
+                        ]}
+
+                {:des "Tmux Mode"
+                 :rules [:tmux-mode
+                        [:comma [:!Ta :comma]] ; rename window
+                        [:open_bracket [:!Ta :open_bracket]] ; [ - reorder
+                        [:close_bracket [:!Ta :close_bracket]]; ] - reorder
+                        [:backslash [:!Ta :backslash]] ; menu
+                        [:w [:!Ta :w]] ; window selector
+                        [:v [:!Ta :v]] ; vertical split
+                        [:t [:!Ta :t]] ; vertical small split
+                        [:f [:!Ta :!St]] ; fullscreen
+                        [:h [:!Ta :h]] ; horizontal split
+                        [:j [:!Ta :j]] ; pane left
+                        [:k [:!Ta :k]] ; pane right
+                        [:l [:!Ta :l]]
+                        [:s [:!Ta :s]] ; horizontal split
+                        [:r [:!Ta :r]] ; reload config
+                        [:i [:!Ta :!Si]] ; reload plugins
+                        [:m [:!Ta :z]] ; toggle pane zoom
+                        [:x [:!Ta :x]] ; kill pane
+                        [:c [:!Ta :c]] ; create window
+                        [:p [:!Ta :p]] ; create window
                         ]}
 
                {:des "Hyper Mode - Navigation [VI style]"
