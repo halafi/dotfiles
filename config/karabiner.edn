@@ -14,6 +14,8 @@
         :simlayers {
                 :alfred-mode {:key :z}
                 :tmux-mode {:key :1 :condi :terminals}
+                :mouse-mode {:key :2}
+                :mouse-scroll-mode {:key :3}
         }
         :templates {
                 :open "open \"%s\""
@@ -136,6 +138,30 @@
                         [:!Ok :!Oup_arrow :!terminals]
                         [:!Oh :!Oleft_arrow :!terminals]
                         [:!Ol :!Oright_arrow :!terminals]
+                        ]}
+
+                {:des "Mouse Mode"
+                :rules [:mouse-mode
+                        [:h {:mkey {:x -3072}}]
+                        [:j {:mkey {:y 3072}}]
+                        [:k {:mkey {:y -3072}}]
+                        [:l {:mkey {:x 3072}}]
+                        [:u {:pkey :button1}]
+                        [:i {:pkey :button2}]
+                        [:o {:pkey :button3}]
+                        [:f {:mkey {:speed 0.3}}]
+                        ]}
+
+                {:des "Mouse Scroll Mode"
+                :rules [:mouse-scroll-mode
+                        [:j {:mkey {:vwheel 60}}]
+                        [:h {:mkey {:hwheel 60}}]
+                        [:k {:mkey {:vwheel -60}}]
+                        [:l {:mkey {:hwheel -60}}]
+                        [:u {:pkey :button1}]
+                        [:i {:pkey :button2}]
+                        [:o {:pkey :button3}]
+                        [:f {:mkey {:speed 2.0}}]
                         ]}
         ]
 }
