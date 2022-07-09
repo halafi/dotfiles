@@ -9,11 +9,11 @@
                        :alfred ["^com\\.runningwithcrayons\\.Alfred$"]
                        }
         :layers {
-                :hyper-mode {:key :caps_lock :alone {:key :escape}} ; ctrl+caps for caps toggle
+                :hyper-mode {:key :caps_lock :alone {:key :escape} :afterup [{:set ["regular-hjkl" 0]}]} ; ctrl+caps for caps toggle
         }
         :simlayers {
                 :alfred-mode {:key :z}
-                :tmux-mode {:key :1 :condi :terminals}
+                :tmux-mode {:key :q :condi :terminals}
                 :mouse-mode {:key :2}
                 :mouse-scroll-mode {:key :3}
         }
@@ -35,6 +35,7 @@
                  :rules [:alfred-mode
                         [:spacebar [[:alf ""]]] ; entering alfred this way gets me out of terminal properly
                         [:r [[:alf "repo "]]]
+                        [:g [[:alf "gh "]]]
                         [:p [[:alf "pr "]]]
                         [:l [[:alf "lh "]]]
                         [:e [[:alf "emoji "]]]
@@ -87,10 +88,10 @@
                         ; quick access - free keys used
                         [:e [:open "/Applications/NotePlan 3.app"]]
                         [:i [:open "/Applications/iTerm.app"]]
-                        [:o [:open "/Applications/Google Chrome.app"]]
+                        [:o [:open "/Applications/Google Chrome.app"]] ; this blocks C-o for single bullet vim command mode
                         ; home row
                         [:a [:open "/Applications/Alfred 5.app"]]
-                        [:s [:open "/Applications/Slack.app"]]
+                        ; [:s [:open "/Applications/Slack.app"]]
                         [:g [:open "/Applications/Postico 2.app"]]
                         [:t [:open "/Applications/Spotify.app"]]
                         [:y [:open "/Applications/Visual Studio Code.app"]]
@@ -102,16 +103,12 @@
                         [:q :!Tq :terminals]
                         [:w :!Tw :terminals]
                         [:r :!Tr :terminals]
-                        [:s :!Ts :terminals]
                         [:u :!Tu :terminals]
                         [:p :!Tp :terminals]
                         ; home row
+                        [:s :!Ts :terminals]
                         [:d :!Td :terminals]
                         [:f :!Tf :terminals]
-                        [:h :!Th :terminals]
-                        [:j :!Tj :terminals]
-                        [:k :!Tk :terminals]
-                        [:l :!Tl :terminals]
                         ; bottom row
                         [:z :!Tz :terminals] ; suspend, resume with fg %1
                         [:x :!Tx :terminals]
@@ -120,6 +117,15 @@
                         [:n :!Tn :terminals]
                         [:m :!Tleft_arrow :terminals] ; arrow -> tmux window size
                         [:period :!Tright_arrow :terminals] ; arrow -> tmux window size
+                        [:b ["regular-hjkl" 1]] ; press to toggle
+                        [:h :left_arrow [:terminals :regular-hjkl]]
+                        [:j :down_arrow [:terminals :regular-hjkl]]
+                        [:k :up_arrow [:terminals :regular-hjkl]]
+                        [:l :right_arrow [:terminals :regular-hjkl]]
+                        [:h :!Th [:terminals :!regular-hjkl]]
+                        [:j :!Tj [:terminals :!regular-hjkl]]
+                        [:k :!Tk [:terminals :!regular-hjkl]]
+                        [:l :!Tl [:terminals :!regular-hjkl]]
                         ]}
 
                {:des "Hyper Mode - Navigation [VI style]"
