@@ -3,37 +3,69 @@
 ; example -> https://github.com/kchen0x/k-goku
 ; simlayers -> https://gist.github.com/gsinclair/f4ab34da53034374eb6164698a0a8ace
 {
+        :profiles {:Default {:default true :sim 50 :delay 500 :alone 500 :held 500}}
         :simlayers {
-                :hyper-mode {:key :left_control }
+                :hyper-mode {:key :left_control}
                 ; :launch-mode {:key :tab }
         }
         :templates {
-            :open "open \"%s\""
+                :open "open \"%s\""
         }
         :main [
-                {:des "Open related applications"
-                :rules 
-                  [:hyper-mode
-                         ; [:##u :!Sopen_bracket]
-                         ; [:##i :!Sclose_bracket]
-                         ; [:1 :!C1]
-                         ; [:2 :!C2]
-                         ; [:3 :!C3]
-                         ; [:4 :!C4]
-                         [:s [:open "/Applications/Slack.app"]]
-                         [:i [:open "/Applications/iTerm.app"]]
-                         [:c [:open "/Applications/Google Chrome.app"]]
-                         [:v [:open "/Applications/Visual Studio Code.app"]]
-                         [:n [:open "/Applications/NotePlan 3.app"]]
-                         [:p [:open "/Applications/Postico 2.app"]]
-                ]}
+                {:des "Map shift+ESC to ~, LCMD+ESC to `"
+                 :rules [[:!Cescape :grave_accent_and_tilde]
+                        [:!Sescape :!Sgrave_accent_and_tilde]
+                        [:!Rescape :!Rgrave_accent_and_tilde]
+                        ]}
+                {:des "Map shift+backspace to del"
+                 :rules [[:!Sdelete_or_backspace :delete_forward]
+                        ]}
 
-                {:des   "caps_lock to esc when pressed alone, to ctrl as modifier"
-                 :rules
-                 [
-                  [:##caps_lock :left_control nil {:alone :escape}]
-                 ]
-                }
+                {:des "caps_lock to esc when pressed alone, to ctrl as modifier"
+                :rules [[:##caps_lock :left_control nil {:alone :escape}]
+                        ]}
+
+                {:des "Hyper Mode - Quickly open apps"
+                :rules [:hyper-mode
+                        [:s [:open "/Applications/Slack.app"]]
+                        [:m [:open "/Applications/Spotify.app"]]
+                        [:i [:open "/Applications/iTerm.app"]]
+                        [:c [:open "/Applications/Google Chrome.app"]]
+                        [:v [:open "/Applications/Visual Studio Code.app"]]
+                        [:n [:open "/Applications/NotePlan 3.app"]]
+                        [:p [:open "/Applications/Postico 2.app"]]
+                        ]}
+
+               {:des "Hyper Mode - Navigation [VI style]"
+                :rules [:hyper-mode
+                        [:h :left_arrow]
+                        [:j :down_arrow]
+                        [:k :up_arrow]
+                        [:l :right_arrow]
+                        ; text selection with shift
+                        [:!Sj :!Sleft_arrow]
+                        [:!Sk :!Sright_arrow]
+                        [:!Sh :!SCleft_arrow]
+                        [:!Sl :!SCright_arrow]
+                        ; alt + hjkl = alt + arrows (move by words)
+                        [:!Oj :!Odown_arrow]
+                        [:!Ok :!Oup_arrow]
+                        [:!Oh :!Oleft_arrow]
+                        [:!Ol :!Oright_arrow]
+                        ; media keys
+                        [:1 :display_brightness_decrement]
+                        [:2 :display_brightness_increment]
+                        [:3 :mission_control]
+                        [:4 :launchpad]
+                        [:5 :illumination_decrement]
+                        [:6 :illumination_increment]
+                        [:7 :rewind]
+                        [:8 :play_or_pause]
+                        [:9 :fastforward]
+                        [:0 :mute]
+                        [:hyphen :volume_decrement]
+                        [:equal_sign :volume_increment]
+                        ]}
 
                 ; not working well with current caps lock mapping
                 ; {:des   "right cmd + caps lock to actually caps loc"
@@ -44,64 +76,6 @@
                 ; }
                 ;
 
-                {:des "Hyper Mode - Navigation [VI style]"
-                :rules
-                 [:hyper-mode
-                         [:h :left_arrow]
-                         [:j :down_arrow]
-                         [:k :up_arrow]
-                         [:l :right_arrow]
-                         ; alt + hjkl = alt + arrows (move by words)
-                         [:!Oj :!Odown_arrow]
-                         [:!Ok :!Oup_arrow]
-                         [:!Oh :!Oleft_arrow]
-                         [:!Ol :!Oright_arrow]
-                         ; [:c :caps_lock]
-                         ; b and w = move by words
-                         ; [:b :!Oleft_arrow]
-                         ; [:w :!Oright_arrow]
-                         ; TEXT SELECTION
-                         ; shift + hjkl = home + end and same behavior for jk
-                         ; this is useful in e.g. google drive
-                         ; [:!Sh :home]
-                         ; [:!Sj :down_arrow]
-                         ; [:!Sk :up_arrow]
-                         ; [:!Sl :end]
-                         ; left cmd + hjkl ui = selection
-                         ; [:!Cj :!Sdown_arrow]
-                         ; [:!Ck :!Sup_arrow]
-                         ; [:!Ch :!Sleft_arrow]
-                         ; [:!Cl :!Sright_arrow]
-                         ; [:!Cu :!Shome]
-                         ; [:!Ci :!Send]
-                ]
-         }
-
-         {:des "Map shift+ESC to ~, LCMD+ESC to `"
-         :rules [
-                 [:!Cescape :grave_accent_and_tilde]
-                 [:!Sescape :!Sgrave_accent_and_tilde]
-                 [:!Rescape :!Rgrave_accent_and_tilde]
-                 ]}
-
-         {:des "Map shift+backspace to del"
-         :rules [
-                 [:!Sdelete_or_backspace :delete_forward]
-                 ]}
-
-                ; {:des "f-mode for hjkl movement and nm enter and ui tab and ,. PageDn/Up"
-         ; :rules [:f-mode
-         ;          [:##h :left_arrow]
-         ;          [:##j :down_arrow] [:##k :up_arrow]
-         ;          [:##l :right_arrow]
-         ;          [:##n :return_or_enter]
-         ;          [:##m :return_or_enter]
-         ;          [:##u :tab]
-         ;          [:##i :tab]
-         ;          [:comma :page_down]
-         ;          [:period :page_up]
-         ;        ]
-         ; }
         ]
 }
 

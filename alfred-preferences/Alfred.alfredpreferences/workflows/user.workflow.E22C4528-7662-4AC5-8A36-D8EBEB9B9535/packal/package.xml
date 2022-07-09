@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<workflow>
-  <name>localhost2</name>
-  <version>1.0.0</version>
-  <bundle>com.flydev.localhost2</bundle>
-  <updated>1546995238</updated>
-  <file>localhost2.alfredworkflow</file>
-</workflow>

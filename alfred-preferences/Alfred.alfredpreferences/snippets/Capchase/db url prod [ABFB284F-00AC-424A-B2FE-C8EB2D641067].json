@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "DATABASE_URL=\"postgresql:\/\/filip@capchase.com:GCLOUD_TOKEN@localhost:1234\/client-db?schema=public&readOnly=true\"",
-    "uid" : "ABFB284F-00AC-424A-B2FE-C8EB2D641067",
-    "name" : "db url prod",
-    "keyword" : "dbprod"
-  }
-}

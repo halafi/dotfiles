@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "DATABASE_URL=\"postgresql:\/\/postgres:secret@localhost:5432\/capchase?schema=public\"",
-    "uid" : "71C5CF84-AF8F-4F6E-BDC5-C4FF950837C4",
-    "name" : "db url local",
-    "keyword" : "dblocal"
-  }
-}

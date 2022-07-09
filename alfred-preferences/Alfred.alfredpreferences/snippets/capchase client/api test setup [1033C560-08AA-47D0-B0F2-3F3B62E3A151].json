@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "yarn nx run api:test-setup",
-    "uid" : "1033C560-08AA-47D0-B0F2-3F3B62E3A151",
-    "name" : "api test setup",
-    "keyword" : "apits"
-  }
-}

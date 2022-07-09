@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "cloud config set project capchase-sandbox",
-    "uid" : "69A9960E-4208-48AD-AC77-EB14E9A78DFE",
-    "name" : "gcloud set sandbox",
-    "keyword" : "gcs"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "yarn nx run domain-company-product-status:test-all\n",
-    "uid" : "D3A58969-C395-4766-83DA-8A965E078EA8",
-    "name" : "nx test all",
-    "keyword" : "nxt"
-  }
-}
