@@ -16,6 +16,8 @@
 ;; R  | right_shift
 ;; !! | mandatory command + control + optional + shift (hyper)
 ;; ## | optional any
+
+; cmd+shift+/
 {
         :profiles {:Default {:default true :sim 50 :delay 500 :alone 500 :held 500}}
         :applications {
@@ -209,6 +211,9 @@
                         [:j :!Tj [:terminals :!regular-hjkl]]
                         [:k :!Tk [:terminals :!regular-hjkl]]
                         [:l :!Tl [:terminals :!regular-hjkl]]
+                        ; tmux
+                        [:open_bracket [:!Ta :j]] ; pane left
+                        [:close_bracket [:!Ta :k]] ; pane right
                         ]}
 
                {:des "Hyper Mode - Navigation [VI style]"
