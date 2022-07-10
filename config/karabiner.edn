@@ -33,7 +33,7 @@
 
                 {:des "Alfred Mode"
                  :rules [:alfred-mode
-                        [:spacebar [[:alf ""]]] ; entering alfred this way gets me out of terminal properly
+                        [:spacebar [:open "/Applications/Alfred 5.app"]]
                         [:r [[:alf "repo "]]]
                         [:g [[:alf "gh "]]]
                         [:p [[:alf "pr "]]]
@@ -90,8 +90,7 @@
                         [:i [:open "/Applications/iTerm.app"]]
                         [:o [:open "/Applications/Google Chrome.app"]] ; this blocks C-o for single bullet vim command mode
                         ; home row
-                        [:a [:open "/Applications/Alfred 5.app"]]
-                        ; [:s [:open "/Applications/Slack.app"]]
+                        [:a [:open "/Applications/Slack.app"]]
                         [:g [:open "/Applications/Postico 2.app"]]
                         [:t [:open "/Applications/Spotify.app"]]
                         [:y [:open "/Applications/Visual Studio Code.app"]]
