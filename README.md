@@ -48,6 +48,12 @@ I am using [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
     - `https://jdhao.github.io/2021/08/12/nvim_sumneko_lua_conf/`
     - `brew install rust-analyzer`
 
+### ⌨️ Keyboard
+1. install karabiner `brew cask install karabiner-elements`
+2. install goku `brew install yqrashawn/goku/goku`
+3. make sure karabiner profile is named `Default`
+4. run `goku` once to generate karabiner config
+
 ### Markdown Preview Dependencies
 1. `brew install pandoc`
 2. `npm i -g live-server`

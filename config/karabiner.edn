@@ -1,12 +1,37 @@
-; legend -> https://johnlindquist.com/customize-karabiner-with-goku/
 ; docs -> https://github.com/yqrashawn/GokuRakuJoudo/blob/master/tutorial.md
 ; example -> https://github.com/kchen0x/k-goku
 ; simlayers -> https://gist.github.com/gsinclair/f4ab34da53034374eb6164698a0a8ace
+
+;; LEGEND
+;; !  | means mandatory
+;; #  | means optional
+;; C  | left_command
+;; T  | left_control
+;; O  | left_option
+;; S  | left_shift
+;; F  | fn
+;; Q  | right_command
+;; W  | right_control
+;; E  | right_option
+;; R  | right_shift
+;; !! | mandatory command + control + optional + shift (hyper)
+;; ## | optional any
 {
         :profiles {:Default {:default true :sim 50 :delay 500 :alone 500 :held 500}}
         :applications {
                        :terminals ["^com\\.apple\\.Terminal$" "^com\\.googlecode\\.iterm2$"],
                        :alfred ["^com\\.runningwithcrayons\\.Alfred$"]
+                       :slack ["com.tinyspeck.slackmacgap"]
+                       :chrome ["^com\\.google\\.Chrome$"]
+                       :code ["com.microsoft.VSCode"]
+                       ; :browsers ["^com\\.kagi\\.kagimacOS$"
+                       ;        "^org\\.mozilla\\.firefox$"
+                       ;        "^org\\.mozilla\\.firefoxdeveloperedition$"
+                       ;        "^com\\.google\\.Chrome$"
+                       ;        "^org\\.chromium\\.Chromium$"
+                       ;        "^com\\.google\\.Chrome\\.canary$"
+                       ;        "^com\\.apple\\.Safari$"
+                       ;        "^com\\.brave\\.Browser$"]
                        }
         :layers {
                 :hyper-mode {:key :caps_lock :alone {:key :escape} :afterup [{:set ["regular-hjkl" 0]}]} ; ctrl+caps for caps toggle
@@ -14,19 +39,50 @@
         :simlayers {
                 :alfred-mode {:key :z}
                 :tmux-mode {:key :q :condi :terminals}
-                :mouse-mode {:key :2}
-                :mouse-scroll-mode {:key :3}
+                :launch-mode {:key :2}
+                :mouse-mode {:key :3}
+                :mouse-scroll-mode {:key :4}
         }
         :templates {
                 :open "open \"%s\""
                 :alf "open /Applications/Alfred\\ 5.app && osascript -e 'tell application \"Alfred 5\" to search \"%s\"'"
+                ; :km "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"%s\"'"
+                :open-chrome "osascript -e '
+                        set address to \"%s\"
+                        
+                        tell application \"Google Chrome\"
+                           activate
+                                if not (exists window 1) then reopen
+                                repeat with w in windows
+                                        set i to 1
+                                        repeat with t in tabs of w
+                                        if URL of t contains address then
+                                                set active tab index of w to i
+                                                set index of w to 1
+                                                return
+                                        end if
+                                        set i to i + 1
+                                        end repeat
+                                end repeat
+                                open location \"http://\" & address
+                        end tell
+                           '"
+             ; :paste "osascript -e '
+             ;            set the clipboard to \"%s\"
+             ;            tell application \"System Events\"
+             ;                    keystroke \"v\" using command down
+             ;            end tell
+             ;    '"
         }
         :main [
-                {:des "Map shift+ESC to ~, LCMD+ESC to `"
-                 :rules [[:!Cescape :grave_accent_and_tilde]
+                {:des "Make ESC behave like ESC outside of terminals, like `~ inside a terminal"
+                 :rules [[:escape :grave_accent_and_tilde :terminals]
+                        [:!Cescape :grave_accent_and_tilde]
+                        [:!Qescape :grave_accent_and_tilde]
                         [:!Sescape :!Sgrave_accent_and_tilde]
                         [:!Rescape :!Rgrave_accent_and_tilde]
                         ]}
+
                 {:des "Map shift+backspace to del"
                  :rules [[:!Sdelete_or_backspace :delete_forward]
                         ]}
@@ -39,7 +95,8 @@
                         [:p [[:alf "pr "]]]
                         [:l [[:alf "lh "]]]
                         [:e [[:alf "emoji "]]]
-                        [:s [[:alf "sleep"]]]
+                        [:s [[:alf "snip "]]]
+                        [:x [[:alf "sleep"]]]
                         [:d [[:alf "duck "]]]
                          ]}
 
@@ -70,6 +127,32 @@
                         [:m [:!Ta :z]] ; toggle pane zoom
                         ]}
 
+                {:des "Launch mode"
+                :rules [:launch-mode
+                        [:n [:open "/Applications/NotePlan 3.app"]]
+                        [:b [:open "/Applications/Notion.app"]]
+                        [:semicolon [:open "/Applications/iTerm.app"] :!terminals]
+                        [:semicolon [:open "/Applications/Google Chrome.app"] :terminals]
+                        [:quote [:open "/Applications/Slack.app"] :!slack]
+                        [:quote [:open "/Applications/iTerm.app"] :!terminals]
+                        [:i [:open "/Applications/iTerm.app"]]
+                        [:p [:open "/Applications/Postico 2.app"]]
+                        [:t [:open "/Applications/Spotify.app"]]
+                        [:c [:open "/Applications/Visual Studio Code.app"] :!code]
+                        [:c [:open "/Applications/iTerm.app"] :!terminals]
+                        ; browser
+                        [:m [:open-chrome "mail.google.com"]]
+                        [:n [:open-chrome "notion.so"]]
+                        [:r [:open-chrome "calendar.google.com"]]
+                        [:v [:open-chrome "capchase.1password.com"]]
+                        [:w [:open-chrome "web.whatsapp.com"]]
+                        [:l [:open-chrome "linear.app"]]
+                        [:g [:open-chrome "github.com"]]
+                        [:a [:open-chrome "cloud.google.com"]]
+
+                ]}
+
+
                {:des "Hyper Mode - Media Keys, Usable everywhere"
                 :rules [:hyper-mode
                         ; media keys
@@ -85,15 +168,11 @@
                         [:0 :mute]
                         [:hyphen :volume_decrement]
                         [:equal_sign :volume_increment]
-                        ; quick access - free keys used
-                        [:e [:open "/Applications/NotePlan 3.app"]]
-                        [:i [:open "/Applications/iTerm.app"]]
-                        [:o [:open "/Applications/Google Chrome.app"]] ; this blocks C-o for single bullet vim command mode
-                        ; home row
-                        [:a [:open "/Applications/Slack.app"]]
-                        [:g [:open "/Applications/Postico 2.app"]]
-                        [:t [:open "/Applications/Spotify.app"]]
-                        [:y [:open "/Applications/Visual Studio Code.app"]]
+                        ; one key to rule them all - switch between terminal and chrome
+                        [:semicolon [:open "/Applications/iTerm.app"] :!terminals]
+                        [:semicolon [:open "/Applications/Google Chrome.app"] :terminals]
+                        [:quote [:open "/Applications/Slack.app"] :!slack]
+                        [:quote [:open "/Applications/iTerm.app"] :!terminals]
                         ]}
 
                {:des "Hyper Mode - Partial CTRL Mapping [VIM <C-*> key support]"
@@ -103,6 +182,8 @@
                         [:w :!Tw :terminals]
                         [:r :!Tr :terminals]
                         [:u :!Tu :terminals]
+                        [:i :!Ti :terminals]
+                        [:o :!To :terminals]
                         [:p :!Tp :terminals]
                         ; home row
                         [:s :!Ts :terminals]
