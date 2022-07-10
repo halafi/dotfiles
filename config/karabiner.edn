@@ -91,7 +91,8 @@
                  :rules [:alfred-mode
                         [:spacebar [:open "/Applications/Alfred 5.app"]]
                         [:r [[:alf "repo "]]]
-                        [:g [[:alf "gh "]]]
+                        ; [:g [[:alf "gh "]]]
+                        [:g [[:alf "gs "]]]
                         [:p [[:alf "pr "]]]
                         [:l [[:alf "lh "]]]
                         [:e [[:alf "emoji "]]]
@@ -189,6 +190,7 @@
                         [:s :!Ts :terminals]
                         [:d :!Td :terminals]
                         [:f :!Tf :terminals]
+                        [:g :!Tg :terminals]
                         ; bottom row
                         [:z :!Tz :terminals] ; suspend, resume with fg %1
                         [:x :!Tx :terminals]
