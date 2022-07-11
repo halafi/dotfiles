@@ -134,10 +134,8 @@
                 :rules [:launch-mode
                         [:n [:open "/Applications/NotePlan 3.app"]]
                         [:b [:open "/Applications/Notion.app"]]
-                        [:semicolon [:open "/Applications/iTerm.app"] :!terminals]
-                        [:semicolon [:open "/Applications/Google Chrome.app"] :terminals]
-                        [:quote [:open "/Applications/Slack.app"] :!slack]
-                        [:quote [:open "/Applications/iTerm.app"] :!terminals]
+                        [:semicolon [:open "/Applications/Google Chrome.app"]]
+                        [:quote [:open "/Applications/Slack.app"]]
                         [:i [:open "/Applications/iTerm.app"]]
                         [:p [:open "/Applications/Postico 2.app"]]
                         [:t [:open "/Applications/Spotify.app"]]
