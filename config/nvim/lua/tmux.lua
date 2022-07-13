@@ -105,7 +105,12 @@ M.run_file = function(ft)
         cmd ="goku"
         M.send_command(cmd)
         return
-
+    end
+    if ft == "sql" then
+        cmd ="z dbt && poetry run dbt run --select"
+        local relative_without_extension = vim.fn.expand("%:t:r")
+        M.send_command(cmd .. " " .. relative_without_extension)
+        return
     end
     if ft == "elixir" then
         cmd ="elixir"
@@ -137,6 +142,7 @@ local test_commands = {
         typescript = "npx jest -c apps/app/jest.config.js %s --watch",
         typescriptreact = "npx jest -c apps/app/jest.config.js %s --watch",
         elixir = "mix test %s",
+        sql = "z dbt && poetry run dbt test --select %s",
     },
     suite = {
         lua = "make test",
@@ -150,6 +156,10 @@ M.test = function()
     local test_command = test_commands.file[vim.bo.ft]
     assert(test_command, "no test command found for filetype " .. vim.bo.ft)
 
+    if (vim.bo.ft == "sql") then
+        M.send_command(string.format(test_command, vim.fn.expand("%:t:r")))
+        return
+    end
     M.send_command(string.format(test_command, api.nvim_buf_get_name(0)))
 end
 
