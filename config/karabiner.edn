@@ -30,14 +30,7 @@
                        :slack ["com.tinyspeck.slackmacgap"]
                        :chrome ["^com\\.google\\.Chrome$"]
                        :code ["com.microsoft.VSCode"]
-                       ; :browsers ["^com\\.kagi\\.kagimacOS$"
-                       ;        "^org\\.mozilla\\.firefox$"
-                       ;        "^org\\.mozilla\\.firefoxdeveloperedition$"
-                       ;        "^com\\.google\\.Chrome$"
-                       ;        "^org\\.chromium\\.Chromium$"
-                       ;        "^com\\.google\\.Chrome\\.canary$"
-                       ;        "^com\\.apple\\.Safari$"
-                       ;        "^com\\.brave\\.Browser$"]
+                       ; :browsers ["^com\\.kagi\\.kagimacOS$" "^org\\.mozilla\\.firefox$" "^org\\.mozilla\\.firefoxdeveloperedition$" "^com\\.google\\.Chrome$" "^org\\.chromium\\.Chromium$" "^com\\.google\\.Chrome\\.canary$" "^com\\.apple\\.Safari$" "^com\\.brave\\.Browser$"]
                        }
         :layers {
                 :hyper-mode {:key :caps_lock :alone {:key :escape} :afterup [{:set ["regular-hjkl" 0]}]} ; ctrl+caps for caps toggle
@@ -81,87 +74,6 @@
              ;    '"
         }
         :main [
-                {:des "Make ESC behave like ESC outside of terminals, like `~ inside a terminal"
-                 :rules [
-                        ; [:escape :grave_accent_and_tilde :terminals]
-                        [:escape :grave_accent_and_tilde]
-                        [:!Cescape :grave_accent_and_tilde]
-                        [:!Qescape :grave_accent_and_tilde]
-                        [:!Sescape :!Sgrave_accent_and_tilde]
-                        [:!Rescape :!Rgrave_accent_and_tilde]
-                        ]}
-
-                {:des "Map shift+backspace to del"
-                 :rules [[:!Sdelete_or_backspace :delete_forward]
-                        ]}
-
-                {:des "Alfred Mode"
-                 :rules [:alfred-mode
-                        [:b :!!a] ; get app bundle ID from Alfred
-                        [:spacebar [:open "/Applications/Alfred 5.app"]]
-                        [:r [[:alf "repo "]]]
-                        ; [:g [[:alf "gh "]]]
-                        [:g [[:alf "gs "]]]
-                        [:p [[:alf "pr "]]]
-                        [:l [[:alf "lh "]]]
-                        [:k [[:alf "lock" ]]]
-                        [:e [[:alf "emoji "]]]
-                        [:s [[:alf "snip "]]]
-                        [:x [[:alf "sleep"]]]
-                        [:d [[:alf "duck "]]]
-                         ]}
-
-                {:des "Tmux Mode"
-                 :rules [:tmux-mode
-                        [:comma [:!Ta :comma]] ; rename window
-                        [:open_bracket [:!Ta :open_bracket]] ; [ - reorder
-                        [:close_bracket [:!Ta :close_bracket]]; ] - reorder
-                        [:backslash [:!Ta :backslash]] ; menu
-                        [:spacebar [:!Ta :spacebar]] ; create window
-                        ; top row
-                        [:w [:!Ta :w]] ; window selector
-                        [:r [:!Ta :r]] ; reload config
-                        [:t [:!Ta :t]] ; vertical small split
-                        [:i [:!Ta :!Si]] ; reload plugins
-                        [:p [:!Ta :p]] ; create window
-                        ; home row
-                        [:f [:!Ta :!St]] ; fullscreen
-                        [:s [:!Ta :s]] ; horizontal split
-                        [:h [:!Ta :h]] ; horizontal split
-                        [:j [:!Ta :j]] ; pane left
-                        [:k [:!Ta :k]] ; pane right
-                        [:l [:!Ta :l]]
-                        ; bottom row
-                        [:x [:!Ta :x]] ; kill pane
-                        [:c [:!Ta :c]] ; create window
-                        [:v [:!Ta :v]] ; vertical split
-                        [:m [:!Ta :z]] ; toggle pane zoom
-                        ]}
-
-                {:des "Launch mode"
-                :rules [:launch-mode
-                        [:n [:open "/Applications/NotePlan 3.app"]]
-                        [:b [:open "/Applications/Notion.app"]]
-                        [:semicolon [:open "/Applications/Google Chrome.app"]]
-                        [:quote [:open "/Applications/Slack.app"]]
-                        [:i [:open "/Applications/iTerm.app"]]
-                        [:p [:open "/Applications/Postico 2.app"]]
-                        [:t [:open "/Applications/Spotify.app"]]
-                        ; [:c [:open "/Applications/Visual Studio Code.app"] :!code]
-                        ; browser
-                        [:m [:open-chrome "mail.google.com"]]
-                        [:n [:open-chrome "notion.so"]]
-                        [:c [:open "Calendar"]]
-                        ; [:c [:open-chrome "calendar.google.com"]]
-                        [:1 [:open-chrome "capchase.1password.com"]]
-                        [:w [:open-chrome "web.whatsapp.com"]]
-                        [:l [:open-chrome "linear.app"]]
-                        [:g [:open-chrome "github.com"]]
-                        [:a [:open-chrome "cloud.google.com"]]
-
-                ]}
-
-
                {:des "Hyper Mode - Media Keys, Usable everywhere"
                 :rules [:hyper-mode
                         ; media keys
@@ -241,6 +153,71 @@
                         [:!Ol :!Oright_arrow :!terminals]
                         ]}
 
+                {:des "Tmux Mode"
+                 :rules [:tmux-mode
+                        [:comma [:!Ta :comma]] ; rename window
+                        [:open_bracket [:!Ta :open_bracket]] ; [ - reorder
+                        [:close_bracket [:!Ta :close_bracket]]; ] - reorder
+                        [:backslash [:!Ta :backslash]] ; menu
+                        [:spacebar [:!Ta :spacebar]] ; create window
+                        ; top row
+                        [:w [:!Ta :w]] ; window selector
+                        [:r [:!Ta :r]] ; reload config
+                        [:t [:!Ta :t]] ; vertical small split
+                        [:i [:!Ta :!Si]] ; reload plugins
+                        [:p [:!Ta :p]] ; create window
+                        ; home row
+                        [:f [:!Ta :!St]] ; fullscreen
+                        [:s [:!Ta :s]] ; horizontal split
+                        [:h [:!Ta :h]] ; horizontal split
+                        [:j [:!Ta :j]] ; pane left
+                        [:k [:!Ta :k]] ; pane right
+                        [:l [:!Ta :l]]
+                        ; bottom row
+                        [:x [:!Ta :x]] ; kill pane
+                        [:c [:!Ta :c]] ; create window
+                        [:v [:!Ta :v]] ; vertical split
+                        [:m [:!Ta :z]] ; toggle pane zoom
+                        ]}
+
+                {:des "Alfred Mode"
+                 :rules [:alfred-mode
+                        [:spacebar [:open "/Applications/Alfred 5.app"]]
+                        [:r [[:alf "repo "]]]
+                        ; [:g [[:alf "gh "]]]
+                        [:g [[:alf "gs "]]]
+                        [:p [[:alf "pr "]]]
+                        [:l [[:alf "lh "]]]
+                        [:k [[:alf "lock" ]]]
+                        [:e [[:alf "emoji "]]]
+                        [:s [[:alf "snip "]]]
+                        [:x [[:alf "sleep"]]]
+                        [:d [[:alf "duck "]]]
+                        [:o [[:alf "google "]]]
+                         ]}
+
+                {:des "Launch mode"
+                :rules [:launch-mode
+                        [:p [:open "/Applications/NotePlan 3.app"]]
+                        [:n [:open "/Applications/Notion.app"]]
+                        ; [:n [:open-chrome "notion.so"]]
+                        [:semicolon [:open "/Applications/Google Chrome.app"]]
+                        [:quote [:open "/Applications/Slack.app"]]
+                        [:i [:open "/Applications/iTerm.app"]]
+                        [:t [:open "/Applications/Spotify.app"]]
+                        [:c [:open "Calendar"]]
+                        [:l [:open-chrome "linear.app"]]
+                        ; less common
+                        [:o [:open "/Applications/Postico 2.app"]]
+                        [:v [:open "/Applications/Visual Studio Code.app"] :!code]
+                        ; browser
+                        [:m [:open-chrome "mail.google.com"]]
+                        [:d [:open-chrome "calendar.google.com"]]
+                        [:1 [:open-chrome "capchase.1password.com"]]
+                        [:w [:open-chrome "web.whatsapp.com"]]
+                        [:a [:open-chrome "cloud.google.com"]]
+                ]}
+
                 {:des "Mouse Mode"
                 :rules [:mouse-mode
                         [:h {:mkey {:x -3072}}]
@@ -264,6 +241,20 @@
                         [:o {:pkey :button3}]
                         [:f {:mkey {:speed 2.0}}]
                         ]}
+
+                {:des "Make ESC behave like `~"
+                 :rules [
+                        [:escape :grave_accent_and_tilde]
+                        [:!Cescape :grave_accent_and_tilde]
+                        [:!Qescape :grave_accent_and_tilde]
+                        [:!Sescape :!Sgrave_accent_and_tilde]
+                        [:!Rescape :!Rgrave_accent_and_tilde]
+                        ]}
+
+                {:des "Map shift+backspace to del"
+                 :rules [[:!Sdelete_or_backspace :delete_forward]
+                        ]}
+
         ]
 }
 
