@@ -71,7 +71,7 @@ return require('packer').startup(function()
   use("neovim/nvim-lspconfig")
   use("hrsh7th/cmp-nvim-lsp")
   use("hrsh7th/cmp-buffer")
-  -- use("hrsh7th/cmp-copilot")
+  -- use("hrsh7th/cmp-copilot") -- not working well at this point
   use("hrsh7th/nvim-cmp")
   -- use("weilbith/nvim-lsp-smag") -- makes <C-]> work, not a necessity, like a gd }
   -- icons for autocomplete
@@ -79,7 +79,7 @@ return require('packer').startup(function()
   use("jose-elias-alvarez/null-ls.nvim")
   use("jose-elias-alvarez/nvim-lsp-ts-utils")
   use_with_config("RRethy/vim-illuminate", "illuminate")
-  use("github/copilot.vim")
+  -- use("github/copilot.vim")
   -- snippets
   use_with_config('hrsh7th/vim-vsnip', 'vsnip')
   use('hrsh7th/cmp-vsnip')

@@ -50,7 +50,7 @@
                 :mouse-scroll-mode {:key :4}
         }
         :templates {
-                :open "open \"%s\""
+                :open "open -a \"%s\""
                 :alf "open /Applications/Alfred\\ 5.app && osascript -e 'tell application \"Alfred 5\" to search \"%s\"'"
                 ; :km "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"%s\"'"
                 :open-chrome "osascript -e '
@@ -91,12 +91,13 @@
                         [:!Rescape :!Rgrave_accent_and_tilde]
                         ]}
 
-                ; {:des "Map shift+backspace to del"
-                ;  :rules [[:!Sdelete_or_backspace :delete_forward]
-                ;         ]}
+                {:des "Map shift+backspace to del"
+                 :rules [[:!Sdelete_or_backspace :delete_forward]
+                        ]}
 
                 {:des "Alfred Mode"
                  :rules [:alfred-mode
+                        [:b :!!a] ; get app bundle ID from Alfred
                         [:spacebar [:open "/Applications/Alfred 5.app"]]
                         [:r [[:alf "repo "]]]
                         ; [:g [[:alf "gh "]]]
@@ -150,7 +151,8 @@
                         ; browser
                         [:m [:open-chrome "mail.google.com"]]
                         [:n [:open-chrome "notion.so"]]
-                        [:c [:open-chrome "calendar.google.com"]]
+                        [:c [:open "Calendar"]]
+                        ; [:c [:open-chrome "calendar.google.com"]]
                         [:1 [:open-chrome "capchase.1password.com"]]
                         [:w [:open-chrome "web.whatsapp.com"]]
                         [:l [:open-chrome "linear.app"]]
@@ -206,6 +208,7 @@
                         [:n :!Tn :terminals]
                         [:m :!Tleft_arrow :terminals] ; arrow -> tmux window size
                         [:period :!Tright_arrow :terminals] ; arrow -> tmux window size
+                        ; TODO unify hjkl
                         [:b ["regular-hjkl" 1]] ; press to toggle
                         [:h :left_arrow [:terminals :regular-hjkl]]
                         [:j :down_arrow [:terminals :regular-hjkl]]

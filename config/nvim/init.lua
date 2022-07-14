@@ -154,8 +154,8 @@ u.nmap("<leader>ps", ":PackerSync<CR>")
 global = {}
 
 -- copilot
-vim.g.copilot_assume_mapped = true
-vim.g.copilot_no_tab_map = true
+-- vim.g.copilot_assume_mapped = true
+-- vim.g.copilot_no_tab_map = true
 
 require "tmux"
 require "commands"
@@ -165,7 +165,7 @@ require "plugins"
 
 vim.g.tokyonight_style = "storm"
 vim.g.vscode_style = "dark"
-cmd('colorscheme vscode')
+-- cmd('colorscheme vscode')
 
 -- plugin settings that needs to be here
 vim.cmd("highlight ConflictMarkerBegin guibg=#2f7366")
@@ -178,5 +178,5 @@ vim.cmd("highlight ConflictMarkerCommonAncestorsHunk guibg=#754a81")
 
 -- cmd('colorscheme chuek')
 -- cmd('colorscheme tokyonight')
--- cmd('colorscheme gruvbox')
+cmd('colorscheme dracula')
 -- cmd('colorscheme neon')
