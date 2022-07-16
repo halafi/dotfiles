@@ -254,7 +254,6 @@
                 {:des "Map shift+backspace to del"
                  :rules [[:!Sdelete_or_backspace :delete_forward]
                         ]}
-
         ]
 }
 
