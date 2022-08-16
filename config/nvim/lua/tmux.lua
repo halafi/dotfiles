@@ -143,6 +143,8 @@ local test_commands = {
         typescriptreact = "npx jest -c apps/app/jest.config.js %s --watch",
         elixir = "mix test %s",
         sql = "z dbt && poetry run dbt test --select %s",
+        python = "z segmentillo && poetry run pytest %s",
+
     },
     suite = {
         lua = "make test",
