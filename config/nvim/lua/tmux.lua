@@ -84,6 +84,10 @@ M.send_last_command = function()
     M.send_command(last_cmd)
 end
 
+-- M.clear_last_command = function()
+--     last_cmd = nil
+-- end
+
 M.kill = function()
     if not pane_is_valid() then
         return
@@ -93,7 +97,7 @@ M.kill = function()
 end
 
 M.run_file = function(ft)
-    ft = ft or vim.bo.ft
+    ft = ft or vim.bo.filetype
     local cmd
     if ft == "javascript" then
         cmd = "node"
@@ -130,10 +134,13 @@ end
 
 u.nmap("<Leader>tn", ":lua require'tmux'.send_command()<CR>")
 u.nmap("<Leader>tt", ":lua require'tmux'.send_last_command()<CR>")
+-- u.nmap("<Leader>tc", ":lua require'tmux'.clear_last_command()<CR>")
 u.nmap("<Leader>tr", ":lua require'tmux'.run_file()<CR>")
 
 -- automatically kill pane on exit
-vim.cmd("autocmd VimLeave * silent! lua require'tmux'.kill()")
+api.nvim_create_autocmd("VimLeave", {
+    callback = M.kill,
+})
 
 -- testing wrappers
 local test_commands = {
@@ -141,7 +148,7 @@ local test_commands = {
         lua = "FILE=%s make test-file",
         typescript = "npx jest -c apps/app/jest.config.js %s --watch",
         typescriptreact = "npx jest -c apps/app/jest.config.js %s --watch",
-        elixir = "mix test %s",
+        elixir = "mix test.watch %s",
         sql = "z dbt && poetry run dbt test --select %s",
         python = "z segmentillo && poetry run pytest %s",
 
@@ -150,15 +157,15 @@ local test_commands = {
         lua = "make test",
         typescript = "npx nx run app:test-all",
         typescriptreact = "npx nx run app:test-all",
-        elixir = "mix test",
+        elixir = "mix test.watch",
     },
 }
 
 M.test = function()
-    local test_command = test_commands.file[vim.bo.ft]
-    assert(test_command, "no test command found for filetype " .. vim.bo.ft)
+    local test_command = test_commands.file[vim.bo.filetype]
+    assert(test_command, "no test command found for filetype " .. vim.bo.filetype)
 
-    if (vim.bo.ft == "sql") then
+    if (vim.bo.filetype == "sql") then
         M.send_command(string.format(test_command, vim.fn.expand("%:t:r")))
         return
     end
@@ -166,7 +173,7 @@ M.test = function()
 end
 
 M.test_suite = function()
-    M.send_command(test_commands.suite[vim.bo.ft])
+    M.send_command(test_commands.suite[vim.bo.filetype])
 end
 
 u.nmap("<Leader>tf", ":lua require'tmux'.test()<CR>")

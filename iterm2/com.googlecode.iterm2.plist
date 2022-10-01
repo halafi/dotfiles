@@ -352,6 +352,8 @@
 	<string>6C40211C-B01A-4315-BC10-A6157E9C563A</string>
 	<key>DimInactiveSplitPanes</key>
 	<true/>
+	<key>DisableFullscreenTransparency</key>
+	<false/>
 	<key>EnableAPIServer</key>
 	<true/>
 	<key>GlobalKeyMap</key>
@@ -714,6 +716,8 @@
 			<true/>
 			<key>Blur</key>
 			<false/>
+			<key>Blur Radius</key>
+			<real>22.640965757978723</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Alpha Component</key>
@@ -1128,6 +1132,10 @@
 			<true/>
 			<key>Normal Font</key>
 			<string>FiraCodeNerdFontComplete-Retina 14</string>
+			<key>Only The Default BG Color Uses Transparency</key>
+			<false/>
+			<key>Open Toolbelt</key>
+			<false/>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Prompt Before Closing 2</key>
@@ -1172,6 +1180,8 @@
 			<string></string>
 			<key>Silence Bell</key>
 			<false/>
+			<key>Space</key>
+			<integer>0</integer>
 			<key>Sync Title</key>
 			<false/>
 			<key>Tags</key>
@@ -1255,6 +1265,8 @@
 	<integer>6</integer>
 	<key>TabViewType</key>
 	<integer>0</integer>
+	<key>UseBorder</key>
+	<false/>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
 </dict>
