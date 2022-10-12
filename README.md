@@ -31,7 +31,6 @@ I am using [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
 1. Install [brew](https://brew.sh/)
 2. Install fish: `brew install fish`
 3. Install [omf](https://github.com/oh-my-fish/oh-my-fish) and `omf install z`
-4. [config] Map Tab to Control in Keyboard preferences
 
 ### Dotfiles
 
@@ -57,6 +56,11 @@ I am using [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
 ### Markdown Preview Dependencies
 1. `brew install pandoc`
 2. `npm i -g live-server`
+
+### Node.js
+1. `asdf plugin add nodejs`
+2. `asdf install nodejs lts`
+3. update `.tool-versions` by running `asdf global nodejs 16.xx.x` (latest lts)
 
 ### Rust / Cargo
 1. https://doc.rust-lang.org/cargo/getting-started/installation.html

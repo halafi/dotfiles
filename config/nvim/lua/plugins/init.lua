@@ -30,7 +30,6 @@ return require('packer').startup(function()
   use("tpope/vim-unimpaired")
   use("tpope/vim-repeat")
   use("tpope/vim-obsession")
-  -- use("tpope/vim-obsession")
   use_with_config("numToStr/Comment.nvim", "comment")
   -- required by few libs
   use("nvim-lua/plenary.nvim")
