@@ -42,7 +42,7 @@ SETUVAR fish_pager_color_description:B3A06D\x1eyellow
 SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
-SETUVAR fish_user_paths:/Users/halafi/Library/Application\x20Support/pypoetry/venv/bin\x1e/Users/halafi/Library/Python/3\x2e8/bin\x1e/usr/local/opt/python\x403\x2e8/bin\x1e/opt/homebrew/Caskroom/google\x2dcloud\x2dsdk/latest/google\x2dcloud\x2dsdk/bin\x1e/Users/halafi/\x2easdf/installs/nodejs/16\x2e17\x2e1/\x2enpm/bin\x1e/usr/local/go/bin\x1e/Users/halafi/\x2ecargo/bin\x1e/Users/halafi/tools/lua\x2dlanguage\x2dserver/bin\x1e/Users/halafi/\x2elocal/bin\x1e/usr/local/Caskroom/google\x2dcloud\x2dsdk/latest/google\x2dcloud\x2dsdk/bin\x1e/usr/local/opt/go/libexec/bin\x1e/Users/halafi/go\x2dworkspace/bin\x1e/Users/halafi/\x2efig/bin
+SETUVAR fish_user_paths:/Users/halafi/\x2easdf/installs/nodejs/16\x2e17\x2e1/\x2enpm/bin\x1e/usr/local/go/bin\x1e/Users/halafi/\x2ecargo/bin\x1e/Users/halafi/tools/lua\x2dlanguage\x2dserver/bin\x2e/Users/halafi/\x2elocal/bin\x1e/Users/halafi/go\x2dworkspace/bin
 SETUVAR pure_begin_prompt_with_current_directory:true
 SETUVAR pure_check_for_new_release:false
 SETUVAR pure_color_at_sign:pure_color_mute
