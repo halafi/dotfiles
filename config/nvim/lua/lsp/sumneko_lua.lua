@@ -29,7 +29,7 @@ local M = {}
 
 
 M.setup = function(on_attach, capabilities)
-    local luadev = require("lua-dev").setup({
+    local luadev = require("neodev").setup({
         lspconfig = {
             on_attach = on_attach,
             settings = settings,

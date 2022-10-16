@@ -19,6 +19,17 @@ local servers = { 'eslint', 'jsonls', 'null-ls', 'tsserver', 'sumneko_lua', 'pyr
 
 local common = require("lsp.common")
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true
+}
+
 for _, server in ipairs(servers) do
-  require("lsp." .. server).setup(common.on_attach, common.capabilities)
+  -- require("lsp." .. server).setup(common.on_attach, common.capabilities)
+  require("lsp." .. server).setup(common.on_attach, capabilities)
 end
+
+-- folding
+require('ufo').setup()
+

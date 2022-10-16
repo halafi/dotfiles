@@ -1,9 +1,5 @@
 local u = require("utils")
 
-local lsp = vim.lsp
-
-local capabilities = lsp.protocol.make_client_capabilities()
-
 local M = {
   on_attach = function(client, bufnr)
     -- commands
@@ -39,7 +35,7 @@ local M = {
 
     require("illuminate").on_attach(client)
   end,
-  capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+  capabilities = require("cmp_nvim_lsp").default_capabilities()
 }
 
 return M;

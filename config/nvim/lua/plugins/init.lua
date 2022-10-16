@@ -77,6 +77,17 @@ return require('packer').startup(function()
   use("onsails/lspkind-nvim")
   use("jose-elias-alvarez/null-ls.nvim")
   use("jose-elias-alvarez/nvim-lsp-ts-utils")
+  use {
+    "kevinhwang91/nvim-ufo",
+    opt = true,
+    event = { "BufReadPre" },
+    wants = { "promise-async" },
+    requires = "kevinhwang91/promise-async",
+    config = function()
+      vim.o.foldenable = true
+      vim.o.foldcolumn = '1'
+    end,
+  }
   use_with_config("RRethy/vim-illuminate", "illuminate")
   -- use("github/copilot.vim")
   -- snippets
@@ -97,27 +108,6 @@ return require('packer').startup(function()
       require("plugins.rust-tools").setup()
     end,
   }
-
-  -- Debugging (with big d)
-  -- https://alpha2phi.medium.com/neovim-for-beginners-debugging-using-dap-44626a767f57
-  -- use {
-  --   "mfussenegger/nvim-dap",
-  --   opt = true,
-  --   event = "BufReadPre",
-  --   module = { "dap" },
-  --   wants = { "nvim-dap-virtual-text", "DAPInstall.nvim", "nvim-dap-ui", --[[ "which-key.nvim" ]] },
-  --   requires = {
-  --     "Pocco81/DAPInstall.nvim",
-  --     "theHamsta/nvim-dap-virtual-text",
-  --     "rcarriga/nvim-dap-ui",
-  --     -- "nvim-telescope/telescope-dap.nvim",
-  --     { "leoluz/nvim-dap-go", module = "dap-go" },
-  --     { "jbyuki/one-small-step-for-vimkind", module = "osv" },
-  --   },
-  --   config = function() 
-  --     require("plugins.dap").setup()
-  --   end,
-  -- }
 
   -- treesitter
   use({
@@ -163,12 +153,12 @@ return require('packer').startup(function()
   -- perf
   use_with_config("nathom/filetype.nvim", "filetype") -- greatly reduces startup time
 
-   use({
+  use({
         "davidgranstrom/nvim-markdown-preview", -- preview markdown output in browser
         opt = true,
         ft = { "markdown" },
         cmd = "MarkdownPreview",
-    })
+  })
 
 end)
 
