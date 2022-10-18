@@ -85,7 +85,9 @@ return require('packer').startup(function()
     requires = "kevinhwang91/promise-async",
     config = function()
       vim.o.foldenable = true
-      vim.o.foldcolumn = '1'
+      vim.o.foldcolumn = '0'
+      vim.o.foldlevel = 99
+      vim.o.foldlevelstart = 99
     end,
   }
   use_with_config("RRethy/vim-illuminate", "illuminate")

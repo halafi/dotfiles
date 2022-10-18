@@ -29,7 +29,7 @@ local M = {}
 
 
 M.setup = function(on_attach, capabilities)
-    local luadev = require("neodev").setup({
+    --[[ local luadev =  ]]require("neodev").setup({
         lspconfig = {
             on_attach = on_attach,
             settings = settings,
@@ -39,7 +39,15 @@ M.setup = function(on_attach, capabilities)
             capabilities = capabilities,
         },
     })
-    require("lspconfig").sumneko_lua.setup(luadev)
+    require("lspconfig").sumneko_lua.setup({
+        settings = {
+            Lua = {
+              completion = {
+                callSnippet = "Replace"
+              }
+            }
+        }
+    })
 end
 
 return M
