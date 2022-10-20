@@ -20,6 +20,9 @@ vim.cmd('autocmd TextYankPost * silent! lua vim.highlight.on_yank({ higroup = "I
 -- disable continuation of comments to the next line 
 vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
 
+-- fix .env filetype detection
+vim.cmd("autocmd BufNewFile,BufRead *.env setfiletype sh")
+
 -- scratch files
 vim.cmd("command! Scratch new | setlocal bt=nofile bh=wipe nobl noswapfile nu")
 

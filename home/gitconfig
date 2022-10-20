@@ -1,6 +1,7 @@
 [user]
 	name = halafi
 	email = filiphalas74@gmail.com
+	signingkey = E905877552E5B202
 [credential]
 	helper = store
 [core]
@@ -9,6 +10,7 @@
 	pager = delta
 [commit]
 	template = ~/.stCommitMsg
+	gpgsign = true
 [merge]
 	tool = nvim
 [mergetool "nvim"]

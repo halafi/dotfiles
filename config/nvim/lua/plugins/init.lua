@@ -77,19 +77,6 @@ return require('packer').startup(function()
   use("onsails/lspkind-nvim")
   use("jose-elias-alvarez/null-ls.nvim")
   use("jose-elias-alvarez/nvim-lsp-ts-utils")
-  use {
-    "kevinhwang91/nvim-ufo",
-    opt = true,
-    event = { "BufReadPre" },
-    wants = { "promise-async" },
-    requires = "kevinhwang91/promise-async",
-    config = function()
-      vim.o.foldenable = true
-      vim.o.foldcolumn = '0'
-      vim.o.foldlevel = 99
-      vim.o.foldlevelstart = 99
-    end,
-  }
   use_with_config("RRethy/vim-illuminate", "illuminate")
   -- use("github/copilot.vim")
   -- snippets
