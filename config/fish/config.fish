@@ -25,3 +25,5 @@ functions --copy cd standard_cd
 function cd
     standard_cd $argv; and exa
 end
+
+set -Ux GPG_TTY $(tty)

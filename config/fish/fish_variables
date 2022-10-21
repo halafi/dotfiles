@@ -5,8 +5,6 @@ SETUVAR --export EDITOR:nvim
 SETUVAR --export GOBIN:/Users/halafi/go\x2dworkspace/bin
 SETUVAR --export --path GOPATH:/Users/halafi/go\x2dworkspace
 SETUVAR --export GOROOT:/usr/local/go
-# needed for gpg key signing export GPG_TTY=$(tty)
-SETUVAR --export GPG_TTY:/dev/ttys000
 SETUVAR --export VIMCONFIG:/Users/halafi/\x2econfig/nvim
 SETUVAR --export VISUAL:nvim
 SETUVAR __fish_initialized:3400

@@ -146,7 +146,7 @@ api.nvim_create_autocmd("VimLeave", {
 local test_commands = {
     file = {
         lua = "FILE=%s make test-file",
-        typescript = "npx jest -c apps/app/jest.config.js %s --watch",
+        typescript = "npx jest -c jsapps/apps/web/jest.config.js %s --watch",
         typescriptreact = "npx jest -c apps/app/jest.config.js %s --watch",
         elixir = "mix test.watch %s",
         sql = "z dbt && poetry run dbt test --select %s",

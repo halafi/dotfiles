@@ -38,10 +38,11 @@ I am using [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
 2. Install [FiraCode font patched with icons](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Retina/complete/Fira%20Code%20Retina%20Nerd%20Font%20Complete.ttf)
 3. Install [Go](https://go.dev/doc/install)
 4. Brew packages:
-    - `brew install asdf fish exa fzf bat git-delta ripgrep neovim tmux ranger yarn htop lazygit`
+    - `brew install asdf fish exa fzf bat git-delta ripgrep neovim tmux ranger yarn htop lazygit google-cloud-sdk terraform`
 5. [Tmux plugin manager](https://github.com/tmux-plugins/tpm)
 6. LSP servers (used by Neovim): 
     - `yarn global add vscode-langservers-extracted`
+    - `npm install -g svelte-language-server`
     - `yarn global add typescript typescript-language-server eslint prettier`
     - `go install golang.org/x/tools/gopls@latest`
     - `https://jdhao.github.io/2021/08/12/nvim_sumneko_lua_conf/`
