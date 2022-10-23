@@ -1,0 +1,47 @@
+{
+  "Ednl": {
+    "prefix": ["ednl"],
+    "body": ["// eslint-disable-next-line $1"]
+  },
+  "Tsignore": {
+    "prefix": ["tsi"],
+    "body": [
+      "// eslint-disable-next-line @typescript-eslint/ban-ts-comment",
+      "// @ts-ignore"
+    ]
+  },
+  "exportDefault": {
+    "prefix": ["exp"],
+    "body": ["export default $1;"]
+  },
+  "consoleLog": {
+    "prefix": ["cl"],
+    "body": ["console.log($1);"]
+  },
+  "consoleLogParam": {
+    "prefix": ["clv"],
+    "body": ["console.log('$1:', $1);"]
+  },
+  "describeBlock": {
+    "prefix": "desc",
+    "body": ["describe('${1:first}', () => {", "  $0;", "});", ""],
+    "description": "Testing `describe` block"
+  },
+  "flexRow": {
+    "prefix": "row",
+    "body": [
+      "const Row = styled.div`",
+      "\tdisplay: flex;",
+      "`;"
+    ]
+  },
+  "flexCol": {
+    "prefix": "col",
+    "body": [
+      "const Column = styled.div`",
+      "\tdisplay: flex;",
+      "\tflex-direction: column;",
+      "`;"
+    ]
+  }
+}

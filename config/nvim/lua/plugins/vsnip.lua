@@ -1,6 +1,7 @@
 vim.g.vsnip_filetypes = {
     javascriptreact = { "javascript" },
     typescriptreact = { "typescript" },
+    -- svelte = { "svelte" },
 }
 vim.g.vsnip_snippet_dir = "~/.config/nvim/snippets"
 

@@ -1,11 +1,15 @@
 local u = require("utils")
 
+local lsp_formatting = function(bufnr)
+    vim.lsp.buf.format({
+        bufnr = bufnr,
+    })
+end
+
 local M = {
   on_attach = function(client, bufnr)
     -- commands
     u.buf_command(bufnr, "LspDef", vim.lsp.buf.definition)
-    u.buf_command(bufnr, "LspFormatting", vim.lsp.buf.format)
-    u.buf_command(bufnr, "LspCodeAction", vim.lsp.buf.code_action)
     u.buf_command(bufnr, "LspHover", vim.lsp.buf.hover)
     u.buf_command(bufnr, "LspRename", vim.lsp.buf.rename)
     u.buf_command(bufnr, "LspRefs", vim.lsp.buf.references)
@@ -18,7 +22,9 @@ local M = {
     u.buf_command(bufnr, "LspDiagQuickfix", vim.diagnostic.setqflist)
 
     -- bindings
-    u.buf_map(bufnr, "n", "<leader>f", ":LspFormatting<CR>")
+    u.buf_map(bufnr, "n", "ga", function()
+        vim.lsp.buf.code_action() -- range
+    end)
     u.buf_map(bufnr, "n", "gi", ":LspRename<CR>")
     u.buf_map(bufnr, "n", "gd", ":LspDef<CR>")
     u.buf_map(bufnr, "n", "gy", ":LspTypeDef<CR>")
@@ -31,7 +37,14 @@ local M = {
     u.buf_map(bufnr, "i", "<C-x><C-x>", "<cmd> LspSignatureHelp<CR>")
     -- fixes
     u.buf_map(bufnr, "n", "<Leader>q", ":LspDiagQuickfix<CR>")
-    u.buf_map(bufnr, "n", "<leader>ca", ":LspCodeAction<CR>")
+
+    if client.supports_method("textDocument/formatting") then
+        local formatting_cb = function()
+            lsp_formatting(bufnr)
+        end
+        u.buf_command(bufnr, "LspFormatting", formatting_cb)
+        u.buf_map(bufnr, "n", "<leader>f", formatting_cb)
+    end
 
     require("illuminate").on_attach(client)
   end,

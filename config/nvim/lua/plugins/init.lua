@@ -76,7 +76,7 @@ return require('packer').startup(function()
   -- icons for autocomplete
   use("onsails/lspkind-nvim")
   use("jose-elias-alvarez/null-ls.nvim")
-  use("jose-elias-alvarez/nvim-lsp-ts-utils")
+  use("jose-elias-alvarez/typescript.nvim")
   use_with_config("RRethy/vim-illuminate", "illuminate")
   -- use("github/copilot.vim")
   -- snippets

@@ -3,7 +3,7 @@ local M = {
         local lspconfig = require("lspconfig")
 
         lspconfig["eslint"].setup({
-            root_dir = lspconfig.util.root_pattern(".eslintrc", ".eslintrc.js", ".eslintrc.json"),
+            root_dir = lspconfig.util.root_pattern(".eslintrc", ".eslintrc.js", ".eslintrc.json", ".eslintrc.cjs"),
             on_attach = function(client, bufnr)
                 client.server_capabilities.document_formatting = true
                 on_attach(client, bufnr)

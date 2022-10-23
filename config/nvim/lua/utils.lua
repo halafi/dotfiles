@@ -39,6 +39,17 @@ M.buf_command = function(bufnr, name, fn, opts)
     api.nvim_buf_create_user_command(bufnr, name, fn, opts or {})
 end
 
+M.table = {
+    some = function(tbl, cb)
+        for k, v in pairs(tbl) do
+            if cb(k, v) then
+                return true
+            end
+        end
+        return false
+    end,
+}
+
 M.t = function(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
