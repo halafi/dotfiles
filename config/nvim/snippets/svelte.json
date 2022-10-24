@@ -26,22 +26,5 @@
     "prefix": "desc",
     "body": ["describe('${1:first}', () => {", "  $0;", "});", ""],
     "description": "Testing `describe` block"
-  },
-  "flexRow": {
-    "prefix": "row",
-    "body": [
-      "const Row = styled.div`",
-      "\tdisplay: flex;",
-      "`;"
-    ]
-  },
-  "flexCol": {
-    "prefix": "col",
-    "body": [
-      "const Column = styled.div`",
-      "\tdisplay: flex;",
-      "\tflex-direction: column;",
-      "`;"
-    ]
   }
 }

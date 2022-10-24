@@ -145,12 +145,14 @@ api.nvim_create_autocmd("VimLeave", {
 -- testing wrappers
 local test_commands = {
     file = {
+        -- currently this needs to be adjusted per project
         lua = "FILE=%s make test-file",
         typescript = "npx jest -c jsapps/apps/web/jest.config.js %s --watch",
         typescriptreact = "npx jest -c apps/app/jest.config.js %s --watch",
         elixir = "mix test.watch %s",
-        sql = "z dbt && poetry run dbt test --select %s",
-        python = "z segmentillo && poetry run pytest %s",
+        -- sql = "z dbt && poetry run dbt test --select %s",
+        -- python = "z segmentillo && poetry run pytest %s",
+        go = "cd go && go test %s",
 
     },
     suite = {
@@ -158,6 +160,7 @@ local test_commands = {
         typescript = "npx nx run app:test-all",
         typescriptreact = "npx nx run app:test-all",
         elixir = "mix test.watch",
+        go = "cd go && go test ./..."
     },
 }
 

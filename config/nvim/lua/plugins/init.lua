@@ -17,8 +17,8 @@ return require('packer').startup(function()
 
   -- themes (sorted by contrast)
   use({
-    "dracula/vim", -- high contrast
-    "folke/tokyonight.nvim",
+    -- "dracula/vim", -- high contrast
+    -- "folke/tokyonight.nvim",
     "Mofiqul/vscode.nvim"
   })
   use("mhinz/vim-startify")
