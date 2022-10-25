@@ -22,6 +22,8 @@ vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
 
 -- fix .env filetype detection
 vim.cmd("autocmd BufNewFile,BufRead *.env setfiletype sh")
+-- fix justfile filetype
+vim.cmd("autocmd BufNewFile,BufRead justfile setfiletype make")
 
 -- scratch files
 vim.cmd("command! Scratch new | setlocal bt=nofile bh=wipe nobl noswapfile nu")
