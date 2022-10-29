@@ -70,6 +70,16 @@
     "body": ["describe('${1:first}', () => {", "  $0;", "});", ""],
     "description": "Testing `describe` block"
   },
+  "testBlock": {
+    "prefix": "test",
+    "body": ["test('${1:first}', () => {", "  $0;", "});", ""],
+    "description": "Testing `test` block"
+  },
+  "itBlock": {
+    "prefix": "it",
+    "body": ["it('${1:first}', () => {", "  $0;", "});", ""],
+    "description": "Testing `it` block"
+  },
   "flexRow": {
     "prefix": "row",
     "body": [
