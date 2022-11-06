@@ -183,10 +183,10 @@
                 {:des "Alfred Mode"
                  :rules [:alfred-mode
                         [:spacebar [:open "/Applications/Alfred 5.app"]]
-                        [:r [[:alf "repo "]]]
+                        ; [:r [[:alf "repo "]]]
                         ; [:g [[:alf "gh "]]]
-                        [:g [[:alf "gs "]]]
-                        [:p [[:alf "pr "]]]
+                        ; [:g [[:alf "gs "]]]
+                        ; [:p [[:alf "pr "]]]
                         [:l [[:alf "lh "]]]
                         [:k [[:alf "lock" ]]]
                         [:e [[:alf "emoji "]]]
@@ -204,43 +204,46 @@
                         [:semicolon [:open "/Applications/Google Chrome.app"]]
                         [:quote [:open "/Applications/Slack.app"]]
                         [:i [:open "/Applications/iTerm.app"]]
-                        [:t [:open "/Applications/Spotify.app"]]
+                        [:y [:open "/Applications/Spotify.app"]]
+                        [:t [:open "/Applications/Toggl Track.app"]]
+                        [:u [:open "/Applications/zoom.us.app"]]
                         [:c [:open "Calendar"]]
-                        [:l [:open-chrome "linear.app"]]
+                        ; [:j [:open "/Applications/Spotify.app"]]
+                        ; [:k [:open "/Applications/Spotify.app"]]
+                        ; [:l [:open "/Applications/Spotify.app"]]
                         ; less common
                         [:o [:open "/Applications/Postico 2.app"]]
                         [:v [:open "/Applications/Visual Studio Code.app"] :!code]
                         ; browser
                         [:m [:open-chrome "mail.google.com"]]
                         [:d [:open-chrome "calendar.google.com"]]
-                        [:1 [:open-chrome "capchase.1password.com"]]
                         [:w [:open-chrome "web.whatsapp.com"]]
                         [:a [:open-chrome "cloud.google.com"]]
                 ]}
 
-                {:des "Mouse Mode"
-                :rules [:mouse-mode
-                        [:h {:mkey {:x -3072}}]
-                        [:j {:mkey {:y 3072}}]
-                        [:k {:mkey {:y -3072}}]
-                        [:l {:mkey {:x 3072}}]
-                        [:u {:pkey :button1}]
-                        [:i {:pkey :button2}]
-                        [:o {:pkey :button3}]
-                        [:f {:mkey {:speed 0.3}}]
-                        ]}
-
-                {:des "Mouse Scroll Mode"
-                :rules [:mouse-scroll-mode
-                        [:j {:mkey {:vwheel 35}}]
-                        [:h {:mkey {:hwheel 35}}]
-                        [:k {:mkey {:vwheel -35}}]
-                        [:l {:mkey {:hwheel -35}}]
-                        [:u {:pkey :button1}]
-                        [:i {:pkey :button2}]
-                        [:o {:pkey :button3}]
-                        [:f {:mkey {:speed 2.0}}]
-                        ]}
+                ; {:des "Mouse Mode"
+                ; :rules [:mouse-mode
+                ;         [:h {:mkey {:x -3072}}]
+                ;         [:j {:mkey {:y 3072}}]
+                ;         [:k {:mkey {:y -3072}}]
+                ;         [:l {:mkey {:x 3072}}]
+                ;         [:u {:pkey :button1}]
+                ;         [:i {:pkey :button2}]
+                ;         [:o {:pkey :button3}]
+                ;         [:f {:mkey {:speed 0.3}}]
+                ;         ]}
+                ;
+                ; {:des "Mouse Scroll Mode"
+                ; :rules [:mouse-scroll-mode
+                ;         [:j {:mkey {:vwheel 35}}]
+                ;         [:h {:mkey {:hwheel 35}}]
+                ;         [:k {:mkey {:vwheel -35}}]
+                ;         [:l {:mkey {:hwheel -35}}]
+                ;         [:u {:pkey :button1}]
+                ;         [:i {:pkey :button2}]
+                ;         [:o {:pkey :button3}]
+                ;         [:f {:mkey {:speed 2.0}}]
+                ;         ]}
 
                 {:des "Make ESC behave like `~"
                  :rules [
