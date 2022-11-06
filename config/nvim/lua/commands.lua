@@ -31,7 +31,7 @@ vim.cmd("command! Scratch new | setlocal bt=nofile bh=wipe nobl noswapfile nu")
 u.command("LazyGit", "tabnew term://lazygit")
 u.nmap("<Leader>g", ":LazyGit<CR>")
 -- u.nmap("<leader>gs", ":Git<CR>")
-u.command("Reload", ":source $VIMCONFIG/init.lua")
+-- u.command("Reload", ":source $VIMCONFIG/init.lua")
 
 -- reset treesitter and lsp diagnostics
 u.command("R", "w | :e")
