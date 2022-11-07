@@ -118,5 +118,37 @@
     "body": [
       "\\${({ theme }) => theme.$1};"
     ]
+  },
+  "asyncFunction": {
+    "prefix": "afn",
+    "body": [
+      "async function $1($2) {",
+      "  $3;",
+      "}"
+    ]
+  },
+  "exportAsyncFunction": {
+    "prefix": "eafn",
+    "body": [
+      "export async function $1($2) {",
+      "  $3;",
+      "}"
+    ]
+  },
+  "function": {
+    "prefix": "fn",
+    "body": [
+      "function $1($2) {",
+      "  $3;",
+      "}"
+    ]
+  },
+  "exportFunction": {
+    "prefix": "efn",
+    "body": [
+      "export function $1($2) {",
+      "  $3;",
+      "}"
+    ]
   }
 }

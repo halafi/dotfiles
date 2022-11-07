@@ -204,6 +204,7 @@
                         [:semicolon [:open "/Applications/Google Chrome.app"]]
                         [:quote [:open "/Applications/Slack.app"]]
                         [:i [:open "/Applications/iTerm.app"]]
+                        [:s [:open "/Applications/Spotify.app"]]
                         [:y [:open "/Applications/Spotify.app"]]
                         [:t [:open "/Applications/Toggl Track.app"]]
                         [:u [:open "/Applications/zoom.us.app"]]
