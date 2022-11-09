@@ -18,6 +18,7 @@
       prefix: "."
     # nvim
     ~/.config/ranger/rc.conf: config/ranger/rc.conf
+    ~/.config/bat/config: config/bat/config
     ~/.config/nvim/init.lua: config/nvim/init.lua
     ~/.config/nvim/lua:
       glob: true

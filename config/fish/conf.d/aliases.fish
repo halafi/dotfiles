@@ -1,5 +1,5 @@
 if status --is-interactive
-    alias bat 'bat --theme=dracula'
+    alias cat 'bat'
     alias exa 'exa --classify'
     alias rr 'ranger'
     alias vi 'nvim'
