@@ -20,10 +20,10 @@
 ; cmd+shift+/
 {
         :profiles {:Default {:default true :sim 50 :delay 500 :alone 500 :held 500}}
-         :devices {
+        :devices {
                         :macbook-internal [{:product_id 833 :vendor_id 1452}]
                         :k12 [{:vendor_id 1452, :product_id 591}]
-                }
+        }
         :applications {
                        :terminals ["^com\\.apple\\.Terminal$" "^com\\.googlecode\\.iterm2$"],
                        :alfred ["^com\\.runningwithcrayons\\.Alfred$"]
@@ -200,6 +200,7 @@
                 :rules [:launch-mode
                         [:p [:open "/Applications/NotePlan 3.app"]]
                         [:n [:open "/Applications/Notion.app"]]
+                        [:m [:open "/Applications/Postman.app"]]
                         ; [:n [:open-chrome "notion.so"]]
                         [:semicolon [:open "/Applications/Google Chrome.app"]]
                         [:quote [:open "/Applications/Slack.app"]]
@@ -216,9 +217,10 @@
                         [:o [:open "/Applications/Postico 2.app"]]
                         [:v [:open "/Applications/Visual Studio Code.app"] :!code]
                         ; browser
-                        [:m [:open-chrome "mail.google.com"]]
-                        [:d [:open-chrome "calendar.google.com"]]
-                        [:w [:open-chrome "web.whatsapp.com"]]
+                        ; [:p [:open "/Applications/NotePlan 3.app"]]
+                        ; [:m [:open-chrome "mail.google.com"]]
+                        ; [:d [:open-chrome "calendar.google.com"]]
+                        ; [:w [:open-chrome "web.whatsapp.com"]]
                         [:a [:open-chrome "cloud.google.com"]]
                 ]}
 

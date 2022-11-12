@@ -35,10 +35,10 @@ cmp.setup {
          },
       },
       sources = {
-         { name = "nvim_lsp"},
-         { name = "path" },
-         { name = "buffer" , keyword_length = 5},
-         { name = "vsnip", priority = 9998 },
+         { name = "vsnip", keyword_length = 2, priority = 9998 },
+         { name = "path", keyword_length = 3 },
+         { name = "nvim_lsp", keyword_length = 3 },
+         { name = "buffer" , keyword_length = 5 },
          -- { name = 'copilot', priority = 9999 }
       },
       experimental = {

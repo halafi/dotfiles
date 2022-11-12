@@ -20,7 +20,7 @@
   },
   "consoleLogParam": {
     "prefix": ["clv"],
-    "body": ["console.log('$1:', $1);"]
+    "body": ["$: console.log('$1:', $1);"]
   },
   "describeBlock": {
     "prefix": "desc",
