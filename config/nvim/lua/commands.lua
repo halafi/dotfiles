@@ -14,6 +14,8 @@ vim.cmd("autocmd TermOpen * startinsert")
 vim.cmd("autocmd TermOpen * setlocal nonumber norelativenumber")
 -- suppress process exited message
 vim.cmd("autocmd TermClose term://*lazygit execute 'bdelete! ' . expand('<abuf>')")
+vim.cmd("autocmd TermClose term://*lazydocker execute 'bdelete! ' . expand('<abuf>')")
+vim.cmd("autocmd TermClose term://*btm execute 'bdelete! ' . expand('<abuf>')")
 -- autocommands
 -- highlight on yank
 vim.cmd('autocmd TextYankPost * silent! lua vim.highlight.on_yank({ higroup = "IncSearch", timeout = 500 })')
@@ -29,7 +31,13 @@ vim.cmd("autocmd BufNewFile,BufRead justfile setfiletype make")
 vim.cmd("command! Scratch new | setlocal bt=nofile bh=wipe nobl noswapfile nu")
 
 u.command("LazyGit", "tabnew term://lazygit")
+u.command("LazyDocker", "tabnew term://lazydocker")
+u.command("Bottom", "tabnew term://btm")
+u.command("Tokei", "tabnew term://tokei")
 u.nmap("<Leader>g", ":LazyGit<CR>")
+u.nmap("<Leader>b", ":Bottom<CR>")
+u.nmap("<Leader>d", ":LazyDocker<CR>")
+u.nmap("<Leader>t", ":Tokei<CR>")
 -- u.nmap("<leader>gs", ":Git<CR>")
 -- u.command("Reload", ":source $VIMCONFIG/init.lua")
 
