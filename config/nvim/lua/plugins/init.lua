@@ -136,7 +136,8 @@ return require('packer').startup(function()
    -- highlight color codes
   use({ "RRethy/vim-hexokinase", config = config("hexokinase"), run = "make hexokinase" })
   use_with_config("andymass/vim-matchup", "matchup") -- improves %, replaces matchit
-  -- use("vimwiki/vimwiki")
+  use_with_config("nat-418/boole.nvim", "boole")
+  use_with_config('simrat39/symbols-outline.nvim', 'symbols-outline')
 
   -- perf
   use_with_config("nathom/filetype.nvim", "filetype") -- greatly reduces startup time
