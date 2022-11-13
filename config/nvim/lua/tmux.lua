@@ -147,8 +147,8 @@ local test_commands = {
     file = {
         -- currently this needs to be adjusted per project
         lua = "FILE=%s make test-file",
-        typescript = "npx jest -c jsapps/apps/browser/jest.config.js %s --watch",
-        typescriptreact = "npx jest -c apps/app/jest.config.js %s --watch",
+        typescript = "cd jsapps/apps/web && npx jest %s --watch",
+        typescriptreact = "cd jsapps/apps/web && npx jest %s --watch",
         elixir = "mix test.watch %s",
         -- sql = "z dbt && poetry run dbt test --select %s",
         -- python = "z segmentillo && poetry run pytest %s",
