@@ -20,11 +20,17 @@
   },
   "consoleLogParam": {
     "prefix": ["clv"],
-    "body": ["$: console.log('$1:', $1);"]
+    "body": ["\\$: console.log('$1:', $1);"]
   },
   "describeBlock": {
     "prefix": "desc",
     "body": ["describe('${1:first}', () => {", "  $0;", "});", ""],
     "description": "Testing `describe` block"
+  },
+  "constDestruct": {
+    "prefix": "cp",
+    "body": [
+      "const { $1 }"
+    ]
   }
 }

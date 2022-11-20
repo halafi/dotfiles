@@ -16,7 +16,7 @@ cmp.setup {
            ['<C-l>'] = cmp.mapping.complete(),
            ['<ESC>'] = cmp.mapping.close(),
            ['<TAB>'] = cmp.mapping.confirm({
-             behavior = cmp.ConfirmBehavior.Replace,
+             behavior = cmp.ConfirmBehavior.Insert,
              select = true,
            }),
            ['<enter>'] = cmp.mapping.confirm({

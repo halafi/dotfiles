@@ -37,10 +37,11 @@
         }
         :simlayers {
                 :alfred-mode {:key :z}
+                :snippet-mode {:key :x}
                 :tmux-mode {:key :q :condi :terminals}
                 :launch-mode {:key :2}
-                :mouse-mode {:key :3}
-                :mouse-scroll-mode {:key :4}
+                ; :mouse-mode {:key :3}
+                ; :mouse-scroll-mode {:key :4}
         }
         :templates {
                 :open "open -a \"%s\""
@@ -195,19 +196,26 @@
                         [:o [[:alf "google "]]]
                          ]}
 
+                {:des "Snippet Mode"
+                 :rules [:snippet-mode
+                        [:f [[:alf "snip pnpm run fix"]]]
+                        [:c [[:alf "snip pnpm run check"]]]
+                        [:t [[:alf "snip pnpm run test"]]]
+                         ]}
+
                 {:des "Launch mode"
                 :rules [:launch-mode
                         [:w [:open "/Applications/WhatsApp.app"]]
                         ; e
                         [:r [:open "/Applications/Todoist.app"]]
                         [:t [:open "/Applications/Toggl Track.app"]]
-                        ; y
+                        [:y [:open "/Applications/Spotify.app"]]
                         [:u [:open "/Applications/zoom.us.app"]]
                         [:i [:open "/Applications/iTerm.app"]]
                         [:o [:open "/Applications/Notion.app"]]
                         [:p [:open "/Applications/NotePlan 3.app"]]
                         ; a
-                        [:s [:open "/Applications/Spotify.app"]]
+                        [:s [:open "Safari"]]
                         ; d
                         [:f [:open "Finder"]]
                         [:g [:open-chrome "mail.google.com"]]
@@ -221,7 +229,8 @@
                         [:v [:open "/Applications/Visual Studio Code.app"] :!code]
                         [:b [:open "/Applications/Bitwarden.app"]]
                         [:n [:open "Notes"]]
-                        [:m [:open "/Applications/Postman.app"]]
+                        [:m [:open "Music"]]
+                        ; [:m [:open "/Applications/Postman.app"]]
                         [:semicolon [:open "/Applications/Google Chrome.app"]]
                         [:quote [:open "/Applications/Slack.app"]]
                 ]}

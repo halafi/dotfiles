@@ -23,7 +23,7 @@ set fish_greeting
 # automatically call commands
 functions --copy cd standard_cd
 function cd
-    standard_cd $argv; and onefetch; and exa
+    standard_cd $argv; and exa
 end
 function zz
     z $argv; and onefetch 2>/dev/null; and exa
