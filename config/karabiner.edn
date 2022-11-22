@@ -198,7 +198,9 @@
 
                 {:des "Snippet Mode"
                  :rules [:snippet-mode
+                        [:s [[:alf "snip pnpm start"]]]
                         [:f [[:alf "snip pnpm run fix"]]]
+                        [:p [[:alf "snip pnpm run fix:pretty"]]]
                         [:c [[:alf "snip pnpm run check"]]]
                         [:t [[:alf "snip pnpm run test"]]]
                          ]}

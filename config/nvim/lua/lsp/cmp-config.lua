@@ -20,7 +20,7 @@ cmp.setup {
              select = true,
            }),
            ['<enter>'] = cmp.mapping.confirm({
-             behavior = cmp.ConfirmBehavior.Replace,
+             behavior = cmp.ConfirmBehavior.Insert,
              select = true,
            })
       },
