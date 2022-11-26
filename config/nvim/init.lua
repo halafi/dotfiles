@@ -1,4 +1,4 @@
-pcall(require, 'impatient')
+-- pcall(require, 'impatient')
 local u = require("utils")
 
 local disabled_built_ins = {

@@ -149,6 +149,8 @@ local test_commands = {
         lua = "FILE=%s make test-file",
         typescript = "cd jsapps/apps/web && npx jest %s --watch",
         typescriptreact = "cd jsapps/apps/web && npx jest %s --watch",
+        -- typescript = "cd jsapps/libs/ui && npx jest %s --watch",
+        -- typescriptreact = "cd jsapps/libs/ui && npx jest %s --watch",
         elixir = "mix test.watch %s",
         -- sql = "z dbt && poetry run dbt test --select %s",
         -- python = "z segmentillo && poetry run pytest %s",
