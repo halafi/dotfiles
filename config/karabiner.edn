@@ -46,7 +46,7 @@
         :templates {
                 :open "open -a \"%s\""
                 :alf "open /Applications/Alfred\\ 5.app && osascript -e 'tell application \"Alfred 5\" to search \"%s\"'"
-                ; :km "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"%s\"'"
+                :km "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"%s\"'"
                 :open-chrome "osascript -e '
                         set address to \"%s\"
                         
@@ -198,18 +198,25 @@
 
                 {:des "Snippet Mode"
                  :rules [:snippet-mode
-                        [:s [[:alf "snip pnpm start"]]]
-                        [:f [[:alf "snip pnpm run fix"]]]
-                        [:p [[:alf "snip pnpm run fix:pretty"]]]
-                        [:c [[:alf "snip pnpm run check"]]]
-                        [:t [[:alf "snip pnpm run test"]]]
+                        ; [:s [[:alf "snip pnpm start"]]]
+                        ; [:f [[:alf "snip pnpm run fix"]]]
+                        ; [:p [[:alf "snip pnpm run fix:pretty"]]]
+                        ; [:c [[:alf "snip pnpm run check"]]]
+                        ; [:t [[:alf "snip pnpm run test"]]]
+                        ; keyboard maestro snippets
+                        [:s [:km "pnpm start"]]
+                        [:f [:km "pnpm run fix"]]
+                        [:p [:km "pnpm run fix:pretty"]]
+                        [:c [:km "pnpm run check"]]
+                        [:t [:km "pnpm run test"]]
                          ]}
 
                 {:des "Launch mode"
                 :rules [:launch-mode
                         [:w [:open "/Applications/WhatsApp.app"]]
                         ; e
-                        [:r [:open "/Applications/Todoist.app"]]
+                        ; [:r [:open "/Applications/Todoist.app"]]
+                        [:r [:open "Reminders"]]
                         [:t [:open "/Applications/Toggl Track.app"]]
                         [:y [:open "/Applications/Spotify.app"]]
                         [:u [:open "/Applications/zoom.us.app"]]
@@ -217,16 +224,18 @@
                         [:o [:open "/Applications/Notion.app"]]
                         [:p [:open "/Applications/NotePlan 3.app"]]
                         ; a
-                        [:s [:open "Safari"]]
+                        ; [:s [:open "Safari"]]
+                        ; [:s [:open "/Applications/Firefox.app"]]
+                        [:s [:open "Finder"]]
                         ; d
-                        [:f [:open "Finder"]]
+                        [:f [:open "/Applications/Firefox.app"]]
                         [:g [:open-chrome "mail.google.com"]]
                         ; h
                         ; j
                         [:k [:open "/Applications/Commander One.app"]]
                         ; l
                         ; z
-                        ; x
+                        [:x [:open "/Applications/Firefox.app"]]
                         [:c [:open "Calendar"]]
                         [:v [:open "/Applications/Visual Studio Code.app"] :!code]
                         [:b [:open "/Applications/Bitwarden.app"]]
