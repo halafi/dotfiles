@@ -17,7 +17,7 @@
       path: home/*
       prefix: "."
     # nvim
-    ~/.config/ranger/rc.conf: config/ranger/rc.conf
+    ~/.config/lf/lfrc: config/lf/lfrc
     ~/.config/bat/config: config/bat/config
     ~/.config/nvim/init.lua: config/nvim/init.lua
     ~/.config/nvim/lua:

@@ -45,7 +45,6 @@ return require('packer').startup(function()
   use_with_config("lewis6991/gitsigns.nvim", "gitsigns")
   use('rhysd/conflict-marker.vim')
   -- file management
-  use_with_config("francoiscabrol/ranger.vim", "ranger")
   use("rbgrouleff/bclose.vim")
 
   -- use_with_config("ibhagwan/fzf-lua", "fzf") -- better lua version of fzf.vim
@@ -148,6 +147,9 @@ return require('packer').startup(function()
         ft = { "markdown" },
         cmd = "MarkdownPreview",
   })
+
+  use('voldikss/vim-floaterm')
+  use('ptzz/lf.vim', 'lf')
 
 end)
 

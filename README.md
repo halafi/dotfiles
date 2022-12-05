@@ -16,8 +16,6 @@ I am using [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
 
 - [tmux](https://github.com/tmux/tmux) (no session management at the moment)
 
-- [Ranger](https://github.com/ranger/ranger) for file management, occasionally [Broot](https://github.com/Canop/broot) if I need it
-
 - [lazygit](https://github.com/jesseduffield/lazygit) to give some GUI to git commands
 
 - [goku](https://github.com/yqrashawn/GokuRakuJoudo/) + [karabiner elements](https://karabiner-elements.pqrs.org/) for making 60% keyboard layout usable
@@ -40,7 +38,7 @@ I am using [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
 2. Install [FiraCode font patched with icons](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Retina/complete/Fira%20Code%20Retina%20Nerd%20Font%20Complete.ttf)
 3. Install [Go](https://go.dev/doc/install)
 4. Brew packages:
-    - `brew install asdf fish exa fzf bat git-delta ripgrep neovim tmux ranger yarn htop lazygit lazydocker google-cloud-sdk terraform`
+    - `brew install asdf fish exa fzf bat git-delta ripgrep neovim tmux lf yarn htop lazygit lazydocker google-cloud-sdk terraform`
 5. [Tmux plugin manager](https://github.com/tmux-plugins/tpm)
 6. LSP servers (used by Neovim): 
     - `yarn global add vscode-langservers-extracted`

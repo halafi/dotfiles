@@ -153,6 +153,12 @@ u.nmap("<leader>ps", ":PackerSync<CR>")
 -- initialize global object for config
 global = {}
 
+vim.g.lf_map_keys = 0
+vim.g.lf_height = 0.90
+vim.g.lf_width = 0.90
+
+u.nmap('<leader>n', ':Lf<CR>')
+
 -- copilot
 -- vim.g.copilot_assume_mapped = true
 -- vim.g.copilot_no_tab_map = true
