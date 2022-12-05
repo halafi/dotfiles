@@ -24,6 +24,8 @@ I am using [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
 
 - [asdf](https://github.com/asdf-vm/asdf) to manage language versions
 
+- [Finicky](https://github.com/johnste/finicky) as default browser proxy to separate work from personal browsing
+
 ## Dependencies
 
 ### System
