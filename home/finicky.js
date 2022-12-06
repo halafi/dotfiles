@@ -6,6 +6,7 @@ const WORK_RELATED_HOSTS = [
   "cloud.google.com",
   "chrome.google.com",
   "drive.google.com",
+  "meet.google.com",
   "figma.com",
 ];
 
@@ -28,10 +29,10 @@ module.exports = {
       match: ({ url }) => WORK_RELATED_HOSTS.includes(url.host),
       browser: "Google Chrome",
     },
-    // {
-    //   // Open any url that includes the string "workplace" in Firefox
-    //   match: /drive.google/,
-    //   browser: "Google Chrome",
-    // },
+    {
+      // Open any url that includes the string "workplace" in Firefox
+      match: /archipelo/, // handle e.g. notion links
+      browser: "Google Chrome",
+    },
   ],
 };
