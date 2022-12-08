@@ -18,6 +18,7 @@
       prefix: "."
     # nvim
     ~/.config/lf/lfrc: config/lf/lfrc
+    ~/.config/lf/previewer.sh: config/lf/previewer.sh
     ~/.config/bat/config: config/bat/config
     ~/.config/nvim/init.lua: config/nvim/init.lua
     ~/.config/nvim/lua:
