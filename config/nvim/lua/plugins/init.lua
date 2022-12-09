@@ -150,6 +150,7 @@ return require('packer').startup(function()
 
   use('voldikss/vim-floaterm')
   use('ptzz/lf.vim', 'lf')
+  use_with_config('chentoast/marks.nvim', 'marks')
 
 end)
 
