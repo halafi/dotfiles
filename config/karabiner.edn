@@ -204,6 +204,7 @@
                         ; [:c [[:alf "snip pnpm run check"]]]
                         ; [:t [[:alf "snip pnpm run test"]]]
                         ; keyboard maestro snippets
+                        [:m [:km "filiphalas74@gmail.com"]]
                         [:s [:km "pnpm start"]]
                         [:f [:km "pnpm run fix"]]
                         [:p [:km "pnpm run fix:pretty"]]

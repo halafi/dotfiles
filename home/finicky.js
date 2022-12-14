@@ -1,9 +1,12 @@
 const WORK_RELATED_HOSTS = [
+  "localhost",
+  "127.0.0.1",
   "zenhub.com",
   "app.zenhub.com",
   "github.com",
   "zoom.us",
   "cloud.google.com",
+  "docs.google.com",
   "chrome.google.com",
   "drive.google.com",
   "meet.google.com",
@@ -20,7 +23,7 @@ module.exports = {
   rewrite: [
     {
       // Redirect all urls to use https
-      match: ({ url }) => url.protocol === "http",
+      match: ({ url }) => url.protocol === "http" && url.host !== 'localhost' && url.host !== '127.0.0.1',
       url: { protocol: "https" },
     },
   ],
