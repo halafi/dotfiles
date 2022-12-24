@@ -12,10 +12,12 @@ const WORK_RELATED_HOSTS = [
   "meet.google.com",
   "figma.com",
   "developer.chrome.com",
+  "groups.google.com",
+  "miro.com",
 ];
 
 module.exports = {
-  defaultBrowser: "Firefox",
+  defaultBrowser: { name: "Google Chrome", profile: "Profile 2" },
   options: {
     hideIcon: true,
     checkForUpdate: true,
@@ -31,12 +33,18 @@ module.exports = {
   handlers: [
     {
       match: ({ url }) => WORK_RELATED_HOSTS.includes(url.host),
-      browser: "Google Chrome",
+      browser: {
+        name: "Google Chrome",
+        profile: "Profile 1",
+      },
     },
     {
       // Open any url that includes the string "workplace" in Firefox
       match: /archipelo/, // handle e.g. notion links
-      browser: "Google Chrome",
+      browser: {
+        name: "Google Chrome",
+        profile: "Profile 1",
+      },
     },
   ],
 };
