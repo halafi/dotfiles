@@ -223,7 +223,7 @@
                         [:u [:open "/Applications/zoom.us.app"]]
                         [:i [:open "/Applications/iTerm.app"]]
                         [:o [:open "/Applications/Notion.app"]]
-                        [:p [:open "/Applications/NotePlan 3.app"]]
+                        [:p [:open "/Applications/NotePlan.app"]]
                         ; a
                         ; [:s [:open "Safari"]]
                         ; [:s [:open "/Applications/Firefox.app"]]
