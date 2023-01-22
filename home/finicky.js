@@ -11,6 +11,7 @@ const WORK_RELATED_HOSTS = [
   "drive.google.com",
   "meet.google.com",
   "figma.com",
+  "www.figma.com",
   "developer.chrome.com",
   "groups.google.com",
   "miro.com",
