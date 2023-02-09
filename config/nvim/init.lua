@@ -92,6 +92,8 @@ u.nmap("]T", ":tablast<CR>")
 u.nmap("[t", ":tabprev<CR>")
 u.nmap("]t", ":tabnext<CR>")
 
+u.nmap("<leader>sl", ":source Session.vim<CR>")
+
 u.nmap("<Leader>wq", ":wincmd q<CR>")
 u.nmap("<C-q>", ":call QuickFixToggle()<CR>")
 u.nmap("<C-s>", "<C-a>") -- replace tmux taken key

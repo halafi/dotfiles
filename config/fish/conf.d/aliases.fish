@@ -2,6 +2,7 @@ if status --is-interactive
     alias cat 'bat'
     alias exa 'exa --classify'
     alias vi 'nvim'
+    alias vis 'nvim -S Session.vim'
     alias vim 'nvim'
     alias lg 'lazygit'
     alias brow '/usr/local/bin/brew'

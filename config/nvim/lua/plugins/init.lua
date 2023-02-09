@@ -21,7 +21,6 @@ return require('packer').startup(function()
     -- "folke/tokyonight.nvim",
     "Mofiqul/vscode.nvim"
   })
-  use_with_config('glepnir/dashboard-nvim', 'dashboard-nvim')
 
   -- use_with_config("folke/which-key.nvim", 'which-key')
   -- basic
