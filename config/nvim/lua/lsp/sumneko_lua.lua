@@ -39,7 +39,7 @@ M.setup = function(on_attach, capabilities)
             capabilities = capabilities,
         },
     })
-    require("lspconfig").sumneko_lua.setup({
+    require("lspconfig").lua_ls.setup({
         settings = {
             Lua = {
               completion = {
