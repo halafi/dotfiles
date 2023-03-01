@@ -1,8 +1,9 @@
 local u = require("utils")
 
-u.nmap("<C-n>", ":NvimTreeFindFileToggle<CR>")
+u.nmap("<C-n>", ":NvimTreeFindFile<CR>")
 
 require'nvim-tree'.setup {
+  -- open_on_setup = true,
   view = {
     width = 45,
     hide_root_folder = false,
@@ -30,3 +31,6 @@ require'nvim-tree'.setup {
     }
   }
 }
+
+require("nvim-tree.api").tree.open()
+
