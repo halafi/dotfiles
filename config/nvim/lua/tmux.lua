@@ -144,10 +144,12 @@ api.nvim_create_autocmd("VimLeave", {
 
 -- testing wrappers
 local test_commands = {
+    -- when working on multiple projects need to distinguish based on path
     file = {
         -- currently this needs to be adjusted per project
         lua = "FILE=%s make test-file",
-        typescript = "cd jsapps/apps/web && npx jest %s --watch",
+        typescript = "npx vitest %s",
+        svelte = "npx vitest %s",
         typescriptreact = "cd jsapps/apps/web && npx jest %s --watch",
         -- typescript = "cd jsapps/libs/ui && npx jest %s --watch",
         -- typescriptreact = "cd jsapps/libs/ui && npx jest %s --watch",
