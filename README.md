@@ -72,3 +72,15 @@ I am using [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
 
 ### Python + LSP
 1. `yarn global add pyright`
+
+
+## FAQ
+1. How to fix broken `asdf` shims after brew update?
+
+```
+rm ~/.asdf/shims/*
+asdf reshim
+```
+
+Source: https://github.com/asdf-vm/asdf/issues/1103#issuecomment-990795248
+

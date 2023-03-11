@@ -15,7 +15,8 @@ telescope.setup({
     },
     defaults = {
         -- use if needed
-        file_ignore_patterns = { ".hbs" }, -- ".spec" },
+        -- file_ignore_patterns = { ".ts" },
+        -- file_ignore_patterns = { ".spec" },
         -- file_ignore_patterns = { "apps/app", "apps/api", "backoffice-client", "libs/business-metrics", "libs/messaging-system", "libs/domain/draw", "libs/domain/underwriting" }, -- ".spec" },
         vimgrep_arguments = {
             "rg",

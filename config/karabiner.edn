@@ -40,8 +40,6 @@
                 :snippet-mode {:key :x}
                 :tmux-mode {:key :q :condi :terminals}
                 :launch-mode {:key :2}
-                ; :mouse-mode {:key :3}
-                ; :mouse-scroll-mode {:key :4}
         }
         :templates {
                 :open "open -a \"%s\""
@@ -199,7 +197,7 @@
                 {:des "Snippet Mode"
                  :rules [:snippet-mode
                         ; [:s [[:alf "snip pnpm start"]]]
-                        ; [:f [[:alf "snip pnpm run fix"]]]
+                          ; [:f [[:alf "snip pnpm run fix"]]]
                         ; [:p [[:alf "snip pnpm run fix:pretty"]]]
                         ; [:c [[:alf "snip pnpm run check"]]]
                         ; [:t [[:alf "snip pnpm run test"]]]
@@ -216,20 +214,20 @@
                 :rules [:launch-mode
                         [:w [:open "/Applications/WhatsApp.app"]]
                         ; e
-                        ; [:r [:open "/Applications/Todoist.app"]]
                         [:r [:open "Reminders"]]
                         [:t [:open "/Applications/Toggl Track.app"]]
                         [:y [:open "/Applications/Spotify.app"]]
-                        [:u [:open "/Applications/zoom.us.app"]]
+                        ; [:u [:open "/Applications/zoom.us.app"]]
                         [:i [:open "/Applications/iTerm.app"]]
                         [:o [:open "/Applications/Notion.app"]]
-                        [:p [:open "/Applications/NotePlan.app"]]
+                        [:p [:open "/Applications/Postman.app"]]
+                        ; [:p [:open "/Applications/NotePlan.app"]]
                         ; a
                         ; [:s [:open "Safari"]]
                         ; [:s [:open "/Applications/Firefox.app"]]
-                        [:s [:open "Finder"]]
+                        ; [:f [:open "/Applications/Firefox.app"]]
+                        [:f [:open "Finder"]]
                         ; d
-                        [:f [:open "/Applications/Firefox.app"]]
                         [:g [:open-chrome "mail.google.com"]]
                         ; h
                         ; j
@@ -242,34 +240,9 @@
                         [:b [:open "/Applications/Bitwarden.app"]]
                         [:n [:open "Notes"]]
                         [:m [:open "Music"]]
-                        ; [:m [:open "/Applications/Postman.app"]]
                         [:semicolon [:open "/Applications/Google Chrome.app"]]
                         [:quote [:open "/Applications/Slack.app"]]
                 ]}
-
-                ; {:des "Mouse Mode"
-                ; :rules [:mouse-mode
-                ;         [:h {:mkey {:x -3072}}]
-                ;         [:j {:mkey {:y 3072}}]
-                ;         [:k {:mkey {:y -3072}}]
-                ;         [:l {:mkey {:x 3072}}]
-                ;         [:u {:pkey :button1}]
-                ;         [:i {:pkey :button2}]
-                ;         [:o {:pkey :button3}]
-                ;         [:f {:mkey {:speed 0.3}}]
-                ;         ]}
-                ;
-                ; {:des "Mouse Scroll Mode"
-                ; :rules [:mouse-scroll-mode
-                ;         [:j {:mkey {:vwheel 35}}]
-                ;         [:h {:mkey {:hwheel 35}}]
-                ;         [:k {:mkey {:vwheel -35}}]
-                ;         [:l {:mkey {:hwheel -35}}]
-                ;         [:u {:pkey :button1}]
-                ;         [:i {:pkey :button2}]
-                ;         [:o {:pkey :button3}]
-                ;         [:f {:mkey {:speed 2.0}}]
-                ;         ]}
 
                 {:des "Make ESC behave like `~"
                  :rules [
