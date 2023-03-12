@@ -185,6 +185,6 @@ vim.cmd("highlight ConflictMarkerCommonAncestorsHunk guibg=#754a81")
 -- vim.g.neon_style = 'dark'
 
 -- cmd('colorscheme chuek')
--- cmd('colorscheme tokyonight')
-cmd('colorscheme vscode')
--- cmd('colorscheme neon')
+cmd('colorscheme tokyonight')
+-- cmd('colorscheme vscode')
+-- cmd('colorscheme dracula')

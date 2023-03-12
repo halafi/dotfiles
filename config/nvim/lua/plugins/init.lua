@@ -17,8 +17,8 @@ return require('packer').startup(function()
 
   -- themes (sorted by contrast)
   use({
-    -- "dracula/vim", -- high contrast
-    -- "folke/tokyonight.nvim",
+    "dracula/vim", -- high contrast
+    "folke/tokyonight.nvim",
     "Mofiqul/vscode.nvim"
   })
 
@@ -65,6 +65,8 @@ return require('packer').startup(function()
 
   -- lsp + autocmoplete
   use("neovim/nvim-lspconfig")
+  use("williamboman/mason.nvim")
+  use("williamboman/mason-lspconfig.nvim")
   use("hrsh7th/cmp-nvim-lsp")
   use("hrsh7th/cmp-buffer")
   -- use("hrsh7th/cmp-copilot") -- not working well at this point

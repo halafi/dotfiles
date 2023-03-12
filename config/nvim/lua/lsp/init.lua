@@ -14,8 +14,22 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
+-- <mason> TODO: use mason to install more language servers
+local status, mason = pcall(require, "mason")
+if (not status) then return end
+local status2, lspconfig = pcall(require, "mason-lspconfig")
+if (not status2) then return end
+mason.setup({})
+lspconfig.setup {
+  ensure_installed = { 
+    "lua_ls",
+    "tailwindcss" 
+  },
+}
+-- </ mason>
+
 -- rust is handled by rust-tools
-local servers = { 'eslint', 'jsonls', 'null-ls', 'svelte', 'tsserver', 'sumneko_lua', --[[ 'pyright' ]] 'elixir', 'gopls', 'html' }
+local servers = { 'eslint', 'jsonls', 'null-ls', 'svelte', 'tsserver', 'tailwindcss', 'sumneko_lua', --[[ 'pyright' ]] 'elixir', 'gopls', 'html' }
 
 local common = require("lsp.common")
 
