@@ -130,7 +130,7 @@ return require('packer').startup(function()
   })
 
   -- additional functionality
-  use("ggandor/lightspeed.nvim") -- motion, use "s" "dz..." "f . fF"
+  use_with_config("ggandor/leap.nvim", "leap") -- motion
   use_with_config("windwp/nvim-autopairs", "autopairs")
   use("bronson/vim-visual-star-search") -- star search your visual selection
    -- highlight color codes
