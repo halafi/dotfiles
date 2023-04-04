@@ -156,10 +156,14 @@
                         [:comma [:!Ta :comma]] ; rename window
                         [:open_bracket [:!Ta :open_bracket]] ; [ - reorder
                         [:close_bracket [:!Ta :close_bracket]]; ] - reorder
+                        [:!S9 [:!Ta :!S9]] ; ( switch between active tmux sessions
+                        [:!S0 [:!Ta :!S0]] ; ) switch between active tmux sessions
+                        ; [:close_parenthesis [:!Ta :close_parenthesis]]
                         [:backslash [:!Ta :backslash]] ; menu
                         [:spacebar [:!Ta :spacebar]] ; create window
                         ; top row
                         [:w [:!Ta :w]] ; window selector
+                        [:d [:!Ta :d]] ; detach
                         [:r [:!Ta :r]] ; reload config
                         [:t [:!Ta :t]] ; vertical small split
                         [:i [:!Ta :!Si]] ; reload plugins
@@ -220,8 +224,8 @@
                         ; [:u [:open "/Applications/zoom.us.app"]]
                         [:i [:open "/Applications/iTerm.app"]]
                         [:o [:open "/Applications/Notion.app"]]
-                        [:p [:open "/Applications/Postman.app"]]
-                        ; [:p [:open "/Applications/NotePlan.app"]]
+                        ; [:p [:open "/Applications/Postman.app"]]
+                        [:p [:open "/Applications/NotePlan.app"]]
                         ; a
                         ; [:s [:open "Safari"]]
                         ; [:s [:open "/Applications/Firefox.app"]]
