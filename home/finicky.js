@@ -18,7 +18,7 @@ const WORK_RELATED_HOSTS = [
 ];
 
 module.exports = {
-  defaultBrowser: { name: "Google Chrome", profile: "Profile 2" },
+  defaultBrowser: { name: "Google Chrome", profile: "Filip (eucalyptus.vc)" },
   options: {
     hideIcon: true,
     checkForUpdate: true,
@@ -40,11 +40,11 @@ module.exports = {
       },
     },
     {
-      // Open any url that includes the string "workplace" in Firefox
-      match: /archipelo/, // handle e.g. notion links
+      // Open any url that includes the string "workplace"
+      match: /eucalyptus/, // handle e.g. notion links
       browser: {
         name: "Google Chrome",
-        profile: "Profile 1",
+        profile: "Profile 3",
       },
     },
   ],

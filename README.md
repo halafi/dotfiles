@@ -84,3 +84,6 @@ asdf reshim
 
 Source: https://github.com/asdf-vm/asdf/issues/1103#issuecomment-990795248
 
+2. Where to get fonts?
+
+https://www.nerdfonts.com/font-downloads
