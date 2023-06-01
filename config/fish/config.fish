@@ -12,9 +12,12 @@
 
 # output of $(yarn global bin)
 fish_add_path ~/.asdf/installs/nodejs/16.17.1/.npm/bin
+source /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
+
 
 # need to load brew binaries
 eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(pyenv init --path)"
 source (brew --prefix asdf)/libexec/asdf.fish
 
 # disable greeting

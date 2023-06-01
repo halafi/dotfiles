@@ -3,9 +3,6 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function()
   -- Packer can manage itself
   use({ "wbthomason/packer.nvim", opt = true })
-  -- impatient.nvim has to be loaded before anything else,
-  -- it's also required in init.lua
-  use('lewis6991/impatient.nvim')
 
   local config = function(name)
       return string.format("require('plugins.%s')", name)
@@ -17,10 +14,21 @@ return require('packer').startup(function()
 
   -- themes (sorted by contrast)
   use({
-    "dracula/vim", -- high contrast
-    "folke/tokyonight.nvim",
+    -- "dracula/vim", -- high contrast
+    -- "folke/tokyonight.nvim",
     "Mofiqul/vscode.nvim"
   })
+  use {
+      "folke/trouble.nvim",
+      requires = "nvim-tree/nvim-web-devicons",
+      config = function()
+        require("trouble").setup {
+          -- your configuration comes here
+          -- or leave it empty to use the default settings
+          -- refer to the configuration section below
+        }
+    end
+  }
 
   -- use_with_config("folke/which-key.nvim", 'which-key')
   -- basic
@@ -44,7 +52,7 @@ return require('packer').startup(function()
   use_with_config("lewis6991/gitsigns.nvim", "gitsigns")
   use('rhysd/conflict-marker.vim')
   -- file management
-  use("rbgrouleff/bclose.vim")
+  use("rbgrouleff/bclose.vim") -- not sure if needed
 
   -- use_with_config("ibhagwan/fzf-lua", "fzf") -- better lua version of fzf.vim
   use({
@@ -59,7 +67,7 @@ return require('packer').startup(function()
     })
   use('nvim-telescope/telescope-ui-select.nvim')
   -- status bar, tree
-  use("kyazdani42/nvim-web-devicons")
+  use("nvim-tree/nvim-web-devicons")
   use_with_config("nvim-lualine/lualine.nvim", 'lualine')
   use_with_config("kyazdani42/nvim-tree.lua", 'nvim-tree')
 
@@ -86,16 +94,16 @@ return require('packer').startup(function()
   -- json
   use("b0o/schemastore.nvim") -- simple access to json-language-server schemae
   -- rust
-  use {
-    "simrat39/rust-tools.nvim",
-    requires = { "nvim-lua/plenary.nvim", "rust-lang/rust.vim" },
-    opt = true,
-    module = "rust-tools",
-    ft = { "rust" },
-    config = function()
-      require("plugins.rust-tools").setup()
-    end,
-  }
+  -- use {
+  --   "simrat39/rust-tools.nvim",
+  --   requires = { "nvim-lua/plenary.nvim", "rust-lang/rust.vim" },
+  --   opt = true,
+  --   module = "rust-tools",
+  --   ft = { "rust" },
+  --   config = function()
+  --     require("plugins.rust-tools").setup()
+  --   end,
+  -- }
 
   -- treesitter
   use({
@@ -138,9 +146,6 @@ return require('packer').startup(function()
   use_with_config("andymass/vim-matchup", "matchup") -- improves %, replaces matchit
   use_with_config("nat-418/boole.nvim", "boole")
   use_with_config('simrat39/symbols-outline.nvim', 'symbols-outline')
-
-  -- perf
-  use_with_config("nathom/filetype.nvim", "filetype") -- greatly reduces startup time
 
   use({
         "davidgranstrom/nvim-markdown-preview", -- preview markdown output in browser

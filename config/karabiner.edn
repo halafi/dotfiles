@@ -243,7 +243,7 @@
                         [:v [:open "/Applications/Visual Studio Code.app"] :!code]
                         [:b [:open "/Applications/Bitwarden.app"]]
                         [:n [:open "Notes"]]
-                        [:m [:open "Music"]]
+                        [:m [:open "YouTube Music"]]
                         [:semicolon [:open "/Applications/Google Chrome.app"]]
                         [:quote [:open "/Applications/Slack.app"]]
                 ]}

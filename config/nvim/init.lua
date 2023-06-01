@@ -1,4 +1,3 @@
--- pcall(require, 'impatient')
 local u = require("utils")
 
 local disabled_built_ins = {
@@ -97,8 +96,8 @@ u.nmap("<leader>sl", ":source Session.vim<CR>")
 u.nmap("<Leader>wq", ":wincmd q<CR>")
 u.nmap("<C-q>", ":call QuickFixToggle()<CR>")
 u.nmap("<C-s>", "<C-a>") -- replace tmux taken key
-u.nmap('<C-Left>', ':vertical resize -2<CR>')
-u.nmap('<C-Right>', ':vertical resize +2<CR>')
+u.nmap('<m-h>', ':vertical resize -2<CR>')
+u.nmap('<m-l>', ':vertical resize +2<CR>')
 
 u.nmap("<m-CR>", ":wqall<CR>")
 u.nmap("<CR>", "(&buftype is# '' ? ':w<CR>' : '<CR>')", { expr = true })
