@@ -77,7 +77,10 @@ require'nvim-treesitter.configs'.setup {
     "graphql",
     "heex",
     "make",
-    "clojure"
+    "clojure",
+    "markdown",
+    "markdown_inline"
+
   },
 }
 

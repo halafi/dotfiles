@@ -10,7 +10,7 @@ M.setup = function(on_attach, capabilities)
 
                 u.buf_map(bufnr, "n", "go", ":TypescriptAddMissingImports<CR>")
                 u.buf_map(bufnr, "n", "gO", ":TypescriptOrganizeImports<CR>")
-                u.buf_map(bufnr, "n", "gI", ":TypescriptRenameFile<CR>")
+                -- u.buf_map(bufnr, "n", "gI", ":TypescriptRenameFile<CR>")
                 -- u.buf_map(bufnr, "n", "gd", ":TypescriptGoToSourceDefinition<CR>")
             end,
             capabilities = capabilities,

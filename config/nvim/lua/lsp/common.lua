@@ -22,18 +22,31 @@ local M = {
     u.buf_command(bufnr, "LspDiagQuickfix", vim.diagnostic.setqflist)
 
     -- bindings
-    u.buf_map(bufnr, "n", "ga", function()
-        vim.lsp.buf.code_action() -- range
-    end)
-    u.buf_map(bufnr, "n", "gi", ":LspRename<CR>")
-    u.buf_map(bufnr, "n", "gd", ":LspDef<CR>")
-    u.buf_map(bufnr, "n", "gy", ":LspTypeDef<CR>")
+    -- u.buf_map(bufnr, "n", "ga", function()
+    --     vim.lsp.buf.code_action() -- range
+    -- end)
+
+    -- https://github.com/nvimdev/lspsaga.nvim
+    u.buf_map(bufnr, "n", "ga", "<cmd>Lspsaga code_action<CR>")
+    -- u.buf_map(bufnr, "n", "gi", ":LspRename<CR>")
+    u.buf_map(bufnr, "n", "gi", "<cmd>Lspsaga rename<CR>")
+    u.buf_map(bufnr, "n", "gI", "<cmd>Lspsaga rename ++project<CR>")
+    -- u.buf_map(bufnr, "n", "gd", ":LspDef<CR>")
+    u.buf_map(bufnr, "n", "gd", "<cmd>Lspsaga goto_definition<CR>")
+    -- u.buf_map(bufnr, "n", "gy", ":LspTypeDef<CR>")
+    u.buf_map(bufnr, "n", "gy", "<cmd>Lspsaga peek_type_definition<CR>")
     -- u.buf_map(bufnr, "n", "gi", ":LspImplementation<CR>")
-    u.buf_map(bufnr, "n", "gR", ":LspRefs<CR>")
-    u.buf_map(bufnr, "n", "K", ":LspHover<CR>")
-    u.buf_map(bufnr, "n", "[d", ":LspDiagPrev<CR>")
-    u.buf_map(bufnr, "n", "]d", ":LspDiagNext<CR>")
-    u.buf_map(bufnr, "n", "<leader>d", ":LspDiagLine<CR>")
+    -- u.buf_map(bufnr, "n", "gR", ":LspRefs<CR>")
+    u.buf_map(bufnr, "n", "gR", "<cmd>Lspsaga lsp_finder<CR>")
+
+    -- u.buf_map(bufnr, "n", "K", ":LspHover<CR>")
+    u.buf_map(bufnr, "n", "K", "<cmd>Lspsaga hover_doc<CR>")
+    -- u.buf_map(bufnr, "n", "[d", ":LspDiagPrev<CR>")
+    -- u.buf_map(bufnr, "n", "]d", ":LspDiagNext<CR>")
+    u.buf_map(bufnr, "n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
+    u.buf_map(bufnr, "n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>")
+    -- u.buf_map(bufnr, "n", "<leader>d", ":LspDiagLine<CR>")
+    u.buf_map(bufnr, "n", "<leader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>")
     u.buf_map(bufnr, "i", "<C-x><C-x>", "<cmd> LspSignatureHelp<CR>")
     -- fixes
     u.buf_map(bufnr, "n", "<Leader>q", ":LspDiagQuickfix<CR>")

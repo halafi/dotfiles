@@ -18,17 +18,18 @@ return require('packer').startup(function()
     -- "folke/tokyonight.nvim",
     "Mofiqul/vscode.nvim"
   })
-  use {
-      "folke/trouble.nvim",
-      requires = "nvim-tree/nvim-web-devicons",
-      config = function()
-        require("trouble").setup {
-          -- your configuration comes here
-          -- or leave it empty to use the default settings
-          -- refer to the configuration section below
-        }
-    end
-  }
+  use({
+    "glepnir/lspsaga.nvim",
+    opt = true,
+    branch = "main",
+    event = "LspAttach",
+    config = config("lspsaga"),
+    requires = {
+        {"nvim-tree/nvim-web-devicons"},
+        --Please make sure you install markdown and markdown_inline parser
+        {"nvim-treesitter/nvim-treesitter"}
+    }
+})
 
   -- use_with_config("folke/which-key.nvim", 'which-key')
   -- basic
