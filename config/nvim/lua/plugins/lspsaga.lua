@@ -21,7 +21,12 @@ require("lspsaga").setup({
         sign = true,
         sign_priority = 40,
         virtual_text = true,
-    }
+    },
+  --     hover = {
+  --   max_width = 0.6,
+  --   open_link = 'gx',
+  --   open_browser = '!chrome',
+  -- },
     -- preview = {
     --     lines_above = 0,
     --     lines_below = 10,
