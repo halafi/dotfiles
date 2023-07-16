@@ -1,5 +1,5 @@
 local lspkind = require('lspkind')
-local cmp = require'cmp'
+local cmp = require('cmp')
 
 cmp.setup {
       snippet = {
@@ -46,3 +46,19 @@ cmp.setup {
          -- ghost_text = false -- this feature conflict to the copilot.vim's preview.
       -- }
 }
+
+-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+-- cmp.setup.cmdline({ '/', '?' }, {
+--  mapping = cmp.mapping.preset.cmdline(),
+--    sources = {
+--       -- { name = 'nvim_lsp', priority = 9999, keyword_length = 3 },
+--       { name = 'buffer' },
+--     }
+-- })
+
+cmp.setup.cmdline({ '/', '?' }, {
+  sources = cmp.config.sources({
+   -- { name = 'nvim_lsp', priority = 9999, keyword_length = 3 },
+    { name = 'buffer' }
+  })
+})

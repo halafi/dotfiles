@@ -20,9 +20,7 @@ return require('packer').startup(function()
   })
   use({
     "glepnir/lspsaga.nvim",
-    opt = true,
-    branch = "main",
-    event = "LspAttach",
+    after = "nvim-lspconfig",
     config = config("lspsaga"),
     requires = {
         {"nvim-tree/nvim-web-devicons"},
