@@ -89,10 +89,17 @@
                         [:hyphen :volume_decrement]
                         [:equal_sign :volume_increment]
                         ; one key to rule them all - switch between terminal and chrome
-                        [:semicolon [:open "/Applications/iTerm.app"] :!terminals]
-                        [:semicolon [:open "/Applications/Google Chrome.app"] :terminals]
-                        [:quote [:open "/Applications/Slack.app"] :!slack]
-                        [:quote [:open "/Applications/iTerm.app"] :!terminals]
+                        [:semicolon [:open "/Applications/Visual Studio Code.app"]]
+                        [:quote [:open "/Applications/Google Chrome.app"]]
+                        [:comma [:open "/Applications/iTerm.app"]]
+                        [:period [:open "/Applications/Slack.app"]]
+                        ; [:backslash [:open "/Applications/iTerm.app"]]
+                        ; [:semicolon [:open "/Applications/Google Chrome.app"] :terminals]
+                        ; [:semicolon [:open "/Applications/iTerm.app"] :code]
+                        ; [:quote [:open "/Applications/Visual Studio Code.app"] :!code]
+                        ; [:quote [:open "/Applications/iTerm.app"] :code]
+                        ; [:quote [:open "/Applications/Slack.app"] :!slack]
+                        ; [:quote [:open "/Applications/iTerm.app"] :!terminals]
                         [:delete_or_backspace :delete_forward]
                         ]}
 
@@ -128,6 +135,43 @@
                         [:j :!Tj [:terminals :!regular-hjkl]]
                         [:k :!Tk [:terminals :!regular-hjkl]]
                         [:l :!Tl [:terminals :!regular-hjkl]]
+                        ; tmux
+                        [:open_bracket [:!Ta :j]] ; pane left
+                        [:close_bracket [:!Ta :k]] ; pane right
+                        ]}
+
+               {:des "Hyper Mode - Partial CTRL Mapping [VIM <C-*> key support] for vscode"
+                :rules [:hyper-mode
+                        ; top row
+                        [:q :!Tq :code]
+                        [:w :!Tw :code]
+                        [:r :!Tr :code]
+                        [:u :!Tu :code]
+                        [:i :!Ti :code]
+                        [:o :!To :code]
+                        [:p :!Tp :code]
+                        ; home row
+                        [:s :!Ts :code]
+                        [:d :!Td :code]
+                        [:f :!Tf :code]
+                        [:g :!Tg :code]
+                        ; bottom row
+                        [:z :!Tz :code] ; suspend, resume with fg %1
+                        [:x :!Tx :code]
+                        [:c :!Tc :code]
+                        [:v :!Tv :code]
+                        [:n :!Tn :code]
+                        [:m :!Tleft_arrow :code] ; arrow -> tmux window size
+                        [:period :!Tright_arrow :code] ; arrow -> tmux window size
+                        [:b ["regular-hjkl" 1]] ; press to toggle
+                        [:h :left_arrow [:code :regular-hjkl]]
+                        [:j :down_arrow [:code :regular-hjkl]]
+                        [:k :up_arrow [:code :regular-hjkl]]
+                        [:l :right_arrow [:code :regular-hjkl]]
+                        [:h :!Th [:code :!regular-hjkl]]
+                        [:j :!Tj [:code :!regular-hjkl]]
+                        [:k :!Tk [:code :!regular-hjkl]]
+                        [:l :!Tl [:code :!regular-hjkl]]
                         ; tmux
                         [:open_bracket [:!Ta :j]] ; pane left
                         [:close_bracket [:!Ta :k]] ; pane right
@@ -214,39 +258,39 @@
                         [:t [:km "pnpm run test"]]
                          ]}
 
-                {:des "Launch mode"
-                :rules [:launch-mode
-                        [:w [:open "/Applications/WhatsApp.app"]]
-                        ; e
-                        [:r [:open "Reminders"]]
-                        [:t [:open "/Applications/Toggl Track.app"]]
-                        [:y [:open "/Applications/Spotify.app"]]
-                        ; [:u [:open "/Applications/zoom.us.app"]]
-                        [:i [:open "/Applications/iTerm.app"]]
-                        [:o [:open "/Applications/Notion.app"]]
-                        ; [:p [:open "/Applications/Postman.app"]]
-                        [:p [:open "/Applications/NotePlan.app"]]
-                        ; a
-                        ; [:s [:open "Safari"]]
-                        ; [:s [:open "/Applications/Firefox.app"]]
-                        ; [:f [:open "/Applications/Firefox.app"]]
-                        [:f [:open "Finder"]]
-                        ; d
-                        [:g [:open-chrome "mail.google.com"]]
-                        ; h
-                        ; j
-                        [:k [:open "/Applications/Commander One.app"]]
-                        ; l
-                        ; z
-                        [:x [:open "/Applications/Firefox.app"]]
-                        [:c [:open "Calendar"]]
-                        [:v [:open "/Applications/Visual Studio Code.app"] :!code]
-                        [:b [:open "/Applications/Bitwarden.app"]]
-                        [:n [:open "Notes"]]
-                        [:m [:open "YouTube Music"]]
-                        [:semicolon [:open "/Applications/Google Chrome.app"]]
-                        [:quote [:open "/Applications/Slack.app"]]
-                ]}
+                ; {:des "Launch mode"
+                ; :rules [:launch-mode
+                ;         ; [:w [:open "/Applications/WhatsApp.app"]]
+                ;         ; e
+                ;         [:r [:open "Reminders"]]
+                ;         [:t [:open "/Applications/Toggl Track.app"]]
+                ;         ; [:y [:open "/Applications/Spotify.app"]]
+                ;         ; [:u [:open "/Applications/zoom.us.app"]]
+                ;         ; [:i [:open "/Applications/iTerm.app"]]
+                ;         [:o [:open "/Applications/Notion.app"]]
+                ;         ; [:p [:open "/Applications/Postman.app"]]
+                ;         [:p [:open "/Applications/NotePlan.app"]]
+                ;         ; a
+                ;         ; [:s [:open "Safari"]]
+                ;         ; [:s [:open "/Applications/Firefox.app"]]
+                ;         ; [:f [:open "/Applications/Firefox.app"]]
+                ;         [:f [:open "Finder"]]
+                ;         ; d
+                ;         [:g [:open-chrome "mail.google.com"]]
+                ;         ; h
+                ;         ; j
+                ;         [:k [:open "/Applications/Commander One.app"]]
+                ;         ; l
+                ;         ; z
+                ;         [:x [:open "/Applications/Firefox.app"]]
+                ;         [:c [:open "Calendar"]]
+                ;         [:v [:open "/Applications/Visual Studio Code.app"] :!code]
+                ;         [:b [:open "/Applications/Bitwarden.app"]]
+                ;         [:n [:open "Notes"]]
+                ;         [:m [:open "YouTube Music"]]
+                ;         [:semicolon [:open "/Applications/Google Chrome.app"]]
+                ;         [:quote [:open "/Applications/Slack.app"]]
+                ; ]}
 
                 {:des "Make ESC behave like `~"
                  :rules [
