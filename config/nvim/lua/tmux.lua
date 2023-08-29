@@ -148,7 +148,7 @@ local test_commands = {
     file = {
         -- currently this needs to be adjusted per project
         lua = "FILE=%s make test-file",
-        typescript = "npx vitest %s",
+        typescript = "cd packages/core-engine && npx jest %s --watch",
         svelte = "npx vitest %s",
         typescriptreact = "cd jsapps/apps/web && npx jest %s --watch",
         -- typescript = "cd jsapps/libs/ui && npx jest %s --watch",

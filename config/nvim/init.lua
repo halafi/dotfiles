@@ -85,6 +85,7 @@ vim.opt.grepprg = 'rg --vimgrep --smart-case --follow'
 local cmd = vim.api.nvim_command
 cmd('highlight! link TermCursor Cursor')
 cmd('highlight! TermCursorNC guibg=gray guifg=black ctermbg =1 ctermfg = 15')
+cmd('set re=2')
 
 u.nmap("[T", ":tabfirst<CR>")
 u.nmap("]T", ":tablast<CR>")

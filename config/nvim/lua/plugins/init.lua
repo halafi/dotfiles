@@ -19,7 +19,7 @@ return require('packer').startup(function()
     "Mofiqul/vscode.nvim"
   })
   use({
-    "glepnir/lspsaga.nvim",
+    "nvimdev/lspsaga.nvim",
     after = "nvim-lspconfig",
     config = config("lspsaga"),
     requires = {
@@ -27,7 +27,7 @@ return require('packer').startup(function()
         --Please make sure you install markdown and markdown_inline parser
         {"nvim-treesitter/nvim-treesitter"}
     }
-})
+  })
 
   -- use_with_config("folke/which-key.nvim", 'which-key')
   -- basic
@@ -137,7 +137,7 @@ return require('packer').startup(function()
   })
 
   -- additional functionality
-  use_with_config("ggandor/leap.nvim", "leap") -- motion
+  -- use("ggandor/lightspeed.nvim") -- motion
   use_with_config("windwp/nvim-autopairs", "autopairs")
   use("bronson/vim-visual-star-search") -- star search your visual selection
    -- highlight color codes
