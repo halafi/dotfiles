@@ -89,8 +89,8 @@
                         [:hyphen :volume_decrement]
                         [:equal_sign :volume_increment]
                         ; one key to rule them all - switch between terminal and chrome
-                        [:semicolon [:open "/Applications/Visual Studio Code.app"]]
-                        [:quote [:open "/Applications/Google Chrome.app"]]
+                        [:quote [:open "/Applications/Visual Studio Code.app"]]
+                        [:semicolon [:open "/Applications/Google Chrome.app"]]
                         [:comma [:open "/Applications/iTerm.app"]]
                         [:period [:open "/Applications/Slack.app"]]
                         ; [:backslash [:open "/Applications/iTerm.app"]]
@@ -258,39 +258,42 @@
                         [:t [:km "pnpm run test"]]
                          ]}
 
-                ; {:des "Launch mode"
-                ; :rules [:launch-mode
-                ;         ; [:w [:open "/Applications/WhatsApp.app"]]
-                ;         ; e
-                ;         [:r [:open "Reminders"]]
-                ;         [:t [:open "/Applications/Toggl Track.app"]]
-                ;         ; [:y [:open "/Applications/Spotify.app"]]
-                ;         ; [:u [:open "/Applications/zoom.us.app"]]
-                ;         ; [:i [:open "/Applications/iTerm.app"]]
-                ;         [:o [:open "/Applications/Notion.app"]]
-                ;         ; [:p [:open "/Applications/Postman.app"]]
-                ;         [:p [:open "/Applications/NotePlan.app"]]
-                ;         ; a
-                ;         ; [:s [:open "Safari"]]
-                ;         ; [:s [:open "/Applications/Firefox.app"]]
-                ;         ; [:f [:open "/Applications/Firefox.app"]]
-                ;         [:f [:open "Finder"]]
-                ;         ; d
-                ;         [:g [:open-chrome "mail.google.com"]]
-                ;         ; h
-                ;         ; j
-                ;         [:k [:open "/Applications/Commander One.app"]]
-                ;         ; l
-                ;         ; z
-                ;         [:x [:open "/Applications/Firefox.app"]]
-                ;         [:c [:open "Calendar"]]
-                ;         [:v [:open "/Applications/Visual Studio Code.app"] :!code]
-                ;         [:b [:open "/Applications/Bitwarden.app"]]
-                ;         [:n [:open "Notes"]]
-                ;         [:m [:open "YouTube Music"]]
-                ;         [:semicolon [:open "/Applications/Google Chrome.app"]]
-                ;         [:quote [:open "/Applications/Slack.app"]]
-                ; ]}
+                {:des "Launch mode"
+                :rules [:launch-mode
+                        ; [:w [:open "/Applications/WhatsApp.app"]]
+                        ; e
+                        [:r [:open "Reminders"]]
+                        [:t [:open "/Applications/Toggl Track.app"]]
+                        ; [:y [:open "/Applications/Spotify.app"]]
+                        ; [:u [:open "/Applications/zoom.us.app"]]
+                        ; [:i [:open "/Applications/iTerm.app"]]
+                        [:o [:open "/Applications/Notion.app"]]
+                        ; [:p [:open "/Applications/Postman.app"]]
+                        [:p [:open "/Applications/NotePlan.app"]]
+                        ; a
+                        ; [:s [:open "Safari"]]
+                        ; [:s [:open "/Applications/Firefox.app"]]
+                        ; [:f [:open "/Applications/Firefox.app"]]
+                        [:f [:open "Finder"]]
+                        ; d
+                        [:g [:open-chrome "mail.google.com"]]
+                        ; h
+                        ; j
+                        [:k [:open "/Applications/Commander One.app"]]
+                        ; l
+                        ; z
+                        ; [:x [:open "/Applications/Firefox.app"]]
+                        [:c [:open "Calendar"]]
+                        [:d [:open "/Applications/Discord.app"]]
+                        ; [:v [:open "/Applications/Visual Studio Code.app"] :!code]
+                        ; [:b [:open "/Applications/Bitwarden.app"]]
+                        [:n [:open "Notes"]]
+                        [:m [:open "YouTube Music"]]
+                        [:semicolon [:open "/Applications/Google Chrome.app"]]
+                        [:quote [:open "/Applications/Visual Studio Code.app"]]
+                        [:comma [:open "/Applications/iTerm.app"]]
+                        [:period [:open "/Applications/Slack.app"]]
+                ]}
 
                 {:des "Make ESC behave like `~"
                  :rules [
