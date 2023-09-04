@@ -1,5 +1,8 @@
 # dotfiles
 
+Update: currently migrating to VSCODE + VIM plugin as I got tired of maintaining Neovim running properly with all the plugins.
+Also since I could never really got rid of doing certain things in VSCode such as debugging, jupyter notebooks, etc.
+
 My dotfiles for Neovim, tmux, fish and everything configurable.
 Setup for web development (React with TypeScript), Go, Lua and Rust on macOS Monterey.
 Managed with [Dotbot](https://github.com/anishathalye/dotbot).
@@ -9,10 +12,6 @@ Managed with [Dotbot](https://github.com/anishathalye/dotbot).
 I am using [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
 
 - [Fish](https://github.com/fish-shell/fish-shell) 🐟 with [ohmyfish](https://github.com/oh-my-fish/oh-my-fish)
-
-- Neovim on its [master branch](https://github.com/neovim/neovim/commits/master)
-  
-- Neovim LSP client with several LSP servers installed
 
 - [tmux](https://github.com/tmux/tmux) (no session management at the moment)
 
@@ -32,7 +31,7 @@ I am using [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
 2. Install fish: `brew install fish`
 3. Install [omf](https://github.com/oh-my-fish/oh-my-fish) and `omf install z`
 
-### Dotfiles
+### Dotfiles + Neovim
 
 1. Install packer: https://github.com/wbthomason/packer.nvim#quickstart
 2. Install [FiraCode font patched with icons](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Retina/complete/Fira%20Code%20Retina%20Nerd%20Font%20Complete.ttf)

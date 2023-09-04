@@ -1,0 +1,628 @@
+{
+    "workbench.startupEditor": "none",
+    "editor.fontSize": 13,
+    "editor.minimap.enabled": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    "go.toolsManagement.autoUpdate": true,
+    "editor.formatOnSave": false,
+    "workbench.colorTheme": "Default Dark+",
+    "svelte.enable-ts-plugin": true,
+    "tabnine.experimentalAutoImports": true,
+    "projectManager.git.baseFolders": [
+        "~/Projects"
+    ],
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#454758"
+        // "statusBar.noFolderBackground": "#454758",
+        // "statusBar.debuggingBackground": "#454758"
+    },
+    "window.zoomLevel": 0,
+    "settingsSync.ignoredSettings": [
+        "-window.zoomLevel"
+    ],
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "window.restoreWindows": "preserve",
+    "files.hotExit": "onExitAndWindowClose",
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "terminal.integrated.profiles.osx": {
+        "fish": {
+            "path": "/opt/homebrew/bin/fish",
+            "args": [
+                "-l"
+            ]
+        }
+    },
+    "terminal.integrated.defaultProfile.osx": "fish",
+    "vim.easymotion": true,
+    "vim.leader": " ",
+    "vim.useSystemClipboard": true,
+    "vim.visualstar": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        },
+        {
+            "before": [
+                "j",
+                "k"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "g",
+                "i"
+            ],
+            "commands": [
+                "editor.action.goToImplementation"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "f"
+            ],
+            "commands": [
+                "editor.action.formatDocument"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "w",
+                "v"
+            ],
+            "commands": [
+                "workbench.action.splitEditor"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "w",
+                "h"
+            ],
+            "commands": [
+                "workbench.action.splitEditorDown"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "w",
+                "q"
+            ],
+            "commands": [
+                "workbench.action.closeActiveEditor"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "w",
+                "p"
+            ],
+            "commands": [
+                "projectManager.listProjects"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "w",
+                "n"
+            ],
+            "commands": [
+                "projectManager.listProjectsNewWindow"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "n"
+            ],
+            "commands": [
+                "workbench.action.toggleSidebarVisibility"
+            ]
+        },
+        // vim-cutlass implementation
+        {
+            "before": [
+                "D"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "D"
+            ]
+        },
+        {
+            "before": [
+                "d"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "d"
+            ]
+        },
+        {
+            "before": [
+                "d",
+                "d"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "d",
+                "d"
+            ]
+        },
+        {
+            "before": [
+                "c"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "c"
+            ]
+        },
+        {
+            "before": [
+                "C"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "C"
+            ]
+        },
+        {
+            "before": [
+                "c",
+                "c"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "c",
+                "c"
+            ]
+        },
+        {
+            "before": [
+                "x"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "x"
+            ]
+        },
+        {
+            "before": [
+                "X"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "X"
+            ]
+        },
+        // "move"/"cut" remap
+        {
+            "before": [
+                "m"
+            ],
+            "after": [
+                "d"
+            ]
+        },
+        {
+            "before": [
+                "m",
+                "m"
+            ],
+            "after": [
+                "d",
+                "d"
+            ]
+        },
+        {
+            "before": [
+                "M"
+            ],
+            "after": [
+                "D"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindings": [
+        // {
+        //     "before": [":"],
+        //     "commands": [
+        //         "workbench.action.showCommands",
+        //     ],
+        //     "silent": true
+        // },
+        // TODO: fix
+        // {
+        //     "before": ["M", "K"],
+        //     "after": ["editor.action.moveLinesDownAction"]
+        //     "after": ["editor.action.moveLinesUpAction"]
+        // },
+        {
+            "before": [
+                "]",
+                "d"
+            ],
+            "commands": [
+                "editor.action.marker.next"
+            ]
+        },
+        {
+            "before": [
+                "[",
+                "d"
+            ],
+            "commands": [
+                "editor.action.marker.prev"
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "b",
+                "d"
+            ],
+            "commands": [
+                "workbench.action.closeActiveEditor"
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "b",
+                "D"
+            ],
+            "commands": [
+                "workbench.action.closeOtherEditors"
+            ]
+        },
+        {
+            "before": [
+                "]",
+                "b"
+            ],
+            "commands": [
+                "workbench.action.nextEditor"
+            ]
+        },
+        {
+            "before": [
+                "]",
+                "B"
+            ],
+            "commands": [
+                "workbench.action.lastEditorInGroup"
+            ]
+        },
+        {
+            "before": [
+                "[",
+                "B"
+            ],
+            "commands": [
+                "workbench.action.firstEditorInGroup"
+            ]
+        },
+        {
+            "before": [
+                "[",
+                "b"
+            ],
+            "commands": [
+                "workbench.action.previousEditor"
+            ]
+        },
+        {
+            "before": [
+                "]",
+                "c"
+            ],
+            "commands": [
+                "workbench.action.editor.nextChange"
+                // "editor.action.dirtydiff.next",
+            ]
+        },
+        {
+            "before": [
+                "[",
+                "c"
+            ],
+            "commands": [
+                "workbench.action.editor.previousChange"
+                // "editor.action.dirtydiff.previous",
+            ]
+        },
+        {
+            "before": [
+                "]",
+                "n"
+            ],
+            "commands": [
+                "merge-conflict.next"
+                // "editor.action.dirtydiff.next",
+            ]
+        },
+        // conflict markers https://github.com/rhysd/conflict-marker.vim
+        {
+            "before": [
+                "[",
+                "n"
+            ],
+            "commands": [
+                "merge-conflict.previous"
+            ]
+        },
+        {
+            "before": [
+                "[",
+                "n"
+            ],
+            "commands": [
+                "merge-conflict.previous"
+            ]
+        },
+        {
+            "before": [
+                "c",
+                "b"
+            ],
+            "commands": [
+                "merge-conflict.accept.both"
+            ]
+        },
+        {
+            "before": [
+                "c",
+                "t"
+            ],
+            "commands": [
+                "merge-conflict.accept.incoming"
+            ]
+        },
+        {
+            "before": [
+                "c",
+                "o"
+            ],
+            "commands": [
+                "merge-conflict.accept.current"
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "h",
+                "p"
+            ],
+            "commands": [
+                "editor.action.dirtydiff.next"
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "h",
+                "r"
+            ],
+            "commands": [
+                "git.revertSelectedRanges" // fix
+                // "git.revertChange",
+            ]
+        },
+        // more useful HL
+        {
+            "before": [
+                "L"
+            ],
+            "after": [
+                "$"
+            ]
+        },
+        {
+            "before": [
+                "H"
+            ],
+            "after": [
+                "^"
+            ]
+        },
+        // zz after n / N
+        {
+            "before": [
+                "n"
+            ],
+            "after": [
+                "n",
+                "z",
+                "z"
+            ]
+        },
+        {
+            "before": [
+                "N"
+            ],
+            "after": [
+                "N",
+                "z",
+                "z"
+            ]
+        },
+        // bookmarks
+        {
+            "before": [
+                "<leader>",
+                "m"
+            ],
+            "commands": [
+                "bookmarks.toggle"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "M"
+            ],
+            "commands": [
+                "bookmarksExplorer.focus"
+            ]
+        },
+        {
+            "before": [
+                "`",
+                "m"
+            ],
+            "commands": [
+                "bookmarks.list"
+            ]
+        },
+        {
+            "before": [
+                "'",
+                "m"
+            ],
+            "commands": [
+                "bookmarks.list"
+            ]
+        },
+        // other
+        {
+            "before": [
+                "enter"
+            ],
+            "commands": [
+                // "workbench.action.files.save",
+                "workbench.action.files.saveWithoutFormatting"
+            ]
+        },
+        {
+            "before": [
+                "<C-n>"
+            ],
+            "commands": [
+                "workbench.view.explorer"
+                // "revealInExplorer",
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "f",
+                "s"
+            ],
+            "commands": [
+                "workbench.view.search.focus"
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "f",
+                "g"
+            ],
+            "commands": [
+                "workbench.view.scm"
+            ]
+        },
+        {
+            "before": [
+                "<C-l>"
+            ],
+            "commands": [
+                "workbench.action.focusActiveEditorGroup"
+            ]
+        }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        // cutlass
+        {
+            "before": [
+                "d"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "d"
+            ]
+        },
+        {
+            "before": [
+                "c"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "c"
+            ]
+        },
+        {
+            "before": [
+                "x"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "x"
+            ]
+        },
+        {
+            "before": [
+                "m"
+            ],
+            "after": [
+                "d"
+            ]
+        }
+    ],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ]
+        }
+    ]
+}
