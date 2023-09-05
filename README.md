@@ -1,10 +1,12 @@
 # dotfiles
 
-Update: currently migrating to VSCODE + VIM plugin as I got tired of maintaining Neovim running properly with all the plugins.
+Update: currently migrating to VSCODE + VIM plugin as I got tired of maintaining Neovim running properly.
 Also since I could never really got rid of doing certain things in VSCode such as debugging, jupyter notebooks, etc.
 
+At the moment removed LSP config as I prefer to have Neovim as stable text editor rather than IDE.
+
 My dotfiles for Neovim, tmux, fish and everything configurable.
-Setup for web development (React with TypeScript), Go, Lua and Rust on macOS Monterey.
+Setup for web development (React with TypeScript), Go, Lua and Rust on macOS Monterey (LSP config no longer maintained).
 Managed with [Dotbot](https://github.com/anishathalye/dotbot).
 
 ## Terminal
@@ -37,15 +39,8 @@ I am using [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
 2. Install [FiraCode font patched with icons](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Retina/complete/Fira%20Code%20Retina%20Nerd%20Font%20Complete.ttf)
 3. Install [Go](https://go.dev/doc/install)
 4. Brew packages:
-    - `brew install asdf fish exa fzf fd bat git-delta ripgrep neovim tmux lf yarn htop lazygit lazydocker google-cloud-sdk terraform`
+    - `brew install asdf fish exa fzf fd bat git-delta ripgrep neovim tmux lf yarn htop lazygit google-cloud-sdk terraform`
 5. [Tmux plugin manager](https://github.com/tmux-plugins/tpm)
-6. LSP servers (used by Neovim): 
-    - `yarn global add vscode-langservers-extracted`
-    - `npm install -g svelte-language-server`
-    - `yarn global add typescript typescript-language-server eslint prettier`
-    - `go install golang.org/x/tools/gopls@latest`
-    - `https://jdhao.github.io/2021/08/12/nvim_sumneko_lua_conf/`
-    - `brew install rust-analyzer`
 
 ### ⌨️ Keyboard
 1. install karabiner `brew cask install karabiner-elements`

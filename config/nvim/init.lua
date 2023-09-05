@@ -167,7 +167,7 @@ u.nmap('<leader>n', ':Lf<CR>')
 
 require "tmux"
 require "commands"
-require "lsp"
+-- require "lsp"
 require "lsp/cmp-config"
 require "plugins"
 

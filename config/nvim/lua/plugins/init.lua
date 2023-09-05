@@ -1,4 +1,4 @@
-vim.cmd [[packadd packer.nvim]]
+  114 return require('packer').startup(function() 
 
 return require('packer').startup(function()
   -- Packer can manage itself
@@ -12,24 +12,8 @@ return require('packer').startup(function()
       use({ path, config = config(name) })
   end
 
-  -- themes (sorted by contrast)
-  use({
-    -- "dracula/vim", -- high contrast
-    -- "folke/tokyonight.nvim",
-    "Mofiqul/vscode.nvim"
-  })
-  use({
-    "nvimdev/lspsaga.nvim",
-    after = "nvim-lspconfig",
-    config = config("lspsaga"),
-    requires = {
-        {"nvim-tree/nvim-web-devicons"},
-        --Please make sure you install markdown and markdown_inline parser
-        {"nvim-treesitter/nvim-treesitter"}
-    }
-  })
+  use({ "Mofiqul/vscode.nvim" })
 
-  -- use_with_config("folke/which-key.nvim", 'which-key')
   -- basic
   use("tpope/vim-surround")
   use("tpope/vim-unimpaired")
@@ -42,7 +26,6 @@ return require('packer').startup(function()
   use("tpope/vim-sleuth")
   use("editorconfig/editorconfig-vim")
   -- git
-  -- use_with_config("tpope/vim-fugitive", "fugitive")
   use({
     "tpope/vim-fugitive",
     requires = { "tpope/vim-rhubarb", "junegunn/gv.vim" },
@@ -53,7 +36,6 @@ return require('packer').startup(function()
   -- file management
   use("rbgrouleff/bclose.vim") -- not sure if needed
 
-  -- use_with_config("ibhagwan/fzf-lua", "fzf") -- better lua version of fzf.vim
   use({
         "nvim-telescope/telescope.nvim", -- fuzzy finder
         config = config("telescope"),
@@ -70,39 +52,14 @@ return require('packer').startup(function()
   use_with_config("nvim-lualine/lualine.nvim", 'lualine')
   use_with_config("kyazdani42/nvim-tree.lua", 'nvim-tree')
 
-  -- lsp + autocmoplete
-  use("neovim/nvim-lspconfig")
-  use("williamboman/mason.nvim")
-  use("williamboman/mason-lspconfig.nvim")
-  use("hrsh7th/cmp-nvim-lsp")
+  -- autocomplete
   use("hrsh7th/cmp-buffer")
   -- use("hrsh7th/cmp-copilot") -- not working well at this point
   use("hrsh7th/nvim-cmp")
-  -- use("weilbith/nvim-lsp-smag") -- makes <C-]> work, not a necessity, like a gd }
-  -- icons for autocomplete
-  use("onsails/lspkind-nvim")
-  use("jose-elias-alvarez/null-ls.nvim")
-  use("jose-elias-alvarez/typescript.nvim")
   use_with_config("RRethy/vim-illuminate", "illuminate")
-  -- use("github/copilot.vim")
   -- snippets
   use_with_config('hrsh7th/vim-vsnip', 'vsnip')
   use('hrsh7th/cmp-vsnip')
-  -- lua
-  use("folke/lua-dev.nvim") -- better sumneko_lua settings
-  -- json
-  use("b0o/schemastore.nvim") -- simple access to json-language-server schemae
-  -- rust
-  -- use {
-  --   "simrat39/rust-tools.nvim",
-  --   requires = { "nvim-lua/plenary.nvim", "rust-lang/rust.vim" },
-  --   opt = true,
-  --   module = "rust-tools",
-  --   ft = { "rust" },
-  --   config = function()
-  --     require("plugins.rust-tools").setup()
-  --   end,
-  -- }
 
   -- treesitter
   use({
@@ -126,8 +83,8 @@ return require('packer').startup(function()
 
   -- registers
   use_with_config("svermeulen/vim-subversive", "subversive") -- adds substitute operator
-  -- use_with_config("svermeulen/vim-cutlass", "cutlass") -- separates cut and delete operations
   use_with_config("svermeulen/vim-yoink", "yoink") -- improves paste
+    -- separates cut and delete operations
   use({
     "svermeulen/vim-cutlass",
     requires = {
@@ -137,7 +94,7 @@ return require('packer').startup(function()
   })
 
   -- additional functionality
-  -- use("ggandor/lightspeed.nvim") -- motion
+  -- use("ggandor/lightspeed.nvim") -- TODO: motion
   use_with_config("windwp/nvim-autopairs", "autopairs")
   use("bronson/vim-visual-star-search") -- star search your visual selection
    -- highlight color codes

@@ -31,18 +31,7 @@ vim.cmd("autocmd BufNewFile,BufRead justfile setfiletype make")
 vim.cmd("command! Scratch new | setlocal bt=nofile bh=wipe nobl noswapfile nu")
 
 u.command("LazyGit", "tabnew term://lazygit")
-u.command("LazyDocker", "tabnew term://lazydocker")
--- u.command("Bottom", "tabnew term://btm")
--- u.command("Tokei", "tabnew term://tokei")
 u.nmap("<Leader>g", ":LazyGit<CR>")
--- u.nmap("<Leader>b", ":Bottom<CR>")
-u.nmap("<Leader>d", ":LazyDocker<CR>")
--- u.nmap("<Leader>t", ":Tokei<CR>")
--- u.nmap("<leader>gs", ":Git<CR>")
--- u.command("Reload", ":source $VIMCONFIG/init.lua")
-
--- reset treesitter and lsp diagnostics
-u.command("R", "w | :e")
 
 -- not migrated to lua
 local vim_commands = {}

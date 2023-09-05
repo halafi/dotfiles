@@ -1,4 +1,4 @@
-local lspkind = require('lspkind')
+-- local lspkind = require('lspkind')
 local cmp = require('cmp')
 
 cmp.setup {
@@ -24,20 +24,20 @@ cmp.setup {
              select = true,
            })
       },
-      formatting = {
-         format = lspkind.cmp_format {
-            with_text = true,
-            menu = {
-               buffer   = "[buf]",
-               nvim_lsp = "[LSP]",
-               path     = "[path]",
-            },
-         },
-      },
+      -- formatting = {
+      --    format = lspkind.cmp_format {
+      --       with_text = true,
+      --       menu = {
+      --          buffer   = "[buf]",
+      --          nvim_lsp = "[LSP]",
+      --          path     = "[path]",
+      --       },
+      --    },
+      -- },
       sources = {
          { name = "vsnip", priority = 9999 },
          { name = "path", keyword_length = 3 },
-         { name = "nvim_lsp", keyword_length = 3 },
+         -- { name = "nvim_lsp", keyword_length = 3 },
          { name = "buffer" , keyword_length = 5 },
          -- { name = 'copilot', priority = 9999 }
       },
