@@ -1,4 +1,4 @@
-  114 return require('packer').startup(function() 
+vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function()
   -- Packer can manage itself
