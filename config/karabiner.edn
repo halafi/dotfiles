@@ -92,7 +92,7 @@
                         [:quote [:open "/Applications/Visual Studio Code.app"]]
                         [:semicolon [:open "/Applications/Google Chrome.app"]]
                         [:comma [:open "/Applications/iTerm.app"]]
-                        [:period [:open "/Applications/Slack.app"]]
+                        ; [:period [:open "/Applications/Slack.app"]]
                         ; [:backslash [:open "/Applications/iTerm.app"]]
                         ; [:semicolon [:open "/Applications/Google Chrome.app"] :terminals]
                         ; [:semicolon [:open "/Applications/iTerm.app"] :code]
@@ -292,7 +292,7 @@
                         [:semicolon [:open "/Applications/Google Chrome.app"]]
                         [:quote [:open "/Applications/Visual Studio Code.app"]]
                         [:comma [:open "/Applications/iTerm.app"]]
-                        [:period [:open "/Applications/Slack.app"]]
+                        ; [:period [:open "/Applications/Slack.app"]]
                 ]}
 
                 {:des "Make ESC behave like `~"

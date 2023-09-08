@@ -20,7 +20,7 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "workbench.colorCustomizations": {
-        "statusBar.background": "#454758"
+        "statusBar.background": "#454758",
         // "statusBar.noFolderBackground": "#454758",
         // "statusBar.debuggingBackground": "#454758"
     },
@@ -259,6 +259,35 @@
         }
     ],
     "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                "<leader>",
+                "e",
+                "m",
+            ],
+            "commands": [
+                "editor.emmet.action.matchTag",
+            ]
+        },
+        // replace with register
+        {
+            "before": [
+                "s",
+            ],
+            "after": [
+                "g",
+                "r",
+            ]
+        },
+        {
+            "before": [
+                "=",
+            ],
+            "after": [
+                "g",
+                "r",
+            ]
+        },
         // {
         //     "before": [":"],
         //     "commands": [
@@ -278,7 +307,7 @@
                 "d"
             ],
             "commands": [
-                "editor.action.marker.next"
+                "editor.action.marker.next",
             ]
         },
         {
@@ -287,7 +316,7 @@
                 "d"
             ],
             "commands": [
-                "editor.action.marker.prev"
+                "editor.action.marker.prev",
             ]
         },
         {
@@ -297,7 +326,7 @@
                 "d"
             ],
             "commands": [
-                "workbench.action.closeActiveEditor"
+                "workbench.action.closeActiveEditor",
             ]
         },
         {
@@ -307,7 +336,7 @@
                 "D"
             ],
             "commands": [
-                "workbench.action.closeOtherEditors"
+                "workbench.action.closeOtherEditors",
             ]
         },
         {
@@ -316,7 +345,7 @@
                 "b"
             ],
             "commands": [
-                "workbench.action.nextEditor"
+                "workbench.action.nextEditor",
             ]
         },
         {
@@ -325,7 +354,7 @@
                 "B"
             ],
             "commands": [
-                "workbench.action.lastEditorInGroup"
+                "workbench.action.lastEditorInGroup",
             ]
         },
         {
@@ -334,7 +363,7 @@
                 "B"
             ],
             "commands": [
-                "workbench.action.firstEditorInGroup"
+                "workbench.action.firstEditorInGroup",
             ]
         },
         {
@@ -343,7 +372,7 @@
                 "b"
             ],
             "commands": [
-                "workbench.action.previousEditor"
+                "workbench.action.previousEditor",
             ]
         },
         {
@@ -352,7 +381,7 @@
                 "c"
             ],
             "commands": [
-                "workbench.action.editor.nextChange"
+                "workbench.action.editor.nextChange",
                 // "editor.action.dirtydiff.next",
             ]
         },
@@ -362,7 +391,7 @@
                 "c"
             ],
             "commands": [
-                "workbench.action.editor.previousChange"
+                "workbench.action.editor.previousChange",
                 // "editor.action.dirtydiff.previous",
             ]
         },
@@ -372,7 +401,7 @@
                 "n"
             ],
             "commands": [
-                "merge-conflict.next"
+                "merge-conflict.next",
                 // "editor.action.dirtydiff.next",
             ]
         },
@@ -383,7 +412,7 @@
                 "n"
             ],
             "commands": [
-                "merge-conflict.previous"
+                "merge-conflict.previous",
             ]
         },
         {
@@ -392,7 +421,7 @@
                 "n"
             ],
             "commands": [
-                "merge-conflict.previous"
+                "merge-conflict.previous",
             ]
         },
         {
@@ -401,7 +430,7 @@
                 "b"
             ],
             "commands": [
-                "merge-conflict.accept.both"
+                "merge-conflict.accept.both",
             ]
         },
         {
@@ -410,7 +439,7 @@
                 "t"
             ],
             "commands": [
-                "merge-conflict.accept.incoming"
+                "merge-conflict.accept.incoming",
             ]
         },
         {
@@ -419,7 +448,7 @@
                 "o"
             ],
             "commands": [
-                "merge-conflict.accept.current"
+                "merge-conflict.accept.current",
             ]
         },
         {
@@ -429,7 +458,7 @@
                 "p"
             ],
             "commands": [
-                "editor.action.dirtydiff.next"
+                "editor.action.dirtydiff.next",
             ]
         },
         {
@@ -439,7 +468,7 @@
                 "r"
             ],
             "commands": [
-                "git.revertSelectedRanges" // fix
+                "git.revertSelectedRanges", // fix
                 // "git.revertChange",
             ]
         },
@@ -484,7 +513,7 @@
         // bookmarks
         {
             "before": [
-                "<leader>",
+                "g",
                 "m"
             ],
             "commands": [
@@ -493,7 +522,7 @@
         },
         {
             "before": [
-                "<leader>",
+                "g",
                 "M"
             ],
             "commands": [
@@ -525,7 +554,7 @@
             ],
             "commands": [
                 // "workbench.action.files.save",
-                "workbench.action.files.saveWithoutFormatting"
+                "workbench.action.files.saveWithoutFormatting",
             ]
         },
         {
@@ -533,7 +562,7 @@
                 "<C-n>"
             ],
             "commands": [
-                "workbench.view.explorer"
+                "workbench.view.explorer",
                 // "revealInExplorer",
             ]
         },
@@ -544,7 +573,7 @@
                 "s"
             ],
             "commands": [
-                "workbench.view.search.focus"
+                "workbench.view.search.focus",
             ]
         },
         {
@@ -554,7 +583,7 @@
                 "g"
             ],
             "commands": [
-                "workbench.view.scm"
+                "workbench.view.scm",
             ]
         },
         {
@@ -562,11 +591,37 @@
                 "<C-l>"
             ],
             "commands": [
-                "workbench.action.focusActiveEditorGroup"
+                "workbench.action.focusActiveEditorGroup",
             ]
-        }
+        },
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
+        // kinda the same as P - replace with register
+        {
+            "before": [
+                "=",
+            ],
+            "after": [
+                "g",
+                "r",
+            ]
+        },
+        {
+            "before": [
+                "L"
+            ],
+            "after": [
+                "$"
+            ]
+        },
+        {
+            "before": [
+                "H"
+            ],
+            "after": [
+                "^"
+            ]
+        },
         // cutlass
         {
             "before": [
@@ -623,6 +678,11 @@
             "commands": [
                 "editor.action.outdentLines"
             ]
-        }
-    ]
+        },
+    ],
+    "[svelte]": {
+        "editor.defaultFormatter": "svelte.svelte-vscode"
+    },
+    "git.rememberPostCommitCommand": true,
+    "vim.replaceWithRegister": true,
 }
