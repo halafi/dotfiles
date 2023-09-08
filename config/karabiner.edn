@@ -44,7 +44,7 @@
         :templates {
                 :open "open -a \"%s\""
                 :alf "open /Applications/Alfred\\ 5.app && osascript -e 'tell application \"Alfred 5\" to search \"%s\"'"
-                :km "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"%s\"'"
+                ;; :km "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"%s\"'"
                 :open-chrome "osascript -e '
                         set address to \"%s\"
                         
@@ -242,21 +242,15 @@
                         [:o [[:alf "google "]]]
                          ]}
 
-                {:des "Snippet Mode"
-                 :rules [:snippet-mode
-                        ; [:s [[:alf "snip pnpm start"]]]
-                          ; [:f [[:alf "snip pnpm run fix"]]]
-                        ; [:p [[:alf "snip pnpm run fix:pretty"]]]
-                        ; [:c [[:alf "snip pnpm run check"]]]
-                        ; [:t [[:alf "snip pnpm run test"]]]
-                        ; keyboard maestro snippets
-                        [:m [:km "filiphalas74@gmail.com"]]
-                        [:s [:km "pnpm start"]]
-                        [:f [:km "pnpm run fix"]]
-                        [:p [:km "pnpm run fix:pretty"]]
-                        [:c [:km "pnpm run check"]]
-                        [:t [:km "pnpm run test"]]
-                         ]}
+                ;; {:des "Snippet Mode"
+                ;;  :rules [:snippet-mode
+                ;;         ; [:s [[:alf "snip pnpm start"]]]
+                ;;           ; [:f [[:alf "snip pnpm run fix"]]]
+                ;;         ; [:p [[:alf "snip pnpm run fix:pretty"]]]
+                ;;         ; [:c [[:alf "snip pnpm run check"]]]
+                ;;         ; [:t [[:alf "snip pnpm run test"]]]
+                ;;         ; keyboard maestro snippets
+                ;;          ]}
 
                 {:des "Launch mode"
                 :rules [:launch-mode

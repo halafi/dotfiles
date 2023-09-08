@@ -70,7 +70,8 @@ I am using [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
 1. `asdf plugin add elixir`
 
 ### Python
-1. `yarn global add pyright`
+1. `brew install pyenv`
+<!-- 2. optional `yarn global add pyright` -->
 
 ## FAQ
 1. How to fix broken `asdf` shims after brew update?
