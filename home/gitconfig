@@ -1,7 +1,7 @@
 [user]
 	name = halafi
 	email = filiphalas74@gmail.com
-	signingkey = 2A85FF80F4D9B00C
+	signingkey = D2559CD7C018B12E
 [credential]
 	helper = store
 [core]
