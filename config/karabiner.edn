@@ -89,17 +89,15 @@
                         [:hyphen :volume_decrement]
                         [:equal_sign :volume_increment]
                         ; one key to rule them all - switch between terminal and chrome
-                        [:quote [:open "/Applications/Visual Studio Code.app"]]
+                        [:semicolon [:open "/Applications/Visual Studio Code.app"] :chrome]
+                        [:semicolon [:open "/Applications/Google Chrome.app"] :code]
                         [:semicolon [:open "/Applications/Google Chrome.app"]]
-                        [:comma [:open "/Applications/iTerm.app"]]
-                        ; [:period [:open "/Applications/Slack.app"]]
-                        ; [:backslash [:open "/Applications/iTerm.app"]]
-                        ; [:semicolon [:open "/Applications/Google Chrome.app"] :terminals]
-                        ; [:semicolon [:open "/Applications/iTerm.app"] :code]
-                        ; [:quote [:open "/Applications/Visual Studio Code.app"] :!code]
-                        ; [:quote [:open "/Applications/iTerm.app"] :code]
+                        [:quote [:open "/Applications/iTerm.app"] :chrome]
+                        [:quote [:open "/Applications/iTerm.app"] :code]
+                        [:quote [:open "/Applications/Visual Studio Code.app"] :terminals]
+                        [:quote [:open "/Applications/iTerm.app"]]
+                        [:comma [:open "/Applications/Discord.app"]]
                         ; [:quote [:open "/Applications/Slack.app"] :!slack]
-                        ; [:quote [:open "/Applications/iTerm.app"] :!terminals]
                         [:delete_or_backspace :delete_forward]
                         ]}
 
@@ -151,10 +149,12 @@
                         [:o :!To :code]
                         [:p :!Tp :code]
                         ; home row
+                        [:a :!Ta :code]
                         [:s :!Ts :code]
                         [:d :!Td :code]
                         [:f :!Tf :code]
                         [:g :!Tg :code]
+                        [:return_or_enter :!Treturn_or_enter :code]
                         ; bottom row
                         [:z :!Tz :code] ; suspend, resume with fg %1
                         [:x :!Tx :code]
