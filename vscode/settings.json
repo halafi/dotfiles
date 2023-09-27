@@ -1,13 +1,7 @@
 {
     "workbench.startupEditor": "none",
-    "editor.fontSize": 13,
-    "editor.minimap.enabled": true,
     "security.workspace.trust.untrustedFiles": "open",
-    "go.toolsManagement.autoUpdate": true,
-    "editor.formatOnSave": false,
-    "workbench.colorTheme": "Default Dark+",
     "svelte.enable-ts-plugin": true,
-    "tabnine.experimentalAutoImports": true,
     "projectManager.git.baseFolders": [
         "~/Projects"
     ],
@@ -19,17 +13,10 @@
     "[typescriptreact]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "workbench.colorCustomizations": {
-        "statusBar.background": "#454758",
-        // "statusBar.noFolderBackground": "#454758",
-        // "statusBar.debuggingBackground": "#454758"
-    },
-    "window.zoomLevel": 0,
     "settingsSync.ignoredSettings": [
         "-window.zoomLevel"
     ],
     "editor.defaultFormatter": "vscode.json-language-features",
-    "window.restoreWindows": "preserve",
     "files.hotExit": "onExitAndWindowClose",
     "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -40,9 +27,18 @@
             "args": [
                 "-l"
             ]
+        },
+        "tmux-shell": {
+            "path": "tmux",
+            "args": [
+                "new-session",
+                "-A",
+                "-s",
+                "vscode:${workspaceFolder}"
+            ]
         }
     },
-    "terminal.integrated.defaultProfile.osx": "fish",
+    "terminal.integrated.defaultProfile.osx": "tmux-shell",
     "vim.easymotion": true,
     "vim.leader": " ",
     "vim.useSystemClipboard": true,
@@ -67,7 +63,85 @@
             ]
         }
     ],
+    "vim.operatorPendingModeKeyBindingsNonRecursive": [
+        // rebind camelCase motion
+        {
+            "before": [
+                "i",
+                "v"
+            ],
+            "after": [
+                "i",
+                "<leader>",
+                "w"
+            ]
+        },
+        {
+            "before": [
+                "L"
+            ],
+            "after": [
+                "$"
+            ]
+        },
+        {
+            "before": [
+                "H"
+            ],
+            "after": [
+                "^"
+            ]
+        }
+    ],
     "vim.normalModeKeyBindingsNonRecursive": [
+        // rebind camelCase motion
+        {
+            "before": [
+                "<leader>",
+                "r", // refactor - rename
+                // "s",
+            ],
+            "commands": [
+                "editor.action.rename"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "t",
+                "r",
+            ],
+            "commands": [
+                "workbench.action.tasks.runTask"
+            ]
+        },
+        {
+            "before": [
+                "w"
+            ],
+            "after": [
+                "<leader>",
+                "w"
+            ]
+        },
+        {
+            "before": [
+                "b"
+            ],
+            "after": [
+                "<leader>",
+                "b"
+            ]
+        },
+        {
+            "before": [
+                "e"
+            ],
+            "after": [
+                "<leader>",
+                "e"
+            ]
+        },
         {
             "before": [
                 "g",
@@ -116,24 +190,41 @@
                 "workbench.action.closeActiveEditor"
             ]
         },
+        // {
+        //     "before": [
+        //         "<leader>",
+        //         "w",
+        //         "p"
+        //     ],
+        //     "commands": [
+        //         "projectManager.listProjects"
+        //     ]
+        // },
+        // {
+        //     "before": [
+        //         "<leader>",
+        //         "w",
+        //         "n"
+        //     ],
+        //     "commands": [
+        //         "projectManager.listProjectsNewWindow"
+        //     ]
+        // },
         {
             "before": [
                 "<leader>",
-                "w",
-                "p"
+                "<C-n>",
             ],
             "commands": [
-                "projectManager.listProjects"
+                "workbench.action.files.revealActiveFileInWindows"
             ]
         },
         {
             "before": [
-                "<leader>",
-                "w",
-                "n"
+                "<C-n>",
             ],
             "commands": [
-                "projectManager.listProjectsNewWindow"
+                "workbench.files.action.showActiveFileInExplorer"
             ]
         },
         {
@@ -143,6 +234,15 @@
             ],
             "commands": [
                 "workbench.action.toggleSidebarVisibility"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "m"
+            ],
+            "commands": [
+                "editor.action.toggleMinimap"
             ]
         },
         // vim-cutlass implementation
@@ -255,30 +355,91 @@
             ],
             "after": [
                 "D"
-            ]
-        }
+            ],
+        },
+        // leaving file kidna resets it so it's not that needed
+        // {
+        //     "before": [
+        //         "<C-n>", // <Esc> breaks mapping to lot of commands
+        //         // "`",
+        //     ],
+        //     "commands": [
+        //         ":nohl",
+        //     ],
+        // }
     ],
     "vim.normalModeKeyBindings": [
         {
             "before": [
                 "<leader>",
-                "e",
-                "m",
+                "5",
             ],
             "commands": [
                 "editor.emmet.action.matchTag",
             ]
         },
-        // replace with register
+        // easymotion -- seems better than sneak
         {
             "before": [
                 "s",
             ],
             "after": [
-                "g",
-                "r",
+                "leader",
+                "leader",
+                "w"
             ]
         },
+        // {
+        //     "before": [
+        //         "t",
+        //     ],
+        //     "after": [
+        //         "leader",
+        //         "leader",
+        //         "t"
+        //     ]
+        // },
+        // {
+        //     "before": [
+        //         "T",
+        //     ],
+        //     "after": [
+        //         "leader",
+        //         "leader",
+        //         "T"
+        //     ]
+        // },
+        // {
+        //     "before": [
+        //         "f",
+        //     ],
+        //     "after": [
+        //         "leader",
+        //         "leader",
+        //         "f"
+        //     ]
+        // },
+        // {
+        //     "before": [
+        //         "F",
+        //     ],
+        //     "after": [
+        //         "leader",
+        //         "leader",
+        //         "F"
+        //     ]
+        // },
+        {
+            "before": [
+                "S",
+            ],
+            "after": [
+                "leader",
+                "leader",
+                "b"
+            ]
+        },
+        // replace with register
         {
             "before": [
                 "=",
@@ -557,15 +718,15 @@
                 "workbench.action.files.saveWithoutFormatting",
             ]
         },
-        {
-            "before": [
-                "<C-n>"
-            ],
-            "commands": [
-                "workbench.view.explorer",
-                // "revealInExplorer",
-            ]
-        },
+        // {
+        //     "before": [
+        //         "<C-n>"
+        //     ],
+        //     "commands": [
+        //         "workbench.view.explorer",
+        //         // "revealInExplorer",
+        //     ]
+        // },
         {
             "before": [
                 "leader",
@@ -576,6 +737,9 @@
                 "workbench.view.search.focus",
             ]
         },
+        // how do I work with git these days?
+        // mainly in files with hunks ]c [c hp hr etc
+        // sourcetree to search in file history text changes
         {
             "before": [
                 "leader",
@@ -584,6 +748,29 @@
             ],
             "commands": [
                 "workbench.view.scm",
+            ]
+        },
+        // git-graph.view -- git log with easy to find diffs in recent changes
+        {
+            "before": [
+                "leader",
+                "f",
+                "l"
+            ],
+            "commands": [
+                "git-graph.view",
+            ]
+        },
+        // git.viewFileHistory -- don't like this one much
+        // best file history I got but can't do search by text
+        {
+            "before": [
+                "leader",
+                "f",
+                "h"
+            ],
+            "commands": [
+                "gitlens.showFileHistoryView",
             ]
         },
         {
@@ -612,6 +799,14 @@
             ],
             "after": [
                 "$"
+            ]
+        },
+        {
+            "before": [
+                "p"
+            ],
+            "after": [
+                "P"
             ]
         },
         {
@@ -685,4 +880,25 @@
     },
     "git.rememberPostCommitCommand": true,
     "vim.replaceWithRegister": true,
+    "explorer.confirmDragAndDrop": false,
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": true,
+        "scminput": false
+    },
+    "window.restoreWindows": "preserve",
+    "better-comments.highlightPlainText": true,
+    "vim.camelCaseMotion.enable": true,
+    "conventionalCommits.showNewVersionNotes": false,
+    "vim.highlightedyank.enable": true,
+    "vim.hlsearch": true,
+    "workbench.layoutControl.enabled": false,
+    "window.nativeFullScreen": false,
+    "window.commandCenter": false,
+    "window.zoomLevel": 0.25,
+    "window.autoDetectColorScheme": true,
+    "terminal.integrated.fontSize": 13,
+    "workbench.colorTheme": "Default Light Modern",
+    "editor.minimap.enabled": false,
 }

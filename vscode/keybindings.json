@@ -1,64 +1,4 @@
-// Place your key bindings in this file to override the defaultsauto[]
 [
-  {
-    "key": "ctrl+d",
-    "command": "-deleteRight",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "ctrl+d",
-    "command": "-list.focusPageDown",
-    "when": "listFocus && !inputFocus"
-  },
-  {
-    "key": "ctrl+d",
-    "command": "-workbench.action.debug.run",
-    "when": "debuggersAvailable && !inDebugMode && !terminalFocus"
-  },
-  {
-    "key": "ctrl+r",
-    "command": "-workbench.action.tasks.reRunTask"
-  },
-  {
-    "key": "cmd+] d",
-    "command": "editor.action.marker.next",
-    "when": "editorFocus"
-  },
-  {
-    "key": "alt+f8",
-    "command": "-editor.action.marker.next",
-    "when": "editorFocus"
-  },
-  {
-    "key": "cmd+] shift+d",
-    "command": "editor.action.marker.nextInFiles",
-    "when": "editorFocus"
-  },
-  {
-    "key": "f8",
-    "command": "-editor.action.marker.nextInFiles",
-    "when": "editorFocus"
-  },
-  {
-    "key": "cmd+] c",
-    "command": "editor.action.dirtydiff.next",
-    "when": "editorTextFocus && !textCompareEditorActive"
-  },
-  {
-    "key": "alt+f3",
-    "command": "-editor.action.dirtydiff.next",
-    "when": "editorTextFocus && !textCompareEditorActive"
-  },
-  {
-    "key": "cmd+[ c",
-    "command": "editor.action.dirtydiff.previous",
-    "when": "editorTextFocus && !textCompareEditorActive"
-  },
-  {
-    "key": "shift+alt+f3",
-    "command": "-editor.action.dirtydiff.previous",
-    "when": "editorTextFocus && !textCompareEditorActive"
-  },
   {
     "key": "cmd+e n",
     "command": "explorer.newFile"
@@ -77,23 +17,30 @@
   },
   {
     "key": "ctrl+h", 
-    "command": "workbench.action.focusLeftGroup", 
-    "when": "editorTextFocus && vim.active && vim.mode != 'Insert'"
+    "command": "workbench.action.navigateLeft", 
+    // "when": "editorTextFocus && vim.active && vim.mode != 'Insert'"
   },
+  // {
+  //   "key": "ctrl+h", 
+  //   "command": "workbench.action.focusSideBar", 
+  //   "when": "editorTextFocus && vim.active && vim.mode != 'Insert' && sideBarFocus"
+  // },
   {
     "key": "ctrl+l", 
-    "command": "workbench.action.focusRightGroup", 
-    "when": "editorTextFocus && vim.active && vim.mode != 'Insert'"
+    "command": "workbench.action.navigateRight", 
   },
   {
-    "key": "ctrl+k", 
-    "command": "workbench.action.focusAboveGroup", 
-    "when": "editorTextFocus && vim.active && vim.mode != 'Insert'"
+    "key": "ctrl+k",
+    "command": "workbench.action.navigateUp",
   },
   {
-    "key": "ctrl+j", 
-    "command": "workbench.action.focusBelowGroup", 
-    "when": "editorTextFocus && vim.active && vim.mode != 'Insert'"
+    "key": "ctrl+enter",
+    "command": "workbench.action.toggleMaximizedPanel",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.navigateDown",
   },
   {
     "key": "ctrl+j",
@@ -119,5 +66,29 @@
     "key": "ctrl+l", 
     "command": "workbench.action.focusActiveEditorGroup", 
     "when": "!editorTextFocus"
+  },
+  {
+    "key": "ctrl+enter",
+    "command": "problems.action.openToSide",
+    "when": "problemFocus"
+  },
+  {
+    "key": "ctrl+enter",
+    "command": "-problems.action.openToSide",
+    "when": "problemFocus"
+  },
+  {
+    "key": "ctrl+enter",
+    "command": "search.action.openResultToSide",
+    "when": "fileMatchOrMatchFocus && searchViewletVisible"
+  },
+  {
+    "key": "ctrl+enter",
+    "command": "-search.action.openResultToSide",
+    "when": "fileMatchOrMatchFocus && searchViewletVisible"
+  },
+  {
+    "key": "cmd+1",
+    "command": "workbench.action.firstEditorInGroup"
   }
 ]
