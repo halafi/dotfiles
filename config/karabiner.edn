@@ -36,9 +36,10 @@
                 :hyper-mode {:key :caps_lock :alone {:key :escape} :afterup [{:set ["regular-hjkl" 0]}]} ; ctrl+caps for caps toggle
         }
         :simlayers {
-                :alfred-mode {:key :z}
-                :snippet-mode {:key :x}
-                :tmux-mode {:key :q :condi :terminals}
+                :alfred-mode {:key :3}
+                ;; :snippet-mode {:key :x}
+                ;; :tmux-mode {:key :q :condi :terminals}
+                :tmux-mode {:key :q} ;; not really working in vscode possibly due to conflict mappings
                 :launch-mode {:key :2}
         }
         :templates {
@@ -92,11 +93,11 @@
                         [:semicolon [:open "/Applications/Visual Studio Code.app"] :chrome]
                         [:semicolon [:open "/Applications/Google Chrome.app"] :code]
                         [:semicolon [:open "/Applications/Google Chrome.app"]]
-                        [:quote [:open "/Applications/iTerm.app"] :chrome]
-                        [:quote [:open "/Applications/iTerm.app"] :code]
-                        [:quote [:open "/Applications/Visual Studio Code.app"] :terminals]
-                        [:quote [:open "/Applications/iTerm.app"]]
-                        [:comma [:open "/Applications/Discord.app"]]
+                        [:comma [:open "/Applications/iTerm.app"] :chrome]
+                        [:comma [:open "/Applications/iTerm.app"] :code]
+                        [:comma [:open "/Applications/Visual Studio Code.app"] :terminals]
+                        [:comma [:open "/Applications/iTerm.app"]]
+                        [:quote [:open "/Applications/Discord.app"]]
                         ; [:quote [:open "/Applications/Slack.app"] :!slack]
                         [:delete_or_backspace :delete_forward]
                         ]}
@@ -228,18 +229,19 @@
 
                 {:des "Alfred Mode"
                  :rules [:alfred-mode
-                        [:spacebar [:open "/Applications/Alfred 5.app"]]
+                        ;; [:spacebar [:open "/Applications/Alfred 5.app"]]
                         ; [:r [[:alf "repo "]]]
                         ; [:g [[:alf "gh "]]]
                         ; [:g [[:alf "gs "]]]
                         ; [:p [[:alf "pr "]]]
                         [:l [[:alf "lh "]]]
+                        [:p [[:alf "sleep"]]]
                         [:k [[:alf "lock" ]]]
-                        [:e [[:alf "emoji "]]]
-                        [:s [[:alf "snip "]]]
-                        [:x [[:alf "sleep"]]]
-                        [:d [[:alf "duck "]]]
-                        [:o [[:alf "google "]]]
+                        [:j [[:alf "emoji "]]]
+                        ;; [:s [[:alf "snip "]]]
+                        ;; [:x [[:alf "sleep"]]]
+                        ;; [:d [[:alf "duck "]]]
+                        ;; [:o [[:alf "google "]]]
                          ]}
 
                 ;; {:des "Snippet Mode"
@@ -258,22 +260,18 @@
                         ; e
                         [:r [:open "Reminders"]]
                         [:t [:open "/Applications/Toggl Track.app"]]
-                        ; [:y [:open "/Applications/Spotify.app"]]
-                        ; [:u [:open "/Applications/zoom.us.app"]]
-                        ; [:i [:open "/Applications/iTerm.app"]]
-                        [:o [:open "/Applications/Notion.app"]]
+                        [:i [:open "/Applications/iTerm.app"]]
+                        [:o [:open "/Applications/Obsidian.app"]]
                         ; [:p [:open "/Applications/Postman.app"]]
-                        [:p [:open "/Applications/NotePlan.app"]]
                         ; a
-                        ; [:s [:open "Safari"]]
-                        ; [:s [:open "/Applications/Firefox.app"]]
+                        [:s [:open "Safari"]]
                         ; [:f [:open "/Applications/Firefox.app"]]
                         [:f [:open "Finder"]]
                         ; d
                         [:g [:open-chrome "mail.google.com"]]
                         ; h
                         ; j
-                        [:k [:open "/Applications/Commander One.app"]]
+                        ;; [:k [:open "/Applications/Commander One.app"]]
                         ; l
                         ; z
                         ; [:x [:open "/Applications/Firefox.app"]]
@@ -284,7 +282,7 @@
                         [:n [:open "Notes"]]
                         [:m [:open "YouTube Music"]]
                         [:semicolon [:open "/Applications/Google Chrome.app"]]
-                        [:quote [:open "/Applications/Visual Studio Code.app"]]
+                        [:quote [:open "/Applications/Discord.app"]]
                         [:comma [:open "/Applications/iTerm.app"]]
                         ; [:period [:open "/Applications/Slack.app"]]
                 ]}
