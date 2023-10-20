@@ -1,0 +1,9 @@
+[user]
+	name = c_fhalas
+	email = c_fhalas@groupon.com
+[url "ssh://git@github.groupondev.com"]
+	insteadOf = https://github.groupondev.com
+[core]
+	sshCommand = ssh -i ~/.ssh/c-fhalas
+[commit]
+	gpgsign = false

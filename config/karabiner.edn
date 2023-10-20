@@ -28,6 +28,7 @@
                        :terminals ["^com\\.apple\\.Terminal$" "^com\\.googlecode\\.iterm2$"],
                        :alfred ["^com\\.runningwithcrayons\\.Alfred$"]
                        :slack ["com.tinyspeck.slackmacgap"]
+                       :discord [".*Discord$"]
                        :chrome ["^com\\.google\\.Chrome$"]
                        :code ["com.microsoft.VSCode"]
                        ; :browsers ["^com\\.kagi\\.kagimacOS$" "^org\\.mozilla\\.firefox$" "^org\\.mozilla\\.firefoxdeveloperedition$" "^com\\.google\\.Chrome$" "^org\\.chromium\\.Chromium$" "^com\\.google\\.Chrome\\.canary$" "^com\\.apple\\.Safari$" "^com\\.brave\\.Browser$"]
@@ -97,7 +98,9 @@
                         [:comma [:open "/Applications/iTerm.app"] :code]
                         [:comma [:open "/Applications/Visual Studio Code.app"] :terminals]
                         [:comma [:open "/Applications/iTerm.app"]]
-                        [:quote [:open "/Applications/Discord.app"]]
+                        ;; [:quote [:open "/Applications/Discord.app"]]
+                        [:quote [:open "/Applications/Discord.app"] :slack]
+                        [:quote [:open "/Applications/Slack.app"]]
                         ; [:quote [:open "/Applications/Slack.app"] :!slack]
                         [:delete_or_backspace :delete_forward]
                         ]}
