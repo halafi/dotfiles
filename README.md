@@ -1,18 +1,15 @@
 # dotfiles
 
-Update: currently migrating to VSCODE + VIM plugin as I got tired of maintaining Neovim running properly.
-Also since I could never really got rid of doing certain things in VSCode such as debugging, jupyter notebooks, etc.
+I use VSCODE + VIM plugin as I got [tired of maintaining Neovim](https://filiphalas.com/from-neovim-back-to-vscode) running properly and since I could never really got rid of doing certain things in VSCode such as debugging, jupyter notebooks, etc.
 
-At the moment removed LSP config as I prefer to have Neovim as stable text editor rather than IDE.
-
-My dotfiles for Neovim, tmux, fish and everything configurable.
-Setup for web development (React with TypeScript), Go, Lua and Rust on macOS Monterey (LSP config no longer maintained).
+My dotfiles for karabiner (60% keyboard layout), tmux, fish and everything configurable.
+Setup for web development (React with TypeScript), Go, Lua and Rust on macOS Monterey.
 
 Managed with [Dotbot](https://github.com/anishathalye/dotbot).
 
 ## Terminal
 
-I am using [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
+I am mostly using VSCode terminal these days with Tmux + Fish and [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
 
 - [Fish](https://github.com/fish-shell/fish-shell) 🐟 with [ohmyfish](https://github.com/oh-my-fish/oh-my-fish)
 
@@ -35,14 +32,11 @@ I am using [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
 3. Install [omf](https://github.com/oh-my-fish/oh-my-fish) and `omf install z`
 4. [Tmux plugin manager](https://github.com/tmux-plugins/tpm) (q+i to install plugins)
 5. Brew packages:
-    - `brew install asdf fish exa fzf fd bat git-delta ripgrep neovim tmux lf yarn htop lazygit google-cloud-sdk terraform`
+    - `brew install asdf fish exa fzf fd bat git-delta ripgrep tmux lf yarn htop lazygit google-cloud-sdk terraform`
 6. Install [FiraCode font patched with icons](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Retina/FiraCodeNerdFont-Retina.ttf) for iTerm
 
 ### Git
 1. Generate and setup ssh key if needed https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
-
-### Neovim
-1. Install packer: https://github.com/wbthomason/packer.nvim#quickstart
 
 ### ⌨️ Keyboard
 1. install karabiner `brew install karabiner-elements`
@@ -51,10 +45,6 @@ I am using [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
 3. make sure karabiner profile is named `Default`
 4. run `goku` once to generate karabiner config
 
-<!-- ### Neovim Markdown Preview Dependencies
-1. `brew install pandoc`
-2. `npm i -g live-server` -->
-
 ### Node.js
 1. `asdf plugin add nodejs`
 2. `asdf install nodejs 18.xx.x` (latest lts)
@@ -62,6 +52,7 @@ I am using [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
 
 ### Go
 1. Install [Go](https://go.dev/doc/install)
+2. Adjust GO fish_variables if needed
 
 ### Rust / Cargo
 1. https://doc.rust-lang.org/cargo/getting-started/installation.html
