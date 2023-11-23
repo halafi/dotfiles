@@ -42,6 +42,8 @@
                 ;; :tmux-mode {:key :q :condi :terminals}
                 :tmux-mode {:key :q} ;; not really working in vscode possibly due to conflict mappings
                 :launch-mode {:key :2}
+                :mouse-mode {:key :3 :afterup [{:set ["slow-mouse" 0]}{:set ["fast-mouse" 0]}]}
+                ;; :mouse-scroll-mode {:key :4}
         }
         :templates {
                 :open "open -a \"%s\""
@@ -98,10 +100,9 @@
                         [:comma [:open "/Applications/iTerm.app"] :code]
                         [:comma [:open "/Applications/Visual Studio Code.app"] :terminals]
                         [:comma [:open "/Applications/iTerm.app"]]
-                        ;; [:quote [:open "/Applications/Discord.app"]]
-                        [:quote [:open "/Applications/Discord.app"] :slack]
-                        [:quote [:open "/Applications/Slack.app"]]
-                        ; [:quote [:open "/Applications/Slack.app"] :!slack]
+                        [:quote [:open "/Applications/Discord.app"]]
+                        ;; [:quote [:open "/Applications/Discord.app"] :slack]
+                        ;; [:quote [:open "/Applications/Slack.app"]]
                         [:delete_or_backspace :delete_forward]
                         ]}
 
@@ -229,6 +230,45 @@
                         [:v [:!Ta :v]] ; vertical split
                         [:m [:!Ta :z]] ; toggle pane zoom
                         ]}
+
+                {:des "Mouse Mode"
+                :rules [:mouse-mode
+                        [:h {:mkey {:x -3072}} [:!slow-mouse :!fast-mouse]]
+                        [:j {:mkey {:y 3072}} [:!slow-mouse :!fast-mouse]]
+                        [:k {:mkey {:y -3072}} [:!slow-mouse :!fast-mouse]]
+                        [:l {:mkey {:x 3072}} [:!slow-mouse :!fast-mouse]]
+                        [:h {:mkey {:x -1072 :speed 1.0}} [:slow-mouse :!fast-mouse]]
+                        [:j {:mkey {:y 1072 :speed 1.0}} [:slow-mouse :!fast-mouse]]
+                        [:k {:mkey {:y -1072 :speed 1.0}} [:slow-mouse :!fast-mouse]]
+                        [:l {:mkey {:x 1072 :speed 1.0}} [:slow-mouse :!fast-mouse]]
+                        [:h {:mkey {:x -3072 :speed 2.0}} [:fast-mouse :!slow-mouse]]
+                        [:j {:mkey {:y 3072 :speed 2.0}} [:fast-mouse :!slow-mouse]]
+                        [:k {:mkey {:y -3072 :speed 2.0}} [:fast-mouse :!slow-mouse]]
+                        [:l {:mkey {:x 3072 :speed 2.0}} [:fast-mouse :!slow-mouse]]
+                        [:h {:mkey {:x -3072 :speed 1.0}} [:fast-mouse :slow-mouse]]
+                        [:j {:mkey {:y 3072 :speed 1.0}} [:fast-mouse :slow-mouse]]
+                        [:k {:mkey {:y -3072 :speed 1.0}} [:fast-mouse :slow-mouse]]
+                        [:l {:mkey {:x 3072 :speed 1.0}} [:fast-mouse :slow-mouse]]
+                        [:f {:pkey :button1}]
+                        [:r {:pkey :button2}]
+                        [:t {:pkey :button3}]
+                        [:d {:mkey {:vwheel 75}}]
+                        [:u {:mkey {:vwheel -75}}]
+                        [:semicolon ["fast-mouse" 1]] ; press to toggle
+                        [:n ["slow-mouse" 1]] ; press to toggle
+                        ]}
+                
+                ;; {:des "Mouse Scroll Mode"
+                ;; :rules [:mouse-scroll-mode
+                ;;         [:j {:mkey {:vwheel 35}}]
+                ;;         [:h {:mkey {:hwheel 35}}]
+                ;;         [:k {:mkey {:vwheel -35}}]
+                ;;         [:l {:mkey {:hwheel -35}}]
+                ;;         [:u {:pkey :button1}]
+                ;;         [:i {:pkey :button2}]
+                ;;         [:o {:pkey :button3}]
+                ;;         [:f {:mkey {:speed 2.0}}]
+                ;;         ]}
 
                 {:des "Alfred Mode"
                  :rules [:alfred-mode
