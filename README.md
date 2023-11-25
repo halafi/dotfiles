@@ -64,6 +64,15 @@ I am mostly using VSCode terminal these days with Tmux + Fish and [iTerm2](https
 1. `brew install pyenv`
 <!-- 2. optional `yarn global add pyright` -->
 
+## Alfred Workflows
+
+- [Fkill](https://github.com/SamVerschueren/alfred-fkill)
+- [Bluetooth Controller](https://github.com/vegardinho/alfred_bluetooth_controller)
+- [Localhost](https://github.com/mhanberg/alfred-localhost)
+- [VSCode Workspaces](https://github.com/phartenfeller/alfred-vscode-workspaces)
+- [Alfred Emoji](https://github.com/jsumners/alfred-emoji)
+- [Restart Wifi](https://github.com/AugustusZ/alfred-workflows)
+
 ## FAQ
 1. How to fix broken `asdf` shims after brew update?
 
