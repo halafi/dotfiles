@@ -73,6 +73,7 @@ I am mostly using VSCode terminal these days with Tmux + Fish and [iTerm2](https
 - [Alfred Emoji](https://github.com/jsumners/alfred-emoji)
 - [Restart Wifi](https://github.com/AugustusZ/alfred-workflows)
 - [Alfred NightShift](https://github.com/shmulvad/alfred-nightshift)
+- [Switch Appearance](https://alfred.app/workflows/alfredapp/switch-appearance/)
 
 ## FAQ
 1. How to fix broken `asdf` shims after brew update?
