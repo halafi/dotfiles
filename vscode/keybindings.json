@@ -28,6 +28,7 @@
   {
     "key": "ctrl+l", 
     "command": "workbench.action.navigateRight", 
+    "when": "!panelFocus"
   },
   {
     "key": "ctrl+k",
@@ -58,6 +59,16 @@
     "when": "inQuickOpen"
   },
   {
+    "key": "ctrl+h",
+    "command": "workbench.action.previousPanelView",
+    "when": "panelFocus"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.nextPanelView",
+    "when": "panelFocus"
+  },
+  {
     "key": "ctrl+k",
     "command": "workbench.action.quickOpenSelectPrevious",
     "when": "inQuickOpen"
@@ -65,7 +76,7 @@
   {
     "key": "ctrl+l", 
     "command": "workbench.action.focusActiveEditorGroup", 
-    "when": "!editorTextFocus"
+    "when": "!editorTextFocus && !panelFocus"
   },
   {
     "key": "ctrl+enter",
@@ -90,5 +101,20 @@
   {
     "key": "cmd+1",
     "command": "workbench.action.firstEditorInGroup"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "search.action.focusSearchList",
+    "when": "hasSearchResult && searchInputBoxFocus"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "search.action.focusSearchFromResults",
+    "when": "hasSearchResult && searchViewletFocus"
+  },
+  {
+    "key": "cmd+up",
+    "command": "-search.action.focusSearchFromResults",
+    "when": "accessibilityModeEnabled && searchViewletVisible || firstMatchFocus && searchViewletVisible"
   }
 ]
