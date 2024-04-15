@@ -21,8 +21,9 @@
 {
         :profiles {:Default {:default true :sim 50 :delay 500 :alone 500 :held 500}}
         :devices {
-                        :macbook-internal [{:product_id 833 :vendor_id 1452}]
-                        :k12 [{:vendor_id 1452, :product_id 591}]
+                        :macbook-internal [{:product_id 835 :vendor_id 1452 :is_built_in_keyboard true}]
+                        :k380 [{:vendor_id 1133, :product_id 45890}]
+                        :voyager [{:vendor_id 12951, :product_id 6519 }]
         }
         :applications {
                        :terminals ["^com\\.apple\\.Terminal$" "^com\\.googlecode\\.iterm2$"],
@@ -34,15 +35,17 @@
                        ; :browsers ["^com\\.kagi\\.kagimacOS$" "^org\\.mozilla\\.firefox$" "^org\\.mozilla\\.firefoxdeveloperedition$" "^com\\.google\\.Chrome$" "^org\\.chromium\\.Chromium$" "^com\\.google\\.Chrome\\.canary$" "^com\\.apple\\.Safari$" "^com\\.brave\\.Browser$"]
                        }
         :layers {
-                :hyper-mode {:key :caps_lock :alone {:key :escape} :afterup [{:set ["regular-hjkl" 0]}]} ; ctrl+caps for caps toggle
+                :hyper-mode {:key :caps_lock :alone {:key :escape} :afterup [{:set ["regular-hjkl" 0]}] :condi [:k380 :macbook-internal]} ; ctrl+caps for caps toggle
+                :3-mode {:key :3 :condi [:k380 :macbook-internal]}                                   ;; '6' + vowel = circumflex
         }
+
         :simlayers {
-                :alfred-mode {:key :3}
+                ;; :alfred-mode {:key :3}
                 ;; :snippet-mode {:key :x}
                 ;; :tmux-mode {:key :q :condi :terminals}
-                :tmux-mode {:key :q} ;; not really working in vscode possibly due to conflict mappings
-                :launch-mode {:key :2}
-                :mouse-mode {:key :3 :afterup [{:set ["slow-mouse" 0]}{:set ["fast-mouse" 0]}]}
+                :tmux-mode {:key :q :condi [:k380 :macbook-internal]} ;; not really working in vscode possibly due to conflict mappings
+                :launch-mode {:key :2 :condi [:k380 :macbook-internal]}
+                ;; :mouse-mode {:key :3 :afterup [{:set ["slow-mouse" 0]}{:set ["fast-mouse" 0]}]}
                 ;; :mouse-scroll-mode {:key :4}
         }
         :templates {
@@ -231,32 +234,32 @@
                         [:m [:!Ta :z]] ; toggle pane zoom
                         ]}
 
-                {:des "Mouse Mode"
-                :rules [:mouse-mode
-                        [:h {:mkey {:x -3072}} [:!slow-mouse :!fast-mouse]]
-                        [:j {:mkey {:y 3072}} [:!slow-mouse :!fast-mouse]]
-                        [:k {:mkey {:y -3072}} [:!slow-mouse :!fast-mouse]]
-                        [:l {:mkey {:x 3072}} [:!slow-mouse :!fast-mouse]]
-                        [:h {:mkey {:x -1072 :speed 1.0}} [:slow-mouse :!fast-mouse]]
-                        [:j {:mkey {:y 1072 :speed 1.0}} [:slow-mouse :!fast-mouse]]
-                        [:k {:mkey {:y -1072 :speed 1.0}} [:slow-mouse :!fast-mouse]]
-                        [:l {:mkey {:x 1072 :speed 1.0}} [:slow-mouse :!fast-mouse]]
-                        [:h {:mkey {:x -3072 :speed 2.0}} [:fast-mouse :!slow-mouse]]
-                        [:j {:mkey {:y 3072 :speed 2.0}} [:fast-mouse :!slow-mouse]]
-                        [:k {:mkey {:y -3072 :speed 2.0}} [:fast-mouse :!slow-mouse]]
-                        [:l {:mkey {:x 3072 :speed 2.0}} [:fast-mouse :!slow-mouse]]
-                        [:h {:mkey {:x -3072 :speed 1.0}} [:fast-mouse :slow-mouse]]
-                        [:j {:mkey {:y 3072 :speed 1.0}} [:fast-mouse :slow-mouse]]
-                        [:k {:mkey {:y -3072 :speed 1.0}} [:fast-mouse :slow-mouse]]
-                        [:l {:mkey {:x 3072 :speed 1.0}} [:fast-mouse :slow-mouse]]
-                        [:f {:pkey :button1}]
-                        [:r {:pkey :button2}]
-                        [:t {:pkey :button3}]
-                        [:d {:mkey {:vwheel 75}}]
-                        [:u {:mkey {:vwheel -75}}]
-                        [:semicolon ["fast-mouse" 1]] ; press to toggle
-                        [:n ["slow-mouse" 1]] ; press to toggle
-                        ]}
+                ;; {:des "Mouse Mode"
+                ;; :rules [:mouse-mode
+                ;;         [:h {:mkey {:x -3072}} [:!slow-mouse :!fast-mouse]]
+                ;;         [:j {:mkey {:y 3072}} [:!slow-mouse :!fast-mouse]]
+                ;;         [:k {:mkey {:y -3072}} [:!slow-mouse :!fast-mouse]]
+                ;;         [:l {:mkey {:x 3072}} [:!slow-mouse :!fast-mouse]]
+                ;;         [:h {:mkey {:x -1072 :speed 1.0}} [:slow-mouse :!fast-mouse]]
+                ;;         [:j {:mkey {:y 1072 :speed 1.0}} [:slow-mouse :!fast-mouse]]
+                ;;         [:k {:mkey {:y -1072 :speed 1.0}} [:slow-mouse :!fast-mouse]]
+                ;;         [:l {:mkey {:x 1072 :speed 1.0}} [:slow-mouse :!fast-mouse]]
+                ;;         [:h {:mkey {:x -3072 :speed 2.0}} [:fast-mouse :!slow-mouse]]
+                ;;         [:j {:mkey {:y 3072 :speed 2.0}} [:fast-mouse :!slow-mouse]]
+                ;;         [:k {:mkey {:y -3072 :speed 2.0}} [:fast-mouse :!slow-mouse]]
+                ;;         [:l {:mkey {:x 3072 :speed 2.0}} [:fast-mouse :!slow-mouse]]
+                ;;         [:h {:mkey {:x -3072 :speed 1.0}} [:fast-mouse :slow-mouse]]
+                ;;         [:j {:mkey {:y 3072 :speed 1.0}} [:fast-mouse :slow-mouse]]
+                ;;         [:k {:mkey {:y -3072 :speed 1.0}} [:fast-mouse :slow-mouse]]
+                ;;         [:l {:mkey {:x 3072 :speed 1.0}} [:fast-mouse :slow-mouse]]
+                ;;         [:f {:pkey :button1}]
+                ;;         [:r {:pkey :button2}]
+                ;;         [:t {:pkey :button3}]
+                ;;         [:d {:mkey {:vwheel 75}}]
+                ;;         [:u {:mkey {:vwheel -75}}]
+                ;;         [:semicolon ["fast-mouse" 1]] ; press to toggle
+                ;;         [:n ["slow-mouse" 1]] ; press to toggle
+                ;;         ]}
                 
                 ;; {:des "Mouse Scroll Mode"
                 ;; :rules [:mouse-scroll-mode
@@ -271,7 +274,7 @@
                 ;;         ]}
 
                 {:des "Alfred Mode"
-                 :rules [:alfred-mode
+                 :rules [:3-mode
                         ;; [:spacebar [:open "/Applications/Alfred 5.app"]]
                         ; [:r [[:alf "repo "]]]
                         ; [:g [[:alf "gh "]]]
@@ -332,6 +335,7 @@
 
                 {:des "Make ESC behave like `~"
                  :rules [
+                        :k380 :macbook-internal
                         [:escape :grave_accent_and_tilde]
                         [:!Cescape :grave_accent_and_tilde]
                         [:!Qescape :grave_accent_and_tilde]
@@ -340,7 +344,9 @@
                         ]}
 
                 {:des "Map shift+backspace to del"
-                 :rules [[:!Sdelete_or_backspace :delete_forward]
+                 :rules [
+                        :k380 :macbook-internal :voyager
+                        [:!Sdelete_or_backspace :delete_forward]
                         ]}
         ]
 }
