@@ -187,6 +187,9 @@
                         [:!!j :down_arrow :!terminals]
                         [:!!k :up_arrow :!terminals]
                         [:!!l :right_arrow :!terminals]
+                        ; tmux
+                        [:!!open_bracket [:!Ta :j]] ; pane left
+                        [:!!close_bracket [:!Ta :k]] ; pane right
                         ]}
 
                {:des "Hyper Mode - Partial CTRL Mapping [VIM <C-*> key support] for vscode"
