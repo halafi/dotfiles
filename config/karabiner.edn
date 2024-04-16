@@ -44,7 +44,7 @@
                 ;; :snippet-mode {:key :x}
                 ;; :tmux-mode {:key :q :condi :terminals}
                 :tmux-mode {:key :q :condi [:k380 :macbook-internal]} ;; not really working in vscode possibly due to conflict mappings
-                :launch-mode {:key :2 :condi [:k380 :macbook-internal]}
+                :launch-mode {:key :2}
                 ;; :mouse-mode {:key :3 :afterup [{:set ["slow-mouse" 0]}{:set ["fast-mouse" 0]}]}
                 ;; :mouse-scroll-mode {:key :4}
         }
@@ -144,6 +144,73 @@
                         ; tmux
                         [:open_bracket [:!Ta :j]] ; pane left
                         [:close_bracket [:!Ta :k]] ; pane right
+                        ]}
+
+               {:des "Hyper Mode - Media Keys, Usable everywhere"
+                :rules [
+                        ; media keys
+                        [:!!1 :display_brightness_decrement]
+                        [:!!2 :display_brightness_increment]
+                        [:!!3 :mission_control]
+                        [:!!4 :launchpad]
+                        [:!!5 :illumination_decrement]
+                        [:!!6 :illumination_increment]
+                        [:!!7 :rewind]
+                        [:!!8 :play_or_pause]
+                        [:!!9 :fastforward]
+                        [:!!0 :mute]
+                        [:!!hyphen :volume_decrement]
+                        [:!!equal_sign :volume_increment]
+                        ; one key to rule them all - switch between terminal and chrome
+                        [:!!semicolon [:open "/Applications/Visual Studio Code.app"] :chrome]
+                        [:!!semicolon [:open "/Applications/Google Chrome.app"] :code]
+                        [:!!semicolon [:open "/Applications/Google Chrome.app"]]
+                        [:!!comma [:open "/Applications/iTerm.app"] :chrome]
+                        [:!!comma [:open "/Applications/iTerm.app"] :code]
+                        [:!!comma [:open "/Applications/Visual Studio Code.app"] :terminals]
+                        [:!!comma [:open "/Applications/iTerm.app"]]
+                        [:!!quote [:open "/Applications/Discord.app"]]
+                        ;; [:quote [:open "/Applications/Discord.app"] :slack]
+                        ;; [:quote [:open "/Applications/Slack.app"]]
+                        ]}
+
+               {:des "Hyper Mode - Partial CTRL Mapping [VIM <C-*> key support] for vscode"
+                :rules [
+                        ; top row
+                        [:!!q :!Tq :code]
+                        [:!!w :!Tw :code]
+                        [:!!r :!Tr :code]
+                        [:!!u :!Tu :code]
+                        [:!!i :!Ti :code]
+                        [:!!o :!To :code]
+                        [:!!p :!Tp :code]
+                        ; home row
+                        [:!!a :!Ta :code]
+                        [:!!s :!Ts :code]
+                        [:!!d :!Td :code]
+                        [:!!f :!Tf :code]
+                        [:!!g :!Tg :code]
+                        [:!!return_or_enter :!Treturn_or_enter :code]
+                        ; bottom row
+                        [:!!z :!Tz :code] ; suspend, resume with fg %1
+                        [:!!x :!Tx :code]
+                        [:!!c :!Tc :code]
+                        [:!!v :!Tv :code]
+                        [:!!n :!Tn :code]
+                        [:!!m :!Tleft_arrow :code] ; arrow -> tmux window size
+                        [:!!period :!Tright_arrow :code] ; arrow -> tmux window size
+                        [:!!b ["regular-hjkl" 1]] ; press to toggle
+                        [:!!h :left_arrow [:code :regular-hjkl]]
+                        [:!!j :down_arrow [:code :regular-hjkl]]
+                        [:!!k :up_arrow [:code :regular-hjkl]]
+                        [:!!l :right_arrow [:code :regular-hjkl]]
+                        [:!!h :!Th [:code :!regular-hjkl]]
+                        [:!!j :!Tj [:code :!regular-hjkl]]
+                        [:!!k :!Tk [:code :!regular-hjkl]]
+                        [:!!l :!Tl [:code :!regular-hjkl]]
+                        ; tmux
+                        [:!!open_bracket [:!Ta :j]] ; pane left
+                        [:!!close_bracket [:!Ta :k]] ; pane right
                         ]}
 
                {:des "Hyper Mode - Partial CTRL Mapping [VIM <C-*> key support] for vscode"
