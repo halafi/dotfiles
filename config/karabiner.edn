@@ -45,8 +45,6 @@
                 ;; :tmux-mode {:key :q :condi :terminals}
                 :tmux-mode {:key :q :condi [:k380 :macbook-internal]} ;; not really working in vscode possibly due to conflict mappings
                 :launch-mode {:key :2}
-                ;; :mouse-mode {:key :3 :afterup [{:set ["slow-mouse" 0]}{:set ["fast-mouse" 0]}]}
-                ;; :mouse-scroll-mode {:key :4}
         }
         :templates {
                 :open "open -a \"%s\""
@@ -146,36 +144,19 @@
                         [:close_bracket [:!Ta :k]] ; pane right
                         ]}
 
-               {:des "Hyper Mode - Media Keys, Usable everywhere"
+                {:des "Map shift+backspace to del (all keyboards)"
+                 :rules [
+                        [:!Sdelete_or_backspace :delete_forward]
+                        ]}
+
+               {:des "Hyper Mode - Voyager (simplified)"
                 :rules [
-                        ; media keys
-                        [:!!1 :display_brightness_decrement]
-                        [:!!2 :display_brightness_increment]
-                        [:!!3 :mission_control]
-                        [:!!4 :launchpad]
-                        [:!!5 :illumination_decrement]
-                        [:!!6 :illumination_increment]
-                        [:!!7 :rewind]
-                        [:!!8 :play_or_pause]
-                        [:!!9 :fastforward]
-                        [:!!0 :mute]
-                        [:!!hyphen :volume_decrement]
-                        [:!!equal_sign :volume_increment]
-                        ; one key to rule them all - switch between terminal and chrome
+                        ;; apps
                         [:!!semicolon [:open "/Applications/Visual Studio Code.app"] :chrome]
                         [:!!semicolon [:open "/Applications/Google Chrome.app"] :code]
                         [:!!semicolon [:open "/Applications/Google Chrome.app"]]
-                        [:!!comma [:open "/Applications/iTerm.app"] :chrome]
-                        [:!!comma [:open "/Applications/iTerm.app"] :code]
-                        [:!!comma [:open "/Applications/Visual Studio Code.app"] :terminals]
-                        [:!!comma [:open "/Applications/iTerm.app"]]
                         [:!!quote [:open "/Applications/Discord.app"]]
-                        ;; [:quote [:open "/Applications/Discord.app"] :slack]
-                        ;; [:quote [:open "/Applications/Slack.app"]]
-                        ]}
-
-               {:des "Hyper Mode - Partial CTRL Mapping [VIM <C-*> key support] for vscode"
-                :rules [
+                        ; map to ctrl for most things
                         ; top row
                         [:!!q :!Tq :code]
                         [:!!w :!Tw :code]
@@ -197,20 +178,15 @@
                         [:!!c :!Tc :code]
                         [:!!v :!Tv :code]
                         [:!!n :!Tn :code]
-                        [:!!m :!Tleft_arrow :code] ; arrow -> tmux window size
-                        [:!!period :!Tright_arrow :code] ; arrow -> tmux window size
-                        [:!!b ["regular-hjkl" 1]] ; press to toggle
-                        [:!!h :left_arrow [:code :regular-hjkl]]
-                        [:!!j :down_arrow [:code :regular-hjkl]]
-                        [:!!k :up_arrow [:code :regular-hjkl]]
-                        [:!!l :right_arrow [:code :regular-hjkl]]
-                        [:!!h :!Th [:code :!regular-hjkl]]
-                        [:!!j :!Tj [:code :!regular-hjkl]]
-                        [:!!k :!Tk [:code :!regular-hjkl]]
-                        [:!!l :!Tl [:code :!regular-hjkl]]
-                        ; tmux
-                        [:!!open_bracket [:!Ta :j]] ; pane left
-                        [:!!close_bracket [:!Ta :k]] ; pane right
+                        ; hjkl
+                        [:!!h :!Th :code]
+                        [:!!j :!Tj :code]
+                        [:!!k :!Tk :code]
+                        [:!!l :!Tl :code]
+                        [:!!h :left_arrow :!terminals]
+                        [:!!j :down_arrow :!terminals]
+                        [:!!k :up_arrow :!terminals]
+                        [:!!l :right_arrow :!terminals]
                         ]}
 
                {:des "Hyper Mode - Partial CTRL Mapping [VIM <C-*> key support] for vscode"
@@ -301,45 +277,6 @@
                         [:m [:!Ta :z]] ; toggle pane zoom
                         ]}
 
-                ;; {:des "Mouse Mode"
-                ;; :rules [:mouse-mode
-                ;;         [:h {:mkey {:x -3072}} [:!slow-mouse :!fast-mouse]]
-                ;;         [:j {:mkey {:y 3072}} [:!slow-mouse :!fast-mouse]]
-                ;;         [:k {:mkey {:y -3072}} [:!slow-mouse :!fast-mouse]]
-                ;;         [:l {:mkey {:x 3072}} [:!slow-mouse :!fast-mouse]]
-                ;;         [:h {:mkey {:x -1072 :speed 1.0}} [:slow-mouse :!fast-mouse]]
-                ;;         [:j {:mkey {:y 1072 :speed 1.0}} [:slow-mouse :!fast-mouse]]
-                ;;         [:k {:mkey {:y -1072 :speed 1.0}} [:slow-mouse :!fast-mouse]]
-                ;;         [:l {:mkey {:x 1072 :speed 1.0}} [:slow-mouse :!fast-mouse]]
-                ;;         [:h {:mkey {:x -3072 :speed 2.0}} [:fast-mouse :!slow-mouse]]
-                ;;         [:j {:mkey {:y 3072 :speed 2.0}} [:fast-mouse :!slow-mouse]]
-                ;;         [:k {:mkey {:y -3072 :speed 2.0}} [:fast-mouse :!slow-mouse]]
-                ;;         [:l {:mkey {:x 3072 :speed 2.0}} [:fast-mouse :!slow-mouse]]
-                ;;         [:h {:mkey {:x -3072 :speed 1.0}} [:fast-mouse :slow-mouse]]
-                ;;         [:j {:mkey {:y 3072 :speed 1.0}} [:fast-mouse :slow-mouse]]
-                ;;         [:k {:mkey {:y -3072 :speed 1.0}} [:fast-mouse :slow-mouse]]
-                ;;         [:l {:mkey {:x 3072 :speed 1.0}} [:fast-mouse :slow-mouse]]
-                ;;         [:f {:pkey :button1}]
-                ;;         [:r {:pkey :button2}]
-                ;;         [:t {:pkey :button3}]
-                ;;         [:d {:mkey {:vwheel 75}}]
-                ;;         [:u {:mkey {:vwheel -75}}]
-                ;;         [:semicolon ["fast-mouse" 1]] ; press to toggle
-                ;;         [:n ["slow-mouse" 1]] ; press to toggle
-                ;;         ]}
-                
-                ;; {:des "Mouse Scroll Mode"
-                ;; :rules [:mouse-scroll-mode
-                ;;         [:j {:mkey {:vwheel 35}}]
-                ;;         [:h {:mkey {:hwheel 35}}]
-                ;;         [:k {:mkey {:vwheel -35}}]
-                ;;         [:l {:mkey {:hwheel -35}}]
-                ;;         [:u {:pkey :button1}]
-                ;;         [:i {:pkey :button2}]
-                ;;         [:o {:pkey :button3}]
-                ;;         [:f {:mkey {:speed 2.0}}]
-                ;;         ]}
-
                 {:des "Alfred Mode"
                  :rules [:3-mode
                         ;; [:spacebar [:open "/Applications/Alfred 5.app"]]
@@ -410,11 +347,6 @@
                         [:!Rescape :!Rgrave_accent_and_tilde]
                         ]}
 
-                {:des "Map shift+backspace to del"
-                 :rules [
-                        :k380 :macbook-internal :voyager
-                        [:!Sdelete_or_backspace :delete_forward]
-                        ]}
         ]
 }
 
