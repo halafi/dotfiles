@@ -156,40 +156,17 @@
                         [:!!semicolon [:open "/Applications/Google Chrome.app"] :code]
                         [:!!semicolon [:open "/Applications/Google Chrome.app"]]
                         [:!!quote [:open "/Applications/Discord.app"]]
-                        ; map to ctrl for most things
-                        ; top row
-                        [:!!q :!Tq :code]
-                        [:!!w :!Tw :code]
-                        [:!!r :!Tr :code]
-                        [:!!u :!Tu :code]
-                        [:!!i :!Ti :code]
-                        [:!!o :!To :code]
-                        [:!!p :!Tp :code]
-                        ; home row
-                        [:!!a :!Ta :code]
-                        [:!!s :!Ts :code]
-                        [:!!d :!Td :code]
-                        [:!!f :!Tf :code]
-                        [:!!g :!Tg :code]
-                        [:!!return_or_enter :!Treturn_or_enter :code]
-                        ; bottom row
-                        [:!!z :!Tz :code] ; suspend, resume with fg %1
-                        [:!!x :!Tx :code]
-                        [:!!c :!Tc :code]
-                        [:!!v :!Tv :code]
-                        [:!!n :!Tn :code]
-                        ; hjkl
-                        [:!!h :!Th :code]
-                        [:!!j :!Tj :code]
-                        [:!!k :!Tk :code]
-                        [:!!l :!Tl :code]
                         [:!!h :left_arrow :!terminals]
                         [:!!j :down_arrow :!terminals]
                         [:!!k :up_arrow :!terminals]
                         [:!!l :right_arrow :!terminals]
                         ; tmux
-                        [:!!open_bracket [:!Ta :j]] ; pane left
-                        [:!!close_bracket [:!Ta :k]] ; pane right
+                        [:!!p :!CSopen_bracket] ; pane left
+                        [:!!equal_sign :!CSclose_bracket] ; pane right
+                        [:!!u [:!Ta :j] :code] ; pane left
+                        [:!!d [:!Ta :k] :code] ; pane right
+                        [:!!c [:!Ta :c]] ; create window
+                        [:!!x [:!Ta :x]] ; kill pane
                         ]}
 
                {:des "Hyper Mode - Partial CTRL Mapping [VIM <C-*> key support] for vscode"
@@ -352,4 +329,3 @@
 
         ]
 }
-
