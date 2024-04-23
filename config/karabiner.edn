@@ -156,10 +156,6 @@
                         [:!!semicolon [:open "/Applications/Google Chrome.app"] :code]
                         [:!!semicolon [:open "/Applications/Google Chrome.app"]]
                         [:!!quote [:open "/Applications/Discord.app"]]
-                        [:!!h :left_arrow :!terminals]
-                        [:!!j :down_arrow :!terminals]
-                        [:!!k :up_arrow :!terminals]
-                        [:!!l :right_arrow :!terminals]
                         ; tmux
                         [:!!p :!CSopen_bracket] ; pane left
                         [:!!equal_sign :!CSclose_bracket] ; pane right
@@ -167,6 +163,9 @@
                         [:!!d [:!Ta :k] :code] ; pane right
                         [:!!c [:!Ta :c]] ; create window
                         [:!!x [:!Ta :x]] ; kill pane
+                        [:!!f :escape] ; copy mode
+                        [:!!e [:!Ta :spacebar]] ; copy mode
+                        ;; [:!!spacebar [:!Ta :spacebar]] ; copy mode
                         ]}
 
                {:des "Hyper Mode - Partial CTRL Mapping [VIM <C-*> key support] for vscode"
