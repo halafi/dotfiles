@@ -16,7 +16,7 @@
     "command": "projectManager.listProjectsNewWindow"
   },
   {
-    "key": "ctrl+h", 
+    "key": "ctrl+n", 
     "command": "workbench.action.navigateLeft", 
     // "when": "editorTextFocus && vim.active && vim.mode != 'Insert'"
   },
@@ -26,12 +26,12 @@
   //   "when": "editorTextFocus && vim.active && vim.mode != 'Insert' && sideBarFocus"
   // },
   {
-    "key": "ctrl+l", 
+    "key": "ctrl+o", 
     "command": "workbench.action.navigateRight", 
     "when": "!panelFocus"
   },
   {
-    "key": "ctrl+k",
+    "key": "ctrl+i",
     "command": "workbench.action.navigateUp",
   },
   {
@@ -40,34 +40,29 @@
     "when": "terminalFocus"
   },
   {
-    "key": "ctrl+j",
+    "key": "ctrl+e",
     "command": "workbench.action.navigateDown",
-  },
-  {
-    "key": "ctrl+j",
-    "command": "selectNextSuggestion",
-    "when": "suggestWidgetVisible"
-  },
-  {
-    "key": "ctrl+k",
-    "command": "selectPrevSuggestion",
-    "when": "suggestWidgetVisible"
   },
   {
     "key": "ctrl+j",
     "command": "workbench.action.quickOpenSelectNext",
     "when": "inQuickOpen"
   },
-  {
-    "key": "ctrl+h",
-    "command": "workbench.action.previousPanelView",
-    "when": "panelFocus"
-  },
-  {
-    "key": "ctrl+l",
-    "command": "workbench.action.nextPanelView",
-    "when": "panelFocus"
-  },
+  // {
+  //   "key": "ctrl+h",
+  //   "command": "workbench.action.previousPanelView",
+  //   "when": "panelFocus"
+  // },
+  // {
+  //   "key": "ctrl+l",
+  //   "command": "workbench.action.nextPanelView",
+  //   "when": "panelFocus"
+  // },
+  // {
+  //   "key": "cmd+shift+[",
+  //   "command": "workbench.panel.output.focus",
+  //   "when": "workbench"
+  // },
   {
     "key": "ctrl+k",
     "command": "workbench.action.quickOpenSelectPrevious",
@@ -103,12 +98,12 @@
     "command": "workbench.action.firstEditorInGroup"
   },
   {
-    "key": "ctrl+j",
+    "key": "ctrl+e",
     "command": "search.action.focusSearchList",
     "when": "hasSearchResult && searchInputBoxFocus"
   },
   {
-    "key": "ctrl+k",
+    "key": "ctrl+i",
     "command": "search.action.focusSearchFromResults",
     "when": "hasSearchResult && searchViewletFocus"
   },
@@ -116,5 +111,31 @@
     "key": "cmd+up",
     "command": "-search.action.focusSearchFromResults",
     "when": "accessibilityModeEnabled && searchViewletVisible || firstMatchFocus && searchViewletVisible"
+  },
+  {
+    "key": "ctrl+f e",
+    "command": "search.action.expandSearchResults",
+    "when": "hasSearchResult"
+  },
+  {
+    "key": "ctrl+f r",
+    "command": "search.action.collapseSearchResults",
+    "when": "hasSearchResult"
+  },
+  {
+    "key": "alt+w",
+    "command": "git.openFile"
+  },
+  {
+    "key": "cmd+0",
+    "command": "-workbench.action.focusSideBar"
+  },
+  {
+    "key": "cmd+0",
+    "command": "workbench.action.zoomReset"
+  },
+  {
+    "key": "cmd+numpad0",
+    "command": "-workbench.action.zoomReset"
   }
 ]

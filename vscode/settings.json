@@ -38,7 +38,6 @@
             ]
         }
     },
-    "workbench.layoutControl.enabled": false,
     "window.autoDetectColorScheme": true,
     "window.restoreWindows": "preserve",
     "[svelte]": {
@@ -65,8 +64,8 @@
     "vim.insertModeKeyBindings": [
         {
             "before": [
-                "j",
-                "j"
+                "n",
+                "n"
             ],
             "after": [
                 "<Esc>"
@@ -74,8 +73,8 @@
         },
         {
             "before": [
-                "j",
-                "k"
+                "n",
+                "e"
             ],
             "after": [
                 "<Esc>"
@@ -113,10 +112,12 @@
         }
     ],
     "workbench.colorCustomizations": {
-        "titleBar.activeBackground": "#ff2c70",
-        "titleBar.inactiveBackground": "#ff2c70cc",
-        "titleBar.activeForeground": "#fff",
-        "titleBar.inactiveForeground": "#fff000cc"
+        // "titleBar.activeBackground": "#ff2c70",
+        // "titleBar.inactiveBackground": "#ff2c70cc",
+        // "titleBar.activeForeground": "#fff",
+        // "titleBar.inactiveForeground": "#fff000cc"
+        "statusBar.background": "#333", // The color is totally up to you
+
     },
     "vim.normalModeKeyBindingsNonRecursive": [
         {
@@ -448,7 +449,7 @@
             "after": [
                 "leader",
                 "leader",
-                "w"
+                "s"
             ]
         },
         {
@@ -458,13 +459,17 @@
             "after": [
                 "leader",
                 "leader",
-                "b"
+                "leader",
+                "b",
+                "d",
+                "j",
+                "k"
             ]
         },
         // replace with register
         {
             "before": [
-                "=",
+                "l",
             ],
             "after": [
                 "g",
@@ -952,7 +957,7 @@
     ],
     "terminal.integrated.lineHeight": 1.25,
     "terminal.integrated.enableMultiLinePasteWarning": false,
-    "editor.smoothScrolling": false,
+    "editor.smoothScrolling": true,
     "zenMode.hideLineNumbers": false,
     "workbench.activityBar.iconClickBehavior": "focus",
     "activitusbar.showSourceControlCounter": true,
@@ -964,12 +969,26 @@
     "[html]": {
         "editor.defaultFormatter": "vscode.html-language-features"
     },
-    "editor.minimap.enabled": false,
     "[go]": {
         "editor.defaultFormatter": "golang.go"
     },
     "window.nativeFullScreen": false,
     "editor.accessibilitySupport": "off",
     "eslint.format.enable": true,
-    "workbench.colorTheme": "Default Light Modern",
+    "eslint.probe": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "html",
+        "vue",
+        "markdown",
+        "svelte"
+    ],
+    "window.titleBarStyle": "native",
+    "window.customTitleBarVisibility": "never",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.stickyScroll.enabled": false,
+    "workbench.colorTheme": "Default Dark+",
+    "editor.minimap.enabled": false,
 }
