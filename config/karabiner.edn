@@ -89,7 +89,7 @@
                         [:!!a [:open "/Applications/Alfred 5.app"]]
                         [:!!r [:open "Reminders"]]
                         [:!!t [:open "/Applications/Toggl Track.app"]]
-                        [:!!c [:open "Calendar"]]
+                        [:!!l [:open "Calendar"]]
                         [:!!n [:open "Notes"]]
                         [:!!m [:open "YouTube Music"]]
                         ; tmux
@@ -99,7 +99,6 @@
                         [:!!i [:!Ta :k] :code] ; pane right
                         [:!!c [:!Ta :c]] ; create window
                         [:!!x [:!Ta :x]] ; kill pane
-                        ;; [:!!f :escape] ; copy mode
                         [:!!spacebar [:!Ta :spacebar]] ; copy mode
                         ]}
 
