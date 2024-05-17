@@ -3,6 +3,9 @@
   See config.h options at https://docs.qmk.fm/#/config_options?id=the-configh-file
 */
 #define ORYX_CONFIGURATOR
+#undef TAPPING_TERM
+#define TAPPING_TERM 185
+
 #undef RGB_MATRIX_TIMEOUT
 #define RGB_MATRIX_TIMEOUT 900000
 
@@ -14,11 +17,12 @@
 #define MOUSEKEY_MAX_SPEED 5
 
 #define CAPS_LOCK_STATUS
-#define FIRMWARE_VERSION u8"LN9LD/LjdgL"
+#define FIRMWARE_VERSION u8"LN9LD/ALOpE"
 #define RAW_USAGE_PAGE 0xFF60
 #define RAW_USAGE_ID 0x61
 #define LAYER_STATE_8BIT
-#define COMBO_COUNT 4
+#define COMBO_COUNT 11
+#define HCS(report) host_consumer_send(record->event.pressed ? report : 0); return false
 
 #define TAPPING_TERM_PER_KEY
 #define RGB_MATRIX_STARTUP_SPD 60
