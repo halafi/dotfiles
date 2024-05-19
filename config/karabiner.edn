@@ -84,17 +84,16 @@
                         [:!!o [:open "/Applications/Visual Studio Code.app"] :chrome]
                         [:!!o [:open "/Applications/Google Chrome.app"] :code]
                         [:!!o [:open "/Applications/Google Chrome.app"]]
-                        [:!!semicolon [:open "/Applications/Discord.app"]]
-                        [:!!semicolon [:open "/Applications/Discord.app"]]
+                        [:!!d [:open "/Applications/Discord.app"]]
                         [:!!r [:open "Reminders"]]
                         [:!!t [:open "/Applications/Toggl Track.app"]]
                         [:!!l [:open "Calendar"]]
                         [:!!n [:open "Notes"]]
                         [:!!m [:open "YouTube Music"]]
                         ; tmux
-                        [:!!quote :!CSopen_bracket] ; pane left
+                        [:!!y :!CSopen_bracket] ; pane left
                         ;; [:!!equal_sign :!CSclose_bracket] ; pane right
-                        [:!!grave_accent_and_tilde :!CSclose_bracket] ; pane right
+                        [:!!quote :!CSclose_bracket] ; pane right
                         [:!!e [:!Ta :j] :code] ; pane left
                         [:!!i [:!Ta :k] :code] ; pane right
                         [:!!c [:!Ta :c]] ; create window
