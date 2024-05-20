@@ -91,9 +91,9 @@
                         [:!!n [:open "Notes"]]
                         [:!!m [:open "YouTube Music"]]
                         ; tmux
-                        [:!!y :!CSopen_bracket] ; pane left
-                        ;; [:!!equal_sign :!CSclose_bracket] ; pane right
-                        [:!!quote :!CSclose_bracket] ; pane right
+                        [:!!quote :!CSopen_bracket] ; pane left
+                        [:!!delete_forward :!CSclose_bracket] ; pane right
+                        ;; [:!!quote :!CSclose_bracket] ; pane right
                         [:!!e [:!Ta :j] :code] ; pane left
                         [:!!i [:!Ta :k] :code] ; pane right
                         [:!!c [:!Ta :c]] ; create window
