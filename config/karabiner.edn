@@ -85,21 +85,24 @@
                         [:!!o [:open "/Applications/Google Chrome.app"] :code]
                         [:!!o [:open "/Applications/Google Chrome.app"]]
                         [:!!d [:open "/Applications/Discord.app"]]
+                        [:!!semicolon [:open "/Applications/Discord.app"]]
                         [:!!r [:open "Reminders"]]
                         [:!!t [:open "/Applications/Toggl Track.app"]]
-                        [:!!l [:open "Calendar"]]
-                        [:!!n [:open "Notes"]]
+                        ;; [:!!l [:open "Calendar"]]
                         [:!!m [:open "YouTube Music"]]
                         ; tmux
-                        [:!!quote :!CSopen_bracket] ; pane left
-                        [:!!delete_forward :!CSclose_bracket] ; pane right
+                        ;; [:!!n [:open "Notes"]]
+                        ;; [:!!quote :!CSopen_bracket] ; pane left
+                        [:!!l :!CSopen_bracket] ; pane left
+                        ;; [:!!delete_forward :!CSclose_bracket] ; pane right
+                        ;; [:!!grave_accent_and_tilde :!CSclose_bracket] ; pane right
+                        [:!!u :!CSclose_bracket] ; pane right
                         ;; [:!!quote :!CSclose_bracket] ; pane right
                         [:!!e [:!Ta :j] :code] ; pane left
                         [:!!i [:!Ta :k] :code] ; pane right
                         [:!!c [:!Ta :c]] ; create window
                         [:!!x [:!Ta :x]] ; kill pane
-                        [:!!s [:!Ta :spacebar]] ; copy mode
-                        [:!!a [:!Ta :spacebar]] ; copy mode
+                        [:!!spacebar [:!Ta :spacebar]] ; copy mode
                         ]}
 
                {:des "Hyper Mode - Media Keys, Usable everywhere"
