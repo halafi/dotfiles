@@ -31,6 +31,7 @@
                        :slack ["com.tinyspeck.slackmacgap"]
                        :discord [".*Discord$"]
                        :chrome ["^com\\.google\\.Chrome$"]
+                       :music [".*Music"]
                        :code ["com.microsoft.VSCode"]
                        ; :browsers ["^com\\.kagi\\.kagimacOS$" "^org\\.mozilla\\.firefox$" "^org\\.mozilla\\.firefoxdeveloperedition$" "^com\\.google\\.Chrome$" "^org\\.chromium\\.Chromium$" "^com\\.google\\.Chrome\\.canary$" "^com\\.apple\\.Safari$" "^com\\.brave\\.Browser$"]
                        }
@@ -81,25 +82,37 @@
                {:des "Hyper Mode - Voyager (simplified)"
                 :rules [
                         ;; apps
-                        [:!!o [:open "/Applications/Visual Studio Code.app"] :chrome]
-                        [:!!o [:open "/Applications/Google Chrome.app"] :code]
-                        [:!!o [:open "/Applications/Google Chrome.app"]]
+                        ;; [:!!semicolon [:open "/Applications/Visual Studio Code.app"] :chrome]
+                        ;; [:!!semicolon [:open "/Applications/Google Chrome.app"] :code]
+                        ;; [:!!semicolon [:open "/Applications/Google Chrome.app"]]
+                        [:!!delete_or_backspace [:open "/Applications/Visual Studio Code.app"] :chrome]
+                        [:!!delete_or_backspace [:open "/Applications/Google Chrome.app"] :code]
+                        [:!!delete_or_backspace [:open "/Applications/Google Chrome.app"]]
+                        [:!!return_or_enter [:open "YouTube Music"] :discord]
+                        [:!!return_or_enter [:open "/Applications/Discord.app"] :music]
+                        [:!!return_or_enter [:open "/Applications/Discord.app"]]
+                        ;; [:!!a [:open "/Applications/Visual Studio Code.app"] :chrome]
+                        ;; [:!!a [:open "/Applications/Google Chrome.app"] :code]
+                        ;; [:!!a [:open "/Applications/Google Chrome.app"]]
                         [:!!d [:open "/Applications/Discord.app"]]
+                        [:!!escape [:open "/Applications/Discord.app"]]
                         [:!!semicolon [:open "/Applications/Discord.app"]]
                         [:!!r [:open "Reminders"]]
+                        ;; [:!! [:open "Notes"]]
+                        [:!!s [:open "Calendar"]]
                         [:!!t [:open "/Applications/Toggl Track.app"]]
-                        ;; [:!!l [:open "Calendar"]]
                         [:!!m [:open "YouTube Music"]]
+                        [:!!l :!CSopen_bracket] ; pane left
+                        [:!!u :!CSclose_bracket] ; pane right
+                        ; neio reserved for vscode nav
+                        [:!!h [:!Ta :j] :code] ; pane left
+                        [:!!comma [:!Ta :k] :code] ; pane right
                         ; tmux
                         ;; [:!!n [:open "Notes"]]
                         ;; [:!!quote :!CSopen_bracket] ; pane left
-                        [:!!l :!CSopen_bracket] ; pane left
                         ;; [:!!delete_forward :!CSclose_bracket] ; pane right
                         ;; [:!!grave_accent_and_tilde :!CSclose_bracket] ; pane right
-                        [:!!u :!CSclose_bracket] ; pane right
                         ;; [:!!quote :!CSclose_bracket] ; pane right
-                        [:!!e [:!Ta :j] :code] ; pane left
-                        [:!!i [:!Ta :k] :code] ; pane right
                         [:!!c [:!Ta :c]] ; create window
                         [:!!x [:!Ta :x]] ; kill pane
                         [:!!spacebar [:!Ta :spacebar]] ; copy mode
