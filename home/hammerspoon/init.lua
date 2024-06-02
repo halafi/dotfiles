@@ -34,13 +34,49 @@ local meh                          = { "alt", "ctrl", "shift" }
 --     hs.application.launchOrFocus(appName)
 --   end
 -- end
+-- Initialize the previous and current application variables
+local previousApp = nil
+local currentApp = nil
+
+-- Function to toggle between the last used application
+function toggleLastApp()
+    -- Get the current frontmost application
+    local newCurrentApp = hs.application.frontmostApplication()
+    
+    -- If there's no current app, set it and return
+    if not currentApp then
+        currentApp = newCurrentApp
+        return
+    end
+    
+    -- If the previous app is still running, activate it
+    if previousApp and previousApp:isRunning() then
+        previousApp:activate()
+    end
+    
+    -- Update the previous and current apps
+    previousApp = currentApp
+    currentApp = newCurrentApp
+end
+
+
+-- Watch for application activated events to update the current app
+hs.application.watcher.new(function(appName, eventType, app)
+    if eventType == hs.application.watcher.activated then
+        if app ~= currentApp then
+            previousApp = currentApp
+            currentApp = app
+        end
+    end
+end):start()
 
 hs.hotkey.bind(hyper, "return", function()
-  toggleApp("Code", "Google Chrome");
+  -- toggleApp("Code", "Google Chrome");
+  toggleLastApp()
 end)
-hs.hotkey.bind({ "ctrl", "shift", "alt", "cmd"},51, function()
-  toggleApp("Code", "Google Chrome");
-end)
+-- hs.hotkey.bind({ "ctrl", "shift", "alt", "cmd"},51, function()
+--   toggleApp("Code", "Google Chrome");
+-- end)
 -- hs.hotkey.bind(meh, "l", function()
 --   hs.eventtap.keyStroke({'ctrl'}, "a")
 --   hs.eventtap.keyStroke({}, "j")
@@ -70,47 +106,6 @@ end)
 -- hs.hotkey.bind(hyper, "u", function()
 --   hs.eventtap.keyStroke({'cmd', 'shift'}, "]")
 -- end)
-
-
--- Install:andUse("WindowScreenLeftAndRight",
---   {
---     -- config = {
---     --   animationDuration = 0,
---     -- },
---     hotkeys = {
---       screen_left = { meh, "e" },
---       screen_right = { meh, "i" },
---     },
---   }
--- )
-
--- Install:andUse("WindowHalfsAndThirds",
---   {
---     config = {
---     use_frame_correctness = true,
---     },
---     hotkeys = {
---       left_half  = { meh, "n" },
---       right_half = { meh, "o" },
---       -- top_half     = { { "ctrl", "cmd" }, "Up" },
---       -- bottom_half  = { { "ctrl", "cmd" }, "Down" },
---       -- third_left   = { { "ctrl", "alt" }, "Left" },
---       -- third_right  = { { "ctrl", "alt" }, "Right" },
---       -- third_up     = { { "ctrl", "alt" }, "Up" },
---       -- third_down   = { { "ctrl", "alt" }, "Down" },
---       -- top_left     = { { "ctrl", "cmd" }, "1" },
---       -- top_right    = { { "ctrl", "cmd" }, "2" },
---       -- bottom_left  = { { "ctrl", "cmd" }, "3" },
---       -- bottom_right = { { "ctrl", "cmd" }, "4" },
---       max_toggle = { meh, "return" },
---       -- max        = { { "ctrl", "alt", "shift" }, "return" },
---       -- undo         = { { "alt", "cmd" }, "z" },
---       center     = { meh, "c" },
---       -- larger       = { { "alt", "cmd", "shift" }, "Right" },
---       -- smaller      = { { "alt", "cmd", "shift" }, "Left" },
---     },
---   }
--- )
 
 -- Well, sometimes auto-reload is not working, you know u.u
 hs.hotkey.bind(meh, "r", function()
