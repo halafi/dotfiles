@@ -35,45 +35,11 @@ local meh                          = { "alt", "ctrl", "shift" }
 --   end
 -- end
 -- Initialize the previous and current application variables
-local previousApp = nil
-local currentApp = nil
 
--- Function to toggle between the last used application
-function toggleLastApp()
-    -- Get the current frontmost application
-    local newCurrentApp = hs.application.frontmostApplication()
-    
-    -- If there's no current app, set it and return
-    if not currentApp then
-        currentApp = newCurrentApp
-        return
-    end
-    
-    -- If the previous app is still running, activate it
-    if previousApp and previousApp:isRunning() then
-        previousApp:activate()
-    end
-    
-    -- Update the previous and current apps
-    previousApp = currentApp
-    currentApp = newCurrentApp
-end
-
-
--- Watch for application activated events to update the current app
-hs.application.watcher.new(function(appName, eventType, app)
-    if eventType == hs.application.watcher.activated then
-        if app ~= currentApp then
-            previousApp = currentApp
-            currentApp = app
-        end
-    end
-end):start()
-
-hs.hotkey.bind(hyper, "return", function()
-  -- toggleApp("Code", "Google Chrome");
-  toggleLastApp()
-end)
+-- hs.hotkey.bind(hyper, "return", function()
+--   -- toggleApp("Code", "Google Chrome");
+--   toggleLastApp()
+-- end)
 -- hs.hotkey.bind({ "ctrl", "shift", "alt", "cmd"},51, function()
 --   toggleApp("Code", "Google Chrome");
 -- end)
