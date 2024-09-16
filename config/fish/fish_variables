@@ -12,8 +12,6 @@ SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr__2D_:cd\x20\x2d
 SETUVAR _fish_abbr__2E_2E_:cd\x20\x2e\x2e
 SETUVAR _fish_abbr__2E_2E_2E_:cd\x20\x2e\x2e/\x2e\x2e
-SETUVAR _fish_abbr_ll:exa\x20\x2dalhF\x20\x2d\x2dgit
-SETUVAR _fish_abbr_ls:exa
 SETUVAR fish_color_autosuggestion:8A9199
 SETUVAR fish_color_cancel:\x2d\x2dreverse
 SETUVAR fish_color_command:55B4D4

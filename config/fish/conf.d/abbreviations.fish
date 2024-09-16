@@ -2,14 +2,10 @@ if status --is-interactive
     abbr -a -- - 'cd -'
     abbr -a -- .. 'cd ..'
     abbr -a -- ... 'cd ../..'
-    abbr -a -- ls exa
-    abbr -a -- ll 'exa -alhF --git'
 
     # abbr -a -- yarnup 'yarn upgrade-interactive --latest'
 
     abbr -a -g brewup 'brew update && brew upgrade && brew cleanup && brew doctor'
-
-    abbr -a -g ext 'exa --tree --level'
 
     abbr -a -g tma 'tmux attach'
     abbr -a -g tls 'tmux list-sessions'
