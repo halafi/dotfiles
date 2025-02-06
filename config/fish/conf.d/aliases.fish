@@ -1,5 +1,6 @@
 if status --is-interactive
     alias cat 'bat'
+    alias python 'python3'
     # alias vi 'nvim -S Session.vim'
     # alias vim 'nvim -S Session.vim'
     alias lg 'lazygit'

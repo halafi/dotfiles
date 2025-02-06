@@ -30,10 +30,11 @@
                        :alfred ["^com\\.runningwithcrayons\\.Alfred$"]
                        :slack ["com.tinyspeck.slackmacgap"]
                        :discord [".*Discord$"]
-                       :chrome ["^com\\.google\\.Chrome$"]
+                ;;        :chrome ["^com\\.google\\.Chrome$"]
+                       :chrome ["^com\\.brave\\.Browser$"]
                        :music [".*Music"]
                        :code ["com.microsoft.VSCode"]
-                       ; :browsers ["^com\\.kagi\\.kagimacOS$" "^org\\.mozilla\\.firefox$" "^org\\.mozilla\\.firefoxdeveloperedition$" "^com\\.google\\.Chrome$" "^org\\.chromium\\.Chromium$" "^com\\.google\\.Chrome\\.canary$" "^com\\.apple\\.Safari$" "^com\\.brave\\.Browser$"]
+                       ; :browsers ["^com\\.kagi\\.kagimacOS$" "^org\\.mozilla\\.firefox$" "^org\\.mozilla\\.firefoxdeveloperedition$" "^com\\.google\\.Chrome$" "^org\\.chromium\\.Chromium$" "^com\\.google\\.ome\\.canary$" "^com\\.apple\\.Safari$" "^com\\.brave\\.Browser$"]
                        }
         :layers {
                 :hyper-mode {:key :caps_lock :alone {:key :escape} :afterup [{:set ["regular-hjkl" 0]}] :condi [:k380 :macbook-internal]} ; ctrl+caps for caps toggle
@@ -89,21 +90,21 @@
                 :rules [
                         ;; apps
                         [:!!delete_or_backspace [:open "/Applications/Visual Studio Code.app"] :chrome]
-                        [:!!delete_or_backspace [:open "/Applications/Google Chrome.app"] :code]
-                        [:!!delete_or_backspace [:open "/Applications/Google Chrome.app"]]
+                        [:!!delete_or_backspace [:open "/Applications/Brave Browser.app"] :code]
+                        [:!!delete_or_backspace [:open "/Applications/Brave Browser.app"]]
                         ;; [:!!m [:open "YouTube Music"]]
                         ;; [:!!m [:open "/Applications/Discord.app"] :music]
                         ;; [:!!m [:open "/Applications/Discord.app"]]
                         [:!!return_or_enter [:togglerecentapp]]
                         ;; [:!!v [:open "/Applications/Visual Studio Code.app"] :chrome]
                         ;; [:!!v [:open "/Applications/Google Chrome.app"] :code]
-                        [:!!s [:open "/Applications/Visual Studio Code.app"]]
+                        [:!!s [:open "/Applications/Slack.app"]]
+                        [:!!b [:open "/Applications/Beeper.app"]]
                         ;; [:!!a [:open "/Applications/Google Chrome.app"] :code]
-                        [:!!g [:open "/Applications/Google Chrome.app"]]
+                        [:!!g [:open "/Applications/Brave Browser.app"]]
                         ;; [:!!d [:open "/Applications/Discord.app"] :music]
                         ;; [:!!d [:open "YouTube Music"] :discord]
                         [:!!d [:open "/Applications/Discord.app"]]
-                        ;; [:!!d [:open "/Applications/Discord.app"]]
                         ;; [:!!escape [:open "/Applications/Discord.app"]]
                         ;; [:!!semicolon [:open "/Applications/Discord.app"]]
                         [:!!r [:open "Reminders"]]
@@ -144,8 +145,8 @@
                         [:equal_sign :volume_increment]
                         ; one key to rule them all - switch between terminal and chrome
                         [:semicolon [:open "/Applications/Visual Studio Code.app"] :chrome]
-                        [:semicolon [:open "/Applications/Google Chrome.app"] :code]
-                        [:semicolon [:open "/Applications/Google Chrome.app"]]
+                        [:semicolon [:open "/Applications/Brave Browser.app"] :code]
+                        [:semicolon [:open "/Applications/Brave Browser.app"]]
                         [:comma [:open "/Applications/iTerm.app"] :chrome]
                         [:comma [:open "/Applications/iTerm.app"] :code]
                         [:comma [:open "/Applications/Visual Studio Code.app"] :terminals]
@@ -340,15 +341,21 @@
                         ; [:b [:open "/Applications/Bitwarden.app"]]
                         [:n [:open "Notes"]]
                         [:m [:open "YouTube Music"]]
-                        [:semicolon [:open "/Applications/Google Chrome.app"]]
+                        [:semicolon [:open "/Applications/Brave Browser.app"]]
                         [:quote [:open "/Applications/Discord.app"]]
                         [:comma [:open "/Applications/iTerm.app"]]
                         ; [:period [:open "/Applications/Slack.app"]]
                 ]}
 
+                {:des "Make Caps behave like ESC"
+                 :rules [
+                        :macbook-internal
+                        [:caps_lock :escape]
+                        ]}
+
                 {:des "Make ESC behave like `~"
                  :rules [
-                        :k380 :macbook-internal
+                        :k380
                         [:escape :grave_accent_and_tilde]
                         [:!Cescape :grave_accent_and_tilde]
                         [:!Qescape :grave_accent_and_tilde]
