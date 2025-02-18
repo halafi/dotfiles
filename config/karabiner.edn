@@ -40,14 +40,6 @@
                 :hyper-mode {:key :caps_lock :alone {:key :escape} :afterup [{:set ["regular-hjkl" 0]}] :condi [:k380 :macbook-internal]} ; ctrl+caps for caps toggle
                 :3-mode {:key :3 :condi [:k380 :macbook-internal]}                                   ;; '6' + vowel = circumflex
         }
-
-        :simlayers {
-                ;; :alfred-mode {:key :3}
-                ;; :snippet-mode {:key :x}
-                ;; :tmux-mode {:key :q :condi :terminals}
-                :tmux-mode {:key :q :condi [:k380 :macbook-internal]} ;; not really working in vscode possibly due to conflict mappings
-                :launch-mode {:key :2 :condi [:k380 :macbook-internal]}
-        }
         :templates {
                 :open "open -a \"%s\""
                 :alf "open /Applications/Alfred\\ 5.app && osascript -e 'tell application \"Alfred 5\" to search \"%s\"'"
@@ -92,32 +84,20 @@
                         [:!!delete_or_backspace [:open "/Applications/Visual Studio Code.app"] :chrome]
                         [:!!delete_or_backspace [:open "/Applications/Brave Browser.app"] :code]
                         [:!!delete_or_backspace [:open "/Applications/Brave Browser.app"]]
-                        ;; [:!!m [:open "YouTube Music"]]
-                        ;; [:!!m [:open "/Applications/Discord.app"] :music]
-                        ;; [:!!m [:open "/Applications/Discord.app"]]
                         [:!!return_or_enter [:togglerecentapp]]
-                        ;; [:!!v [:open "/Applications/Visual Studio Code.app"] :chrome]
-                        ;; [:!!v [:open "/Applications/Google Chrome.app"] :code]
                         [:!!s [:open "/Applications/Slack.app"]]
-                        [:!!b [:open "/Applications/Beeper.app"]]
-                        ;; [:!!a [:open "/Applications/Google Chrome.app"] :code]
+                        ;; [:!!b [:open "/Applications/Beeper.app"]]
                         [:!!g [:open "/Applications/Brave Browser.app"]]
-                        ;; [:!!d [:open "/Applications/Discord.app"] :music]
-                        ;; [:!!d [:open "YouTube Music"] :discord]
                         [:!!d [:open "/Applications/Discord.app"]]
-                        ;; [:!!escape [:open "/Applications/Discord.app"]]
-                        ;; [:!!semicolon [:open "/Applications/Discord.app"]]
                         [:!!r [:open "Reminders"]]
-                        ;; [:!! [:open "Notes"]]
                         [:!!c [:open "Calendar"]]
                         [:!!k [:open "/Applications/Toggl Track.app"]]
                         [:!!m [:open "YouTube Music"]]
                         [:!!l :!CSopen_bracket] ; pane left
                         [:!!u :!CSclose_bracket] ; pane right
                         ; neio reserved for vscode nav
-                        [:!!h [:!Ta :j] :code] ; pane left
-                        [:!!comma [:!Ta :k] :code] ; pane right
-                        [:!!t [:open "/Applications/iTerm.app"]]
+                        [:!!h [:!Ta :j] :terminals :code] ; pane left
+                        [:!!comma [:!Ta :k] :terminals :code] ; pane right
                         ; tmux
                         ;; [:!!quote :!CSopen_bracket] ; pane left
                         ;; [:!!delete_forward :!CSclose_bracket] ; pane right
@@ -128,240 +108,17 @@
                         [:!!spacebar [:!Ta :spacebar]] ; copy mode
                         ]}
 
-               {:des "Hyper Mode - Media Keys, Usable everywhere"
-                :rules [:hyper-mode
-                        ; media keys
-                        [:1 :display_brightness_decrement]
-                        [:2 :display_brightness_increment]
-                        [:3 :mission_control]
-                        [:4 :launchpad]
-                        [:5 :illumination_decrement]
-                        [:6 :illumination_increment]
-                        [:7 :rewind]
-                        [:8 :play_or_pause]
-                        [:9 :fastforward]
-                        [:0 :mute]
-                        [:hyphen :volume_decrement]
-                        [:equal_sign :volume_increment]
-                        ; one key to rule them all - switch between terminal and chrome
-                        [:semicolon [:open "/Applications/Visual Studio Code.app"] :chrome]
-                        [:semicolon [:open "/Applications/Brave Browser.app"] :code]
-                        [:semicolon [:open "/Applications/Brave Browser.app"]]
-                        [:comma [:open "/Applications/iTerm.app"] :chrome]
-                        [:comma [:open "/Applications/iTerm.app"] :code]
-                        [:comma [:open "/Applications/Visual Studio Code.app"] :terminals]
-                        [:comma [:open "/Applications/iTerm.app"]]
-                        [:quote [:open "/Applications/Discord.app"]]
-                        ;; [:quote [:open "/Applications/Discord.app"] :slack]
-                        ;; [:quote [:open "/Applications/Slack.app"]]
-                        [:delete_or_backspace :delete_forward]
-                        ]}
-
-               {:des "Hyper Mode - Partial CTRL Mapping [VIM <C-*> key support]"
-                :rules [:hyper-mode
-                        ; top row
-                        [:q :!Tq :terminals]
-                        [:w :!Tw :terminals]
-                        [:r :!Tr :terminals]
-                        [:u :!Tu :terminals]
-                        [:i :!Ti :terminals]
-                        [:o :!To :terminals]
-                        [:p :!Tp :terminals]
-                        ; home row
-                        [:s :!Ts :terminals]
-                        [:d :!Td :terminals]
-                        [:f :!Tf :terminals]
-                        [:g :!Tg :terminals]
-                        ; bottom row
-                        [:z :!Tz :terminals] ; suspend, resume with fg %1
-                        [:x :!Tx :terminals]
-                        [:c :!Tc :terminals]
-                        [:v :!Tv :terminals]
-                        [:n :!Tn :terminals]
-                        [:m :!Tleft_arrow :terminals] ; arrow -> tmux window size
-                        [:period :!Tright_arrow :terminals] ; arrow -> tmux window size
-                        [:b ["regular-hjkl" 1]] ; press to toggle
-                        [:h :left_arrow [:terminals :regular-hjkl]]
-                        [:j :down_arrow [:terminals :regular-hjkl]]
-                        [:k :up_arrow [:terminals :regular-hjkl]]
-                        [:l :right_arrow [:terminals :regular-hjkl]]
-                        [:h :!Th [:terminals :!regular-hjkl]]
-                        [:j :!Tj [:terminals :!regular-hjkl]]
-                        [:k :!Tk [:terminals :!regular-hjkl]]
-                        [:l :!Tl [:terminals :!regular-hjkl]]
-                        ; tmux
-                        [:open_bracket [:!Ta :j]] ; pane left
-                        [:close_bracket [:!Ta :k]] ; pane right
-                        ]}
-
                 {:des "Map shift+backspace to del (all keyboards)"
                  :rules [
                         :k380 :macbook-internal
                         [:!Sdelete_or_backspace :delete_forward]
                         ]}
-               {:des "Hyper Mode - Partial CTRL Mapping [VIM <C-*> key support] for vscode"
-                :rules [:hyper-mode
-                        ; top row
-                        [:q :!Tq :code]
-                        [:w :!Tw :code]
-                        [:r :!Tr :code]
-                        [:u :!Tu :code]
-                        [:i :!Ti :code]
-                        [:o :!To :code]
-                        [:p :!Tp :code]
-                        ; home row
-                        [:a :!Ta :code]
-                        [:s :!Ts :code]
-                        [:d :!Td :code]
-                        [:f :!Tf :code]
-                        [:g :!Tg :code]
-                        [:return_or_enter :!Treturn_or_enter :code]
-                        ; bottom row
-                        [:z :!Tz :code] ; suspend, resume with fg %1
-                        [:x :!Tx :code]
-                        [:c :!Tc :code]
-                        [:v :!Tv :code]
-                        [:n :!Tn :code]
-                        [:m :!Tleft_arrow :code] ; arrow -> tmux window size
-                        [:period :!Tright_arrow :code] ; arrow -> tmux window size
-                        [:b ["regular-hjkl" 1]] ; press to toggle
-                        [:h :left_arrow [:code :regular-hjkl]]
-                        [:j :down_arrow [:code :regular-hjkl]]
-                        [:k :up_arrow [:code :regular-hjkl]]
-                        [:l :right_arrow [:code :regular-hjkl]]
-                        [:h :!Th [:code :!regular-hjkl]]
-                        [:j :!Tj [:code :!regular-hjkl]]
-                        [:k :!Tk [:code :!regular-hjkl]]
-                        [:l :!Tl [:code :!regular-hjkl]]
-                        ; tmux
-                        [:open_bracket [:!Ta :j]] ; pane left
-                        [:close_bracket [:!Ta :k]] ; pane right
-                        ]}
-
-               {:des "Hyper Mode - Navigation [VI style]"
-                :rules [:hyper-mode
-                        [:h :left_arrow :!terminals]
-                        [:j :down_arrow :!terminals]
-                        [:k :up_arrow :!terminals]
-                        [:l :right_arrow :!terminals]
-                        ; text selection with shift
-                        [:!Sh :!Sleft_arrow :!terminals]
-                        [:!Sl :!Sright_arrow :!terminals]
-                        [:!Sj :!SCleft_arrow :!terminals]
-                        [:!Sk :!SCright_arrow :!terminals]
-                        ; alt + hjkl = alt + arrows (move by words)
-                        [:!Oj :!Odown_arrow :!terminals]
-                        [:!Ok :!Oup_arrow :!terminals]
-                        [:!Oh :!Oleft_arrow :!terminals]
-                        [:!Ol :!Oright_arrow :!terminals]
-                        ]}
-
-                {:des "Tmux Mode"
-                 :rules [:tmux-mode
-                        [:comma [:!Ta :comma]] ; rename window
-                        [:open_bracket [:!Ta :open_bracket]] ; [ - reorder
-                        [:close_bracket [:!Ta :close_bracket]]; ] - reorder
-                        [:!S9 [:!Ta :!S9]] ; ( switch between active tmux sessions
-                        [:!S0 [:!Ta :!S0]] ; ) switch between active tmux sessions
-                        ; [:close_parenthesis [:!Ta :close_parenthesis]]
-                        [:backslash [:!Ta :backslash]] ; menu
-                        [:spacebar [:!Ta :spacebar]] ; create window
-                        ; top row
-                        [:w [:!Ta :w]] ; window selector
-                        [:d [:!Ta :d]] ; detach
-                        [:r [:!Ta :r]] ; reload config
-                        [:t [:!Ta :t]] ; vertical small split
-                        [:i [:!Ta :!Si]] ; reload plugins
-                        [:p [:!Ta :p]] ; create window
-                        ; home row
-                        [:f [:!Ta :!St]] ; fullscreen
-                        [:s [:!Ta :s]] ; horizontal split
-                        [:h [:!Ta :h]] ; horizontal split
-                        [:j [:!Ta :j]] ; pane left
-                        [:k [:!Ta :k]] ; pane right
-                        [:l [:!Ta :l]]
-                        ; bottom row
-                        [:x [:!Ta :x]] ; kill pane
-                        [:c [:!Ta :c]] ; create window
-                        [:v [:!Ta :v]] ; vertical split
-                        [:m [:!Ta :z]] ; toggle pane zoom
-                        ]}
-
-                {:des "Alfred Mode"
-                 :rules [:3-mode
-                        ;; [:spacebar [:open "/Applications/Alfred 5.app"]]
-                        ; [:r [[:alf "repo "]]]
-                        ; [:g [[:alf "gh "]]]
-                        ; [:g [[:alf "gs "]]]
-                        ; [:p [[:alf "pr "]]]
-                        [:l [[:alf "lh "]]]
-                        [:p [[:alf "sleep"]]]
-                        [:k [[:alf "lock" ]]]
-                        [:j [[:alf "emoji "]]]
-                        ;; [:s [[:alf "snip "]]]
-                        ;; [:x [[:alf "sleep"]]]
-                        ;; [:d [[:alf "duck "]]]
-                        ;; [:o [[:alf "google "]]]
-                         ]}
-
-                ;; {:des "Snippet Mode"
-                ;;  :rules [:snippet-mode
-                ;;         ; [:s [[:alf "snip pnpm start"]]]
-                ;;           ; [:f [[:alf "snip pnpm run fix"]]]
-                ;;         ; [:p [[:alf "snip pnpm run fix:pretty"]]]
-                ;;         ; [:c [[:alf "snip pnpm run check"]]]
-                ;;         ; [:t [[:alf "snip pnpm run test"]]]
-                ;;         ; keyboard maestro snippets
-                ;;          ]}
-
-                {:des "Launch mode"
-                :rules [:launch-mode
-                        ; [:w [:open "/Applications/WhatsApp.app"]]
-                        ; e
-                        [:r [:open "Reminders"]]
-                        [:t [:open "/Applications/Toggl Track.app"]]
-                        [:i [:open "/Applications/iTerm.app"]]
-                        [:o [:open "/Applications/Obsidian.app"]]
-                        ; [:p [:open "/Applications/Postman.app"]]
-                        ; a
-                        [:s [:open "Safari"]]
-                        ; [:f [:open "/Applications/Firefox.app"]]
-                        [:f [:open "Finder"]]
-                        ; d
-                        [:g [:open-chrome "mail.google.com"]]
-                        ; h
-                        ; j
-                        ;; [:k [:open "/Applications/Commander One.app"]]
-                        ; l
-                        ; z
-                        ; [:x [:open "/Applications/Firefox.app"]]
-                        [:c [:open "Calendar"]]
-                        [:d [:open "/Applications/Discord.app"]]
-                        ; [:v [:open "/Applications/Visual Studio Code.app"] :!code]
-                        ; [:b [:open "/Applications/Bitwarden.app"]]
-                        [:n [:open "Notes"]]
-                        [:m [:open "YouTube Music"]]
-                        [:semicolon [:open "/Applications/Brave Browser.app"]]
-                        [:quote [:open "/Applications/Discord.app"]]
-                        [:comma [:open "/Applications/iTerm.app"]]
-                        ; [:period [:open "/Applications/Slack.app"]]
-                ]}
 
                 {:des "Make Caps behave like ESC"
                  :rules [
                         :macbook-internal
+                        :k380
                         [:caps_lock :escape]
                         ]}
-
-                {:des "Make ESC behave like `~"
-                 :rules [
-                        :k380
-                        [:escape :grave_accent_and_tilde]
-                        [:!Cescape :grave_accent_and_tilde]
-                        [:!Qescape :grave_accent_and_tilde]
-                        [:!Sescape :!Sgrave_accent_and_tilde]
-                        [:!Rescape :!Rgrave_accent_and_tilde]
-                        ]}
-
         ]
 }
