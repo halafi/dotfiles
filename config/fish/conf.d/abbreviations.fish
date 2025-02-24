@@ -8,9 +8,8 @@ if status --is-interactive
     abbr -a -g brewup 'brew update && brew upgrade && brew cleanup && brew doctor'
 
     abbr -a -g tma 'tmux attach'
-    abbr -a -g tls 'tmux list-sessions'
-
-    abbr -a -g canon 'open -a Google\ Chrome\ Canary --args --disable-web-security --user-data-dir=$HOME/profile-folder-name'
+    abbr -a -g tms 'tmux switch'
+    abbr -a -g tmls 'tmux list-sessions'
 
     abbr -a -g gc 'git cz'
     abbr -a -g gm 'git merge'

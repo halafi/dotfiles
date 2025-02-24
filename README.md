@@ -15,7 +15,7 @@ I am mostly using VSCode terminal these days with Tmux + Fish and [iTerm2](https
 
 - [tmux](https://github.com/tmux/tmux) (no session management at the moment)
 
-- [lazygit](https://github.com/jesseduffield/lazygit) to give some GUI to git commands
+<!-- - [lazygit](https://github.com/jesseduffield/lazygit) to give some GUI to git commands -->
 
 - [goku](https://github.com/yqrashawn/GokuRakuJoudo/) + [karabiner elements](https://karabiner-elements.pqrs.org/) for making 60% keyboard layout usable
 
@@ -32,7 +32,7 @@ I am mostly using VSCode terminal these days with Tmux + Fish and [iTerm2](https
 3. Install [omf](https://github.com/oh-my-fish/oh-my-fish) and `omf install z`
 4. [Tmux plugin manager](https://github.com/tmux-plugins/tpm) (q+i to install plugins)
 5. Brew packages:
-    - `brew install asdf fish fzf fd bat git-delta ripgrep tmux lf yarn htop lazygit google-cloud-sdk terraform`
+    - `brew install asdf fish fzf fd bat git-delta ripgrep tmux yarn htop google-cloud-sdk terraform`
 6. Install [FiraCode font patched with icons](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Retina/FiraCodeNerdFont-Retina.ttf) for iTerm
 
 ### Git
