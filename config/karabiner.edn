@@ -93,6 +93,7 @@
                         [:!!c [:open "Calendar"]]
                         [:!!k [:open "/Applications/Toggl Track.app"]]
                         [:!!m [:open "YouTube Music"]]
+                        [:!!t [:open "/Applications/Thunderbird.app"]]
                         [:!!l :!CSopen_bracket] ; pane left
                         [:!!u :!CSclose_bracket] ; pane right
                         ; neio reserved for vscode nav
