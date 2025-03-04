@@ -31,7 +31,8 @@
                        :slack ["com.tinyspeck.slackmacgap"]
                        :discord [".*Discord$"]
                 ;;        :chrome ["^com\\.google\\.Chrome$"]
-                       :chrome ["^com\\.brave\\.Browser$"]
+                ;;        :browser ["^com\\.brave\\.Browser$"]
+                        :browser [".*\\.librewolf$"]
                        :music [".*Music"]
                        :code ["com.microsoft.VSCode"]
                        ; :browsers ["^com\\.kagi\\.kagimacOS$" "^org\\.mozilla\\.firefox$" "^org\\.mozilla\\.firefoxdeveloperedition$" "^com\\.google\\.Chrome$" "^org\\.chromium\\.Chromium$" "^com\\.google\\.ome\\.canary$" "^com\\.apple\\.Safari$" "^com\\.brave\\.Browser$"]
@@ -81,12 +82,14 @@
                {:des "Hyper Mode - Voyager (simplified)"
                 :rules [
                         ;; apps
-                        [:!!delete_or_backspace [:open "/Applications/Visual Studio Code.app"] :chrome]
-                        [:!!delete_or_backspace [:open "/Applications/Brave Browser.app"] :code]
-                        [:!!delete_or_backspace [:open "/Applications/Brave Browser.app"]]
+                        [:!!delete_or_backspace [:open "/Applications/Visual Studio Code.app"] :browser]
+                        [:!!delete_or_backspace [:open "/Applications/LibreWolf.app"] :code]
+                        [:!!delete_or_backspace [:open "/Applications/LibreWolf.app"]]
+                        [:!!w [:open "/Applications/LibreWolf.app"]]
+                        [:!!f [:open "/Applications/Figma.app"]]
                         [:!!return_or_enter [:togglerecentapp]]
                         [:!!s [:open "/Applications/Slack.app"]]
-                        ;; [:!!b [:open "/Applications/Beeper.app"]]
+                        [:!!b [:open "/Applications/Beeper.app"]]
                         [:!!g [:open "/Applications/Brave Browser.app"]]
                         [:!!d [:open "/Applications/Discord.app"]]
                         [:!!r [:open "Reminders"]]
