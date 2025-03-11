@@ -31,8 +31,8 @@
                        :slack ["com.tinyspeck.slackmacgap"]
                        :discord [".*Discord$"]
                 ;;        :chrome ["^com\\.google\\.Chrome$"]
-                ;;        :browser ["^com\\.brave\\.Browser$"]
-                        :browser [".*\\.librewolf$"]
+                       :browser ["^com\\.brave\\.Browser$"]
+                        ;; :browser [".*\\.librewolf$"]
                        :music [".*Music"]
                        :code ["com.microsoft.VSCode"]
                        ; :browsers ["^com\\.kagi\\.kagimacOS$" "^org\\.mozilla\\.firefox$" "^org\\.mozilla\\.firefoxdeveloperedition$" "^com\\.google\\.Chrome$" "^org\\.chromium\\.Chromium$" "^com\\.google\\.ome\\.canary$" "^com\\.apple\\.Safari$" "^com\\.brave\\.Browser$"]
@@ -83,8 +83,8 @@
                 :rules [
                         ;; apps
                         [:!!delete_or_backspace [:open "/Applications/Visual Studio Code.app"] :browser]
-                        [:!!delete_or_backspace [:open "/Applications/LibreWolf.app"] :code]
-                        [:!!delete_or_backspace [:open "/Applications/LibreWolf.app"]]
+                        [:!!delete_or_backspace [:open "/Applications/Brave Browser.app"] :code]
+                        [:!!delete_or_backspace [:open "/Applications/Brave Browser.app"]]
                         [:!!w [:open "/Applications/LibreWolf.app"]]
                         [:!!f [:open "/Applications/Figma.app"]]
                         [:!!return_or_enter [:togglerecentapp]]

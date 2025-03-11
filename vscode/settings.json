@@ -16,7 +16,7 @@
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "terminal.integrated.defaultProfile.osx": "tmux-shell",
+  "terminal.integrated.defaultProfile.osx": "fish",
   "terminal.integrated.profiles.osx": {
     "fish": {
       "path": "/opt/homebrew/bin/fish",
@@ -40,8 +40,6 @@
     "markdown": true,
     "scminput": false
   },
-  "better-comments.highlightPlainText": true,
-  "conventionalCommits.showNewVersionNotes": false,
   "vim.replaceWithRegister": true,
   "vim.camelCaseMotion.enable": true,
   "vim.highlightedyank.enable": true,
@@ -50,47 +48,13 @@
   "vim.leader": " ",
   "vim.useSystemClipboard": true,
   "vim.visualstar": true,
-  // "vim.insertModeKeyBindings": [
-  //     {
-  //         "before": [
-  //             "n",
-  //             "n"
-  //         ],
-  //         "after": [
-  //             "<Esc>"
-  //         ]
-  //     },
-  // ],
   "vim.operatorPendingModeKeyBindingsNonRecursive": [
     // rebind camelCase motion
     {
       "before": ["i", "v"],
       "after": ["i", "<leader>", "w"]
     }
-    // {
-    //     "before": [
-    //         "L"
-    //     ],
-    //     "after": [
-    //         "$"
-    //     ]
-    // },
-    // {
-    //     "before": [
-    //         "H"
-    //     ],
-    //     "after": [
-    //         "^"
-    //     ]
-    // }
   ],
-  "workbench.colorCustomizations": {
-    // "titleBar.activeBackground": "#ff2c70",
-    // "titleBar.inactiveBackground": "#ff2c70cc",
-    // "titleBar.activeForeground": "#fff",
-    // "titleBar.inactiveForeground": "#fff000cc"
-    "statusBar.background": "#333" // The color is totally up to you
-  },
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": ["u"],
@@ -128,12 +92,10 @@
       "before": ["<leader>", "g", "a", "a"],
       "commands": ["git.stageAll"]
     },
-    // rebind camelCase motion
     {
       "before": [
         "<leader>",
         "r" // refactor - rename
-        // "s",
       ],
       "commands": ["editor.action.rename"]
     },
@@ -249,16 +211,6 @@
       "before": ["M"],
       "after": ["D"]
     }
-    // leaving file kidna resets it so it's not that needed
-    // {
-    //     "before": [
-    //         "<C-n>", // <Esc> breaks mapping to lot of commands
-    //         // "`",
-    //     ],
-    //     "commands": [
-    //         ":nohl",
-    //     ],
-    // }
   ],
   "vim.normalModeKeyBindings": [
     {
@@ -392,6 +344,10 @@
       "commands": ["editor.action.dirtydiff.next"]
     },
     {
+      "before": ["leader", "h", "h"],
+      "commands": ["closeQuickDiff"]
+    },
+    {
       "before": ["leader", "h", "s"],
       "commands": ["git.stageSelectedRanges"]
     },
@@ -402,23 +358,6 @@
         // "git.revertChange",
       ]
     },
-    // more useful HL
-    // {
-    //     "before": [
-    //         "L"
-    //     ],
-    //     "after": [
-    //         "$"
-    //     ]
-    // },
-    // {
-    //     "before": [
-    //         "H"
-    //     ],
-    //     "after": [
-    //         "^"
-    //     ]
-    // },
     // zz after n / N
     {
       "before": ["n"],
@@ -486,26 +425,10 @@
       "before": ["="],
       "after": ["g", "r"]
     },
-    // {
-    //     "before": [
-    //         "L"
-    //     ],
-    //     "after": [
-    //         "$"
-    //     ]
-    // },
     {
       "before": ["p"],
       "after": ["P"]
     },
-    // {
-    //     "before": [
-    //         "H"
-    //     ],
-    //     "after": [
-    //         "^"
-    //     ]
-    // },
     // cutlass
     {
       "before": ["d"],
@@ -534,13 +457,10 @@
       "commands": ["editor.action.outdentLines"]
     }
   ],
-  "terminal.integrated.lineHeight": 1.25,
   "terminal.integrated.enableMultiLinePasteWarning": false,
   "editor.smoothScrolling": true,
   "zenMode.hideLineNumbers": false,
   "workbench.activityBar.iconClickBehavior": "focus",
-  "activitusbar.showSourceControlCounter": true,
-  "editor.fontSize": 13,
   "editor.bracketPairColorization.enabled": true,
   "editor.cursorSurroundingLines": 4,
   "window.nativeTabs": true,
@@ -566,15 +486,40 @@
   "window.titleBarStyle": "native",
   "window.customTitleBarVisibility": "never",
   "diffEditor.ignoreTrimWhitespace": false,
-  "editor.stickyScroll.enabled": false,
   "workbench.colorTheme": "Default Dark+",
   "vim.sneakReplacesF": true,
   "vim.sneak": true,
-  "cmake.showOptionsMovedNotification": false,
   "vim.easymotionKeys": "hlyuiopnm,.qwertzxcvbasdgjf",
   "explorer.confirmPasteNative": false,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "extensions.ignoreRecommendations": true,
   "editor.formatOnSave": true,
+  "explorer.fileNesting.patterns": {
+    "*.ts": "${capture}.js",
+    "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+    "*.jsx": "${capture}.js",
+    "*.tsx": "${capture}.ts",
+    "tsconfig.json": "tsconfig.*.json",
+    "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb",
+    "*.sqlite": "${capture}.${extname}-*",
+    "*.db": "${capture}.${extname}-*",
+    "*.sqlite3": "${capture}.${extname}-*",
+    "*.db3": "${capture}.${extname}-*",
+    "*.sdb": "${capture}.${extname}-*",
+    "*.s3db": "${capture}.${extname}-*"
+  },
+  "playwright.reuseBrowser": false,
+  "redhat.telemetry.enabled": false,
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "git.allowForcePush": true,
+  "terminal.integrated.lineHeight": 1.15,
+  "editor.fontFamily": "FiraCode Nerd Font, Menlo, Monaco, 'Courier New', monospace",
+  "workbench.preferredDarkColorTheme": "Default Dark+",
+  "editor.lineHeight": 1.2,
+  "telemetry.telemetryLevel": "off",
+  "editor.fontSize": 14,
+  "editor.stickyScroll.maxLineCount": 3,
   "editor.minimap.enabled": false
 }
