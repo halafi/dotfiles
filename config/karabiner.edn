@@ -85,7 +85,7 @@
                         [:!!delete_or_backspace [:open "/Applications/Visual Studio Code.app"] :browser]
                         [:!!delete_or_backspace [:open "/Applications/Brave Browser.app"] :code]
                         [:!!delete_or_backspace [:open "/Applications/Brave Browser.app"]]
-                        [:!!w [:open "/Applications/LibreWolf.app"]]
+                        ;; [:!!w [:open "/Applications/LibreWolf.app"]]
                         [:!!f [:open "/Applications/Figma.app"]]
                         [:!!return_or_enter [:togglerecentapp]]
                         [:!!s [:open "/Applications/Slack.app"]]
