@@ -100,6 +100,9 @@
                         [:!!l :!CSopen_bracket] ; pane left
                         [:!!u :!CSclose_bracket] ; pane right
                         ; neio reserved for vscode nav
+                        [:!!n [:!Ta :left_arrow] :terminals]
+                        [:!!e [:!Ta :down_arrow] :terminals]
+                        [:!!o [:!Ta :right_arrow] :terminals]
                         [:!!h [:!Ta :j] :terminals :code] ; pane left
                         [:!!comma [:!Ta :k] :terminals :code] ; pane right
                         ; tmux

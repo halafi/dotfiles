@@ -11,7 +11,7 @@ if status --is-interactive
     abbr -a -g tms 'tmux switch'
     abbr -a -g tmls 'tmux list-sessions'
 
-    abbr -a -g gc 'git cz'
+    abbr -a -g gc 'git commit -m'
     abbr -a -g gm 'git merge'
     abbr -a -g gco 'git checkout'
     abbr -a -g gcb 'git checkout -b'

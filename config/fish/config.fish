@@ -35,3 +35,6 @@ functions --copy cd standard_cd
 # end
 
 export GPG_TTY=$(tty)
+
+# Created by `pipx` on 2025-05-05 12:30:07
+set PATH $PATH /Users/halafi/.local/bin
