@@ -89,14 +89,13 @@
                         [:!!f [:open "/Applications/Figma.app"]]
                         [:!!return_or_enter [:togglerecentapp]]
                         [:!!s [:open "/Applications/Slack.app"]]
-                        [:!!b [:open "/Applications/Beeper.app"]]
                         [:!!g [:open "/Applications/Brave Browser.app"]]
                         [:!!d [:open "/Applications/Discord.app"]]
                         [:!!r [:open "Reminders"]]
                         [:!!c [:open "Calendar"]]
                         [:!!k [:open "/Applications/Toggl Track.app"]]
                         [:!!m [:open "YouTube Music"]]
-                        [:!!t [:open "/Applications/Thunderbird.app"]]
+                        [:!!b [:open "/Applications/Thunderbird.app"]]
                         [:!!l :!CSopen_bracket] ; pane left
                         [:!!u :!CSclose_bracket] ; pane right
                         ; neio reserved for vscode nav
