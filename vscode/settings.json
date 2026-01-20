@@ -139,6 +139,7 @@
   "vim.hlsearch": true,
   "vim.leader": " ",
   "vim.normalModeKeyBindings": [
+    // match html tag
     {
       "before": [
         "<leader>",
@@ -149,6 +150,7 @@
       ]
     },
     // easymotion -- seems better than sneak
+    // letter jump
     {
       "after": [
         "leader",
@@ -159,6 +161,7 @@
         "s"
       ]
     },
+    // line jump
     {
       "after": [
         "leader",
@@ -183,13 +186,13 @@
         "l"
       ]
     },
-    // {
-    //     "before": [":"],
-    //     "commands": [
-    //         "workbench.action.showCommands",
-    //     ],
-    //     "silent": true
-    // },
+    {
+        "before": [":"],
+        "commands": [
+            "workbench.action.showCommands"
+        ],
+        "silent": true
+    },
     // TODO: fix
     // {
     //     "before": ["M", "K"],
@@ -252,42 +255,42 @@
         "workbench.action.closeOtherEditors"
       ]
     },
-    {
-      "before": [
-        "]",
-        "b"
-      ],
-      "commands": [
-        "workbench.action.nextEditor"
-      ]
-    },
-    {
-      "before": [
-        "]",
-        "B"
-      ],
-      "commands": [
-        "workbench.action.lastEditorInGroup"
-      ]
-    },
-    {
-      "before": [
-        "[",
-        "B"
-      ],
-      "commands": [
-        "workbench.action.firstEditorInGroup"
-      ]
-    },
-    {
-      "before": [
-        "[",
-        "b"
-      ],
-      "commands": [
-        "workbench.action.previousEditor"
-      ]
-    },
+    // {
+    //   "before": [
+    //     "]",
+    //     "b"
+    //   ],
+    //   "commands": [
+    //     "workbench.action.nextEditor"
+    //   ]
+    // },
+    // {
+    //   "before": [
+    //     "]",
+    //     "B"
+    //   ],
+    //   "commands": [
+    //     "workbench.action.lastEditorInGroup"
+    //   ]
+    // },
+    // {
+    //   "before": [
+    //     "[",
+    //     "B"
+    //   ],
+    //   "commands": [
+    //     "workbench.action.firstEditorInGroup"
+    //   ]
+    // },
+    // {
+    //   "before": [
+    //     "[",
+    //     "b"
+    //   ],
+    //   "commands": [
+    //     "workbench.action.previousEditor"
+    //   ]
+    // },
     {
       "before": [
         "]",
@@ -520,27 +523,27 @@
     // how do I work with git these days?
     // mainly in files with hunks ]c [c hp hr etc
     // sourcetree to search in file history text changes
-    {
-      "before": [
-        "leader",
-        "f",
-        "g"
-      ],
-      "commands": [
-        "workbench.view.scm"
-      ]
-    },
+    // {
+    //   "before": [
+    //     "leader",
+    //     "f",
+    //     "g"
+    //   ],
+    //   "commands": [
+    //     "workbench.view.scm"
+    //   ]
+    // },
     // git-graph.view -- git log with easy to find diffs in recent changes
-    {
-      "before": [
-        "leader",
-        "f",
-        "l"
-      ],
-      "commands": [
-        "git-graph.view"
-      ]
-    },
+    // {
+    //   "before": [
+    //     "leader",
+    //     "f",
+    //     "l"
+    //   ],
+    //   "commands": [
+    //     "git-graph.view"
+    //   ]
+    // },
     // git.viewFileHistory -- don't like this one much
     // best file history I got but can't do search by text
     {
