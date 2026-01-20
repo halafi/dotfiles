@@ -11,27 +11,8 @@
     "command": "workbench.files.action.refreshFilesExplorer",
     "key": "cmd+e r"
   },
-  // {
-  //   "key": "ctrl+o", 
-  //   "command": "workbench.action.navigateRight", 
-  //   "when": "!panelFocus"
-  // },
-  // {
-  //   "key": "ctrl+i",
-  //   "command": "workbench.action.navigateUp",
-  // },
-  // {
-  //   "key": "ctrl+e",
-  //   "command": "workbench.action.navigateDown",
-  // },
-  // {
-  //   "key": "ctrl+n", 
-  //   "command": "workbench.action.navigateLeft", 
-  //   // "when": "editorTextFocus && vim.active && vim.mode != 'Insert'"
-  // },
   {
     "command": "workbench.action.navigateLeft",
-    // "when": "editorTextFocus && vim.active && vim.mode != 'Insert'"
     "key": "ctrl+shift+alt+cmd+n"
   },
   {
@@ -48,14 +29,15 @@
     "key": "ctrl+shift+alt+cmd+e",
     "when": "hasSearchResult && searchInputBoxFocus"
   },
-  // {
-  //   "key": "ctrl+h", 
-  //   "command": "workbench.action.focusSideBar", 
-  //   "when": "editorTextFocus && vim.active && vim.mode != 'Insert' && sideBarFocus"
-  // },
   {
-    "command": "workbench.action.navigateUp",
-    "key": "ctrl+shift+alt+cmd+i"
+    "command": "workbench.view.scm",
+    "key": "ctrl+shift+alt+cmd+i",
+    "when": "explorerViewletVisible"
+  },
+  {
+    "command": "workbench.files.action.focusFilesExplorer",
+    "key": "ctrl+shift+alt+cmd+e",
+    "when": "explorerViewletVisible && !explorerViewletFocus && !searchViewletFocus"
   },
   {
     "command": "search.action.focusSearchFromResults",
@@ -82,21 +64,6 @@
     "key": "ctrl+j",
     "when": "inQuickOpen"
   },
-  // {
-  //   "key": "ctrl+h",
-  //   "command": "workbench.action.previousPanelView",
-  //   "when": "panelFocus"
-  // },
-  // {
-  //   "key": "ctrl+l",
-  //   "command": "workbench.action.nextPanelView",
-  //   "when": "panelFocus"
-  // },
-  // {
-  //   "key": "cmd+shift+[",
-  //   "command": "workbench.panel.output.focus",
-  //   "when": "workbench"
-  // },
   {
     "command": "workbench.action.quickOpenSelectPrevious",
     "key": "ctrl+k",
@@ -148,7 +115,8 @@
   },
   {
     "command": "git.openFile",
-    "key": "alt+w"
+    "key": "shift+o",
+    "when": "sideBarFocus && !explorerViewletFocus && !searchViewletFocus"
   },
   {
     "command": "-workbench.action.focusSideBar",
@@ -178,11 +146,6 @@
     "command": "projectManager.listProjectsNewWindow",
     "key": "ctrl+shift+alt+w"
   },
-  // {
-  //   "key": "ctrl+h", 
-  //   "command": "workbench.action.focusSideBar", 
-  //   "when": "editorTextFocus && vim.active && vim.mode != 'Insert' && sideBarFocus"
-  // },
   {
     "command": "workbench.action.toggleMaximizedPanel",
     "key": "ctrl+enter",
@@ -193,21 +156,6 @@
     "key": "ctrl+j",
     "when": "inQuickOpen"
   },
-  // {
-  //   "key": "ctrl+h",
-  //   "command": "workbench.action.previousPanelView",
-  //   "when": "panelFocus"
-  // },
-  // {
-  //   "key": "ctrl+l",
-  //   "command": "workbench.action.nextPanelView",
-  //   "when": "panelFocus"
-  // },
-  // {
-  //   "key": "cmd+shift+[",
-  //   "command": "workbench.panel.output.focus",
-  //   "when": "workbench"
-  // },
   {
     "command": "workbench.action.quickOpenSelectPrevious",
     "key": "ctrl+k",
@@ -256,10 +204,6 @@
     "command": "search.action.collapseSearchResults",
     "key": "ctrl+f r",
     "when": "hasSearchResult"
-  },
-  {
-    "command": "git.openFile",
-    "key": "alt+w"
   },
   {
     "command": "-workbench.action.focusSideBar",
