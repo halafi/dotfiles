@@ -92,7 +92,7 @@
                         [:!!g [:open "/Applications/Brave Browser.app"]]
                         [:!!d [:open "/Applications/Discord.app"]]
                         [:!!r [:open "Reminders"]]
-                        [:!!c [:open "Calendar"]]
+                        [:!!c [:open "/Applications/Codex.app"]]
                         [:!!k [:open "/Applications/Toggl Track.app"]]
                         [:!!m [:open "YouTube Music"]]
                         [:!!b [:open "/Applications/Beekeeper Studio.app"]]
