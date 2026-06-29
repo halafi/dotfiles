@@ -1,40 +1,27 @@
-# DISABLED UNTIL NEEDED
-#fish_add_path $GOBIN
-#fish_add_path $GOROOT/bin
-#fish_add_path /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin
-#fish_add_path /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin/
-# pipx
-#fish_add_path ~/.local/bin
-#fish_add_path $HOME/.poetry/bin
-#fish_add_path $HOME/Library/Application\ Support/pypoetry/venv/bin
-#fish_add_path $HOME/tools/lua-language-server/bin
-#fish_add_path $HOME/.cargo/bin
-
-# output of $(yarn global bin)
-# fish_add_path ~/.asdf/installs/nodejs/18.17.1/.npm/bin
-source /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
-
-
-# need to load brew binaries
-eval "$(/opt/homebrew/bin/brew shellenv)"
-# eval "$(pyenv init --path)"
-# source (brew --prefix asdf)/libexec/asdf.fish
-load_nvm > /dev/stderr
-
-
 # disable greeting
 set fish_greeting
 
-# automatically call commands
-functions --copy cd standard_cd
-# function cd
-#     standard_cd $argv; and exa
-# end
-# function zz
-#     z $argv; and onefetch 2>/dev/null; and exa
-# end
+if test -x /opt/homebrew/bin/brew
+    eval (/opt/homebrew/bin/brew shellenv)
+else if test -x /usr/local/bin/brew
+    eval (/usr/local/bin/brew shellenv)
+end
 
-export GPG_TTY=$(tty)
+for gcloud_path in \
+        /opt/homebrew/Caskroom/gcloud-cli/latest/google-cloud-sdk/path.fish.inc \
+        /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc \
+        /usr/local/Caskroom/gcloud-cli/latest/google-cloud-sdk/path.fish.inc \
+        /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
+    if test -f $gcloud_path
+        source $gcloud_path
+        break
+    end
+end
 
-# Created by `pipx` on 2025-05-05 12:30:07
-set PATH $PATH /Users/halafi/.local/bin
+if type -q bass; and test -f "$HOME/.nvm/nvm.sh"
+    load_nvm > /dev/stderr
+end
+
+set -gx GPG_TTY (tty)
+
+fish_add_path "$HOME/.local/bin"

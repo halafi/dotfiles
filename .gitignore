@@ -1,1 +1,5 @@
 .luarc.json
+
+# Fish local/generated state. Keep intentional settings in config/fish/conf.d/*.fish.
+config/fish/fish_variables
+config/fish/conf.d/fish_frozen_*.fish

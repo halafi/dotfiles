@@ -1,90 +1,98 @@
 # dotfiles
 
-I use VSCODE + VIM plugin as I got [tired of maintaining Neovim](https://filiphalas.com/from-neovim-back-to-vscode) running properly and since I could never really got rid of doing certain things in VSCode such as debugging, jupyter notebooks, etc.
+Personal macOS dotfiles for a simple web-development setup: Fish, tmux, Git,
+Bat, Karabiner/Goku, VSCode, iTerm2, and a small set of CLI tools.
 
-My dotfiles for karabiner (60% keyboard layout), tmux, fish and everything configurable.
-Setup for web development (React with TypeScript), Go, Lua and Rust on macOS Monterey.
+Dotfiles are linked with [Dotbot](https://github.com/anishathalye/dotbot).
+Packages and apps are declared in [Brewfile](Brewfile).
 
-Managed with [Dotbot](https://github.com/anishathalye/dotbot).
+## Setup
 
-## Terminal
+1. Install Apple's command line tools:
 
-I am mostly using VSCode terminal these days with Tmux + Fish and [iTerm2](https://github.com/gnachman/iTerm2) for macOS.
+   ```sh
+   xcode-select --install
+   ```
 
-- [Fish](https://github.com/fish-shell/fish-shell) 🐟 with [ohmyfish](https://github.com/oh-my-fish/oh-my-fish)
+2. Install [Homebrew](https://brew.sh/).
 
-- [tmux](https://github.com/tmux/tmux) (no session management at the moment)
+3. Install packages, apps, and fonts from the Brewfile:
 
-<!-- - [lazygit](https://github.com/jesseduffield/lazygit) to give some GUI to git commands -->
+   ```sh
+   brew bundle
+   ```
 
-- [goku](https://github.com/yqrashawn/GokuRakuJoudo/) + [karabiner elements](https://karabiner-elements.pqrs.org/) for making 60% keyboard layout usable
+4. Link dotfiles:
 
-<!-- - [asdf](https://github.com/asdf-vm/asdf) to manage language versions -->
+   ```sh
+   ./install
+   ```
 
-<!-- - [Finicky](https://github.com/johnste/finicky) as default browser proxy to separate work from personal browsing -->
+5. Change the default shell to Fish if needed:
 
-## Dependencies
+   ```sh
+   echo /opt/homebrew/bin/fish | sudo tee -a /etc/shells
+   chsh -s /opt/homebrew/bin/fish
+   ```
 
-### System
+## Manual Steps
 
-1. Install [brew](https://brew.sh/)
-2. Install fish: `brew install fish`
-3. Install [omf](https://github.com/oh-my-fish/oh-my-fish) and `omf install z`
-4. [Tmux plugin manager](https://github.com/tmux-plugins/tpm) (q+i to install plugins)
-5. Brew packages:
-    - `brew install asdf fish fzf fd bat git-delta ripgrep tmux yarn htop google-cloud-sdk terraform`
-6. Install [FiraCode font patched with icons](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Retina/FiraCodeNerdFont-Retina.ttf) for iTerm
+### Git and SSH
 
-### Git
-1. Generate and setup ssh key if needed https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+Generate an SSH key and add it to GitHub:
 
-### ⌨️ Keyboard
-1. install karabiner `brew install karabiner-elements`
-2. install goku `brew install yqrashawn/goku/goku`
-    - `softwareupdate --install-rosetta` if needed for goku
-3. make sure karabiner profile is named `Default`
-4. run `goku` once to generate karabiner config
+https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 
-### Node.js
-1. `asdf plugin add nodejs`
-2. `asdf install nodejs 18.xx.x` (latest lts)
-3. update `.tool-versions` by running `asdf global nodejs 16.xx.x` (latest lts)
+Git commit signing is enabled in `home/gitconfig`. On a new machine, install or
+import the GPG key before relying on signed commits.
 
-### Go
-1. Install [Go](https://go.dev/doc/install)
-2. Adjust GO fish_variables if needed
+### Fish
 
-### Rust / Cargo
-1. https://doc.rust-lang.org/cargo/getting-started/installation.html
+Fish universal variables are intentionally not tracked. Keep portable shell
+settings in `config/fish/config.fish` or `config/fish/conf.d/*.fish`.
 
-### Elixir
-1. `asdf plugin add elixir`
+Oh My Fish is optional. If installed, `config/fish/conf.d/omf.fish` loads it.
 
-### Python
-1. `brew install pyenv`
-<!-- 2. optional `yarn global add pyright` -->
+### tmux
 
-## Alfred Workflows
+Install tmux plugins after the dotfiles are linked:
 
-- [Fkill](https://github.com/SamVerschueren/alfred-fkill)
-- [Bluetooth Controller](https://github.com/vegardinho/alfred_bluetooth_controller)
-- [Localhost](https://github.com/mhanberg/alfred-localhost)
-- [VSCode Workspaces](https://github.com/phartenfeller/alfred-vscode-workspaces)
-- [Alfred Emoji](https://github.com/jsumners/alfred-emoji)
-- [Restart Wifi](https://github.com/AugustusZ/alfred-workflows)
-- [Alfred NightShift](https://github.com/shmulvad/alfred-nightshift)
-- [Switch Appearance](https://alfred.app/workflows/alfredapp/switch-appearance/)
+```sh
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
 
-## FAQ
-1. Where to get fonts?
+Then open tmux and press `prefix` + `I` to install plugins.
 
-https://www.nerdfonts.com/font-downloads
+### Keyboard
 
-2. How to chagne default shell to fish?
+Karabiner Elements and Goku are installed by the Brewfile.
 
-https://stackoverflow.com/a/26321141
+1. Open Karabiner Elements once and allow the required macOS permissions.
+2. Make sure the active Karabiner profile is named `Default`.
+3. Run:
 
-3. How to setup git key signing with gpg?
+   ```sh
+   goku
+   ```
 
-- `brew install gpg`
-- https://jamespanther.com/writings/signing-github-commits-using-keybase/
+### Language Runtimes
+
+The repo keeps a global `.tool-versions` file for asdf. Install only the
+language plugins you currently need, for example:
+
+```sh
+asdf plugin add nodejs
+asdf install
+```
+
+Rust, Go, Python, and Elixir setup can stay project-specific unless needed
+globally.
+
+## Notes
+
+- `vscode/` and `iterm2/` are configuration backups, not currently linked by
+  Dotbot.
+- `config/fish/fish_variables` and Fish migration files are ignored because
+  they are local/generated state.
+- Run `brew bundle check --verbose` to see which Brewfile entries are missing
+  or outdated on the current Mac.

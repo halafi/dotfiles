@@ -6,15 +6,13 @@
 	helper = store
 [core]
 	excludesFile = ~/.master-gitignore
-	editor = nvim
+	editor = code --wait
 	pager = delta
 [commit]
 	template = ~/.stCommitMsg
 	gpgsign = true
 [merge]
-	tool = nvim
-[mergetool "nvim"]
-	cmd = nvim -f \"$MERGED\"
+	tool = vscode
 [mergetool "vscode"]
 	cmd = code --wait $MERGED
 [mergetool]
@@ -24,11 +22,3 @@
 	insteadOf = https://github.com/
 [gpg]
 	program = /opt/homebrew/bin/gpg
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-[includeIf "gitdir:~/Projects/groupon/"]
-  path = .gitconfig-groupon

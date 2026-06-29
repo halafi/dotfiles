@@ -16,21 +16,8 @@
       glob: true
       path: home/*
       prefix: "."
-    # nvim
-    # ~/.config/lf/lfrc: config/lf/lfrc
-    # ~/.config/lf/previewer.sh: config/lf/previewer.sh
     ~/.config/bat/config: config/bat/config
-    # ~/.config/nvim/init.lua: config/nvim/init.lua
-    # ~/.config/nvim/lua:
-    #   glob: true
-    #   path: config/nvim/lua/*
-    # ~/.config/nvim/snippets:
-    #   glob: true
-    #   path: config/nvim/snippets/*
-    # # other
     ~/.config/karabiner.edn: config/karabiner.edn
     ~/.config/fish:
       glob: true
       path: config/fish/*
-    # lazygit
-    ~/Library/Application Support/lazygit/config.yml: config/lazygit/config.yml
